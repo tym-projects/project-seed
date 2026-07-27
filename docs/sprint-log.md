@@ -1,5 +1,17 @@
 # Sprint Log
 
+## Sprint 5
+
+完成內容：
+
+- 將姐姐國語題目抽離為獨立題庫。
+- 新增 data/chinese/grade6.ts。
+- page.tsx 改由匯入 questions 題庫。
+- UI 與學習流程保持不變。
+- 完成題庫模組化。
+
+---
+
 ## Sprint 1：基礎產品骨架
 
 已完成：
