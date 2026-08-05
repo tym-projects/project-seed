@@ -2,18 +2,18 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { questions } from '@/data/chinese/grade6';
+import { questions } from '@/lib/questions/jiejie-chinese';
 
 export default function JieJieChinesePage() {
   const [questionIndex, setQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const question = questions[questionIndex];
   const isCorrect = selectedAnswer === question.answer;
   const isComplete = isSubmitted && isCorrect && questionIndex === questions.length - 1;
 
-  function selectAnswer(answerId: string) {
-    setSelectedAnswer(answerId);
+  function selectAnswer(answerIndex: number) {
+    setSelectedAnswer(answerIndex);
     setIsSubmitted(false);
   }
 
@@ -55,21 +55,21 @@ export default function JieJieChinesePage() {
           <p className="mt-4 text-xl font-bold">{question.question}</p>
 
           <div className="mt-6 space-y-3">
-            {question.options.map((choice) => {
-              const isSelected = selectedAnswer === choice.id;
+            {question.options.map((choice, choiceIndex) => {
+              const isSelected = selectedAnswer === choiceIndex;
 
               return (
                 <button
-                  key={choice.id}
+                  key={choice}
                   type="button"
-                  onClick={() => selectAnswer(choice.id)}
+                  onClick={() => selectAnswer(choiceIndex)}
                   className={`w-full rounded-xl border-2 px-4 py-3 text-left text-lg font-medium transition-colors ${
                     isSelected
                       ? 'border-pink-500 bg-pink-100 text-pink-700'
                       : 'border-pink-100 bg-white hover:border-pink-300'
                   }`}
                 >
-                  {choice.label}
+                  {choice}
                 </button>
               );
             })}
@@ -89,17 +89,13 @@ export default function JieJieChinesePage() {
           <div className={`mt-5 rounded-xl p-4 text-center ${isCorrect ? 'bg-green-50 text-green-700' : 'bg-pink-50 text-pink-700'}`}>
             {isCorrect ? (
               <>
-                <p className="text-lg font-bold">{question.explanation[0]}</p>
-                {question.explanation.slice(1).map((message) => (
-                  <p key={message} className="mt-2">{message}</p>
-                ))}
+                <p className="text-lg font-bold">{question.encouragement}</p>
+                <p className="mt-2">{question.explanation}</p>
               </>
             ) : (
               <>
-                <p className="text-lg font-bold">{question.hint[0]}</p>
-                {question.hint.slice(1).map((message) => (
-                  <p key={message} className="mt-2">{message}</p>
-                ))}
+                <p className="text-lg font-bold">❌ 答錯了。</p>
+                <p className="mt-2">再想一次！</p>
               </>
             )}
           </div>

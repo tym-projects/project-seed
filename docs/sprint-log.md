@@ -1,5 +1,16 @@
 # Sprint Log
 
+## Sprint 6
+
+完成內容：
+
+- 建立姐姐國語 Question Engine。
+- 題目改由 `lib/questions/jiejie-chinese.ts` 集中管理。
+- 題目與畫面分離，頁面只負責學習流程與呈現。
+- 保持原有答題、判斷、鼓勵、解釋與下一題流程。
+
+---
+
 ## Sprint 5
 
 完成內容：

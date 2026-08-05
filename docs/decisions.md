@@ -1,5 +1,11 @@
 # 重要決策
 
+## 題目與畫面分離（Question Engine）
+
+- 姐姐國語題目集中於 `lib/questions/jiejie-chinese.ts`。
+- `page.tsx` 僅負責學習流程與 UI 呈現，不保留題目資料。
+- Question Engine 使用一致的 `Question` 介面，為未來 AI、資料庫與教材匯入保留擴充空間。
+
 ## Question Bank Architecture
 
 決策：
