@@ -1,5 +1,69 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# Project Seed — AGENTS.md
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+## 核心原則
+
+Project Seed 的目標：
+
+> 每天 10～15 分鐘，讓孩子真正理解，而不是死背。
+
+開發優先順序：
+
+1. 正確
+2. 穩定
+3. 簡單
+4. 有助於學習
+5. 容易維護
+
+第一版先求穩，再求多。
+
+## 開發規則
+
+- 優先沿用現有架構與共用元件。
+- 保持程式輕量，不過度工程化。
+- 不做目前 Sprint 範圍以外的功能或重構。
+- 不擅自增加 dependency 或大幅改變架構。
+- 發現更簡單、更有效率的方法要提出。
+- 發現方向或設計有問題要直接指出。
+- 重大變更先取得使用者確認。
+
+## 學習功能原則
+
+- 答案與解析必須正確。
+- 目標是理解，不是快速完成題目。
+- 答錯應提供提示，不能直接跳過。
+- 題目與介面保持簡單清楚。
+- 不建立排行榜或連續登入獎勵。
+- 避免讓孩子長時間使用。
+
+## 工作流程
+
+開始工作前先閱讀：
+
+1. `AGENTS.md`
+2. `PROJECT_SEED_BIBLE.md`
+3. `PROJECT_STATUS.md`
+
+以現有程式碼與 `PROJECT_STATUS.md` 判斷目前進度。
+
+完成修改後：
+
+1. 執行必要測試。
+2. 測試失敗不得宣稱完成。
+3. 視需要更新 `PROJECT_STATUS.md`。
+4. 完成一個明確階段後再 Git commit。
+
+## 與使用者合作
+
+- 使用繁體中文。
+- 回覆簡短、直接。
+- 優先告訴使用者下一步要做什麼。
+- 不重複解釋已確認事項。
+- 小型技術決策自行依現有架構處理。
+- 只有重要產品或架構決策才詢問使用者。
+- 優先節省使用者時間、Token 與 Codex 額度。
+
+## 最終判斷
+
+遇到不同方案時，優先選擇：
+
+> 更簡單、更穩定、更容易維護，而且真正有助於孩子學習的方案。
