@@ -1,18 +1,14 @@
+import { ParentLearningRecords } from '@/components/parent/ParentLearningRecords';
+
 export default function ParentPage() {
   return (
-    <main className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
-      <h1 className="text-5xl font-bold text-gray-600">👨‍👩‍👧 家長模式</h1>
-
-      <p className="mt-6 text-2xl text-gray-700">今天一起加油！</p>
-
-      <div className="mt-10 rounded-2xl bg-white shadow-lg p-8 w-80">
-        <h2 className="text-xl font-bold">📚 今日任務</h2>
-
-        <ul className="mt-4 space-y-3">
-          <li>✅ 國語複習</li>
-          <li>⬜ 數學複習</li>
-          <li>⬜ 英文單字</li>
-        </ul>
+    <main className="min-h-screen bg-gray-50 px-6 py-12">
+      <div className="mx-auto w-full max-w-6xl">
+        <header className="text-center">
+          <h1 className="text-4xl font-bold text-gray-800 sm:text-5xl">孩子學習紀錄</h1>
+          <p className="mt-4 text-lg text-gray-600">查看姐姐和妹妹已完成的國語練習。</p>
+        </header>
+        <ParentLearningRecords />
       </div>
     </main>
   );

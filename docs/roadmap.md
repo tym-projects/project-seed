@@ -44,10 +44,10 @@
 
 - 讓家長查看學習進度、完成情形與需要關注的內容。
 
-## Sprint 9：AI Teaching
+## Sprint 9：孩子學習紀錄
 
-- 加入以引導、提問與提示為核心的 AI 教學能力。
-
+- 在單一 `/parent` 頁面顯示姐姐與妹妹已完成的 Learning Record。
+- 以現有 localStorage Learning Record 和對應學生題庫組裝可讀紀錄，不加入 AI 分析、評分或新儲存機制。
 ## Sprint 10+：Learning Analytics
 
 - 以累積的學習資料分析理解狀況、弱點與個人化學習建議。

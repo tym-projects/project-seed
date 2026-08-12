@@ -192,10 +192,9 @@ Documentation
 
 讓妹妹使用與姐姐一致的國語答題流程，並以固定題目 ID 寫入自己的 Learning Record。
 
-### Sprint 9 — AI Teaching
+### Sprint 9 — 孩子學習紀錄
 
-加入以引導、提問與提示為核心的 AI 教學能力。
-
+在單一 `/parent` 家長頁顯示姐姐與妹妹的既有 Learning Record。資料維持 localStorage，依學生與題庫轉換為可讀紀錄；不加入 AI 分析、能力評級、圖表或新儲存機制。
 ### Sprint 10+ — Learning Analytics
 
 以累積的學習資料分析理解狀況、弱點與個人化學習建議。

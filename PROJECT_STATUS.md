@@ -1,6 +1,12 @@
 # Project Status
 
-Version: v0.8
+Version: v0.9
+## Sprint 9 — 孩子學習紀錄
+- `/parent` 改為單一的孩子學習紀錄入口，提供姐姐與妹妹各自的摘要與紀錄區塊。
+- 家長頁只在 Client Component 掛載後，以既有 `project-seed:learning-records:v1` 安全讀取 Learning Record。
+- 顯示資料會依學生、科目與題目 ID 使用對應題庫，避免跨學生題庫錯配。
+- 題目已不在題庫時，保留紀錄並顯示「這題已不在目前題庫」與次要題目 ID。
+- 摘要只顯示紀錄總數與最近一次完成時間；不加入分數、能力評級或 AI 判斷。
 
 ## Sprint 8 — 妹妹國語與共用學習流程
 

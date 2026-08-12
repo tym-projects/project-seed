@@ -1,4 +1,12 @@
 # Sprint Log
+## Sprint 9 — 孩子學習紀錄
+
+- 將 `/parent` 改為姐姐與妹妹的學習紀錄入口，移除非實際 Learning Record 的靜態今日任務內容。
+- 新增共用家長端元件，僅在掛載後安全讀取既有 localStorage Learning Record。
+- 新增純顯示資料層：學生隔離題庫映射、答案文字轉換、完成時間格式化、最新優先排序與作答狀態分類。
+- 姐姐與妹妹摘要只顯示紀錄總數、最近一次完成時間；各自列表提供空白狀態與人類可讀的完成紀錄。
+- 題目遺失時顯示「這題已不在目前題庫」和次要題目 ID，不中斷整頁。
+- 完成 Node tests、lint、TypeScript 與 production build 驗證。
 
 ## Sprint 8 — 妹妹國語與共用學習流程
 
