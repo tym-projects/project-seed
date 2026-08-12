@@ -37,6 +37,13 @@ Project Seed 的目標：
 
 ## 工作流程
 
+## 正式開發與備份位置
+
+- 唯一正式開發 repository：`C:\Users\yenmi\Documents\2026AST-dev`。
+- Codex 程式修改、`npm install`／`npm ci`、`node_modules`、lint、build、test、Git commit 與 Git push 一律只在正式 repository 執行。
+- GitHub `origin` 是正式 Git 遠端同步與版本歷史來源。
+- `G:\我的雲端硬碟\2026AST` 僅作備份，不作為實際開發工作目錄；不得在該目錄執行 npm、建立或更新 `node_modules`，或執行 build。
+
 開始工作前先閱讀：
 
 1. `AGENTS.md`

@@ -38,6 +38,12 @@ Project Seed 是一個陪伴孩子學習的 AI 家教平台，而不是單純提
 - Commit 前確認差異範圍、測試結果與文件同步狀態。
 - 不將開發日誌、暫存輸出或無關檔案納入 commit。
 
+### 正式開發與備份策略
+
+- 唯一正式開發 repository 為 `C:\Users\yenmi\Documents\2026AST-dev`；所有 Codex 程式修改、npm、`node_modules`、lint、build、test、Git commit 與 Git push 均只在此處進行。
+- GitHub `origin` 是正式 Git 遠端同步與版本歷史來源。
+- Google Drive `G:\我的雲端硬碟\2026AST` 僅作備份，不作為開發工作目錄；不得在其中執行 npm、建立或更新 `node_modules`，或執行 build。
+
 ### 文件更新規範
 
 - 產品進度更新至 `PROJECT_STATUS.md`。
@@ -68,7 +74,7 @@ project-seed/
 
 ## 5. Current Progress
 
-**Version：v0.6**
+**Version：v0.7**
 
 | Sprint | 成果 |
 | --- | --- |
@@ -78,6 +84,7 @@ project-seed/
 | Sprint 4 | 完成第二題後的完成畫面與返回姐姐首頁流程。 |
 | Sprint 5 | 將姐姐國語題目抽離為獨立 Question Bank，並完成架構文件化。 |
 | Sprint 6 | 完成姐姐國語 Question Engine 與共用題目架構，維持既有學習流程。 |
+| Sprint 7 | 完成 Learning Record，儲存學習紀錄並提供紀錄介面。 |
 
 ## 6. Question Bank Design
 
@@ -172,6 +179,7 @@ Documentation
 | `fa0a678` | Complete Sprint 5 question bank modularization |
 | `a30641a` | Build Sprint 6 Question Engine for Chinese questions |
 | `22eac70` | Extract shared question UI |
+| `174b65b` | Add Sprint 7 learning records |
 
 ## 11. Roadmap
 
