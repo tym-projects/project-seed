@@ -1,5 +1,13 @@
 # Sprint Log
 
+## Sprint 7 — Learning Record
+
+- 新增共用 Learning Record 型別與 localStorage 讀寫功能。
+- 姐姐國語會在每題答對完成時保存第一次答案、最終答案與作答次數。
+- 保留原本答錯提示、下一題、完成畫面與回姐姐首頁流程。
+
+---
+
 ## Sprint 6
 
 完成內容：

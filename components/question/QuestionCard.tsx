@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { QuestionOptions } from '@/components/question/QuestionOptions';
 import { QuestionResult } from '@/components/question/QuestionResult';
 
@@ -15,10 +15,20 @@ export type QuestionCardQuestion = {
   encouragement: string;
 };
 
+export type QuestionCompletion = {
+  questionId: string;
+  firstAnswer: number;
+  finalAnswer: number;
+  attempts: number;
+  correct: true;
+  completed: true;
+};
+
 type QuestionCardProps = {
   question: QuestionCardQuestion;
   hasNextQuestion: boolean;
   onNextQuestion: () => void;
+  onQuestionComplete: (completion: QuestionCompletion) => void;
   onComplete: () => void;
   theme: 'pink' | 'green';
 };
@@ -38,21 +48,54 @@ const themeClasses = {
   },
 };
 
-export function QuestionCard({ question, hasNextQuestion, onNextQuestion, onComplete, theme }: QuestionCardProps) {
+export function QuestionCard({
+  question,
+  hasNextQuestion,
+  onNextQuestion,
+  onQuestionComplete,
+  onComplete,
+  theme,
+}: QuestionCardProps) {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [firstAnswer, setFirstAnswer] = useState<number | null>(null);
+  const [attempts, setAttempts] = useState(0);
+  const hasCompletedQuestion = useRef(false);
   const isCorrect = selectedAnswer === question.answer;
   const classes = themeClasses[theme];
-
-  useEffect(() => {
-    if (isSubmitted && isCorrect && !hasNextQuestion) {
-      onComplete();
-    }
-  }, [hasNextQuestion, isCorrect, isSubmitted, onComplete]);
 
   function selectAnswer(answerIndex: number) {
     setSelectedAnswer(answerIndex);
     setIsSubmitted(false);
+  }
+
+  function submitAnswer() {
+    if (selectedAnswer === null) {
+      return;
+    }
+
+    const nextAttempts = attempts + 1;
+    const recordedFirstAnswer = firstAnswer ?? selectedAnswer;
+
+    setAttempts(nextAttempts);
+    setFirstAnswer(recordedFirstAnswer);
+    setIsSubmitted(true);
+
+    if (selectedAnswer === question.answer && !hasCompletedQuestion.current) {
+      hasCompletedQuestion.current = true;
+      onQuestionComplete({
+        questionId: question.id,
+        firstAnswer: recordedFirstAnswer,
+        finalAnswer: selectedAnswer,
+        attempts: nextAttempts,
+        correct: true,
+        completed: true,
+      });
+
+      if (!hasNextQuestion) {
+        onComplete();
+      }
+    }
   }
 
   return (
@@ -72,7 +115,7 @@ export function QuestionCard({ question, hasNextQuestion, onNextQuestion, onComp
 
       <button
         type="button"
-        onClick={() => setIsSubmitted(true)}
+        onClick={submitAnswer}
         disabled={selectedAnswer === null}
         className={`mt-8 w-full rounded-xl px-4 py-3 font-bold text-white transition-colors disabled:cursor-not-allowed ${classes.submit}`}
       >

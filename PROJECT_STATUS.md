@@ -1,6 +1,12 @@
 # Project Status
 
-Version: v0.6
+Version: v0.7
+
+## Sprint 7 — Learning Record
+
+- 姐姐國語在每題答對完成時，將 Learning Record 寫入瀏覽器 localStorage。
+- 紀錄保留固定 questionId、第一次答案、最終答案與作答次數。
+- 本 Sprint 不包含 Learning Record UI、統計、AI 分析、資料庫或妹妹國語。
 
 ## 完成項目
 

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { QuestionCard } from '@/components/question/QuestionCard';
+import { LearningRecord, saveLearningRecord } from '@/lib/learning-records';
 import { questions } from '@/lib/questions/jiejie-chinese';
 
 export default function JieJieChinesePage() {
@@ -41,6 +42,22 @@ export default function JieJieChinesePage() {
           question={question}
           hasNextQuestion={!isLastQuestion}
           onNextQuestion={() => setQuestionIndex((currentIndex) => currentIndex + 1)}
+          onQuestionComplete={(completion) => {
+            const record: LearningRecord = {
+              id: crypto.randomUUID(),
+              student: 'jiejie',
+              subject: 'chinese',
+              questionId: completion.questionId,
+              firstAnswer: completion.firstAnswer,
+              finalAnswer: completion.finalAnswer,
+              attempts: completion.attempts,
+              correct: completion.correct,
+              completed: completion.completed,
+              createdAt: new Date().toISOString(),
+            };
+
+            saveLearningRecord(record);
+          }}
           onComplete={() => setIsComplete(true)}
           theme="pink"
         />
