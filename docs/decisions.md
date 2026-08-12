@@ -3,8 +3,10 @@
 ## 題目與畫面分離（Question Engine）
 
 - 姐姐國語題目集中於 `lib/questions/jiejie-chinese.ts`。
-- `page.tsx` 僅負責學習流程與 UI 呈現，不保留題目資料。
+- `page.tsx` 僅負責組合學習流程，不保留題目資料。
+- 共用題目 UI 集中於 `components/question/`，負責題目呈現與回饋。
 - Question Engine 使用一致的 `Question` 介面，為未來 AI、資料庫與教材匯入保留擴充空間。
+- 妹妹國語尚未建立 Question Engine 或題目頁面，仍為待辦。
 
 ## Question Bank Architecture
 
@@ -12,7 +14,7 @@
 
 - 題目資料與 UI 分離。
 - page.tsx 只負責學習流程與畫面。
-- 題目集中管理於 data/。
+- 題目依學習流程集中管理於 Question Engine。
 - 未來爸爸模式、AI 出題、教材匯入共用同一份題庫。
 - 新增題目時，優先修改題庫，不修改 UI 流程。
 

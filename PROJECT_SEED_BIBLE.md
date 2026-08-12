@@ -68,7 +68,7 @@ project-seed/
 
 ## 5. Current Progress
 
-**Version：v0.5**
+**Version：v0.6**
 
 | Sprint | 成果 |
 | --- | --- |
@@ -77,25 +77,36 @@ project-seed/
 | Sprint 3 | 完成選答、判斷、鼓勵、提示與下一題流程。 |
 | Sprint 4 | 完成第二題後的完成畫面與返回姐姐首頁流程。 |
 | Sprint 5 | 將姐姐國語題目抽離為獨立 Question Bank，並完成架構文件化。 |
+| Sprint 6 | 完成姐姐國語 Question Engine 與共用題目架構，維持既有學習流程。 |
 
 ## 6. Question Bank Design
 
-目前國語六年級題庫位於：
+目前姐姐國語 Question Engine 位於：
 
 ```text
-data/chinese/grade6.ts
+lib/questions/jiejie-chinese.ts
 ```
 
-每個 Question 至少包含：
+共用題目 UI 位於：
+
+```text
+components/question/
+```
+
+每個 Question 包含：
 
 - `id`
+- `title`
+- `instruction`
 - `question`
 - `options`
 - `answer`
-- `hint`
 - `explanation`
+- `encouragement`
 
-頁面 UI 只負責呈現與學習流程；題目內容集中在題庫中管理。新增或修改題目時，優先調整題庫資料，避免更動 UI 流程。
+頁面負責組合學習流程；共用元件負責題目呈現與回饋；題目內容集中於 Question Engine 管理。新增或修改姐姐國語題目時，優先調整題庫資料，避免更動 UI 流程。
+
+妹妹國語尚未建立 Question Engine 或題目頁面，仍列為待辦。
 
 ## 7. Future Architecture
 
@@ -159,22 +170,24 @@ Documentation
 | `316197a` | Complete Project Seed foundation and documentation |
 | `9e9fe5a` | Complete Sprint 3 learning flow |
 | `fa0a678` | Complete Sprint 5 question bank modularization |
+| `a30641a` | Build Sprint 6 Question Engine for Chinese questions |
+| `22eac70` | Extract shared question UI |
 
 ## 11. Roadmap
 
-### Sprint 6 — Learning Record
+### Sprint 7 — Learning Record
 
 記錄孩子的作答、完成狀態與學習歷程，為後續複習與家長檢視建立資料基礎。
 
-### Sprint 7 — Parent Dashboard
+### Sprint 8 — Parent Dashboard
 
 讓家長能查看孩子的學習進度、完成情形與需要關注的內容。
 
-### Sprint 8 — AI Teaching
+### Sprint 9 — AI Teaching
 
 加入以引導、提問與提示為核心的 AI 教學能力。
 
-### Sprint 9+ — Learning Analytics
+### Sprint 10+ — Learning Analytics
 
 以累積的學習資料分析理解狀況、弱點與個人化學習建議。
 
