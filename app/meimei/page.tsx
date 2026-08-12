@@ -9,7 +9,11 @@ export default function MeiMeiPage() {
         <h2 className="text-xl font-bold">📚 今日任務</h2>
 
         <ul className="mt-4 space-y-3">
-          <li>✅ 國語複習</li>
+          <li>
+            <a href="/meimei/chinese" className="hover:text-green-600 hover:underline">
+              ✅ 國語複習
+            </a>
+          </li>
           <li>⬜ 數學複習</li>
           <li>⬜ 英文單字</li>
         </ul>

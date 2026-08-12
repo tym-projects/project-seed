@@ -1,5 +1,14 @@
 # Sprint Log
 
+## Sprint 8 — 妹妹國語與共用學習流程
+
+- 新增妹妹國語 3 題測試題庫，題目 ID 固定為 `meimei-chinese-1` 至 `meimei-chinese-3`。
+- 新增 `ChineseQuestionFlow`，集中處理題目切換、完成畫面與 Learning Record 儲存。
+- 姐姐國語改用共用流程，保留粉色主題與 `student: 'jiejie'` 紀錄。
+- 新增 `/meimei/chinese`，使用綠色主題、妹妹題庫與 `student: 'meimei'` 紀錄。
+- 妹妹首頁的國語複習已連至 `/meimei/chinese`。
+- 驗證 Learning Record、lint、TypeScript、production build 與姐姐／妹妹國語路由。
+
 ## Sprint 7 — Learning Record
 
 - 新增共用 Learning Record 型別與 localStorage 讀寫功能。

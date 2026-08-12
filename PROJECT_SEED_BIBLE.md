@@ -74,7 +74,7 @@ project-seed/
 
 ## 5. Current Progress
 
-**Version：v0.7**
+**Version：v0.8**
 
 | Sprint | 成果 |
 | --- | --- |
@@ -84,7 +84,8 @@ project-seed/
 | Sprint 4 | 完成第二題後的完成畫面與返回姐姐首頁流程。 |
 | Sprint 5 | 將姐姐國語題目抽離為獨立 Question Bank，並完成架構文件化。 |
 | Sprint 6 | 完成姐姐國語 Question Engine 與共用題目架構，維持既有學習流程。 |
-| Sprint 7 | 完成 Learning Record，儲存學習紀錄並提供紀錄介面。 |
+| Sprint 7 | 完成 Learning Record，使用 localStorage 儲存學習紀錄。 |
+| Sprint 8 | 完成妹妹國語與共用學習流程，讓姐姐與妹妹共用答題與學習紀錄流程。 |
 
 ## 6. Question Bank Design
 
@@ -187,9 +188,9 @@ Documentation
 
 記錄孩子的作答、完成狀態與學習歷程，為後續複習與家長檢視建立資料基礎。
 
-### Sprint 8 — Parent Dashboard
+### Sprint 8 — 妹妹國語與共用學習流程
 
-讓家長能查看孩子的學習進度、完成情形與需要關注的內容。
+讓妹妹使用與姐姐一致的國語答題流程，並以固定題目 ID 寫入自己的 Learning Record。
 
 ### Sprint 9 — AI Teaching
 

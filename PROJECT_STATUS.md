@@ -1,6 +1,14 @@
 # Project Status
 
-Version: v0.7
+Version: v0.8
+
+## Sprint 8 — 妹妹國語與共用學習流程
+
+- 新增妹妹國語 3 題測試題庫，並使用固定 questionId。
+- 姐姐與妹妹國語共用 `ChineseQuestionFlow`，保留各自的主題、題庫與返回首頁路徑。
+- 妹妹國語在每題答對完成時，會以 `student: 'meimei'` 寫入既有 Learning Record。
+- 妹妹首頁已提供國語複習入口。
+- 本 Sprint 不包含家長 Learning Record UI、統計、AI 分析、錯題分析、資料庫或其他科目。
 
 ## Sprint 7 — Learning Record
 
@@ -26,7 +34,7 @@ Version: v0.7
 
 ## 下一步
 
-Sprint 7：Learning Record（學習紀錄）
+Sprint 8：妹妹國語與共用學習流程
 
 ## 待辦
 
