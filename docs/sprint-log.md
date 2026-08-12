@@ -1,4 +1,11 @@
 # Sprint Log
+
+## Sprint 10 — 今日複習
+
+- 新增純資料選題模組，最多選 5 題，依最近重試題、掌握不穩定題、久未複習題補足。
+- 同一學生、同一科目下，只要題目在孩子本地日期的今天已有 Learning Record，即不再選入。
+- 姐姐與妹妹共用今日複習 UI 與 Question Engine，但題庫與 Learning Record 均以 `student` 嚴格過濾。
+- 題庫補上 `topic`、`type`；完成後仍寫入既有 Learning Record。
 ## Sprint 9 — 孩子學習紀錄
 
 - 將 `/parent` 改為姐姐與妹妹的學習紀錄入口，移除非實際 Learning Record 的靜態今日任務內容。

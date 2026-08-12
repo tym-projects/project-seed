@@ -12,6 +12,8 @@ type ChineseQuestionFlowProps = {
   pageTitle: string;
   homeHref: string;
   homeLabel: string;
+  completionTitle?: string;
+  completionMessage?: string;
 };
 
 const themeClasses = {
@@ -27,7 +29,16 @@ const themeClasses = {
   },
 };
 
-export function ChineseQuestionFlow({ questions, student, theme, pageTitle, homeHref, homeLabel }: ChineseQuestionFlowProps) {
+export function ChineseQuestionFlow({
+  questions,
+  student,
+  theme,
+  pageTitle,
+  homeHref,
+  homeLabel,
+  completionTitle = '練習完成！',
+  completionMessage = '你已經完成今天的練習，做得很好！',
+}: ChineseQuestionFlowProps) {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const question = questions[questionIndex];
@@ -39,14 +50,11 @@ export function ChineseQuestionFlow({ questions, student, theme, pageTitle, home
       <main className={`flex min-h-screen flex-col items-center justify-center px-6 py-12 ${classes.page}`}>
         <section className="w-full max-w-xl rounded-2xl bg-white p-8 text-center shadow-lg sm:p-10">
           <p className="text-5xl">🎉</p>
-          <h1 className={`mt-4 text-4xl font-bold ${classes.title}`}>學習完成！</h1>
-          <p className="mt-5 text-2xl font-bold text-gray-800">你完成今天的國語複習了！</p>
-          <p className="mt-4 text-lg text-gray-700">今天完成了 {questions.length} / {questions.length} 題。</p>
-          <p className="mt-3 text-lg text-gray-700">明天再回來複習吧！</p>
-          <Link
-            href={homeHref}
-            className={`mt-8 inline-block rounded-xl px-6 py-3 font-bold text-white transition-colors ${classes.button}`}
-          >
+          <h1 className={`mt-4 text-4xl font-bold ${classes.title}`}>{completionTitle}</h1>
+          <p className="mt-5 text-2xl font-bold text-gray-800">{completionMessage}</p>
+          <p className="mt-4 text-lg text-gray-700">你完成了 {questions.length} / {questions.length} 題。</p>
+          <p className="mt-3 text-lg text-gray-700">休息一下，明天再來學習！</p>
+          <Link href={homeHref} className={`mt-8 inline-block rounded-xl px-6 py-3 font-bold text-white transition-colors ${classes.button}`}>
             {homeLabel}
           </Link>
         </section>
@@ -58,7 +66,7 @@ export function ChineseQuestionFlow({ questions, student, theme, pageTitle, home
     <main className={`flex min-h-screen flex-col items-center justify-center px-6 py-12 ${classes.page}`}>
       <section className="w-full max-w-xl rounded-2xl bg-white p-8 shadow-lg sm:p-10">
         <h1 className={`text-4xl font-bold ${classes.title}`}>{pageTitle}</h1>
-        <h2 className="mt-3 text-3xl font-bold text-gray-800">今天的題目</h2>
+        <h2 className="mt-3 text-3xl font-bold text-gray-800">第 {questionIndex + 1} 題</h2>
         <QuestionCard
           key={question.id}
           question={question}

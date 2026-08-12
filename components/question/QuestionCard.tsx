@@ -6,6 +6,8 @@ import { QuestionResult } from '@/components/question/QuestionResult';
 
 export type QuestionCardQuestion = {
   id: string;
+  topic: string;
+  type: 'basic' | 'application';
   title: string;
   instruction: string;
   question: string;

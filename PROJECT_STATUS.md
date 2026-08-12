@@ -1,6 +1,13 @@
 # Project Status
 
-Version: v0.9
+Version: v0.10
+
+## Sprint 10 — 今日複習
+
+- 姐姐與妹妹首頁皆可進入今日複習；每次自動準備最多 5 題國語題目。
+- 依既有 Learning Record 推導最近重試題、掌握不穩定題與久未複習題，不新增永久學習狀態。
+- 當天任何已完成的題目均不重複選入，使用孩子瀏覽器本地日期判斷。
+- 今日複習完成後仍沿用既有流程寫入 Learning Record，並分別以 `student` 隔離姐姐與妹妹資料。
 ## Sprint 9 — 孩子學習紀錄
 - `/parent` 改為單一的孩子學習紀錄入口，提供姐姐與妹妹各自的摘要與紀錄區塊。
 - 家長頁只在 Client Component 掛載後，以既有 `project-seed:learning-records:v1` 安全讀取 Learning Record。

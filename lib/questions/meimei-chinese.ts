@@ -3,6 +3,8 @@ import type { QuestionCardQuestion } from '@/components/question/QuestionCard';
 export const questions: QuestionCardQuestion[] = [
   {
     id: 'meimei-chinese-1',
+    topic: '詞語意思',
+    type: 'basic',
     title: '詞語意思',
     instruction: '請選出和題目意思最接近的詞語。',
     question: '「高興」和下面哪一個詞語意思最接近？',
@@ -13,6 +15,8 @@ export const questions: QuestionCardQuestion[] = [
   },
   {
     id: 'meimei-chinese-2',
+    topic: '動作詞辨識',
+    type: 'application',
     title: '認識動作詞',
     instruction: '請找出句子中表示動作的詞語。',
     question: '「小明把書放在書包裡。」哪一個詞語表示動作？',
@@ -23,6 +27,8 @@ export const questions: QuestionCardQuestion[] = [
   },
   {
     id: 'meimei-chinese-3',
+    topic: '量詞運用',
+    type: 'application',
     title: '量詞練習',
     instruction: '請選出最適合的量詞。',
     question: '一（　）鉛筆',
