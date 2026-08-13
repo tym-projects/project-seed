@@ -15,7 +15,7 @@
 - **Build:** passed
 - **TypeScript:** passed
 - **Browser / E2E Verification:** 姐姐與妹妹今日複習頁均可正常載入；既有今日完成資料會顯示無題狀態，未因 Review State 邏輯 crash。1/3/7 跨日期規則以純資料測試驗證，未修改系統時間。
-- **Git Status:** pending Sprint 12 commit and push verification
+- **Git Status:** clean after commit and push verification
 - **Next Step:** 等待 Sprint 13 規劃。
 
 ## Completed Sprint History
