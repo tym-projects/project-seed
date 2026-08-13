@@ -9,7 +9,7 @@
 - **Sprint Status:** Completed
 - **Branch:** `main`
 - **Last Commit:** `7ebd45f` — `feat: add daily review selection`（Sprint 10 實作 commit）
-- **Current HEAD:** `c77b831` — `docs: establish progress source of truth`
+- **Sprint 10 Documentation Baseline Commit:** `c77b831` — `docs: establish progress source of truth`
 - **Push Status:** 已同步 / ahead 0 / behind 0
 - **Tests:** 26/26 passed
 - **Lint:** passed
