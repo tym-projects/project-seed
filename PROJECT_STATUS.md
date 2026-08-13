@@ -8,7 +8,8 @@
 - **Current Sprint:** Sprint 10
 - **Sprint Status:** Completed
 - **Branch:** `main`
-- **Last Commit:** `7ebd45f` — `feat: add daily review selection`（Sprint 10 實作 commit）
+- **Last Implementation Commit:** `7ebd45f` — `feat: add daily review selection`
+- **Current HEAD:** `46f4799` — `docs: clarify sprint 10 baseline`
 - **Sprint 10 Documentation Baseline Commit:** `c77b831` — `docs: establish progress source of truth`
 - **Push Status:** 已同步 / ahead 0 / behind 0
 - **Tests:** 26/26 passed
