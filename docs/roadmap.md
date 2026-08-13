@@ -1,5 +1,11 @@
 # Project Seed Roadmap
 
+## Sprint 15 Completed
+
+- Parent Learning Summary v1: separate student summaries for Today and Last 7 Days, current due learning units, and deterministic attention items.
+- Backlog: completed session history, daily/weekly actual learning time, parent time statistics, charts, and AI parent insights.
+- Next step: 等待 Sprint 16 規劃。
+
 ## Sprint 14 Completed
 
 - Review Time Control v1: local-date isolated review sessions, elapsed-minute display, and non-blocking 10/15-minute reminders without altering Learning Records or review selection.

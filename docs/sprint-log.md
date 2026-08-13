@@ -1,5 +1,13 @@
 # Sprint Log
 
+## Sprint 15 — Parent Learning Summary v1
+
+- Added pure local-calendar summaries for each student/subject: completed attempts, first-try correct count/rate, retry-bearing attempts, latest learning date, and due learning units.
+- Learning units use reviewGroupId fallback to question.id; A/B variations dedupe while legacy questions retain question-ID fallback.
+- Attention is deterministic: repeated retry requires two distinct recent retry-bearing records in one unit; due units completed today are not flagged.
+- No Learning Record schema, review selection, spaced-review, variation, session/timer, or analytics storage changes.
+- Verification: 71/71 Node tests, ESLint, TypeScript, production build, and diff check passed. Browser data-state smoke remains limited to safe read-only observation.
+
 ## Sprint 14 — 複習時間控制 v1
 
 - Added isolated active review sessions in `project-seed:review-sessions:v1`; sessions restore only for the same student, subject, and local review date, and stale prior-date sessions are replaced using `getLocalDateKey`.

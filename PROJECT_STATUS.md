@@ -1,5 +1,15 @@
 # Project Status
 
+## Sprint 15 Completion
+
+- **Current Sprint:** Sprint 15
+- **Sprint Status:** Completed
+- **Last Implementation Commit:** Sprint 15 implementation commit
+- **Tests:** 71/71 Node tests passed
+- **Lint / TypeScript / Build / diff check:** passed
+- **Browser smoke:** pending safe read-only observation; automated pure-data coverage is the primary evidence.
+- **Next Step:** 等待 Sprint 16 規劃
+
 ## Sprint 14 Completion
 
 - **Current Sprint:** Sprint 14
