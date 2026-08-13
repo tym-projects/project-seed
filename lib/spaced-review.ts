@@ -23,6 +23,7 @@ type DeriveReviewStateOptions = {
   student: string;
   subject: string;
   questionId: string;
+  questionIds?: string[];
   now: Date;
   timeZone: string;
 };
@@ -78,11 +79,12 @@ function isSpacedReviewRecord(value: unknown): value is SpacedReviewRecord {
   );
 }
 
-function toReviewDays(records: unknown[], student: string, subject: string, questionId: string, timeZone: string): ReviewDay[] {
+function toReviewDays(records: unknown[], student: string, subject: string, questionIds: string[], timeZone: string): ReviewDay[] {
   const days = new Map<string, boolean>();
+  const questionIdSet = new Set(questionIds);
 
   for (const record of records) {
-    if (!isSpacedReviewRecord(record) || record.student !== student || record.subject !== subject || record.questionId !== questionId) {
+    if (!isSpacedReviewRecord(record) || record.student !== student || record.subject !== subject || !questionIdSet.has(record.questionId)) {
       continue;
     }
 
@@ -95,8 +97,8 @@ function toReviewDays(records: unknown[], student: string, subject: string, ques
     .map(([localDate, hadWrong]) => ({ localDate, hadWrong }));
 }
 
-export function deriveReviewState({ records, student, subject, questionId, now, timeZone }: DeriveReviewStateOptions): ReviewState {
-  const reviewDays = toReviewDays(records, student, subject, questionId, timeZone);
+export function deriveReviewState({ records, student, subject, questionId, questionIds, now, timeZone }: DeriveReviewStateOptions): ReviewState {
+  const reviewDays = toReviewDays(records, student, subject, questionIds ?? [questionId], timeZone);
   let lastCompletedLocalDate: string | null = null;
   let lastSessionHadWrong = false;
   let stableSuccessStreak = 0;

@@ -4,6 +4,7 @@ export type ReviewQuestion = {
   id: string;
   topic: string;
   type: 'basic' | 'application';
+  reviewGroupId?: string;
 };
 
 type TodayReviewOptions<T extends ReviewQuestion> = {
@@ -16,14 +17,29 @@ type TodayReviewOptions<T extends ReviewQuestion> = {
   maxQuestions?: number;
 };
 
-type QuestionHistory<T extends ReviewQuestion> = {
-  question: T;
+type CompletedRecord = {
+  student: string;
+  subject: string;
+  questionId: string;
+  createdAt: string;
+  attempts: number;
+  correct: true;
+  completed: true;
+};
+
+type ReviewGroup<T extends ReviewQuestion> = {
+  id: string;
+  questions: T[];
+};
+
+type GroupHistory<T extends ReviewQuestion> = {
+  group: ReviewGroup<T>;
   state: ReviewState;
 };
 
 const MAX_QUESTIONS = 5;
 
-function isCompletedRecord(value: unknown): value is { student: string; subject: string; questionId: string; createdAt: string; attempts: number; correct: true; completed: true } {
+function isCompletedRecord(value: unknown): value is CompletedRecord {
   if (typeof value !== 'object' || value === null) {
     return false;
   }
@@ -43,7 +59,7 @@ function isCompletedRecord(value: unknown): value is { student: string; subject:
   );
 }
 
-function compareUnstable<T extends ReviewQuestion>(first: QuestionHistory<T>, second: QuestionHistory<T>) {
+function compareUnstable<T extends ReviewQuestion>(first: GroupHistory<T>, second: GroupHistory<T>) {
   if (first.state.lastSessionHadWrong !== second.state.lastSessionHadWrong) {
     return first.state.lastSessionHadWrong ? -1 : 1;
   }
@@ -55,7 +71,7 @@ function compareUnstable<T extends ReviewQuestion>(first: QuestionHistory<T>, se
   return compareDue(first, second);
 }
 
-function compareDue<T extends ReviewQuestion>(first: QuestionHistory<T>, second: QuestionHistory<T>) {
+function compareDue<T extends ReviewQuestion>(first: GroupHistory<T>, second: GroupHistory<T>) {
   const firstDate = first.state.nextReviewLocalDate ?? '';
   const secondDate = second.state.nextReviewLocalDate ?? '';
 
@@ -63,54 +79,72 @@ function compareDue<T extends ReviewQuestion>(first: QuestionHistory<T>, second:
     return firstDate.localeCompare(secondDate);
   }
 
-  if (first.question.type !== second.question.type) {
-    return first.question.type === 'application' ? -1 : 1;
+  if (first.group.questions[0].type !== second.group.questions[0].type) {
+    return first.group.questions[0].type === 'application' ? -1 : 1;
   }
 
-  return first.question.id.localeCompare(second.question.id);
+  return first.group.id.localeCompare(second.group.id);
 }
 
-function compareNeverCompleted<T extends ReviewQuestion>(first: QuestionHistory<T>, second: QuestionHistory<T>) {
-  if (first.question.type !== second.question.type) {
-    return first.question.type === 'application' ? -1 : 1;
+function compareNeverCompleted<T extends ReviewQuestion>(first: GroupHistory<T>, second: GroupHistory<T>) {
+  if (first.group.questions[0].type !== second.group.questions[0].type) {
+    return first.group.questions[0].type === 'application' ? -1 : 1;
   }
 
-  return first.question.id.localeCompare(second.question.id);
+  return first.group.id.localeCompare(second.group.id);
 }
 
 function addWithTopicSpread<T extends ReviewQuestion>(
-  selected: T[],
-  candidates: QuestionHistory<T>[],
-  compare: (first: QuestionHistory<T>, second: QuestionHistory<T>) => number,
+  selected: GroupHistory<T>[],
+  candidates: GroupHistory<T>[],
+  compare: (first: GroupHistory<T>, second: GroupHistory<T>) => number,
   limit: number,
 ) {
-  const usedQuestionIds = new Set(selected.map((question) => question.id));
-  const usedTopics = new Set(selected.map((question) => question.topic));
-  const remaining = candidates.filter((candidate) => !usedQuestionIds.has(candidate.question.id)).sort(compare);
+  const usedGroupIds = new Set(selected.map((history) => history.group.id));
+  const usedTopics = new Set(selected.map((history) => history.group.questions[0].topic));
+  const remaining = candidates.filter((candidate) => !usedGroupIds.has(candidate.group.id)).sort(compare);
 
   for (const candidate of remaining) {
-    if (selected.length >= limit) {
-      return;
-    }
-
-    if (!usedTopics.has(candidate.question.topic)) {
-      selected.push(candidate.question);
-      usedQuestionIds.add(candidate.question.id);
-      usedTopics.add(candidate.question.topic);
+    if (selected.length >= limit) return;
+    if (!usedTopics.has(candidate.group.questions[0].topic)) {
+      selected.push(candidate);
+      usedGroupIds.add(candidate.group.id);
+      usedTopics.add(candidate.group.questions[0].topic);
     }
   }
 
   for (const candidate of remaining) {
-    if (selected.length >= limit) {
-      return;
-    }
-
-    if (!usedQuestionIds.has(candidate.question.id)) {
-      selected.push(candidate.question);
-      usedQuestionIds.add(candidate.question.id);
-      usedTopics.add(candidate.question.topic);
+    if (selected.length >= limit) return;
+    if (!usedGroupIds.has(candidate.group.id)) {
+      selected.push(candidate);
+      usedGroupIds.add(candidate.group.id);
+      usedTopics.add(candidate.group.questions[0].topic);
     }
   }
+}
+
+function hashSelectionKey(key: string) {
+  let hash = 0;
+
+  for (let index = 0; index < key.length; index += 1) {
+    hash = ((hash * 31) + key.charCodeAt(index)) >>> 0;
+  }
+
+  return hash;
+}
+
+function selectVariation<T extends ReviewQuestion>(group: ReviewGroup<T>, records: CompletedRecord[], student: string, subject: string, localReviewDate: string): T {
+  const groupQuestionIds = new Set(group.questions.map((question) => question.id));
+  const latestQuestionId = records
+    .filter((record) => record.student === student && record.subject === subject && groupQuestionIds.has(record.questionId))
+    .sort((first, second) => Date.parse(second.createdAt) - Date.parse(first.createdAt))[0]?.questionId;
+  let selectedIndex = hashSelectionKey(`${student}:${subject}:${group.id}:${localReviewDate}`) % group.questions.length;
+
+  if (group.questions.length > 1 && group.questions[selectedIndex].id === latestQuestionId) {
+    selectedIndex = (selectedIndex + 1) % group.questions.length;
+  }
+
+  return group.questions[selectedIndex];
 }
 
 export function selectTodayReviewQuestions<T extends ReviewQuestion>({
@@ -125,26 +159,46 @@ export function selectTodayReviewQuestions<T extends ReviewQuestion>({
   const questionById = new Map<string, T>();
 
   for (const question of questions) {
-    if (!questionById.has(question.id)) {
-      questionById.set(question.id, question);
-    }
+    if (!questionById.has(question.id)) questionById.set(question.id, question);
+  }
+
+  const groupsById = new Map<string, ReviewGroup<T>>();
+  for (const question of questionById.values()) {
+    const groupId = question.reviewGroupId ?? question.id;
+    const group = groupsById.get(groupId) ?? { id: groupId, questions: [] };
+    group.questions.push(question);
+    groupsById.set(groupId, group);
+  }
+
+  const validRecords = records.filter(isCompletedRecord);
+  const questionGroupById = new Map<string, string>();
+  for (const group of groupsById.values()) {
+    for (const question of group.questions) questionGroupById.set(question.id, group.id);
   }
 
   const todayKey = getLocalDateKey(now, timeZone);
-  const completedToday = new Set(
-    records
-      .filter(isCompletedRecord)
-      .filter((record) => record.student === student && record.subject === subject && questionById.has(record.questionId))
+  const completedGroupIdsToday = new Set(
+    validRecords
+      .filter((record) => record.student === student && record.subject === subject)
       .filter((record) => getLocalDateKey(new Date(record.createdAt), timeZone) === todayKey)
-      .map((record) => record.questionId),
+      .map((record) => questionGroupById.get(record.questionId))
+      .filter((groupId): groupId is string => groupId !== undefined),
   );
-  const histories = [...questionById.values()]
-    .filter((question) => !completedToday.has(question.id))
-    .map<QuestionHistory<T>>((question) => ({
-      question,
-      state: deriveReviewState({ records, student, subject, questionId: question.id, now, timeZone }),
+  const histories = [...groupsById.values()]
+    .filter((group) => !completedGroupIdsToday.has(group.id))
+    .map<GroupHistory<T>>((group) => ({
+      group,
+      state: deriveReviewState({
+        records,
+        student,
+        subject,
+        questionId: group.questions[0].id,
+        questionIds: group.questions.map((question) => question.id),
+        now,
+        timeZone,
+      }),
     }));
-  const selected: T[] = [];
+  const selected: GroupHistory<T>[] = [];
   const limit = Math.min(Math.max(maxQuestions, 0), MAX_QUESTIONS);
   const dueUnstable = histories.filter((history) => history.state.isDue && (history.state.lastSessionHadWrong || history.state.stableSuccessStreak < 2));
   const dueStable = histories.filter((history) => history.state.isDue && !dueUnstable.includes(history));
@@ -154,5 +208,5 @@ export function selectTodayReviewQuestions<T extends ReviewQuestion>({
   addWithTopicSpread(selected, dueStable, compareDue, limit);
   addWithTopicSpread(selected, neverCompleted, compareNeverCompleted, limit);
 
-  return selected;
+  return selected.map((history) => selectVariation(history.group, validRecords, student, subject, todayKey));
 }

@@ -3,6 +3,7 @@ import type { QuestionCardQuestion } from '@/components/question/QuestionCard';
 export const questions: QuestionCardQuestion[] = [
   {
     id: 'meimei-chinese-1',
+    reviewGroupId: 'meimei-chinese-gaoxing-meaning',
     topic: '詞語意思',
     type: 'basic',
     title: '詞語意思',
@@ -15,6 +16,7 @@ export const questions: QuestionCardQuestion[] = [
   },
   {
     id: 'meimei-chinese-2',
+    reviewGroupId: 'meimei-chinese-action-word-identification',
     topic: '動作詞辨識',
     type: 'application',
     title: '認識動作詞',
@@ -36,5 +38,31 @@ export const questions: QuestionCardQuestion[] = [
     answer: 1,
     explanation: '細長的鉛筆常用「枝」來計算。',
     encouragement: '答對了！量詞用得很正確。',
+  },
+  {
+    id: 'meimei-chinese-4',
+    reviewGroupId: 'meimei-chinese-gaoxing-meaning',
+    topic: '詞語意思',
+    type: 'basic',
+    title: '詞語意思',
+    instruction: '請根據句子的意思選出最適合的詞語。',
+    question: '妹妹收到生日禮物，心裡很開心。下面哪一個詞語最適合形容妹妹的心情？',
+    options: ['高興', '難過', '生氣'],
+    answer: 0,
+    explanation: '收到喜歡的生日禮物時，心情很開心，也可以說「很高興」。',
+    encouragement: '答對了！你真的理解「高興」的意思了！',
+  },
+  {
+    id: 'meimei-chinese-5',
+    reviewGroupId: 'meimei-chinese-action-word-identification',
+    topic: '動作詞辨識',
+    type: 'application',
+    title: '認識動作詞',
+    instruction: '請找出句子中表示動作的詞語。',
+    question: '「小狗在草地上跑。」哪一個詞語表示動作？',
+    options: ['小狗', '草地', '跑'],
+    answer: 2,
+    explanation: '「跑」表示小狗正在做的動作。',
+    encouragement: '答對了！你找到動作詞了。',
   },
 ];
