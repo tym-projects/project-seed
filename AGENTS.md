@@ -44,13 +44,43 @@ Project Seed 的目標：
 - GitHub `origin` 是正式 Git 遠端同步與版本歷史來源。
 - `G:\我的雲端硬碟\2026AST` 僅作備份，不作為實際開發工作目錄；不得在該目錄執行 npm、建立或更新 `node_modules`，或執行 build。
 
+### Repository Safety Rule
+
+所有 Codex 工作開始前必須先執行：
+
+```powershell
+git rev-parse --show-toplevel
+```
+
+結果必須是 `C:\Users\yenmi\Documents\2026AST-dev`。若不是此路徑，不得修改、commit、push 或開始 Sprint。
+
+### Progress Source Rule
+
+回報或判斷目前進度前，先以正式 repository 的實際 Git 狀態與 `PROJECT_STATUS.md` 核對。資訊優先順序為：正式 repository Git 狀態、`PROJECT_STATUS.md`、`docs/roadmap.md`、`PROJECT_SEED_BIBLE.md`、聊天紀錄／記憶；不得只依聊天紀錄或記憶判斷。
+
+### Sprint Close Rule
+
+每個 Sprint 完成時固定執行：
+
+1. 完整 tests
+2. lint
+3. build
+4. TypeScript
+5. 記錄 Browser / E2E 未驗證項目
+6. 更新 `PROJECT_STATUS.md`
+7. 更新必要的 roadmap / BIBLE / docs
+8. commit
+9. 確認 `git status`
+10. 回報 push status
+11. 記錄 Next Step
+
 開始工作前先閱讀：
 
 1. `AGENTS.md`
 2. `PROJECT_SEED_BIBLE.md`
 3. `PROJECT_STATUS.md`
 
-以現有程式碼與 `PROJECT_STATUS.md` 判斷目前進度。
+開始新 Sprint 前，先讀取 `PROJECT_STATUS.md`，並依上述 Progress Source Rule 以正式 repository Git 狀態核對。
 
 完成修改後：
 
