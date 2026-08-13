@@ -1,5 +1,11 @@
 # Project Seed Roadmap
 
+## Sprint 13 Completed
+
+- Variation Questions v1: four approved paired variations share group-based spaced review while Learning Records remain compatible and retain actual answered question IDs.
+- Next step: 等待 Sprint 14 規劃.
+
+
 > 此文件保存已決定但延後的功能與 backlog。即時 Sprint 狀態以 [`PROJECT_STATUS.md`](../PROJECT_STATUS.md) 為準；已完成項目不列為未來工作。
 
 ## Backlog — 已決定但延後

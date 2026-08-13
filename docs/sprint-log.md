@@ -1,5 +1,13 @@
 # Sprint Log
 
+## Sprint 13 — Variation Questions v1
+
+- Added four approved Chinese variations in two review groups per student; Learning Records retain the actual answered `questionId`.
+- Review state now uses `reviewGroupId ?? question.id`: group 1/3/7 state, retry reset, same-day guard, five-group limit, topic spread, and legacy fallback.
+- Daily display is deterministic per student, subject, group, and local date; it avoids the most recently completed variation without random or permanent selection state.
+- Verification: 58/58 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Browser smoke for both review routes loaded without console errors.
+
+
 ## Sprint 12 — Spaced Review v1
 
 - 新增純資料 Spaced Review 推導：以學生、科目、題目和本地曆日的 Learning Record 歷史產生最後完成日、最近流程是否曾答錯、穩定成功 streak、下次複習日與到期狀態。
