@@ -16,18 +16,16 @@
 ## Current Baseline
 
 - **Repository:** `C:\Users\yenmi\Documents\2026AST-dev`
-- **Current Sprint:** Sprint 12
+- **Current Sprint:** Sprint 13
 - **Sprint Status:** Completed
 - **Branch:** `main`
-- **Last Implementation Commit:** `cd6a5f8` — `Complete Sprint 12 spaced review v1`
+- **Last Implementation Commit:** `73e47fb` `Complete Sprint 13 variation questions v1`
 - **Push Status:** 已同步 / ahead 0 / behind 0
-- **Tests:** 45/45 passed
-- **Lint:** passed
-- **Build:** passed
-- **TypeScript:** passed
-- **Browser / E2E Verification:** 姐姐與妹妹今日複習頁均可正常載入；既有今日完成資料會顯示無題狀態，未因 Review State 邏輯 crash。1/3/7 跨日期規則以純資料測試驗證，未修改系統時間。
+- **Tests:** 58/58 passed
+- **Lint / TypeScript / Build / diff check:** passed
+- **Browser smoke:** `/jiejie/review` and `/meimei/review` loaded without console errors.
 - **Git Status:** clean after commit and push verification
-- **Next Step:** 等待 Sprint 13 規劃。
+- **Next Step:** Sprint 14 設計：複習時間控制 v1。
 
 ## Completed Sprint History
 
