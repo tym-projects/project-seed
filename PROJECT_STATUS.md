@@ -1,14 +1,14 @@
 # Project Status
 
-## Sprint 13 Completion
+## Sprint 14 Completion
 
-- **Current Sprint:** Sprint 13
+- **Current Sprint:** Sprint 14
 - **Sprint Status:** Completed
-- **Last Implementation Commit:** `73e47fb` `Complete Sprint 13 variation questions v1`
-- **Tests:** 58/58 passed
+- **Last Implementation Commit:** pending Sprint 14 commit
+- **Tests:** 67/67 passed
 - **Lint / TypeScript / Build / diff check:** passed
-- **Browser smoke:** `/jiejie/review` and `/meimei/review` loaded without console errors.
-- **Next Step:** 等待 Sprint 14 規劃
+- **Browser smoke:** `/jiejie/review` and `/meimei/review` loaded without console errors. Manual timer/session smoke is blocked because the available browser tooling cannot create an isolated storage context and must not modify the existing browser profile.
+- **Next Step:** 等待 Sprint 15 規劃
 
 
 > **Single Source of Truth:** 此文件是目前專案進度、驗證結果與下一步的唯一真相來源。判斷最新狀態時，仍須先以正式 repository 的實際 Git 狀態核對；不得只依聊天紀錄或記憶判斷。
@@ -16,16 +16,16 @@
 ## Current Baseline
 
 - **Repository:** `C:\Users\yenmi\Documents\2026AST-dev`
-- **Current Sprint:** Sprint 13
+- **Current Sprint:** Sprint 14
 - **Sprint Status:** Completed
 - **Branch:** `main`
-- **Last Implementation Commit:** `73e47fb` `Complete Sprint 13 variation questions v1`
-- **Push Status:** 已同步 / ahead 0 / behind 0
-- **Tests:** 58/58 passed
+- **Last Implementation Commit:** pending Sprint 14 commit
+- **Push Status:** 尚未要求 push；同步前須以本地與 `origin/main` refs 即時核對。
+- **Tests:** 67/67 passed
 - **Lint / TypeScript / Build / diff check:** passed
-- **Browser smoke:** `/jiejie/review` and `/meimei/review` loaded without console errors.
-- **Git Status:** clean after commit and push verification
-- **Next Step:** Sprint 14 設計：複習時間控制 v1。
+- **Browser smoke:** `/jiejie/review` and `/meimei/review` loaded without console errors. Manual timer/session smoke is blocked because the available browser tooling cannot create an isolated storage context and must not modify the existing browser profile.
+- **Git Status:** Sprint 14 changes pending commit; no push requested.
+- **Next Step:** 等待 Sprint 15 規劃。
 
 ## Completed Sprint History
 

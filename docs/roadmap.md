@@ -1,9 +1,9 @@
 # Project Seed Roadmap
 
-## Sprint 13 Completed
+## Sprint 14 Completed
 
-- Variation Questions v1: four approved paired variations share group-based spaced review while Learning Records remain compatible and retain actual answered question IDs.
-- Next step: 等待 Sprint 14 規劃.
+- Review Time Control v1: local-date isolated review sessions, elapsed-minute display, and non-blocking 10/15-minute reminders without altering Learning Records or review selection.
+- Next step: 等待 Sprint 15 規劃.
 
 
 > 此文件保存已決定但延後的功能與 backlog。即時 Sprint 狀態以 [`PROJECT_STATUS.md`](../PROJECT_STATUS.md) 為準；已完成項目不列為未來工作。
@@ -16,7 +16,9 @@
 - 進階間隔複習（SM-2、更多週期或遺忘曲線）。
 - 同觀念不同問法／變化題。
 - AI 選題與難度演算法。
-- 真正依作答時間控制每日 10～15 分鐘。
+- 家長設定複習時間。
+- 每日／每週實際學習時長分析。
+- 家長模式時間統計。
 - 錯題複習與錯題原因整理；不建立永久錯題狀態，除非未來需求與資料模型明確支持。
 - 不新增 `recordSource` 等永久選題狀態；複習選題持續由 Learning Record 推導，直到未來需求明確改變此架構決策。
 

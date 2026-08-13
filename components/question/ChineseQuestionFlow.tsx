@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { QuestionCard, type QuestionCardQuestion } from '@/components/question/QuestionCard';
 import { type StudentId, type LearningRecord, saveLearningRecord } from '@/lib/learning-records';
+import { getReviewTimeNotice } from '@/lib/review-session-time';
+import { useReviewElapsedMinutes } from '@/components/review/useReviewElapsedMinutes';
 
 type ChineseQuestionFlowProps = {
   questions: QuestionCardQuestion[];
@@ -14,6 +16,8 @@ type ChineseQuestionFlowProps = {
   homeLabel: string;
   completionTitle?: string;
   completionMessage?: string;
+  reviewStartedAt?: string;
+  onReviewComplete?: () => void;
 };
 
 const themeClasses = {
@@ -38,12 +42,16 @@ export function ChineseQuestionFlow({
   homeLabel,
   completionTitle = '練習完成！',
   completionMessage = '你已經完成今天的練習，做得很好！',
+  reviewStartedAt,
+  onReviewComplete,
 }: ChineseQuestionFlowProps) {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const question = questions[questionIndex];
   const isLastQuestion = questionIndex === questions.length - 1;
   const classes = themeClasses[theme];
+  const elapsedMinutes = useReviewElapsedMinutes(reviewStartedAt);
+  const reviewTimeNotice = reviewStartedAt ? getReviewTimeNotice(elapsedMinutes) : null;
 
   if (isComplete) {
     return (
@@ -66,6 +74,9 @@ export function ChineseQuestionFlow({
     <main className={`flex min-h-screen flex-col items-center justify-center px-6 py-12 ${classes.page}`}>
       <section className="w-full max-w-xl rounded-2xl bg-white p-8 shadow-lg sm:p-10">
         <h1 className={`text-4xl font-bold ${classes.title}`}>{pageTitle}</h1>
+        {reviewStartedAt && <p className="mt-3 text-lg font-bold text-gray-700">已複習 {elapsedMinutes} 分鐘</p>}
+        {reviewTimeNotice === 'ten-minutes' && <p className="mt-3 rounded-xl bg-amber-50 p-3 text-lg font-bold text-amber-800">已經複習 10 分鐘，可以完成目前題目後休息。</p>}
+        {reviewTimeNotice === 'fifteen-minutes' && <p className="mt-3 rounded-xl bg-amber-100 p-3 text-lg font-bold text-amber-900">已經複習 15 分鐘，完成目前題目後，現在就休息吧。</p>}
         <h2 className="mt-3 text-3xl font-bold text-gray-800">第 {questionIndex + 1} 題</h2>
         <QuestionCard
           key={question.id}
@@ -88,7 +99,10 @@ export function ChineseQuestionFlow({
 
             saveLearningRecord(record);
           }}
-          onComplete={() => setIsComplete(true)}
+          onComplete={() => {
+            onReviewComplete?.();
+            setIsComplete(true);
+          }}
           theme={theme}
         />
       </section>

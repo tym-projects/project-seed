@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { ChineseQuestionFlow } from '@/components/question/ChineseQuestionFlow';
 import type { QuestionCardQuestion } from '@/components/question/QuestionCard';
 import { readLearningRecords, type StudentId } from '@/lib/learning-records';
+import { endReviewSession, getOrCreateReviewSession, type ReviewSession } from '@/lib/review-sessions';
 import { selectTodayReviewQuestions } from '@/lib/today-review';
 
 type TodayReviewPageProps = {
@@ -23,6 +24,7 @@ const themeClasses = {
 export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel }: TodayReviewPageProps) {
   const [reviewQuestions, setReviewQuestions] = useState<QuestionCardQuestion[] | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
+  const [reviewSession, setReviewSession] = useState<ReviewSession | null>(null);
   const classes = themeClasses[theme];
 
   useEffect(() => {
@@ -46,7 +48,7 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
     return <main className={`min-h-screen ${classes.page}`} />;
   }
 
-  if (hasStarted && reviewQuestions.length > 0) {
+  if (hasStarted && reviewSession !== null && reviewQuestions.length > 0) {
     return (
       <ChineseQuestionFlow
         questions={reviewQuestions}
@@ -57,6 +59,8 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
         homeLabel={homeLabel}
         completionTitle="今日複習完成！"
         completionMessage="今天的複習已完成，做得很好！"
+        reviewStartedAt={reviewSession.startedAt}
+        onReviewComplete={() => endReviewSession(student, 'chinese')}
       />
     );
   }
@@ -69,7 +73,15 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
           <>
             <p className="mt-5 text-2xl font-bold text-gray-800">今天準備了 {reviewQuestions.length} 題。</p>
             <p className="mt-3 text-lg text-gray-700">慢慢想，答錯也可以再試一次。</p>
-            <button type="button" onClick={() => setHasStarted(true)} className={`mt-8 rounded-xl px-6 py-3 font-bold text-white transition-colors ${classes.button}`}>
+            <button type="button" onClick={() => {
+              setReviewSession(getOrCreateReviewSession({
+                student,
+                subject: 'chinese',
+                now: new Date(),
+                timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+              }));
+              setHasStarted(true);
+            }} className={`mt-8 rounded-xl px-6 py-3 font-bold text-white transition-colors ${classes.button}`}>
               開始複習
             </button>
           </>

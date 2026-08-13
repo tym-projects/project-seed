@@ -1,5 +1,12 @@
 # Sprint Log
 
+## Sprint 14 — 複習時間控制 v1
+
+- Added isolated active review sessions in `project-seed:review-sessions:v1`; sessions restore only for the same student, subject, and local review date, and stale prior-date sessions are replaced using `getLocalDateKey`.
+- Added minute-aligned elapsed-time UI and non-blocking 10/15-minute reminders. Completion clears only the current student/subject session.
+- Learning Record, Sprint 12 1/3/7 review state, and Sprint 13 group/deterministic variation selection remain unchanged.
+- Verification: 67/67 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Both review routes loaded without console errors. Manual timer/session smoke was not run because the available browser tooling cannot create an isolated storage context, and the existing browser profile must not be modified.
+
 ## Sprint 13 — Variation Questions v1
 
 - Added four approved Chinese variations in two review groups per student; Learning Records retain the actual answered `questionId`.
