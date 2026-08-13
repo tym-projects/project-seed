@@ -1,22 +1,14 @@
+import { deriveReviewState, getLocalDateKey, type ReviewState } from '@/lib/spaced-review';
+
 export type ReviewQuestion = {
   id: string;
   topic: string;
   type: 'basic' | 'application';
 };
 
-export type ReviewLearningRecord = {
-  student: string;
-  subject: string;
-  questionId: string;
-  firstAnswer: number;
-  finalAnswer: number;
-  attempts: number;
-  createdAt: string;
-};
-
 type TodayReviewOptions<T extends ReviewQuestion> = {
   questions: T[];
-  records: ReviewLearningRecord[];
+  records: unknown[];
   student: string;
   subject: string;
   now: Date;
@@ -26,33 +18,12 @@ type TodayReviewOptions<T extends ReviewQuestion> = {
 
 type QuestionHistory<T extends ReviewQuestion> = {
   question: T;
-  latestRecord: ReviewLearningRecord | undefined;
-  latestRecordTime: number;
-  latestRetryTime: number;
-  isRecentRetry: boolean;
-  isUnstable: boolean;
+  state: ReviewState;
 };
 
 const MAX_QUESTIONS = 5;
 
-export function getLocalDateKey(date: Date, timeZone: string) {
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).formatToParts(date);
-  const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
-
-  return `${values.year}-${values.month}-${values.day}`;
-}
-
-function getTime(value: string) {
-  const time = Date.parse(value);
-  return Number.isNaN(time) ? -Infinity : time;
-}
-
-function isReviewLearningRecord(value: unknown): value is ReviewLearningRecord {
+function isCompletedRecord(value: unknown): value is { student: string; subject: string; questionId: string; createdAt: string; attempts: number; correct: true; completed: true } {
   if (typeof value !== 'object' || value === null) {
     return false;
   }
@@ -63,62 +34,43 @@ function isReviewLearningRecord(value: unknown): value is ReviewLearningRecord {
     typeof record.student === 'string' &&
     typeof record.subject === 'string' &&
     typeof record.questionId === 'string' && record.questionId.length > 0 &&
-    typeof record.firstAnswer === 'number' && Number.isFinite(record.firstAnswer) &&
-    typeof record.finalAnswer === 'number' && Number.isFinite(record.finalAnswer) &&
+    typeof record.firstAnswer === 'number' && Number.isInteger(record.firstAnswer) && record.firstAnswer >= 0 &&
+    typeof record.finalAnswer === 'number' && Number.isInteger(record.finalAnswer) && record.finalAnswer >= 0 &&
     typeof record.attempts === 'number' && Number.isInteger(record.attempts) && record.attempts >= 1 &&
+    record.correct === true &&
+    record.completed === true &&
     typeof record.createdAt === 'string' && Number.isFinite(Date.parse(record.createdAt))
   );
 }
 
-function requiredRetries(record: ReviewLearningRecord) {
-  return record.attempts > 1;
-}
-
-function hasUnstableHistory(records: ReviewLearningRecord[]) {
-  let state: 'none' | 'wrong' | 'improved' = 'none';
-
-  for (const record of records) {
-    if (requiredRetries(record)) {
-      if (state === 'improved') {
-        return true;
-      }
-
-      state = 'wrong';
-      continue;
-    }
-
-    if (state === 'wrong') {
-      state = 'improved';
-    }
+function compareUnstable<T extends ReviewQuestion>(first: QuestionHistory<T>, second: QuestionHistory<T>) {
+  if (first.state.lastSessionHadWrong !== second.state.lastSessionHadWrong) {
+    return first.state.lastSessionHadWrong ? -1 : 1;
   }
 
-  return false;
+  if (first.state.stableSuccessStreak !== second.state.stableSuccessStreak) {
+    return first.state.stableSuccessStreak - second.state.stableSuccessStreak;
+  }
+
+  return compareDue(first, second);
 }
 
-function compareByEvidence<T extends ReviewQuestion>(first: QuestionHistory<T>, second: QuestionHistory<T>) {
-  const firstAttempts = first.latestRecord?.attempts ?? 0;
-  const secondAttempts = second.latestRecord?.attempts ?? 0;
+function compareDue<T extends ReviewQuestion>(first: QuestionHistory<T>, second: QuestionHistory<T>) {
+  const firstDate = first.state.nextReviewLocalDate ?? '';
+  const secondDate = second.state.nextReviewLocalDate ?? '';
 
-  if (firstAttempts !== secondAttempts) {
-    return secondAttempts - firstAttempts;
+  if (firstDate !== secondDate) {
+    return firstDate.localeCompare(secondDate);
   }
 
   if (first.question.type !== second.question.type) {
     return first.question.type === 'application' ? -1 : 1;
   }
 
-  if (first.latestRetryTime !== second.latestRetryTime) {
-    return second.latestRetryTime - first.latestRetryTime;
-  }
-
   return first.question.id.localeCompare(second.question.id);
 }
 
-function compareGeneral<T extends ReviewQuestion>(first: QuestionHistory<T>, second: QuestionHistory<T>) {
-  if (first.latestRecordTime !== second.latestRecordTime) {
-    return first.latestRecordTime - second.latestRecordTime;
-  }
-
+function compareNeverCompleted<T extends ReviewQuestion>(first: QuestionHistory<T>, second: QuestionHistory<T>) {
   if (first.question.type !== second.question.type) {
     return first.question.type === 'application' ? -1 : 1;
   }
@@ -178,58 +130,29 @@ export function selectTodayReviewQuestions<T extends ReviewQuestion>({
     }
   }
 
-  const relevantRecords = records.filter(
-    (record): record is ReviewLearningRecord =>
-      isReviewLearningRecord(record) && record.student === student && record.subject === subject && questionById.has(record.questionId),
-  );
   const todayKey = getLocalDateKey(now, timeZone);
   const completedToday = new Set(
-    relevantRecords
-      .filter((record) => getTime(record.createdAt) !== -Infinity && getLocalDateKey(new Date(record.createdAt), timeZone) === todayKey)
+    records
+      .filter(isCompletedRecord)
+      .filter((record) => record.student === student && record.subject === subject && questionById.has(record.questionId))
+      .filter((record) => getLocalDateKey(new Date(record.createdAt), timeZone) === todayKey)
       .map((record) => record.questionId),
   );
-  const recordsByQuestionId = new Map<string, ReviewLearningRecord[]>();
-
-  for (const record of relevantRecords) {
-    if (!recordsByQuestionId.has(record.questionId)) {
-      recordsByQuestionId.set(record.questionId, []);
-    }
-
-    recordsByQuestionId.get(record.questionId)?.push(record);
-  }
-
   const histories = [...questionById.values()]
     .filter((question) => !completedToday.has(question.id))
-    .map<QuestionHistory<T>>((question) => {
-      const questionRecords = [...(recordsByQuestionId.get(question.id) ?? [])].sort((first, second) => getTime(first.createdAt) - getTime(second.createdAt));
-      const latestRecord = questionRecords.at(-1);
-      const retryRecords = questionRecords.filter(requiredRetries);
-
-      return {
-        question,
-        latestRecord,
-        latestRecordTime: latestRecord ? getTime(latestRecord.createdAt) : -Infinity,
-        latestRetryTime: retryRecords.length > 0 ? getTime(retryRecords.at(-1)?.createdAt ?? '') : -Infinity,
-        isRecentRetry: latestRecord ? requiredRetries(latestRecord) : false,
-        isUnstable: hasUnstableHistory(questionRecords),
-      };
-    });
+    .map<QuestionHistory<T>>((question) => ({
+      question,
+      state: deriveReviewState({ records, student, subject, questionId: question.id, now, timeZone }),
+    }));
   const selected: T[] = [];
   const limit = Math.min(Math.max(maxQuestions, 0), MAX_QUESTIONS);
+  const dueUnstable = histories.filter((history) => history.state.isDue && (history.state.lastSessionHadWrong || history.state.stableSuccessStreak < 2));
+  const dueStable = histories.filter((history) => history.state.isDue && !dueUnstable.includes(history));
+  const neverCompleted = histories.filter((history) => history.state.lastCompletedLocalDate === null);
 
-  addWithTopicSpread(selected, histories.filter((history) => history.isRecentRetry), compareByEvidence, limit);
-  addWithTopicSpread(
-    selected,
-    histories.filter((history) => !history.isRecentRetry && history.isUnstable),
-    compareByEvidence,
-    limit,
-  );
-  addWithTopicSpread(
-    selected,
-    histories.filter((history) => !history.isRecentRetry && !history.isUnstable),
-    compareGeneral,
-    limit,
-  );
+  addWithTopicSpread(selected, dueUnstable, compareUnstable, limit);
+  addWithTopicSpread(selected, dueStable, compareDue, limit);
+  addWithTopicSpread(selected, neverCompleted, compareNeverCompleted, limit);
 
   return selected;
 }

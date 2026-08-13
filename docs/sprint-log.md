@@ -1,5 +1,13 @@
 # Sprint Log
 
+## Sprint 12 — Spaced Review v1
+
+- 新增純資料 Spaced Review 推導：以學生、科目、題目和本地曆日的 Learning Record 歷史產生最後完成日、最近流程是否曾答錯、穩定成功 streak、下次複習日與到期狀態。
+- 不變更 Learning Record schema、不新增 storage key，也不永久保存 `nextReviewDate`；`attempts > 1` 僅表示該次成功完成前曾答錯。
+- 規則為第一次無錯完成後隔 1 日、第二次到期後無錯隔 3 日、第三次以上隔 7 日；同日多筆至多推進一次，任一 retry 則重設 streak 並安排隔天。
+- Today Review 改為「到期且較不穩定 → 其他到期 → 從未完成」；最多 5 題，不以未到期題補滿。
+- 完成 45/45 Node tests、lint、TypeScript、production build，以及姐姐／妹妹今日複習頁最低必要瀏覽器驗證。
+
 ## Sprint 11 — Daily Review E2E & Reliability
 
 - Learning Record 讀取僅保留可安全使用的 v1 record：忽略 malformed JSON、非陣列資料、無效日期、非有限或不合理 attempts 與缺少必要欄位的 legacy data。

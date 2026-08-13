@@ -5,20 +5,22 @@
 ## Current Baseline
 
 - **Repository:** `C:\Users\yenmi\Documents\2026AST-dev`
-- **Current Sprint:** Sprint 11
+- **Current Sprint:** Sprint 12
 - **Sprint Status:** Completed
 - **Branch:** `main`
-- **Last Implementation Commit:** `a9be32b` — `Complete Sprint 11 daily review reliability`
+- **Last Implementation Commit:** Sprint 12 implementation commit — `Complete Sprint 12 spaced review v1`
 - **Push Status:** 已同步 / ahead 0 / behind 0
-- **Tests:** 33/33 passed
+- **Tests:** 45/45 passed
 - **Lint:** passed
 - **Build:** passed
 - **TypeScript:** passed
-- **Browser / E2E Verification:** 姐姐與妹妹一般國語作答、Learning Record 建立、今日複習當日排除、refresh persistence 與資料隔離皆已實測；malformed／legacy localStorage 以純資料測試驗證可安全忽略。
-- **Git Status:** clean after commit and push verification
-- **Next Step:** 等待 Sprint 12 規劃。
+- **Browser / E2E Verification:** 姐姐與妹妹今日複習頁均可正常載入；既有今日完成資料會顯示無題狀態，未因 Review State 邏輯 crash。1/3/7 跨日期規則以純資料測試驗證，未修改系統時間。
+- **Git Status:** pending Sprint 12 commit and push verification
+- **Next Step:** 等待 Sprint 13 規劃。
 
 ## Completed Sprint History
+
+- **Sprint 12 — Spaced Review v1：** 由既有 Learning Records 純函式推導 Review State，不修改 storage schema、不另存 next review date。第一次無錯完成後隔 1 個本地曆日、第二次到期後無錯隔 3 日、第三次及後續隔 7 日；同日任一完成 record 有 `attempts > 1` 時重設為隔天。今日複習最多 5 題，依到期且較不穩定、其他到期、從未完成排序，不以未到期題補滿。
 
 - **Sprint 11 — Daily Review E2E & Reliability：** Learning Record 讀寫加入 malformed／legacy data、防止無效日期與不合理 attempts、以及 localStorage 寫入失敗的安全防禦；Daily Review 忽略 invalid Learning Record 並完成姐姐／妹妹實際瀏覽器流程驗證。
 - **Sprint 10 — 今日複習：** 依 Learning Record 選出最多 5 題國語複習題；當日已完成題目不重複選入，姐姐與妹妹資料隔離。

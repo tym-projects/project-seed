@@ -7,7 +7,7 @@
 ### 複習與學習設計
 
 - 3 天後再次確認，以及一次答對不等於真正理解的進階確認。
-- 完整間隔複習。
+- 進階間隔複習（SM-2、更多週期或遺忘曲線）。
 - 同觀念不同問法／變化題。
 - AI 選題與難度演算法。
 - 真正依作答時間控制每日 10～15 分鐘。
@@ -27,6 +27,8 @@
 - Learning Analytics：依累積學習資料分析理解狀況、弱點與個人化學習建議。
 
 ## Completed History
+
+- **Sprint 12：** 完成 Learning Records 純推導的 Spaced Review v1（1／3／7 本地曆日規則）。
 
 - **Sprint 1–6：** 網站基礎、姐姐國語學習流程、Question Bank、Question Engine 與共用題目 UI。
 - **Sprint 7：** Learning Record。
