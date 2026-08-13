@@ -27,18 +27,26 @@ function isLearningRecord(value: unknown): value is LearningRecord {
   }
 
   const record = value as Record<string, unknown>;
+  const hasValidDate = typeof record.createdAt === 'string' && Number.isFinite(Date.parse(record.createdAt));
+  const hasValidAnswerIndexes =
+    typeof record.firstAnswer === 'number' &&
+    Number.isInteger(record.firstAnswer) &&
+    record.firstAnswer >= 0 &&
+    typeof record.finalAnswer === 'number' &&
+    Number.isInteger(record.finalAnswer) &&
+    record.finalAnswer >= 0;
+  const hasValidAttempts = typeof record.attempts === 'number' && Number.isInteger(record.attempts) && record.attempts >= 1;
 
   return (
-    typeof record.id === 'string' &&
+    typeof record.id === 'string' && record.id.length > 0 &&
     (record.student === 'jiejie' || record.student === 'meimei') &&
     record.subject === 'chinese' &&
-    typeof record.questionId === 'string' &&
-    typeof record.firstAnswer === 'number' &&
-    typeof record.finalAnswer === 'number' &&
-    typeof record.attempts === 'number' &&
+    typeof record.questionId === 'string' && record.questionId.length > 0 &&
+    hasValidAnswerIndexes &&
+    hasValidAttempts &&
     typeof record.correct === 'boolean' &&
     typeof record.completed === 'boolean' &&
-    typeof record.createdAt === 'string'
+    hasValidDate
   );
 }
 
@@ -71,5 +79,9 @@ export function saveLearningRecord(record: LearningRecord) {
     return;
   }
 
-  window.localStorage.setItem(LEARNING_RECORDS_STORAGE_KEY, JSON.stringify([...readLearningRecords(), record]));
+  try {
+    window.localStorage.setItem(LEARNING_RECORDS_STORAGE_KEY, JSON.stringify([...readLearningRecords(), record]));
+  } catch {
+    // Storage can be unavailable or full; completing a question must still succeed.
+  }
 }

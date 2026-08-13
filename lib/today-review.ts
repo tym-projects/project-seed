@@ -52,6 +52,24 @@ function getTime(value: string) {
   return Number.isNaN(time) ? -Infinity : time;
 }
 
+function isReviewLearningRecord(value: unknown): value is ReviewLearningRecord {
+  if (typeof value !== 'object' || value === null) {
+    return false;
+  }
+
+  const record = value as Record<string, unknown>;
+
+  return (
+    typeof record.student === 'string' &&
+    typeof record.subject === 'string' &&
+    typeof record.questionId === 'string' && record.questionId.length > 0 &&
+    typeof record.firstAnswer === 'number' && Number.isFinite(record.firstAnswer) &&
+    typeof record.finalAnswer === 'number' && Number.isFinite(record.finalAnswer) &&
+    typeof record.attempts === 'number' && Number.isInteger(record.attempts) && record.attempts >= 1 &&
+    typeof record.createdAt === 'string' && Number.isFinite(Date.parse(record.createdAt))
+  );
+}
+
 function requiredRetries(record: ReviewLearningRecord) {
   return record.attempts > 1;
 }
@@ -160,7 +178,10 @@ export function selectTodayReviewQuestions<T extends ReviewQuestion>({
     }
   }
 
-  const relevantRecords = records.filter((record) => record.student === student && record.subject === subject && questionById.has(record.questionId));
+  const relevantRecords = records.filter(
+    (record): record is ReviewLearningRecord =>
+      isReviewLearningRecord(record) && record.student === student && record.subject === subject && questionById.has(record.questionId),
+  );
   const todayKey = getLocalDateKey(now, timeZone);
   const completedToday = new Set(
     relevantRecords

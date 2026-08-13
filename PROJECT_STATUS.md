@@ -5,23 +5,22 @@
 ## Current Baseline
 
 - **Repository:** `C:\Users\yenmi\Documents\2026AST-dev`
-- **Current Sprint:** Sprint 10
+- **Current Sprint:** Sprint 11
 - **Sprint Status:** Completed
 - **Branch:** `main`
-- **Last Implementation Commit:** `7ebd45f` — `feat: add daily review selection`
-- **Current HEAD:** `46f4799` — `docs: clarify sprint 10 baseline`
-- **Sprint 10 Documentation Baseline Commit:** `c77b831` — `docs: establish progress source of truth`
+- **Last Implementation Commit:** Sprint 11 implementation commit will be recorded after it is created.
 - **Push Status:** 已同步 / ahead 0 / behind 0
-- **Tests:** 26/26 passed
+- **Tests:** 33/33 passed
 - **Lint:** passed
 - **Build:** passed
 - **TypeScript:** passed
-- **Browser / E2E Verification:** 瀏覽器逐題互動及 localStorage 端對端流程尚未完整驗證
-- **Git Status:** clean
-- **Next Step:** 開始 Sprint 11 規劃
+- **Browser / E2E Verification:** 姐姐與妹妹一般國語作答、Learning Record 建立、今日複習當日排除、refresh persistence 與資料隔離皆已實測；malformed／legacy localStorage 以純資料測試驗證可安全忽略。
+- **Git Status:** clean after commit and push verification
+- **Next Step:** 等待 Sprint 12 規劃。
 
 ## Completed Sprint History
 
+- **Sprint 11 — Daily Review E2E & Reliability：** Learning Record 讀寫加入 malformed／legacy data、防止無效日期與不合理 attempts、以及 localStorage 寫入失敗的安全防禦；Daily Review 忽略 invalid Learning Record 並完成姐姐／妹妹實際瀏覽器流程驗證。
 - **Sprint 10 — 今日複習：** 依 Learning Record 選出最多 5 題國語複習題；當日已完成題目不重複選入，姐姐與妹妹資料隔離。
 - **Sprint 9 — 孩子學習紀錄：** `/parent` 顯示姐姐與妹妹各自的 Learning Record 摘要與可讀紀錄。
 - **Sprint 8 — 妹妹國語與共用學習流程：** 姐姐與妹妹共用國語答題流程，保留各自題庫、主題與 Learning Record。

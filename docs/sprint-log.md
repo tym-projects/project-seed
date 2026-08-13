@@ -1,5 +1,12 @@
 # Sprint Log
 
+## Sprint 11 — Daily Review E2E & Reliability
+
+- Learning Record 讀取僅保留可安全使用的 v1 record：忽略 malformed JSON、非陣列資料、無效日期、非有限或不合理 attempts 與缺少必要欄位的 legacy data。
+- localStorage 寫入失敗時不再中斷孩子的作答完成流程。
+- Daily Review 在收到 malformed／invalid Learning Record 時安全忽略，維持最多 5 題、學生／科目隔離、今日排除與既有優先順序。
+- `npm test` 已納入 `lib/questions/meimei-chinese.test.mjs`，實際執行 33/33 tests；lint、TypeScript、production build 與姐姐／妹妹 Browser flows 均完成驗證。
+
 ## Sprint 10 — 今日複習
 
 - 新增純資料選題模組，最多選 5 題，依最近重試題、掌握不穩定題、久未複習題補足。
