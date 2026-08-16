@@ -14,6 +14,7 @@ export type QuestionCardQuestion = {
   question: string;
   options: string[];
   answer: number;
+  hint?: string;
   explanation: string;
   encouragement: string;
 };
@@ -130,6 +131,7 @@ export function QuestionCard({
           isCorrect={isCorrect}
           encouragement={question.encouragement}
           explanation={question.explanation}
+          hint={question.hint}
           theme={theme}
         />
       )}

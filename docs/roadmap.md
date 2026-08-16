@@ -1,5 +1,10 @@
 # Project Seed Roadmap
 
+## Sprint 16 Completed
+
+- Question Bank Expansion v1: 11 new approved independent learning units brought the total to 16, with active-topic coverage set by external configuration and legacy topics retained outside the active coverage gate.
+- Next step: 等待 Sprint 17 規劃。
+
 ## Sprint 15 Completed
 
 - Parent Learning Summary v1: separate student summaries for Today and Last 7 Days, current due learning units, and deterministic attention items.

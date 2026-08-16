@@ -1,5 +1,13 @@
 # Sprint Log
 
+## Sprint 16 — Question Bank Expansion v1
+
+- Completed 11 new independent learning units, for 16 independent learning units in total: 姐姐新增成語運用 2 題、錯別字辨識 3 題；妹妹新增詞語意思 2 題、動作詞辨識 2 題、量詞運用 2 題。
+- Active coverage is 成語運用 2、錯別字辨識 3、詞語意思 3、動作詞辨識 3、量詞運用 3。注音辨識 1 與部首辨識 1 保留為 legacy / retained。
+- Added and completed hint behavior. Active / legacy coverage uses external configuration with topic-specific overrides; the Question schema remains unchanged for this scope. Learning-unit identity remains `reviewGroupId ?? question.id`.
+- Sprint 13–15 behavior and data semantics remain unchanged.
+- Verification: 87/87 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Browser read-only smoke confirmed 姐姐國語、妹妹國語、`/jiejie/review`、`/meimei/review` load normally without console errors. To protect existing localStorage, no answers were submitted; per-question new-question UI and incorrect-answer hint interaction were not manually browser-verified, and are covered by automated tests.
+
 ## Sprint 15 — Parent Learning Summary v1
 
 - Added pure local-calendar summaries for each student/subject: completed attempts, first-try correct count/rate, retry-bearing attempts, latest learning date, and due learning units.

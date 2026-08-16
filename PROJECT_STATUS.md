@@ -1,5 +1,15 @@
 # Project Status
 
+## Sprint 16 Completion
+
+- **Current Sprint:** Sprint 16
+- **Sprint Status:** Completed
+- **Last Implementation Commit:** pending Sprint 16 close commit
+- **Tests:** 87/87 passed
+- **Lint / TypeScript / Build / diff check:** passed
+- **Browser smoke:** 姐姐國語頁、妹妹國語頁、`/jiejie/review` 與 `/meimei/review` 均正常，無 console error。為保護既有 localStorage，本次 Browser smoke 未實際作答；因此新題逐題 UI 與錯答後 hint 的 browser interaction 未手動驗證，相關行為已有 automated tests 覆蓋。
+- **Next Step:** 等待 Sprint 17 規劃。
+
 ## Sprint 15 Completion
 
 - **Current Sprint:** Sprint 15
@@ -26,16 +36,16 @@
 ## Current Baseline
 
 - **Repository:** `C:\Users\yenmi\Documents\2026AST-dev`
-- **Current Sprint:** Sprint 14
+- **Current Sprint:** Sprint 16
 - **Sprint Status:** Completed
 - **Branch:** `main`
-- **Last Implementation Commit:** pending Sprint 14 commit
-- **Push Status:** 尚未要求 push；同步前須以本地與 `origin/main` refs 即時核對。
-- **Tests:** 67/67 passed
+- **Last Implementation Commit:** pending Sprint 16 close commit
+- **Push Status:** Sprint 16 close commit 後，須 push 至 `origin/main` 並即時核對。
+- **Tests:** 87/87 passed
 - **Lint / TypeScript / Build / diff check:** passed
-- **Browser smoke:** `/jiejie/review` and `/meimei/review` loaded without console errors. Manual timer/session smoke is blocked because the available browser tooling cannot create an isolated storage context and must not modify the existing browser profile.
-- **Git Status:** Sprint 14 changes pending commit; no push requested.
-- **Next Step:** 等待 Sprint 15 規劃。
+- **Browser smoke:** 姐姐國語頁、妹妹國語頁、`/jiejie/review` 與 `/meimei/review` 均正常，無 console error。為保護既有 localStorage，本次未實際作答；新題逐題 UI 與錯答後 hint 的 browser interaction 未手動驗證，相關行為已有 automated tests 覆蓋。
+- **Git Status:** Sprint 16 close commit 與 remote verification pending。
+- **Next Step:** 等待 Sprint 17 規劃。
 
 ## Completed Sprint History
 

@@ -2,8 +2,17 @@ type QuestionResultProps = {
   isCorrect: boolean;
   encouragement: string;
   explanation: string;
+  hint?: string;
   theme: 'pink' | 'green';
 };
+
+type QuestionResultHintInput = Pick<QuestionResultProps, 'isCorrect' | 'hint'> & {
+  isSubmitted: boolean;
+};
+
+export function getQuestionResultHint({ isSubmitted, isCorrect, hint }: QuestionResultHintInput) {
+  return isSubmitted && !isCorrect && hint?.trim() ? hint : undefined;
+}
 
 const resultClasses = {
   pink: {
@@ -16,7 +25,9 @@ const resultClasses = {
   },
 };
 
-export function QuestionResult({ isCorrect, encouragement, explanation, theme }: QuestionResultProps) {
+export function QuestionResult({ isCorrect, encouragement, explanation, hint, theme }: QuestionResultProps) {
+  const incorrectHint = getQuestionResultHint({ isSubmitted: true, isCorrect, hint });
+
   return (
     <div className={`mt-5 rounded-xl p-4 text-center ${resultClasses[theme][isCorrect ? 'correct' : 'incorrect']}`}>
       {isCorrect ? (
@@ -28,6 +39,7 @@ export function QuestionResult({ isCorrect, encouragement, explanation, theme }:
         <>
           <p className="text-lg font-bold">❌ 答錯了。</p>
           <p className="mt-2">再想一次！</p>
+          {incorrectHint && <p className="mt-2">提示：{incorrectHint}</p>}
         </>
       )}
     </div>
