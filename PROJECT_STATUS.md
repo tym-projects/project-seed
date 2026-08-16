@@ -4,7 +4,7 @@
 
 - **Current Sprint:** Sprint 16
 - **Sprint Status:** Completed
-- **Last Implementation Commit:** pending Sprint 16 close commit
+- **Last Implementation Commit:** `058a6aa` Complete Sprint 16 question bank expansion
 - **Tests:** 87/87 passed
 - **Lint / TypeScript / Build / diff check:** passed
 - **Browser smoke:** 姐姐國語頁、妹妹國語頁、`/jiejie/review` 與 `/meimei/review` 均正常，無 console error。為保護既有 localStorage，本次 Browser smoke 未實際作答；因此新題逐題 UI 與錯答後 hint 的 browser interaction 未手動驗證，相關行為已有 automated tests 覆蓋。
@@ -39,12 +39,12 @@
 - **Current Sprint:** Sprint 16
 - **Sprint Status:** Completed
 - **Branch:** `main`
-- **Last Implementation Commit:** pending Sprint 16 close commit
-- **Push Status:** Sprint 16 close commit 後，須 push 至 `origin/main` 並即時核對。
+- **Last Implementation Commit:** `058a6aa` Complete Sprint 16 question bank expansion
+- **Push Status:** `main` 已推送並與 `origin/main` 同步（ahead / behind = 0 / 0）。
 - **Tests:** 87/87 passed
 - **Lint / TypeScript / Build / diff check:** passed
 - **Browser smoke:** 姐姐國語頁、妹妹國語頁、`/jiejie/review` 與 `/meimei/review` 均正常，無 console error。為保護既有 localStorage，本次未實際作答；新題逐題 UI 與錯答後 hint 的 browser interaction 未手動驗證，相關行為已有 automated tests 覆蓋。
-- **Git Status:** Sprint 16 close commit 與 remote verification pending。
+- **Git Status:** Sprint 16 close commit 已推送；working tree clean。
 - **Next Step:** 等待 Sprint 17 規劃。
 
 ## Completed Sprint History
