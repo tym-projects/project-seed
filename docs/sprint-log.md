@@ -171,3 +171,23 @@
 - 錯誤提示
 - 多題切換
 - 答錯後需重新理解，不能直接進入下一題
+## Sprint 20 — Parent Learning Summary v2 and Isolated Browser Smoke
+
+- **Status:** Implementation complete / Awaiting Final Human Review.
+- Workstream A added Playwright/Chromium configuration, separate `npm run test:browser`, explicit synthetic storage fixtures, disposable browser contexts, teardown, and ignored diagnostics. It does not use an existing Chrome/Edge profile or real localStorage.
+- Sprint 18 smoke passed: primary → deterministic confirmation, actual question IDs, refresh/reopen pending confirmation, unchanged `startedAt`, and same-day progression protection.
+- Sprint 19 smoke passed: 姐姐 practice entry, hint/explanation/retry/completion, no Learning Record／ReviewSession writes, and student/subject isolation.
+- Workstream B extended the pure parent summary: valid local-day record windows, record versus learning-group counts, first-try rate, retry-bearing record count, recurring retry groups on at least two distinct local dates capped at three, all-group due overview beyond the five-group review cap, and pending confirmation separated from normal due items.
+- Parent UI smoke passed for populated and empty synthetic data, both student sections, neutral no-data wording, recurring retry wording, due/pending separation, and console-error checks.
+- **Verification:** 136/136 Node tests passed; Browser smoke 9/9 passed; lint, TypeScript, production build, and `git diff --check` passed.
+- **Data safety:** No Learning Record／ReviewSession schema or storage-key changes; no permanent analytics/mastery/practice state; no 1/3/7, retry, Sprint 18 confirmation, or Sprint 17 timer changes; no real user data touched.
+- **Known limitation:** Browser smoke is intentionally separate from `npm test` and CI enforcement. Dependency installation reported audit warnings; no automatic audit remediation was performed.
+- **Next Step:** Final Human Review；不得在本階段宣告 Completed 或 commit/push。
+
+## Sprint 20 Dependency Security Follow-up
+
+- Updated `next`／`eslint-config-next` to `16.3.5`, `@eslint/eslintrc` to `3.3.7`, `typescript-eslint` to `8.70.0`, `nanoid` to `3.3.18`, and `brace-expansion` to `1.1.18` using compatible patch/non-major upgrades; no force override or `npm audit fix --force` was used.
+- The original `next` Critical and `sharp`／`postcss`／`nanoid`／`brace-expansion`／`js-yaml` High findings are resolved. Final `npm audit`: 0 vulnerabilities.
+- Compatibility verification: 136/136 Node tests, lint, TypeScript, production build, 9/9 isolated Browser smoke tests, and `git diff --check` passed.
+- Learning Record／ReviewSession schemas, Parent Summary v2 semantics, Sprint 18/19 behavior, 1/3/7, retry, confirmation, and timer semantics remain unchanged.
+- Status remains Implementation complete / Awaiting Final Security Human Review; no commit, push, or Sprint Close performed.

@@ -1,5 +1,16 @@
 # Project Seed Roadmap
 
+## Sprint 20 — Parent Learning Summary v2 and Isolated Browser Smoke
+
+- **Status:** Implementation complete / Awaiting Final Human Review.
+- Added a reusable `@playwright/test` + Chromium harness using disposable contexts, synthetic whitelisted storage, ignored artifacts, and a separate `npm run test:browser` command.
+- Completed isolated Browser smoke for Sprint 18 primary → confirmation/reopen/timer behavior, Sprint 19 practice/no-write/isolation, and Sprint 20 parent summary UI.
+- Extended the read-only parent summary with completed answer-record counts, distinct learning-group counts, first-try rate, retry-bearing record counts, recurring cross-date retry groups capped at three, all-group due overview, and pending confirmation separated from normal due items.
+- Preserved Learning Record／ReviewSession schemas, Sprint 17 timer／`startedAt`, Sprint 18 confirmation, Sprint 19 no-write practice, and Today Review’s five-group selection limit.
+- Verification: 136/136 Node tests and 9/9 Browser smoke tests passed; lint, TypeScript, production build, and `git diff --check` passed.
+- Dependency security follow-up: upgraded Next.js and compatible lint/tooling transitive chains; final `npm audit` reports 0 vulnerabilities across production and dev dependencies. No product/data semantics changed.
+- **Next Step:** Final Human Review；核准後再進行 commit／push／Sprint Close。
+
 ## Sprint 19 — Wrong Question Practice v1 Completed
 
 - Added deterministic reinforcement candidate selection using `reviewGroupId ?? question.id`, prior seven local calendar days, recent retry signals, due/today/pending-confirmation exclusions, and a three-group cap.
