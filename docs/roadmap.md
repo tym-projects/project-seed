@@ -3,7 +3,8 @@
 ## Sprint 17 Completed
 
 - Parent Review Time Setting v1 provides independent 10／15-minute advisory Chinese review targets for 姐姐 and 妹妹, without changing Learning Records, review sessions, selection, scheduling, variation, parent summary, or hint semantics.
-- Verification passed; implementation commit `ec1e018` and close documentation are synchronized with `origin/main`.
+- Verification: 95/95 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Isolated in-app browser smoke verified parent settings, sister isolation, refresh persistence, both review flows, and no console errors; controlled elapsed-time UI remains covered by automated timer/session tests.
+- Canonical repository: `C:\Users\admin\Documents\2026AST-dev`. Implementation commit `ec1e018` and close documentation are synchronized with `origin/main`.
 
 ## Sprint 16 Completed
 

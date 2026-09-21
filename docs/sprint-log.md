@@ -7,6 +7,7 @@
 - Setting changes do not modify Learning Records or active review-session `startedAt`; restored sessions use their original clock with the current target threshold.
 - Verification: 95/95 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Isolated in-app browser smoke verified parent settings, sister isolation, refresh persistence, both review flows, and no console errors. Controlled elapsed-time UI was not manually waited for; automated timer/session tests cover those boundaries.
 - Sprint Close completed after Final Human Review. Implementation commit: `ec1e018` Complete Sprint 17 parent review time setting. Close documentation is synchronized with `origin/main`.
+- Canonical repository: `C:\Users\admin\Documents\2026AST-dev`; the OneDrive copy remains a migration safety backup only.
 
 ## Sprint 16 — Question Bank Expansion v1
 
