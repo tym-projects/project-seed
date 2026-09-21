@@ -56,7 +56,7 @@
 - **Push Status:** Sprint 17 implementation and close documentation commits are pushed to `origin/main`; `main` is synchronized with `origin/main` (ahead / behind = 0 / 0).
 - **Tests:** 95/95 passed
 - **Lint / TypeScript / Build / diff check:** passed
-- **Browser smoke:** 姐姐國語頁、妹妹國語頁、`/jiejie/review` 與 `/meimei/review` 均正常，無 console error。為保護既有 localStorage，本次未實際作答；新題逐題 UI 與錯答後 hint 的 browser interaction 未手動驗證，相關行為已有 automated tests 覆蓋。
+- **Browser smoke:** Isolated in-app storage verified both parent setting groups, sister isolation, refresh persistence, both review flows, and no console errors. Controlled 10／15-minute elapsed-time UI was not manually waited for; automated timer and session tests cover those boundaries.
 - **Git Status:** Sprint 17 close completed; working tree clean.
 - **Next Step:** 等待 Sprint 18 規劃。
 
