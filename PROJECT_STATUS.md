@@ -1,6 +1,6 @@
 # Project Status
 
-## Sprint 19 — Wrong Question Practice v1 Implementation
+## Sprint 19 — Wrong Question Practice v1 Completed
 
 - **Current Sprint:** Sprint 19
 - **Sprint Status:** Completed.

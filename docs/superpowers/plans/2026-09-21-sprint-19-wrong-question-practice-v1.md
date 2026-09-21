@@ -366,9 +366,9 @@
 
 - [x] **Step 5: Final diff and handoff review.**
 
-  Confirm the diff contains only Sprint 19 implementation/test files required by this plan. Confirm no schema, new durable storage key, Sprint 18 history rewrite, build artifact, cache, browser data, or unrelated refactor is present. Update the plan checkboxes only as tasks actually complete; Sprint status remains implementation-in-progress until later Human Review.
+  Confirm the diff contains only Sprint 19 implementation/test files required by this plan. Confirm no schema, new durable storage key, Sprint 18 history rewrite, build artifact, cache, browser data, or unrelated refactor is present. Update the plan checkboxes only as tasks actually complete; at plan-authoring stage Sprint status remained implementation-in-progress until later Human Review.
 
-  This plan does not authorize commit, push, merge, release, or Sprint 19 close.
+  At plan-authoring stage, this plan did not authorize commit, push, merge, release, or Sprint 19 close; those actions required later Human approval.
 
 ## Acceptance Criteria
 
@@ -378,7 +378,7 @@
 - Practice reuses QuestionCard and existing hint／explanation／retry behavior without creating a parallel answer engine.
 - Practice does not write Learning Records, create ReviewSessions, add storage keys, alter 1/3/7, alter retry semantics, trigger Sprint 18 confirmation, change parent summaries, or affect Sprint 17 timer／`startedAt`.
 - Refresh, exit, interruption, and same-day re-entry follow the explicitly non-persistent v1 behavior.
-- `npm test`, lint, TypeScript, build, `git diff --check`, focused regression, and safe isolated browser smoke are completed with actual results recorded.
+- `npm test`, lint, TypeScript, build, `git diff --check`, and focused regression are completed with actual results recorded. Safe isolated browser smoke was not executed because no disposable storage context was available; this limitation is recorded and must not be reported as passed.
 
 ## Execution Status
 
