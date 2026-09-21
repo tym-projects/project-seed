@@ -7,7 +7,9 @@
 - Primary and confirmation each preserve the actual answered `questionId`; `reviewGroupId ?? question.id` remains the scheduling identity. Same-day primary plus confirmation advances 1/3/7 once; confirmation retry resets the group to next-day review.
 - Added pure eligibility, deterministic alternate selection, review-plan, flow-transition, record-ID, scheduling, refresh, daily-cap, student/subject isolation, and Sprint 17 timer/session regression coverage.
 - Verification: 115/115 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Browser smoke covered姐姐 primary review interaction, 妹妹 review, sister isolation, refresh/session timestamp reuse, timer display, and no observed console error in exercised flows. Seeded primary → confirmation and confirmation refresh were not manually run because safe isolated localStorage seeding was unavailable; automated tests cover those paths.
-- Status: implementation complete; awaiting Final Human Review. No commit or push; Sprint 18 is not marked Completed.
+- Implementation commit: `5a672cb` Complete Sprint 18 understanding confirmation v1.
+- Push status: pushed to `origin/main`; local `main` equals `origin/main`.
+- Status: Completed. Next Step: 等待 Sprint 19 規劃。
 
 ## Sprint 17 — Parent Review Time Setting v1
 

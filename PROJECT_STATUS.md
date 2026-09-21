@@ -3,13 +3,15 @@
 ## Sprint 18 — Understanding Confirmation v1 Implementation
 
 - **Current Sprint:** Sprint 18
-- **Sprint Status:** Implementation complete; awaiting Final Human Review. Sprint 18 is not marked Completed.
+- **Sprint Status:** Completed.
 - **Repository:** `C:\Users\admin\Documents\2026AST-dev` (canonical development repository). The OneDrive copy remains migration safety backup only.
 - **Implementation:** Added due-review-only deterministic alternate-variation confirmation. Eligibility requires prior history with one distinct variation, at least two group variations, due state, and no record today. Pending confirmation is reconstructed from today’s primary-only record; primary plus confirmation is same-day excluded. Learning Record and ReviewSession schemas remain unchanged.
 - **Tests:** 115/115 Node tests passed, including 57 focused Sprint 18 confirmation/flow/selection/scheduling tests.
 - **Lint / TypeScript / Build / diff check:** passed. `git diff --check` emitted only expected LF/CRLF normalization warnings.
 - **Browser smoke:**姐姐 primary review answer flow, 妹妹 review, sister isolation, refresh/reopen of active review session, and Sprint 17 elapsed-time display (`已複習 0 分鐘`) verified. Primary → confirmation with seeded historical records and confirmation refresh were not manually run because safe browser tooling could not seed isolated localStorage without changing test data; automated tests cover deterministic pending reconstruction, flow transitions, record IDs, progression, retry, and timer/session preservation. No browser console error was observed in the exercised flows.
-- **Next Step:** Final Human Review of Sprint 18 implementation; do not mark Completed, commit, push, or start Sprint 19 before approval.
+- **Implementation Commit:** `5a672cb` Complete Sprint 18 understanding confirmation v1
+- **Push Status:** Pushed to `origin/main`; local `main` is synchronized with `origin/main`.
+- **Next Step:** 等待 Sprint 19 規劃。
 
 ## Sprint 17 Completion
 
@@ -61,15 +63,15 @@
 
 - **Repository:** `C:\Users\admin\Documents\2026AST-dev`
 - **Current Sprint:** Sprint 18
-- **Sprint Status:** Implementation complete; awaiting Final Human Review
+- **Sprint Status:** Completed
 - **Branch:** `main`
-- **Last Implementation Commit:** `ec1e018` Complete Sprint 17 parent review time setting
-- **Push Status:** Sprint 17 implementation and close documentation commits are pushed to `origin/main`; `main` is synchronized with `origin/main` (ahead / behind = 0 / 0).
+- **Last Implementation Commit:** `5a672cb` Complete Sprint 18 understanding confirmation v1
+- **Push Status:** Sprint 18 implementation and close documentation commit are pushed to `origin/main`; `main` is synchronized with `origin/main` (ahead / behind = 0 / 0).
 - **Tests:** 114/114 passed
 - **Lint / TypeScript / Build / diff check:** passed
 - **Browser smoke:** Isolated in-app storage verified both parent setting groups, sister isolation, refresh persistence, both review flows, and no console errors. Controlled 10／15-minute elapsed-time UI was not manually waited for; automated timer and session tests cover those boundaries.
-- **Git Status:** Sprint 18 implementation and documentation are uncommitted; no reset, clean, checkout, stash, merge, rebase, commit, or push performed.
-- **Next Step:** Sprint 18 Final Human Review。
+- **Git Status:** Sprint 18 close completed; working tree clean.
+- **Next Step:** 等待 Sprint 19 規劃。
 
 ## Completed Sprint History
 

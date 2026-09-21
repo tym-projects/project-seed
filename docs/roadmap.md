@@ -1,6 +1,6 @@
 # Project Seed Roadmap
 
-## Sprint 18 — Understanding Confirmation v1 (Implementation Awaiting Review)
+## Sprint 18 — Understanding Confirmation v1 Completed
 
 - Implemented due-review-only confirmation using a deterministic alternate variation within the same learning group.
 - Eligibility requires at least two variations, one distinct historical completed variation, due state, and no record today. Legacy and single-variation questions keep the existing path.
@@ -8,7 +8,9 @@
 - Refresh/reopen reconstructs pending confirmation from today’s primary-only record without adding Learning Record, ReviewSession, or permanent persistence state.
 - Daily selection remains capped at five groups; Sprint 17 timer and `startedAt` semantics are unchanged.
 - Verification: 115/115 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Browser smoke covered safe primary review, 妹妹 review, sister isolation, refresh/session timestamp reuse, and timer display; seeded primary → confirmation browser interaction remains pending safe isolated data setup and is covered by automated tests.
-- Status: implementation complete, awaiting Final Human Review; not yet Completed, committed, or pushed.
+- Implementation commit: `5a672cb` Complete Sprint 18 understanding confirmation v1.
+- Push status: pushed to `origin/main`; `main` synchronized with `origin/main`.
+- Status: Completed. Next Step: 等待 Sprint 19 規劃。
 
 ## Sprint 17 Completed
 
