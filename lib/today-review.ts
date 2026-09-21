@@ -1,4 +1,10 @@
 import { deriveReviewState, getLocalDateKey, type ReviewState } from '@/lib/spaced-review';
+import {
+  findPendingConfirmation,
+  isConfirmationEligible,
+  selectConfirmationVariation,
+  type ConfirmationPlan,
+} from '@/lib/understanding-confirmation';
 
 export type ReviewQuestion = {
   id: string;
@@ -147,7 +153,7 @@ function selectVariation<T extends ReviewQuestion>(group: ReviewGroup<T>, record
   return group.questions[selectedIndex];
 }
 
-export function selectTodayReviewQuestions<T extends ReviewQuestion>({
+export function selectTodayReviewItems<T extends ReviewQuestion>({
   questions,
   records,
   student,
@@ -155,7 +161,7 @@ export function selectTodayReviewQuestions<T extends ReviewQuestion>({
   now,
   timeZone,
   maxQuestions = MAX_QUESTIONS,
-}: TodayReviewOptions<T>): T[] {
+}: TodayReviewOptions<T>): ConfirmationPlan<T>[] {
   const questionById = new Map<string, T>();
 
   for (const question of questions) {
@@ -184,9 +190,7 @@ export function selectTodayReviewQuestions<T extends ReviewQuestion>({
       .map((record) => questionGroupById.get(record.questionId))
       .filter((groupId): groupId is string => groupId !== undefined),
   );
-  const histories = [...groupsById.values()]
-    .filter((group) => !completedGroupIdsToday.has(group.id))
-    .map<GroupHistory<T>>((group) => ({
+  const allHistories = [...groupsById.values()].map<GroupHistory<T>>((group) => ({
       group,
       state: deriveReviewState({
         records,
@@ -198,8 +202,21 @@ export function selectTodayReviewQuestions<T extends ReviewQuestion>({
         timeZone,
       }),
     }));
+  const pendingByGroupId = new Map(
+    allHistories
+      .map((history) => [
+        history.group.id,
+        findPendingConfirmation({ group: history.group, records, student, subject, now, timeZone }),
+      ] as const)
+      .filter((entry): entry is readonly [string, NonNullable<typeof entry[1]>] => entry[1] !== null),
+  );
+  const pendingHistories = allHistories.filter((history) => pendingByGroupId.has(history.group.id));
+  const histories = allHistories.filter((history) => (
+    pendingByGroupId.has(history.group.id) || !completedGroupIdsToday.has(history.group.id)
+  ));
   const selected: GroupHistory<T>[] = [];
   const limit = Math.min(Math.max(maxQuestions, 0), MAX_QUESTIONS);
+  addWithTopicSpread(selected, pendingHistories, compareDue, limit);
   const dueUnstable = histories.filter((history) => history.state.isDue && (history.state.lastSessionHadWrong || history.state.stableSuccessStreak < 2));
   const dueStable = histories.filter((history) => history.state.isDue && !dueUnstable.includes(history));
   const neverCompleted = histories.filter((history) => history.state.lastCompletedLocalDate === null);
@@ -208,5 +225,36 @@ export function selectTodayReviewQuestions<T extends ReviewQuestion>({
   addWithTopicSpread(selected, dueStable, compareDue, limit);
   addWithTopicSpread(selected, neverCompleted, compareNeverCompleted, limit);
 
-  return selected.map((history) => selectVariation(history.group, validRecords, student, subject, todayKey));
+  let confirmationAssigned = false;
+  return selected.map<ConfirmationPlan<T>>((history) => {
+    const pending = pendingByGroupId.get(history.group.id);
+    if (pending) {
+      return { groupId: history.group.id, primary: pending.confirmation, confirmation: null };
+    }
+
+    const primary = selectVariation(history.group, validRecords, student, subject, todayKey);
+    const confirmation = !confirmationAssigned && isConfirmationEligible({
+      group: history.group,
+      records,
+      student,
+      subject,
+      now,
+      timeZone,
+    })
+      ? selectConfirmationVariation({
+        group: history.group,
+        primaryQuestionId: primary.id,
+        records: validRecords,
+        student,
+        subject,
+        localReviewDate: todayKey,
+      })
+      : null;
+    if (confirmation) confirmationAssigned = true;
+    return { groupId: history.group.id, primary, confirmation };
+  });
+}
+
+export function selectTodayReviewQuestions<T extends ReviewQuestion>(options: TodayReviewOptions<T>): T[] {
+  return selectTodayReviewItems(options).map((item) => item.primary);
 }

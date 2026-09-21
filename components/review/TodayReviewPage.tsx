@@ -7,7 +7,8 @@ import type { QuestionCardQuestion } from '@/components/question/QuestionCard';
 import { readLearningRecords, type StudentId } from '@/lib/learning-records';
 import { endReviewSession, getOrCreateReviewSession, type ReviewSession } from '@/lib/review-sessions';
 import { getReviewTargetMinutes, type ReviewTargetMinutes } from '@/lib/review-time-settings';
-import { selectTodayReviewQuestions } from '@/lib/today-review';
+import { selectTodayReviewItems } from '@/lib/today-review';
+import type { ConfirmationPlan } from '@/lib/understanding-confirmation';
 
 type TodayReviewPageProps = {
   questions: QuestionCardQuestion[];
@@ -23,7 +24,7 @@ const themeClasses = {
 };
 
 export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel }: TodayReviewPageProps) {
-  const [reviewQuestions, setReviewQuestions] = useState<QuestionCardQuestion[] | null>(null);
+  const [reviewItems, setReviewItems] = useState<ConfirmationPlan<QuestionCardQuestion>[] | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [reviewSession, setReviewSession] = useState<ReviewSession | null>(null);
   const [reviewTargetMinutes, setReviewTargetMinutes] = useState<ReviewTargetMinutes | null>(null);
@@ -31,8 +32,8 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
-      setReviewQuestions(
-        selectTodayReviewQuestions({
+      setReviewItems(
+        selectTodayReviewItems({
           questions,
           records: readLearningRecords(),
           student,
@@ -46,14 +47,15 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
     return () => window.clearTimeout(timeoutId);
   }, [questions, student]);
 
-  if (reviewQuestions === null) {
+  if (reviewItems === null) {
     return <main className={`min-h-screen ${classes.page}`} />;
   }
 
-  if (hasStarted && reviewSession !== null && reviewQuestions.length > 0) {
+  if (hasStarted && reviewSession !== null && reviewItems.length > 0) {
     return (
       <ChineseQuestionFlow
-        questions={reviewQuestions}
+        questions={reviewItems.map((item) => item.primary)}
+        reviewItems={reviewItems}
         student={student}
         theme={theme}
         pageTitle="今日複習"
@@ -72,9 +74,9 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
     <main className={`flex min-h-screen flex-col items-center justify-center px-6 py-12 ${classes.page}`}>
       <section className="w-full max-w-xl rounded-2xl bg-white p-8 text-center shadow-lg sm:p-10">
         <h1 className={`text-4xl font-bold ${classes.title}`}>今日複習</h1>
-        {reviewQuestions.length > 0 ? (
+        {reviewItems.length > 0 ? (
           <>
-            <p className="mt-5 text-2xl font-bold text-gray-800">今天準備了 {reviewQuestions.length} 題。</p>
+            <p className="mt-5 text-2xl font-bold text-gray-800">今天準備了 {reviewItems.length} 題。</p>
             <p className="mt-3 text-lg text-gray-700">慢慢想，答錯也可以再試一次。</p>
             <button type="button" onClick={() => {
               const session = getOrCreateReviewSession({

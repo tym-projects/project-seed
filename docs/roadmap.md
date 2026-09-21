@@ -1,5 +1,15 @@
 # Project Seed Roadmap
 
+## Sprint 18 — Understanding Confirmation v1 (Implementation Awaiting Review)
+
+- Implemented due-review-only confirmation using a deterministic alternate variation within the same learning group.
+- Eligibility requires at least two variations, one distinct historical completed variation, due state, and no record today. Legacy and single-variation questions keep the existing path.
+- Primary and confirmation preserve their actual `questionId`; same-group same-day records still produce one 1/3/7 progression, and retry schedules the group for the next day.
+- Refresh/reopen reconstructs pending confirmation from today’s primary-only record without adding Learning Record, ReviewSession, or permanent persistence state.
+- Daily selection remains capped at five groups; Sprint 17 timer and `startedAt` semantics are unchanged.
+- Verification: 115/115 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Browser smoke covered safe primary review, 妹妹 review, sister isolation, refresh/session timestamp reuse, and timer display; seeded primary → confirmation browser interaction remains pending safe isolated data setup and is covered by automated tests.
+- Status: implementation complete, awaiting Final Human Review; not yet Completed, committed, or pushed.
+
 ## Sprint 17 Completed
 
 - Parent Review Time Setting v1 provides independent 10／15-minute advisory Chinese review targets for 姐姐 and 妹妹, without changing Learning Records, review sessions, selection, scheduling, variation, parent summary, or hint semantics.
@@ -31,7 +41,6 @@
 
 - 3 天後再次確認，以及一次答對不等於真正理解的進階確認。
 - 進階間隔複習（SM-2、更多週期或遺忘曲線）。
-- 同觀念不同問法／變化題。
 - AI 選題與難度演算法。
 - 家長設定複習時間。
 - 每日／每週實際學習時長分析。
