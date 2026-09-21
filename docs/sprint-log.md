@@ -1,5 +1,14 @@
 # Sprint Log
 
+## Sprint 19 — Wrong Question Practice v1
+
+- Added deterministic reinforcement selection for the prior seven local calendar days. Learning units use `reviewGroupId ?? question.id`; recent retry signals are grouped, ranked deterministically, and capped at three groups. Today records, due groups, and Sprint 18 pending confirmation groups are excluded.
+- Added independent `/jiejie/reinforce` and `/meimei/reinforce` entries and routes. The shared QuestionCard flow now has an explicit reinforcement mode that preserves hints, explanations, retry, next-question, and completion feedback without saving Learning Records.
+- Reinforcement practice does not create or clear ReviewSessions, add storage keys, alter 1/3/7, trigger Sprint 18 confirmation, change parent summary, or affect Sprint 17 timer／`startedAt`. Refresh and interruption reset the unsaved UI state; same-day re-entry may recompute the same deterministic candidates.
+- Verification: 131/131 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Browser smoke was not manually executed because available tooling could not create a disposable isolated localStorage profile/context; existing user localStorage was not touched. Automated tests cover no-write behavior, isolation, candidate boundaries, formal review protection, refresh semantics, timestamp tie-break determinism, and Sprint 13–18 regression.
+- Implementation commit: not created; Sprint 19 remains uncommitted pending Final Human Review.
+- Status: Implementation complete / Awaiting Final Human Review. Next Step: Sprint 19 Final Human Review。
+
 ## Sprint 18 — Understanding Confirmation v1
 
 - Added due-review-only understanding confirmation for eligible variation groups. A group needs at least two variations, one distinct historical completed variation, due state, and no record today; the first eligible group in existing order receives at most one deterministic confirmation.

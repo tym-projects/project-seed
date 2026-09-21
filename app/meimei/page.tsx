@@ -8,6 +8,7 @@ export default function MeiMeiPage() {
         <ul className="mt-4 space-y-3">
           <li><a href="/meimei/chinese" className="hover:text-green-600 hover:underline">國語練習</a></li>
           <li><a href="/meimei/review" className="hover:text-green-600 hover:underline">今日複習</a></li>
+          <li><a href="/meimei/reinforce" className="hover:text-green-600 hover:underline">再練一次</a></li>
           <li>英文練習</li>
           <li>數學練習</li>
         </ul>

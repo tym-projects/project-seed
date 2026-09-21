@@ -8,6 +8,7 @@ export default function JieJiePage() {
         <ul className="mt-4 space-y-3">
           <li><a href="/jiejie/chinese" className="hover:text-pink-600 hover:underline">國語練習</a></li>
           <li><a href="/jiejie/review" className="hover:text-pink-600 hover:underline">今日複習</a></li>
+          <li><a href="/jiejie/reinforce" className="hover:text-pink-600 hover:underline">再練一次</a></li>
           <li>英文練習</li>
           <li>數學練習</li>
         </ul>

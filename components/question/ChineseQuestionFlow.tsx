@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { QuestionCard, type QuestionCardQuestion, type QuestionCompletion } from '@/components/question/QuestionCard';
 import { type StudentId, type LearningRecord, saveLearningRecord } from '@/lib/learning-records';
+import { shouldPersistLearningRecord, type QuestionFlowMode } from '@/lib/practice-persistence';
 import type { ConfirmationPlan } from '@/lib/understanding-confirmation';
 import { advanceAfterCompletion, getInitialConfirmationFlowState } from '@/lib/understanding-confirmation-flow';
 import { getReviewTimeNotice } from '@/lib/review-session-time';
@@ -22,6 +23,7 @@ type ChineseQuestionFlowProps = {
   reviewStartedAt?: string;
   reviewTargetMinutes?: ReviewTargetMinutes | null;
   reviewItems?: ConfirmationPlan<QuestionCardQuestion>[];
+  mode?: QuestionFlowMode;
   onReviewComplete?: () => void;
 };
 
@@ -50,6 +52,7 @@ export function ChineseQuestionFlow({
   reviewStartedAt,
   reviewTargetMinutes,
   reviewItems,
+  mode = 'formal-review',
   onReviewComplete,
 }: ChineseQuestionFlowProps) {
   const flowItems: ConfirmationPlan<QuestionCardQuestion>[] = reviewItems ?? questions.map((question) => ({
@@ -91,6 +94,7 @@ export function ChineseQuestionFlow({
     <main className={`flex min-h-screen flex-col items-center justify-center px-6 py-12 ${classes.page}`}>
       <section className="w-full max-w-xl rounded-2xl bg-white p-8 shadow-lg sm:p-10">
         <h1 className={`text-4xl font-bold ${classes.title}`}>{pageTitle}</h1>
+        {mode === 'reinforcement-practice' && <Link href={homeHref} className={`mt-3 inline-block font-bold ${classes.title}`}>{homeLabel}</Link>}
         {reviewStartedAt && <p className="mt-3 text-lg font-bold text-gray-700">已複習 {elapsedMinutes} 分鐘</p>}
         {reviewTimeNotice?.kind === 'gentle-ten-minute' && <p className="mt-3 rounded-xl bg-amber-50 p-3 text-lg font-bold text-amber-800">已經複習 10 分鐘，可以完成目前題目後休息。</p>}
         {reviewTimeNotice?.kind === 'target-complete' && reviewTimeNotice.targetMinutes === 10 && <p className="mt-3 rounded-xl bg-amber-100 p-3 text-lg font-bold text-amber-900">今天已經複習 10 分鐘，可以休息囉！</p>}
@@ -129,7 +133,9 @@ export function ChineseQuestionFlow({
               createdAt: new Date().toISOString(),
             };
 
-            saveLearningRecord(record);
+            if (shouldPersistLearningRecord(mode)) {
+              saveLearningRecord(record);
+            }
             setPendingCompletion(completion);
           }}
           onComplete={() => {

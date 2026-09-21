@@ -1,5 +1,18 @@
 # Project Status
 
+## Sprint 19 — Wrong Question Practice v1 Implementation
+
+- **Current Sprint:** Sprint 19
+- **Sprint Status:** Implementation complete / Awaiting Final Human Review.
+- **Repository:** `C:\Users\admin\Documents\2026AST-dev` (canonical development repository). The OneDrive copy remains migration safety backup only.
+- **Implementation:** Added deterministic, student／subject-isolated reinforcement candidate selection from the prior seven local calendar days, capped at three learning units and excluding today’s records, due groups, and Sprint 18 pending confirmation groups. Added independent 姐姐／妹妹「再練一次」entries and routes. Practice reuses the existing QuestionCard flow in explicit no-write mode and does not create Learning Records, ReviewSessions, permanent state, or timer effects.
+- **Tests:** 131/131 Node tests passed, including candidate boundaries, deterministic grouping, timestamp tie-break determinism, formal review isolation, no-persistence policy, primary-only flow, student／subject isolation, and Sprint 13–18 regression coverage.
+- **Lint / TypeScript / Build / diff check:** passed. Initial sandboxed TypeScript/build attempts could not write ignored incremental/build files; the exact commands passed with canonical repository permission. `git diff --check` passed with expected LF/CRLF normalization warnings only.
+- **Browser smoke:** Not manually executed. Available browser tooling could not create a disposable isolated localStorage profile/context, and existing user localStorage was not touched. Automated tests cover candidate selection, refresh reset semantics, primary-only flow, no Learning Record write policy, schedule/summary invariance, and student／subject isolation.
+- **Implementation Commit:** not created; Final Human Approval is required before commit/push.
+- **Push Status:** not applicable; branch remains at the Sprint 18 close baseline.
+- **Next Step:** Final Human Review for Sprint 19 implementation.
+
 ## Sprint 18 — Understanding Confirmation v1 Implementation
 
 - **Current Sprint:** Sprint 18
@@ -62,16 +75,16 @@
 ## Current Baseline
 
 - **Repository:** `C:\Users\admin\Documents\2026AST-dev`
-- **Current Sprint:** Sprint 18
-- **Sprint Status:** Completed
+- **Current Sprint:** Sprint 19
+- **Sprint Status:** Implementation complete / Awaiting Final Human Review
 - **Branch:** `main`
-- **Last Implementation Commit:** `5a672cb` Complete Sprint 18 understanding confirmation v1
-- **Push Status:** Sprint 18 implementation and close documentation commit are pushed to `origin/main`; `main` is synchronized with `origin/main` (ahead / behind = 0 / 0).
-- **Tests:** 114/114 passed
+- **Last Implementation Commit:** Sprint 18 close baseline `a7d8c3f` (Sprint 19 uncommitted)
+- **Push Status:** Sprint 18 baseline remains synchronized with `origin/main`; Sprint 19 changes are not committed or pushed.
+- **Tests:** 131/131 passed
 - **Lint / TypeScript / Build / diff check:** passed
-- **Browser smoke:** Isolated in-app storage verified both parent setting groups, sister isolation, refresh persistence, both review flows, and no console errors. Controlled 10／15-minute elapsed-time UI was not manually waited for; automated timer and session tests cover those boundaries.
-- **Git Status:** Sprint 18 close completed; working tree clean.
-- **Next Step:** 等待 Sprint 19 規劃。
+- **Browser smoke:** Sprint 19 practice UI not manually verified because safe isolated localStorage setup is unavailable; existing Sprint 18 smoke evidence remains unchanged and Sprint 19 automated coverage is recorded above.
+- **Git Status:** Sprint 19 implementation and documents are uncommitted; no unrelated files included.
+- **Next Step:** Final Human Review for Sprint 19 implementation.
 
 ## Completed Sprint History
 

@@ -1,5 +1,13 @@
 # Project Seed Roadmap
 
+## Sprint 19 — Wrong Question Practice v1 Implementation
+
+- Added deterministic reinforcement candidate selection using `reviewGroupId ?? question.id`, prior seven local calendar days, recent retry signals, due/today/pending-confirmation exclusions, and a three-group cap.
+- Added independent 姐姐／妹妹「再練一次」entries and routes, reusing the existing QuestionCard flow, hints, explanations, retry behavior, and primary-only progression.
+- Practice mode does not write Learning Records, create ReviewSessions, add permanent storage, affect 1/3/7, change Sprint 18 confirmation, alter parent summary, or affect Sprint 17 timer／`startedAt`.
+- Verification: 131/131 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Browser smoke was not manually run because safe isolated localStorage setup was unavailable; automated no-write, isolation, refresh-reset, scheduling, summary, flow, and timestamp tie-break tests cover the behavior.
+- Status: Implementation complete / Awaiting Final Human Review. No commit or push yet. Next Step: Sprint 19 Final Human Review。
+
 ## Sprint 18 — Understanding Confirmation v1 Completed
 
 - Implemented due-review-only confirmation using a deterministic alternate variation within the same learning group.
@@ -47,7 +55,7 @@
 - 家長設定複習時間。
 - 每日／每週實際學習時長分析。
 - 家長模式時間統計。
-- 錯題複習與錯題原因整理；不建立永久錯題狀態，除非未來需求與資料模型明確支持。
+- 錯題原因整理；不建立永久錯題狀態，除非未來需求與資料模型明確支持。
 - 不新增 `recordSource` 等永久選題狀態；複習選題持續由 Learning Record 推導，直到未來需求明確改變此架構決策。
 
 ### 家長、教材與資料能力
