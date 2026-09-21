@@ -1,5 +1,15 @@
 # Sprint Log
 
+## Sprint 20 — Parent Learning Summary v2 and Dependency Security Close
+
+- **Status:** Completed.
+- Added the isolated Playwright/Chromium Browser smoke harness and completed Sprint 18／19 UI補驗 plus Sprint 20 Parent Summary v2 smoke using disposable contexts and synthetic storage only.
+- Final verification: `npm audit` 0 vulnerabilities; Node tests 136/136; Browser smoke 9/9; lint, TypeScript, production build, and `git diff --check` passed.
+- Dependency security updates: `next`／`eslint-config-next` 16.3.5, `@eslint/eslintrc` 3.3.7, `typescript-eslint` 8.70.0, `nanoid` 3.3.18, `brace-expansion` 1.1.18; no force override or audit fix force was used.
+- Learning Record／ReviewSession schemas, Parent Summary v2 semantics, Sprint 18／19 behavior, 1/3/7, retry, confirmation, and timer semantics remain unchanged. Browser smoke remains a separate `npm run test:browser` command and is not a CI mandatory gate.
+- `unrs-resolver` install script remains pending independent allowScripts review and was not auto-approved or executed.
+- Implementation commit: `5382aed` Complete Sprint 20 parent summary v2 and isolated browser smoke. Pushed to `origin/main`; Next Step: 等待 Sprint 21 規劃。
+
 ## Sprint 19 — Wrong Question Practice v1
 
 - Added deterministic reinforcement selection for the prior seven local calendar days. Learning units use `reviewGroupId ?? question.id`; recent retry signals are grouped, ranked deterministically, and capped at three groups. Today records, due groups, and Sprint 18 pending confirmation groups are excluded.

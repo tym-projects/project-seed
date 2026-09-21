@@ -3,14 +3,16 @@
 ## Sprint 20 — Parent Learning Summary v2 and Isolated Browser Smoke
 
 - **Current Sprint:** Sprint 20
-- **Sprint Status:** Implementation complete / Awaiting Final Human Review.
+- **Sprint Status:** Completed.
 - **Repository:** `C:\Users\admin\Documents\2026AST-dev` (canonical development repository). The OneDrive copy remains migration safety backup only.
 - **Implementation:** Added a disposable Playwright + Chromium smoke harness with synthetic, whitelisted storage fixtures. Added read-only parent summary v2 for completed answer records, distinct learning-group counts, first-try rate, retry-bearing records, recurring cross-date retry signals, all-group due overview, and separate pending-confirmation status. Learning Record／ReviewSession schemas, 1/3/7, retry, Sprint 18 confirmation, Sprint 17 timer／`startedAt`, and Sprint 19 no-write practice semantics remain unchanged.
 - **Tests:** 136/136 Node tests passed. Browser smoke: 9/9 passed (bootstrap 2, Sprint 18 3, Sprint 19 2, Sprint 20 parent summary 2).
 - **Lint / TypeScript / Build / diff check:** passed after the final implementation changes.
 - **Browser smoke:** Executed only in disposable headless Chromium contexts with synthetic Learning Records and explicit storage-key whitelist. Sprint 18 primary → confirmation, refresh/reopen, deterministic variation, actual question IDs, timer/session preservation; Sprint 19 practice flow/no-write/isolation; and Sprint 20 parent summary UI/empty state/student isolation all passed. No real user profile or localStorage was touched.
 - **Dependency security:** Updated `next` and `eslint-config-next` to `16.3.5`, `@eslint/eslintrc` to `3.3.7`, `typescript-eslint` to `8.70.0`, `nanoid` to `3.3.18`, and `brace-expansion` to `1.1.18`. `npm audit` now reports 0 vulnerabilities (0 critical/high/moderate/low). Browser artifacts remain local ignored output; `npm run test:browser` remains separate from `npm test` and CI enforcement.
-- **Next Step:** Final Human Review；核准後再決定 commit／push 與 Sprint Close。
+- **Implementation Commit:** `5382aed` Complete Sprint 20 parent summary v2 and isolated browser smoke.
+- **Push Status:** Pushed to `origin/main`; local `main` is synchronized with `origin/main`.
+- **Next Step:** 等待 Sprint 21 規劃。
 
 ## Sprint 19 — Wrong Question Practice v1 Completed
 
