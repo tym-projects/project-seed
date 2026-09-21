@@ -1,16 +1,17 @@
 # Project Status
 
-## Sprint 17 Implementation — Awaiting Final Human Review
+## Sprint 17 Completion
 
 - **Current Sprint:** Sprint 17
-- **Sprint Status:** Implementation and verification completed; awaiting Final Human Review Gate.
+- **Sprint Status:** Completed
 - **Repository:** `C:\Users\admin\Documents\2026AST-dev` (canonical development repository). The OneDrive copy is retained only as a migration safety backup.
 - **Implementation:** Parent Review Time Setting v1 adds independent 10／15-minute Chinese review targets for 姐姐／妹妹 in `project-seed:review-settings:v1`; Learning Records and review sessions remain unchanged.
 - **Tests:** 95/95 Node tests passed.
 - **Lint / TypeScript / Build / diff check:** passed.
 - **Browser smoke:** Isolated in-app storage verified both parent setting groups, sister isolation, refresh persistence, both review flows, and no console errors. Controlled 10／15-minute elapsed-time UI was not manually waited for; automated timer and session tests cover those boundaries.
-- **Git Status:** Sprint 17 changes are uncommitted; no Sprint 17 commit or push has been made.
-- **Next Step:** Final Human Review Gate; do not commit, push, merge, tag, release, or start Sprint 18 before approval.
+- **Last Implementation Commit:** `ec1e018` Complete Sprint 17 parent review time setting
+- **Push Status:** Sprint 17 implementation and close documentation commits are pushed to `origin/main`; `main` is synchronized with `origin/main`.
+- **Next Step:** 等待 Sprint 18 規劃。
 
 ## Sprint 16 Completion
 
@@ -49,15 +50,15 @@
 
 - **Repository:** `C:\Users\admin\Documents\2026AST-dev`
 - **Current Sprint:** Sprint 17
-- **Sprint Status:** Implementation and verification completed; awaiting Final Human Review Gate.
+- **Sprint Status:** Completed
 - **Branch:** `main`
-- **Last Implementation Commit:** `058a6aa` Complete Sprint 16 question bank expansion
-- **Push Status:** `main` 已推送並與 `origin/main` 同步（ahead / behind = 0 / 0）。
+- **Last Implementation Commit:** `ec1e018` Complete Sprint 17 parent review time setting
+- **Push Status:** Sprint 17 implementation and close documentation commits are pushed to `origin/main`; `main` is synchronized with `origin/main` (ahead / behind = 0 / 0).
 - **Tests:** 95/95 passed
 - **Lint / TypeScript / Build / diff check:** passed
 - **Browser smoke:** 姐姐國語頁、妹妹國語頁、`/jiejie/review` 與 `/meimei/review` 均正常，無 console error。為保護既有 localStorage，本次未實際作答；新題逐題 UI 與錯答後 hint 的 browser interaction 未手動驗證，相關行為已有 automated tests 覆蓋。
-- **Git Status:** Sprint 17 changes are uncommitted; no Sprint 17 commit or push has been made.
-- **Next Step:** Final Human Review Gate.
+- **Git Status:** Sprint 17 close completed; working tree clean.
+- **Next Step:** 等待 Sprint 18 規劃。
 
 ## Completed Sprint History
 

@@ -330,4 +330,4 @@ Expected: only files listed in this plan changed. Do not change Sprint status, c
 
 ## Human Approval Gate
 
-Human approved the design, plan, and implementation. Tasks 1–5 are complete. Sprint 17 remains awaiting the separate Final Human Review Gate; do not commit, push, or mark it complete before that approval.
+Human approved the design, plan, implementation, and Final Human Review Gate. Tasks 1–5 and Sprint Close are complete. Implementation commit: `ec1e018` Complete Sprint 17 parent review time setting.

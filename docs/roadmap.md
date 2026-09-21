@@ -1,14 +1,14 @@
 # Project Seed Roadmap
 
-## Sprint 17 — Implementation Verified, Awaiting Final Human Review
+## Sprint 17 Completed
 
 - Parent Review Time Setting v1 provides independent 10／15-minute advisory Chinese review targets for 姐姐 and 妹妹, without changing Learning Records, review sessions, selection, scheduling, variation, parent summary, or hint semantics.
-- Automated verification passed; the Sprint remains open pending Final Human Review and has not been committed or pushed.
+- Verification passed; implementation commit `ec1e018` and close documentation are synchronized with `origin/main`.
 
 ## Sprint 16 Completed
 
 - Question Bank Expansion v1: 11 new approved independent learning units brought the total to 16, with active-topic coverage set by external configuration and legacy topics retained outside the active coverage gate.
-- Next step: Sprint 17 Final Human Review Gate.
+- Next step: 等待 Sprint 18 規劃。
 
 ## Sprint 15 Completed
 

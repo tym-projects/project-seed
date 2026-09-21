@@ -1,12 +1,12 @@
 # Sprint Log
 
-## Sprint 17 — Parent Review Time Setting v1 (Implementation Verified; Awaiting Final Human Review)
+## Sprint 17 — Parent Review Time Setting v1
 
 - Added isolated `project-seed:review-settings:v1` storage for independent 姐姐／妹妹中文 10／15-minute advisory review targets.
 - Unset settings preserve the Sprint 14 10-minute gentle and 15-minute completion reminders. A 10-minute target remains complete at and beyond 10 minutes; a 15-minute target remains gentle from 10–14 minutes and complete from 15 minutes.
 - Setting changes do not modify Learning Records or active review-session `startedAt`; restored sessions use their original clock with the current target threshold.
 - Verification: 95/95 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Isolated in-app browser smoke verified parent settings, sister isolation, refresh persistence, both review flows, and no console errors. Controlled elapsed-time UI was not manually waited for; automated timer/session tests cover those boundaries.
-- Sprint Close is pending Final Human Review. No Sprint 17 commit or push has been made.
+- Sprint Close completed after Final Human Review. Implementation commit: `ec1e018` Complete Sprint 17 parent review time setting. Close documentation is synchronized with `origin/main`.
 
 ## Sprint 16 — Question Bank Expansion v1
 
