@@ -6,6 +6,7 @@ import { ChineseQuestionFlow } from '@/components/question/ChineseQuestionFlow';
 import type { QuestionCardQuestion } from '@/components/question/QuestionCard';
 import { readLearningRecords, type StudentId } from '@/lib/learning-records';
 import { endReviewSession, getOrCreateReviewSession, type ReviewSession } from '@/lib/review-sessions';
+import { getReviewTargetMinutes, type ReviewTargetMinutes } from '@/lib/review-time-settings';
 import { selectTodayReviewQuestions } from '@/lib/today-review';
 
 type TodayReviewPageProps = {
@@ -25,6 +26,7 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
   const [reviewQuestions, setReviewQuestions] = useState<QuestionCardQuestion[] | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [reviewSession, setReviewSession] = useState<ReviewSession | null>(null);
+  const [reviewTargetMinutes, setReviewTargetMinutes] = useState<ReviewTargetMinutes | null>(null);
   const classes = themeClasses[theme];
 
   useEffect(() => {
@@ -60,6 +62,7 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
         completionTitle="今日複習完成！"
         completionMessage="今天的複習已完成，做得很好！"
         reviewStartedAt={reviewSession.startedAt}
+        reviewTargetMinutes={reviewTargetMinutes}
         onReviewComplete={() => endReviewSession(student, 'chinese')}
       />
     );
@@ -74,12 +77,14 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
             <p className="mt-5 text-2xl font-bold text-gray-800">今天準備了 {reviewQuestions.length} 題。</p>
             <p className="mt-3 text-lg text-gray-700">慢慢想，答錯也可以再試一次。</p>
             <button type="button" onClick={() => {
-              setReviewSession(getOrCreateReviewSession({
+              const session = getOrCreateReviewSession({
                 student,
                 subject: 'chinese',
                 now: new Date(),
                 timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-              }));
+              });
+              setReviewSession(session);
+              setReviewTargetMinutes(getReviewTargetMinutes(student, 'chinese'));
               setHasStarted(true);
             }} className={`mt-8 rounded-xl px-6 py-3 font-bold text-white transition-colors ${classes.button}`}>
               開始複習
