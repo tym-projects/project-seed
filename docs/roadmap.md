@@ -1,12 +1,14 @@
 # Project Seed Roadmap
 
-## Sprint 19 — Wrong Question Practice v1 Implementation
+## Sprint 19 — Wrong Question Practice v1 Completed
 
 - Added deterministic reinforcement candidate selection using `reviewGroupId ?? question.id`, prior seven local calendar days, recent retry signals, due/today/pending-confirmation exclusions, and a three-group cap.
 - Added independent 姐姐／妹妹「再練一次」entries and routes, reusing the existing QuestionCard flow, hints, explanations, retry behavior, and primary-only progression.
 - Practice mode does not write Learning Records, create ReviewSessions, add permanent storage, affect 1/3/7, change Sprint 18 confirmation, alter parent summary, or affect Sprint 17 timer／`startedAt`.
 - Verification: 131/131 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Browser smoke was not manually run because safe isolated localStorage setup was unavailable; automated no-write, isolation, refresh-reset, scheduling, summary, flow, and timestamp tie-break tests cover the behavior.
-- Status: Implementation complete / Awaiting Final Human Review. No commit or push yet. Next Step: Sprint 19 Final Human Review。
+- Implementation commit: `6b0b637` Complete Sprint 19 wrong question practice v1.
+- Push status: pushed to `origin/main`; `main` synchronized with `origin/main`.
+- Status: Completed. Next Step: 等待 Sprint 20 規劃。
 
 ## Sprint 18 — Understanding Confirmation v1 Completed
 
