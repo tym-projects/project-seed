@@ -1,5 +1,13 @@
 # Project Seed Roadmap
 
+## Sprint 24 — Four-subject home navigation
+
+- **Status:** Implementation complete / Awaiting Final Human Review.
+- Fixed the P1 home-navigation gap by giving 姐姐 and 妹妹 each 12 explicit links: four subjects × 練習、今日複習、再練一次; 24 links total.
+- Reused existing student／subject-specific routes through one shared typed navigation configuration. No question bank, schema, storage key, or core learning-semantic changes were made.
+- Verification: Sprint 24 focused navigation tests 2/2; npm tests 159/159; lint; TypeScript with `--incremental false`; production build; `git diff --check`; and 24/24 disposable Chromium Browser tests passed. Basic 390px mobile viewport checks passed; real-device and child trials remain pending.
+- **Next Step:** Sprint 24 Final Human Review。
+
 ## Sprint 23 — Natural and Social Implementation
 
 - **Status:** Completed.
