@@ -20,7 +20,7 @@
 - learning unit 永遠以 reviewGroupId ?? question.id 聚合；V1A 不建立獨立 unit。
 - 不改變 deterministic selection、recent-question avoidance、Sprint 18 confirmation、Sprint 19 no-write practice、Sprint 17 timer／startedAt、Sprint 20 Parent Summary v2、1/3/7、retry、每日最多 5 groups 或 student／subject isolation。
 - 不新增 dependency，不執行 unrs-resolver install script，不修改 OneDrive 備份。
-- Implementation 已依本 Plan 完成；在 Final Human Review 前不得 commit、push 或宣告 Sprint 21 Completed。
+- Implementation 已依本 Plan 完成；Final Human Approval 已取得，Sprint 21 已完成 commit、push 與 close。
 
 ## Review Focus
 
@@ -38,7 +38,7 @@
 - [x] Task 4 — Learning Record／1/3/7／practice／Parent Summary compatibility; 45 focused tests passed.
 - [x] Task 5 — isolated Browser smoke; 10/10 tests passed, including the approved V1A confirmation rendering.
 - [x] Task 6 — full regression and documentation synchronization; 139/139 Node tests, lint, TypeScript (`--incremental false` due cache-write EPERM), build, Browser 10/10, and diff-check passed.
-- **Handoff:** Implementation complete / Awaiting Final Human Review. No commit, push, merge, rebase, release, or Sprint 22 work was started.
+- **Handoff:** Sprint 21 Completed. Implementation commit `9630477` 已 push 至 `origin/main`；未開始 Sprint 22 implementation。
 
 ## Files and responsibilities
 
@@ -186,22 +186,22 @@ Files:
 
 Interfaces:
 - Consumes actual Task 1–5 output.
-- Produces truthful Implementation complete / Awaiting Final Human Review documentation; never marks Sprint 21 Completed before final approval.
+- Produces truthful Sprint 21 Completed documentation after Final Human Approval, implementation commit, push, and close verification.
 
 Steps:
-- [ ] Run npm test.
-- [ ] Run npm run lint.
-- [ ] Run npx tsc --noEmit.
-- [ ] Run npm run build.
-- [ ] Run npm run test:browser.
-- [ ] Run git diff --check.
-- [ ] Inspect git status --short, git diff --stat, and the question-bank diff. Confirm no artifacts, localStorage data, schema changes, unrelated files, or Sprint 20 history changes.
-- [ ] Update governance documents with actual counts, the four feedback changes, V1A, rejected V1, highxing unchanged, Browser scope, and any limitations. Do not claim external教材／字典 approval.
-- [ ] Update plan checkboxes only after each Task actually passes; do not mark unexecuted work complete.
-- [ ] Stop at Sprint 21 Final Human Review Gate. No commit, push, merge, rebase, release, or Completed status before separate Human approval.
+- [x] Run npm test.
+- [x] Run npm run lint.
+- [x] Run npx tsc --noEmit --incremental false.
+- [x] Run npm run build.
+- [x] Run npm run test:browser.
+- [x] Run git diff --check.
+- [x] Inspect git status --short, git diff --stat, and the question-bank diff. Confirm no artifacts, localStorage data, schema changes, unrelated files, or Sprint 20 history changes.
+- [x] Update governance documents with actual counts, the four feedback changes, V1A, rejected V1, highxing unchanged, Browser scope, and any limitations. Do not claim external教材／字典 approval.
+- [x] Update plan checkboxes only after each Task actually passes; do not mark unexecuted work complete.
+- [x] Final Human Approval received; implementation and close commits completed without merge, rebase, release, or Sprint 22 implementation.
 
 Completion:
-- All verification outputs are recorded truthfully and the repository is ready for Final Human Review without a commit.
+- All verification outputs are recorded truthfully and the repository is closed with synchronized history and a clean working tree.
 
 ## Final Verification Plan
 
@@ -218,12 +218,12 @@ Completion:
 
 ## Completion Criteria
 
-- [ ] Four approved existing feedback strings match exactly, including corrected meimei-chinese-5 Explanation.
-- [ ] V1A is the only new question with approved id, group, type, content, and answer; V1 收進 is absent.
-- [ ] Action group has three variations while highxing group remains unchanged; learning-unit count and group identity are preserved.
-- [ ] Deterministic selection, recent avoidance, Sprint 18 confirmation, daily cap, and no-third-question tests pass.
-- [ ] Learning Record／ReviewSession schemas and persisted records remain unchanged in meaning.
-- [ ] Sprint 19 practice, Sprint 20 Parent Summary v2, 1/3/7, retry, timer, student and subject isolation regressions pass.
-- [ ] Full Node, lint, TypeScript, build, isolated Browser smoke, and diff-check results are recorded.
-- [ ] Governance documents are synchronized to Implementation complete / Awaiting Final Human Review.
-- [ ] No commit, push, merge, rebase, release, or Sprint 21 Completed claim occurs before Final Human Approval.
+- [x] Four approved existing feedback strings match exactly, including corrected meimei-chinese-5 Explanation.
+- [x] V1A is the only new question with approved id, group, type, content, and answer; V1 收進 is absent.
+- [x] Action group has three variations while highxing group remains unchanged; learning-unit count and group identity are preserved.
+- [x] Deterministic selection, recent avoidance, Sprint 18 confirmation, daily cap, and no-third-question tests pass.
+- [x] Learning Record／ReviewSession schemas and persisted records remain unchanged in meaning.
+- [x] Sprint 19 practice, Sprint 20 Parent Summary v2, 1/3/7, retry, timer, student and subject isolation regressions pass.
+- [x] Full Node, lint, TypeScript, build, isolated Browser smoke, and diff-check results are recorded.
+- [x] Governance documents are synchronized to Sprint 21 Completed and Sprint 22 mathematics planning.
+- [x] Final Human Approval received; Sprint 21 implementation and close commits are pushed without rewriting history, and Sprint 22 implementation has not started.

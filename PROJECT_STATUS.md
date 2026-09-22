@@ -3,13 +3,15 @@
 ## Sprint 21 — Question Bank Quality and Understanding Feedback v2
 
 - **Current Sprint:** Sprint 21
-- **Sprint Status:** Implementation complete / Awaiting Final Human Review.
+- **Sprint Status:** Completed.
 - **Repository:** `C:\Users\admin\Documents\2026AST-dev` (canonical development repository). The OneDrive copy remains migration safety backup only.
 - **Implementation:** Updated only the approved 妹妹 questions `meimei-chinese-1`, `-4`, `-2`, and `-5` with the approved Hint／Explanation copy, including the corrected `meimei-chinese-5` Explanation. Added only the approved `meimei-chinese-action-word-identification-3` V1A「寫」variation to the existing action-word review group. No highxing variation, V1「收進」, schema, scheduling, confirmation, practice, parent-summary, or timer semantics changed.
 - **Tests:** 139/139 Node tests passed, including exact content, question-bank validation, deterministic variation/confirmation, 1/3/7, practice, Learning Record, Parent Summary, and isolation regressions.
 - **Lint / TypeScript / Build / diff check:** passed. TypeScript was verified with `npx tsc --noEmit --incremental false` because the canonical workspace denied updating the ignored incremental cache for the exact command.
 - **Browser smoke:** 10/10 passed in disposable Chromium contexts with synthetic whitelisted storage, including the approved V1A confirmation rendering and existing Sprint 18／19／20 protections. No real user profile or localStorage was touched; only the expected `NO_COLOR`/`FORCE_COLOR` Node warnings appeared.
-- **Next Step:** Final Human Review；不得在本階段 commit、push 或宣告 Completed。Sprint 22 優先規劃數學最小可用題庫與既有 Question Flow 練習，國語擴充暫停；社會、自然列為後續方向。
+- **Implementation Commit:** `9630477` Complete Sprint 21 question bank quality and feedback v2.
+- **Push Status:** Pushed to `origin/main`; local `main` is synchronized with `origin/main`.
+- **Next Step:** Sprint 22 數學規劃；國語擴充暫停，社會與自然保留為後續方向。
 
 ## Sprint 20 — Parent Learning Summary v2 and Isolated Browser Smoke
 
@@ -100,16 +102,16 @@
 ## Current Baseline
 
 - **Repository:** `C:\Users\admin\Documents\2026AST-dev`
-- **Current Sprint:** Sprint 20
+- **Current Sprint:** Sprint 21
 - **Sprint Status:** Completed
 - **Branch:** `main`
-- **Last Implementation Commit:** `5382aed` Complete Sprint 20 parent summary v2 and isolated browser smoke
-- **Push Status:** Sprint 20 implementation and close documentation are pushed; local `main` is synchronized with `origin/main`.
-- **Tests:** 136/136 passed
+- **Last Implementation Commit:** `9630477` Complete Sprint 21 question bank quality and feedback v2
+- **Push Status:** Sprint 21 implementation and close documentation are pushed; local `main` is synchronized with `origin/main`.
+- **Tests:** 139/139 passed
 - **Lint / TypeScript / Build / diff check:** passed
-- **Browser smoke:** 9/9 passed in disposable Chromium contexts with synthetic storage; Sprint 18／19 UI補驗 and Sprint 20 Parent Summary smoke completed.
-- **Git Status:** Sprint 21 implementation and documentation changes are uncommitted; no unrelated files included.
-- **Next Step:** Sprint 21 Final Human Review。
+- **Browser smoke:** 10/10 passed in disposable Chromium contexts with synthetic storage; Sprint 18／19 UI補驗、Sprint 20 Parent Summary smoke and Sprint 21 V1A review flow completed.
+- **Git Status:** Working tree clean; no unrelated files included.
+- **Next Step:** Sprint 22 數學規劃。
 
 ## Completed Sprint History
 

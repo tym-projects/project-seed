@@ -1,6 +1,6 @@
 # Sprint 21 — 題庫品質與理解回饋 v2 Design
 
-> Status: Implementation complete; Final Human Review Gate
+> Status: Completed
 >
 > 本文件只記錄正式題庫盤點、改善範圍與待審核內容；不修改正式題庫，不代表任何新題目或答案已獲核准。
 
