@@ -2,11 +2,12 @@
 
 ## Sprint 24 — Four-subject home navigation
 
-- **Status:** Implementation complete / Awaiting Final Human Review.
+- **Status:** Completed.
 - Corrected the home P1 navigation gap: 姐姐 and 妹妹 each have explicit 練習、今日複習、再練一次 entries for 國語、數學、自然、社會, for 24 total links. Each target carries the intended student and subject through the existing routes.
 - Added a shared navigation configuration and focused Node/Browser coverage only; no question bank expansion or changes to Learning Record／ReviewSession, storage keys, 1/3/7, retry, confirmation, practice no-write, timer, or Parent Summary semantics.
 - Verification: focused navigation tests 2/2, npm tests 159/159, lint, TypeScript with `--incremental false`, production build, `git diff --check`, and full disposable Chromium Browser smoke 24/24 passed. Basic mobile viewport smoke passed; real mobile and child usability remain to be confirmed.
-- No commit or push was performed. **Next Step:** Sprint 24 Final Human Review。
+- Implementation commit: `05284fa` Complete Sprint 24 four-subject home navigation; pushed to `origin/main`.
+- Final Build initially encountered `.next\\trace` EPERM and Browser smoke encountered a Playwright `.last-run.json` artifact EPERM; only those confirmed generated artifacts were removed before successful reruns. **Next Step:** Sprint 25 規劃，以真實使用回饋及已知限制為依據。
 
 ## Sprint 23 — Natural and Social Implementation
 

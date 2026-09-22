@@ -3,15 +3,16 @@
 ## Sprint 24 — Four-subject home navigation
 
 - **Current Sprint:** Sprint 24
-- **Sprint Status:** Implementation complete / Awaiting Final Human Review.
+- **Sprint Status:** Completed.
 - **Scope:** Fixed the P1 home-navigation gap. 姐姐 and 妹妹 now each have four clearly grouped subjects—國語、數學、自然、社會—with explicit 練習、今日複習、再練一次 links: 12 links per student, 24 total. No question bank expansion was made.
 - **Implementation:** Added one shared typed subject-navigation configuration and wired both student home pages to existing student- and subject-specific routes. Existing Question Flow, review, practice, and subject-specific routes were reused.
 - **Data protection:** Learning Record／ReviewSession persisted schemas and storage keys are unchanged. Student／subject isolation, 1/3/7, retry, confirmation, practice no-write, timer／`startedAt`, and Parent Summary semantics were not changed.
 - **Verification:** Sprint 24 focused navigation tests 2/2 passed; npm tests 159/159 passed; lint, `npx tsc --noEmit --incremental false`, production build, `git diff --check`, and full disposable Chromium Browser smoke 24/24 passed. The mobile viewport smoke passed basic visibility, clickability, and no-horizontal-overflow checks using synthetic storage.
-- **Known limitation:** The mobile check is a basic viewport smoke only; real-device testing and child usability trials remain pending.
-- **Implementation commit:** Not created; Final Human Approval is required before commit/push.
+- **Known limitation:** The mobile check is a basic viewport smoke only; real-device testing and 姐姐、妹妹 child usability trials remain pending. The first final Build attempt hit the known `.next\\trace` EPERM; only the confirmed Next build cache was cleared, then Build passed. Browser smoke likewise required removing only the confirmed Playwright `.last-run.json` artifact before passing.
+- **Implementation commit:** `05284fa` Complete Sprint 24 four-subject home navigation.
+- **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
 - **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
-- **Next step:** Sprint 24 Final Human Review。
+- **Next step:** Sprint 25 規劃，以真實使用回饋及已知限制為依據。
 
 ## Sprint 23 — Natural and Social Implementation
 
