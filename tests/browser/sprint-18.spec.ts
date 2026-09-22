@@ -2,16 +2,33 @@ import { test, expect } from '@playwright/test';
 import { createSyntheticStorageState } from './fixtures/storage';
 import { closeIsolatedContext, newIsolatedContext } from './helpers/context';
 
+const localDateAt = (offsetDays: number) => {
+  const date = new Date();
+  date.setHours(0, 0, 0, 0);
+  date.setDate(date.getDate() + offsetDays);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
+const isoAtLocalDay = (offsetDays: number, hour: number) => {
+  const date = new Date();
+  date.setHours(hour, 0, 0, 0);
+  date.setDate(date.getDate() + offsetDays);
+  return date.toISOString();
+};
+
 const historyRecord = {
   id: 'smoke-s18-history', student: 'jiejie', subject: 'chinese', questionId: 'jiejie-chinese-1',
   firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true,
-  createdAt: '2026-09-19T04:00:00.000Z',
+  createdAt: isoAtLocalDay(-3, 4),
 };
 
 const completedTodayOtherGroups = ['jiejie-chinese-2', 'jiejie-chinese-5', 'jiejie-chinese-6', 'jiejie-chinese-7', 'jiejie-chinese-8', 'jiejie-chinese-9'].map((questionId) => ({
   id: `smoke-s18-today-${questionId}`, student: 'jiejie', subject: 'chinese', questionId,
   firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true,
-  createdAt: '2026-09-21T04:00:00.000Z',
+  createdAt: isoAtLocalDay(0, 4),
 }));
 
 test('runs primary to deterministic confirmation and persists actual question ids once', async ({ browser }) => {
@@ -41,10 +58,10 @@ test('runs primary to deterministic confirmation and persists actual question id
 });
 
 test('refreshes pending confirmation without resetting the active review startedAt', async ({ browser }) => {
-  const startedAt = '2026-09-21T01:00:00.000Z';
+  const startedAt = isoAtLocalDay(0, 1);
   const context = await newIsolatedContext(browser, createSyntheticStorageState({
     learningRecords: [historyRecord],
-    reviewSessions: [{ student: 'jiejie', subject: 'chinese', localReviewDate: '2026-09-21', startedAt }],
+    reviewSessions: [{ student: 'jiejie', subject: 'chinese', localReviewDate: localDateAt(0), startedAt }],
   }));
   const page = await context.newPage();
   await page.goto('/jiejie/review');
@@ -71,11 +88,39 @@ test('refreshes pending confirmation without resetting the active review started
 });
 
 test('reopens a seeded primary-only record as the alternate question', async ({ browser }) => {
-  const primaryToday = { ...historyRecord, id: 'smoke-s18-primary-today', questionId: 'jiejie-chinese-3', createdAt: '2026-09-21T11:15:23.580Z' };
-  const context = await newIsolatedContext(browser, createSyntheticStorageState({ learningRecords: [historyRecord, primaryToday], reviewSessions: [{ student: 'jiejie', subject: 'chinese', localReviewDate: '2026-09-21', startedAt: '2026-09-21T01:00:00.000Z' }] }));
+  const primaryToday = { ...historyRecord, id: 'smoke-s18-primary-today', questionId: 'jiejie-chinese-3', createdAt: isoAtLocalDay(0, 11) };
+  const context = await newIsolatedContext(browser, createSyntheticStorageState({ learningRecords: [historyRecord, primaryToday], reviewSessions: [{ student: 'jiejie', subject: 'chinese', localReviewDate: localDateAt(0), startedAt: isoAtLocalDay(0, 1) }] }));
   const page = await context.newPage();
   await page.goto('/jiejie/review');
   await page.getByRole('button', { name: '開始複習' }).click();
   await expect(page.locator('main p.text-xl')).toContainText('香蕉 的「蕉」讀音是？');
+  await closeIsolatedContext(context);
+});
+
+test('renders the approved MeiMei action variation in the existing review flow', async ({ browser }) => {
+  const todayOtherGroups = [
+    'meimei-chinese-1', 'meimei-chinese-3', 'meimei-chinese-6', 'meimei-chinese-7',
+    'meimei-chinese-8', 'meimei-chinese-9', 'meimei-chinese-10', 'meimei-chinese-11',
+  ].map((questionId) => ({
+    id: `smoke-s21-today-${questionId}`,
+    student: 'meimei', subject: 'chinese', questionId,
+    firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true,
+    createdAt: isoAtLocalDay(0, 4),
+  }));
+  const context = await newIsolatedContext(browser, createSyntheticStorageState({ learningRecords: [
+    {
+      id: 'smoke-s21-action-history', student: 'meimei', subject: 'chinese', questionId: 'meimei-chinese-2',
+      firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true,
+      createdAt: '2026-09-19T04:00:00.000Z',
+    },
+    ...todayOtherGroups,
+  ] }));
+  const page = await context.newPage();
+  await page.goto('/meimei/review');
+  await page.getByRole('button', { name: '開始複習' }).click();
+  await expect(page.locator('main p.text-xl')).toContainText('小安拿起鉛筆');
+  await page.getByRole('button', { name: '寫' }).click();
+  await page.getByRole('button', { name: '送出答案' }).click();
+  await expect(page.getByText('答對了！你找到了句子中的動作詞。')).toBeVisible();
   await closeIsolatedContext(context);
 });

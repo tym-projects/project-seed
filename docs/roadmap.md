@@ -1,5 +1,14 @@
 # Project Seed Roadmap
 
+## Sprint 21 — Question Bank Quality and Understanding Feedback v2
+
+- **Status:** Implementation complete / Awaiting Final Human Review.
+- Updated only 妹妹 `meimei-chinese-1`, `-4`, `-2`, and `-5` with the approved Hint／Explanation copy, including the corrected `-5` Explanation.
+- Added only `meimei-chinese-action-word-identification-3` V1A「寫」to the existing action-word review group. The rejected V1「收進」and any highxing variation were not added.
+- Preserved Question／Learning Record／ReviewSession schemas, `reviewGroupId ?? question.id`, deterministic selection, recent-question avoidance, 1/3/7, retry, Sprint 18 confirmation, Sprint 19 no-write practice, Sprint 20 Parent Summary v2, Sprint 17 timer／`startedAt`, daily five-group limit, and student/subject isolation.
+- Verification: 139/139 Node tests, lint, TypeScript, production build, and `git diff --check` passed; isolated Browser smoke passed 10/10 using disposable Chromium contexts and synthetic storage only. The exact `npx tsc --noEmit` cache write was blocked by workspace EPERM, so the equivalent no-emission check used `--incremental false`.
+- **Next Step:** Final Human Review. Chinese expansion pauses after this first quality batch; Sprint 22 should prioritize a minimal mathematics question bank and the existing Question Flow／Learning Record／review／hint／explanation path. Social studies and science remain later directions; no quantity, grade-version, or schema commitment is made yet.
+
 ## Sprint 20 — Parent Learning Summary v2 and Isolated Browser Smoke
 
 - **Status:** Completed.

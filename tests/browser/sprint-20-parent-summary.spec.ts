@@ -7,13 +7,20 @@ const record = (id: string, student: 'jiejie' | 'meimei', questionId: string, cr
   correct: true, completed: true, createdAt,
 });
 
+const isoAtLocalDay = (offsetDays: number, hour: number) => {
+  const date = new Date();
+  date.setHours(hour, 0, 0, 0);
+  date.setDate(date.getDate() + offsetDays);
+  return date.toISOString();
+};
+
 test('renders isolated parent summary metrics and actionable states', async ({ browser }) => {
   const context = await newIsolatedContext(browser, createSyntheticStorageState({
     learningRecords: [
-      record('smoke-s20-j-today-primary', 'jiejie', 'jiejie-chinese-1', '2026-09-21T01:00:00.000Z'),
-      record('smoke-s20-j-yesterday-retry', 'jiejie', 'jiejie-chinese-1', '2026-09-20T02:00:00.000Z', 2),
-      record('smoke-s20-j-two-days-ago-retry', 'jiejie', 'jiejie-chinese-1', '2026-09-19T02:00:00.000Z', 2),
-      record('smoke-s20-m-today', 'meimei', 'meimei-chinese-1', '2026-09-21T01:00:00.000Z'),
+      record('smoke-s20-j-today-primary', 'jiejie', 'jiejie-chinese-1', isoAtLocalDay(0, 1)),
+      record('smoke-s20-j-yesterday-retry', 'jiejie', 'jiejie-chinese-1', isoAtLocalDay(-1, 2), 2),
+      record('smoke-s20-j-two-days-ago-retry', 'jiejie', 'jiejie-chinese-1', isoAtLocalDay(-2, 2), 2),
+      record('smoke-s20-m-today', 'meimei', 'meimei-chinese-1', isoAtLocalDay(0, 1)),
     ],
   }));
   const page = await context.newPage();

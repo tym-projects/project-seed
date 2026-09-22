@@ -1,5 +1,14 @@
 # Sprint Log
 
+## Sprint 21 — Question Bank Quality and Understanding Feedback v2
+
+- **Status:** Implementation complete / Awaiting Final Human Review.
+- Updated the four approved 妹妹 questions `meimei-chinese-1`, `-4`, `-2`, and `-5` with the approved Hint／Explanation copy; added only V1A `meimei-chinese-action-word-identification-3`「寫」to the existing action-word group.
+- No other Chinese content was added. The rejected V1「收進」was not used, and the highxing learning unit remains unchanged.
+- Regression protection confirms question identity, review-group aggregation, deterministic variation/confirmation, recent-question avoidance, Learning Record／ReviewSession compatibility, 1/3/7, retry, Sprint 19 no-write practice, Sprint 20 Parent Summary v2, timer, and student/subject isolation.
+- Verification: 139/139 Node tests; lint, TypeScript, production build, and `git diff --check` passed. Isolated Browser smoke passed 10/10 with disposable Chromium contexts and synthetic storage only. TypeScript used `--incremental false` because the exact command could not update the ignored cache under the workspace permission boundary.
+- **Next Step:** Final Human Review；不得在本階段 commit、push 或宣告 Completed。Sprint 22 優先規劃數學最小可用題庫與既有 Question Flow，國語擴充暫停；社會、自然保留後續。
+
 ## Sprint 20 — Parent Learning Summary v2 and Dependency Security Close
 
 - **Status:** Completed.
