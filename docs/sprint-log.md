@@ -219,5 +219,5 @@
 - **Compatibility:** Existing Chinese routes and Sprint 18 confirmation, Sprint 19 practice, Sprint 20 summary, timer／`startedAt`, schemas, storage keys, and student／subject boundaries remain protected.
 - **Verification:** Node 147/147, lint passed, TypeScript `--incremental false` passed, build passed, full browser smoke 16/16 passed in disposable Chromium with synthetic whitelisted storage, and `git diff --check` passed.
 - **Content note:** The 12 questions are original practice content based on the Human-approved scope; they are not claimed to be official Nan-I textbook material.
-- **Implementation commit:** `Complete Sprint 22 mathematics foundation` (created after final verification).
+- **Implementation commit:** `28af403` Complete Sprint 22 mathematics foundation; pushed to `origin/main`.
 - **Next Step:** Sprint 23 規劃。

@@ -9,8 +9,8 @@
 - **Data protection:** Learning Record／ReviewSession persisted schemas and storage keys are unchanged. Student and subject isolation, singleton confirmation eligibility, practice no-write, timer／`startedAt`, and Parent Summary indicator semantics remain protected by tests.
 - **Verification:** 147/147 Node tests passed; lint passed; `npx tsc --noEmit --incremental false` passed; production build passed; full disposable Chromium browser smoke passed 16/16; `git diff --check` passed. Browser tests used synthetic whitelisted storage only and no real user profile or localStorage.
 - **Known limitation:** Question content is original practice content based on the Human-approved scope; it is not claimed to be an official Nan-I textbook question or textbook audit. The 12-question initial bank is intentionally small.
-- **Implementation Commit:** Pending this close commit.
-- **Push Status:** Pending this close push.
+- **Implementation Commit:** `28af403` Complete Sprint 22 mathematics foundation.
+- **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
 - **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`.
 - **Next step:** Sprint 23 規劃。
 
