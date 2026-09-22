@@ -2,13 +2,14 @@
 
 ## Sprint 23 — Natural and Social Implementation
 
-- **Status:** Implementation complete / Awaiting Final Human Review.
+- **Status:** Completed.
 - Added four approved banks and routes: 姐姐自然／社會、妹妹自然／社會；16 original questions and 16 independent learning units covering only the approved first two units in each scope. No variation or `reviewGroupId` was added.
 - Reused the Sprint 22 multi-subject architecture for first practice, Hint／Explanation／retry, Learning Record, Today Review, 1/3/7, singleton confirmation protection, reinforcement no-write, ReviewSession, review settings, timer／`startedAt`, and Parent Summary.
 - Verified student／subject isolation, legacy Chinese／Mathematics compatibility, unchanged Learning Record／ReviewSession schemas and storage keys, and no real user storage access.
 - Verification: 159/159 Node tests; 21/21 disposable Chromium Browser smoke tests; lint, TypeScript with `--incremental false`, production build, and `git diff --check` passed.
 - Known limitation: content is original practice content based on Human-provided unit titles, not an official textbook question bank or complete textbook audit; units 3–6 remain out of scope.
-- No commit or push yet. **Next Step:** Final Human Review, then Sprint 23 commit／push／close.
+- Implementation commit: `1264d1b` Complete Sprint 23 natural and social studies foundation; pushed to `origin/main`.
+- **Next Step:** Sprint 24 規劃。
 
 ## Sprint 21 — Question Bank Quality and Understanding Feedback v2
 

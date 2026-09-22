@@ -3,15 +3,16 @@
 ## Sprint 23 — Natural and Social Implementation
 
 - **Current Sprint:** Sprint 23
-- **Sprint Status:** Implementation complete / Awaiting Final Human Review.
+- **Sprint Status:** Completed.
 - **Scope:** Added the Human-approved 16-question foundation: 姐姐康軒六上自然／社會第 1–2 單元各 4 題、妹妹南一三上自然與康軒三上社會第 1–2 單元各 4 題. Each question is an independent learning unit; no `reviewGroupId` or variation was added.
 - **Implementation:** Added `natural_science` and `social_studies`, four student／subject banks, first-practice routes, Today Review, 1/3/7, retry, reinforcement no-write practice, review settings, Learning Record display, and Parent Summary sections by composing the existing shared flows.
 - **Data protection:** Learning Record／ReviewSession persisted schemas and storage keys are unchanged. Existing Chinese／Mathematics records remain readable; student and subject isolation, singleton confirmation protection, practice no-write, timer／`startedAt`, and Parent Summary semantics remain protected.
 - **Verification:** 159/159 Node tests passed; lint passed; `npx tsc --noEmit --incremental false` passed; production build passed; full disposable Chromium Browser smoke passed 21/21; `git diff --check` passed. Browser tests used synthetic whitelisted storage only and no real user profile or localStorage.
 - **Known limitation:** The 16 questions are original candidates based on the Human-provided unit scope; they are not claimed to be official textbook questions or a complete textbook audit. Only units 1–2 are included; later expansion remains deferred.
-- **Implementation commit:** Not created; final Human approval is required before commit/push.
+- **Implementation commit:** `1264d1b` Complete Sprint 23 natural and social studies foundation.
+- **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
 - **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
-- **Next step:** Final Human approval, then separate commit／push／Sprint Close.
+- **Next step:** Sprint 24 規劃。
 
 ## Sprint 22 — Mathematics Implementation
 
