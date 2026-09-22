@@ -1,6 +1,6 @@
 export type StudentId = 'jiejie' | 'meimei';
 
-export type SubjectId = 'chinese' | 'mathematics';
+export type SubjectId = 'chinese' | 'mathematics' | 'natural_science' | 'social_studies';
 
 export type LearningRecord = {
   id: string;
@@ -40,7 +40,7 @@ function isLearningRecord(value: unknown): value is LearningRecord {
   return (
     typeof record.id === 'string' && record.id.length > 0 &&
     (record.student === 'jiejie' || record.student === 'meimei') &&
-    (record.subject === 'chinese' || record.subject === 'mathematics') &&
+    (record.subject === 'chinese' || record.subject === 'mathematics' || record.subject === 'natural_science' || record.subject === 'social_studies') &&
     typeof record.questionId === 'string' && record.questionId.length > 0 &&
     hasValidAnswerIndexes &&
     hasValidAttempts &&

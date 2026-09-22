@@ -19,7 +19,7 @@ function isReviewTimeSetting(value: unknown): value is ReviewTimeSetting {
   const setting = value as Record<string, unknown>;
   return (
     (setting.student === 'jiejie' || setting.student === 'meimei') &&
-    (setting.subject === 'chinese' || setting.subject === 'mathematics') &&
+    (setting.subject === 'chinese' || setting.subject === 'mathematics' || setting.subject === 'natural_science' || setting.subject === 'social_studies') &&
     (setting.targetMinutes === 10 || setting.targetMinutes === 15)
   );
 }

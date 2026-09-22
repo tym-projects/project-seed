@@ -11,6 +11,8 @@ export default function JieJiePage() {
           <li><a href="/jiejie/reinforce" className="hover:text-pink-600 hover:underline">再練一次</a></li>
           <li>英文練習</li>
           <li><a href="/jiejie/mathematics" className="hover:text-pink-600 hover:underline">數學練習</a></li>
+          <li><a href="/jiejie/natural-science" className="hover:text-pink-600 hover:underline">自然練習</a></li>
+          <li><a href="/jiejie/social-studies" className="hover:text-pink-600 hover:underline">社會練習</a></li>
         </ul>
       </div>
     </main>

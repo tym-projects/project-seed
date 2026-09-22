@@ -3,6 +3,10 @@ import { questions as jiejieChineseQuestions } from '@/lib/questions/jiejie-chin
 import { questions as jiejieMathematicsQuestions } from '@/lib/questions/jiejie-mathematics';
 import { questions as meimeiChineseQuestions } from '@/lib/questions/meimei-chinese';
 import { questions as meimeiMathematicsQuestions } from '@/lib/questions/meimei-mathematics';
+import { questions as jiejieNaturalScienceQuestions } from '@/lib/questions/jiejie-natural-science';
+import { questions as jiejieSocialStudiesQuestions } from '@/lib/questions/jiejie-social-studies';
+import { questions as meimeiNaturalScienceQuestions } from '@/lib/questions/meimei-natural-science';
+import { questions as meimeiSocialStudiesQuestions } from '@/lib/questions/meimei-social-studies';
 
 type Question = {
   id: string;
@@ -22,10 +26,14 @@ const questionBanks: Record<LearningRecord['student'], Record<LearningRecord['su
   jiejie: {
     chinese: jiejieChineseQuestions,
     mathematics: jiejieMathematicsQuestions,
+    natural_science: jiejieNaturalScienceQuestions,
+    social_studies: jiejieSocialStudiesQuestions,
   },
   meimei: {
     chinese: meimeiChineseQuestions,
     mathematics: meimeiMathematicsQuestions,
+    natural_science: meimeiNaturalScienceQuestions,
+    social_studies: meimeiSocialStudiesQuestions,
   },
 };
 

@@ -1,8 +1,21 @@
 # Project Status
 
+## Sprint 23 — Natural and Social Implementation
+
+- **Current Sprint:** Sprint 23
+- **Sprint Status:** Implementation complete / Awaiting Final Human Review.
+- **Scope:** Added the Human-approved 16-question foundation: 姐姐康軒六上自然／社會第 1–2 單元各 4 題、妹妹南一三上自然與康軒三上社會第 1–2 單元各 4 題. Each question is an independent learning unit; no `reviewGroupId` or variation was added.
+- **Implementation:** Added `natural_science` and `social_studies`, four student／subject banks, first-practice routes, Today Review, 1/3/7, retry, reinforcement no-write practice, review settings, Learning Record display, and Parent Summary sections by composing the existing shared flows.
+- **Data protection:** Learning Record／ReviewSession persisted schemas and storage keys are unchanged. Existing Chinese／Mathematics records remain readable; student and subject isolation, singleton confirmation protection, practice no-write, timer／`startedAt`, and Parent Summary semantics remain protected.
+- **Verification:** 159/159 Node tests passed; lint passed; `npx tsc --noEmit --incremental false` passed; production build passed; full disposable Chromium Browser smoke passed 21/21; `git diff --check` passed. Browser tests used synthetic whitelisted storage only and no real user profile or localStorage.
+- **Known limitation:** The 16 questions are original candidates based on the Human-provided unit scope; they are not claimed to be official textbook questions or a complete textbook audit. Only units 1–2 are included; later expansion remains deferred.
+- **Implementation commit:** Not created; final Human approval is required before commit/push.
+- **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
+- **Next step:** Final Human approval, then separate commit／push／Sprint Close.
+
 ## Sprint 22 — Mathematics Implementation
 
-- **Current Sprint:** Sprint 22
+- **Current Sprint:** Sprint 22 (completed historical record)
 - **Sprint Status:** Completed.
 - **Scope:** Added the 12 Human-approved original Mathematics questions: 姐姐 and 妹妹 each have 南一版指定年級上學期第 1–6 單元、6 learning units、6 questions. Each `questionId` is its own learning unit; no `reviewGroupId` or variation was added.
 - **Implementation:** Reused QuestionCard／Question Flow, hint／explanation／retry, Learning Record, Today Review, 1/3/7, practice no-write, ReviewSession, timer, review settings, and Parent Summary. Added Mathematics first-practice, review, and reinforcement routes; parameterized only the existing Chinese hard-coded subject points.

@@ -1,5 +1,15 @@
 # Project Seed Roadmap
 
+## Sprint 23 — Natural and Social Implementation
+
+- **Status:** Implementation complete / Awaiting Final Human Review.
+- Added 16 Human-approved original multiple-choice questions across four scopes: 姐姐康軒六上自然／社會第 1–2 單元、妹妹南一三上自然與康軒三上社會第 1–2 單元；each scope has four questions and four independent learning units.
+- Added `natural_science` and `social_studies` through the existing shared QuestionCard／Question Flow, first practice, Today Review, 1/3/7, retry, reinforcement no-write, review settings, Learning Record display, and Parent Summary wiring.
+- Preserved Learning Record／ReviewSession schemas and keys, student／subject isolation, singleton confirmation eligibility, practice no-write, timer／`startedAt`, and Parent Summary semantics.
+- Verification: 159/159 Node tests, lint, TypeScript with `--incremental false`, production build, `git diff --check`, and 21/21 disposable Chromium Browser tests passed.
+- Out of scope: units 3–6, additional Chinese／Mathematics questions, unapproved content, AI/difficulty scoring, schema changes, textbook management, and expansion beyond the approved units.
+- **Next Step:** Final Human Review, then commit／push／Sprint Close; Sprint 24 has not started.
+
 ## Sprint 22 — Mathematics Implementation
 
 - **Status:** Completed.
