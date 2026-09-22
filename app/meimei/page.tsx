@@ -10,7 +10,7 @@ export default function MeiMeiPage() {
           <li><a href="/meimei/review" className="hover:text-green-600 hover:underline">今日複習</a></li>
           <li><a href="/meimei/reinforce" className="hover:text-green-600 hover:underline">再練一次</a></li>
           <li>英文練習</li>
-          <li>數學練習</li>
+          <li><a href="/meimei/mathematics" className="hover:text-green-600 hover:underline">數學練習</a></li>
         </ul>
       </div>
     </main>

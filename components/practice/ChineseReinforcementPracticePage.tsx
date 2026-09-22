@@ -4,13 +4,14 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { ChineseQuestionFlow } from '@/components/question/ChineseQuestionFlow';
 import type { QuestionCardQuestion } from '@/components/question/QuestionCard';
-import { readLearningRecords, type StudentId } from '@/lib/learning-records';
+import { readLearningRecords, type StudentId, type SubjectId } from '@/lib/learning-records';
 import { selectReinforcementPracticeItems, type ReinforcementPracticeItem } from '@/lib/reinforcement-practice';
 import { toPracticeFlowItems } from '@/lib/reinforcement-practice-flow';
 
 type ChineseReinforcementPracticePageProps = {
   questions: QuestionCardQuestion[];
   student: StudentId;
+  subject: SubjectId;
   theme: 'pink' | 'green';
   homeHref: string;
   homeLabel: string;
@@ -21,7 +22,7 @@ const themeClasses = {
   green: { page: 'bg-green-50', title: 'text-green-600', button: 'bg-green-500 hover:bg-green-600' },
 };
 
-export function ChineseReinforcementPracticePage({ questions, student, theme, homeHref, homeLabel }: ChineseReinforcementPracticePageProps) {
+export function ChineseReinforcementPracticePage({ questions, student, subject, theme, homeHref, homeLabel }: ChineseReinforcementPracticePageProps) {
   const [items, setItems] = useState<ReinforcementPracticeItem<QuestionCardQuestion>[] | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
   const classes = themeClasses[theme];
@@ -32,14 +33,14 @@ export function ChineseReinforcementPracticePage({ questions, student, theme, ho
         questions,
         records: readLearningRecords(),
         student,
-        subject: 'chinese',
+        subject,
         now: new Date(),
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       }));
     }, 0);
 
     return () => window.clearTimeout(timeoutId);
-  }, [questions, student]);
+  }, [questions, student, subject]);
 
   if (items === null) {
     return <main className={`min-h-screen ${classes.page}`} />;
@@ -53,6 +54,7 @@ export function ChineseReinforcementPracticePage({ questions, student, theme, ho
         reviewItems={flowItems}
         mode="reinforcement-practice"
         student={student}
+        subject={subject}
         theme={theme}
         pageTitle="再練一次"
         homeHref={homeHref}

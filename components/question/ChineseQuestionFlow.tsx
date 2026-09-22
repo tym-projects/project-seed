@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { QuestionCard, type QuestionCardQuestion, type QuestionCompletion } from '@/components/question/QuestionCard';
-import { type StudentId, type LearningRecord, saveLearningRecord } from '@/lib/learning-records';
+import { type StudentId, type SubjectId, type LearningRecord, saveLearningRecord } from '@/lib/learning-records';
 import { shouldPersistLearningRecord, type QuestionFlowMode } from '@/lib/practice-persistence';
 import type { ConfirmationPlan } from '@/lib/understanding-confirmation';
 import { advanceAfterCompletion, getInitialConfirmationFlowState } from '@/lib/understanding-confirmation-flow';
@@ -14,6 +14,7 @@ import { useReviewElapsedMinutes } from '@/components/review/useReviewElapsedMin
 type ChineseQuestionFlowProps = {
   questions: QuestionCardQuestion[];
   student: StudentId;
+  subject: SubjectId;
   theme: 'pink' | 'green';
   pageTitle: string;
   homeHref: string;
@@ -43,6 +44,7 @@ const themeClasses = {
 export function ChineseQuestionFlow({
   questions,
   student,
+  subject,
   theme,
   pageTitle,
   homeHref,
@@ -123,7 +125,7 @@ export function ChineseQuestionFlow({
             const record: LearningRecord = {
               id: crypto.randomUUID(),
               student,
-              subject: 'chinese',
+              subject,
               questionId: completion.questionId,
               firstAnswer: completion.firstAnswer,
               finalAnswer: completion.finalAnswer,

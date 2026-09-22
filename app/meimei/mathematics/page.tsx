@@ -1,16 +1,16 @@
 'use client';
 
 import { ChineseQuestionFlow } from '@/components/question/ChineseQuestionFlow';
-import { questions } from '@/lib/questions/meimei-chinese';
+import { questions } from '@/lib/questions/meimei-mathematics';
 
-export default function MeiMeiChinesePage() {
+export default function MeiMeiMathematicsPage() {
   return (
     <ChineseQuestionFlow
       questions={questions}
       student="meimei"
-      subject="chinese"
+      subject="mathematics"
       theme="green"
-      pageTitle="🌱 妹妹的國語複習"
+      pageTitle="🌱 妹妹的數學練習"
       homeHref="/meimei"
       homeLabel="回到妹妹首頁"
     />

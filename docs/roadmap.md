@@ -1,5 +1,14 @@
 # Project Seed Roadmap
 
+## Sprint 22 — Mathematics Implementation
+
+- **Status:** Completed.
+- Added six Mathematics learning units and six original multiple-choice questions for each approved student scope: 姐姐國小六年級上學期南一版第 1–6 單元、妹妹國小三年級上學期南一上第 1–6 單元.
+- Added Mathematics first-practice, Today Review, reinforcement-practice, review-time settings, and Parent Summary wiring through the existing shared flows.
+- Preserved Learning Record／ReviewSession schemas and keys, student／subject isolation, 1/3/7, retry, singleton confirmation eligibility, practice no-write, timer／`startedAt`, and Parent Summary semantics.
+- Verification: 147/147 Node tests, lint, TypeScript with `--incremental false`, production build, `git diff --check`, and 16/16 disposable Chromium browser tests passed.
+- Out of scope: additional questions or variations, AI/difficulty scoring, numeric input, graphic interaction, textbook management, and Social Studies／Science implementation.
+
 ## Sprint 21 — Question Bank Quality and Understanding Feedback v2
 
 - **Status:** Completed.

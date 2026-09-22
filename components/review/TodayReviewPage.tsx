@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { ChineseQuestionFlow } from '@/components/question/ChineseQuestionFlow';
 import type { QuestionCardQuestion } from '@/components/question/QuestionCard';
-import { readLearningRecords, type StudentId } from '@/lib/learning-records';
+import { readLearningRecords, type StudentId, type SubjectId } from '@/lib/learning-records';
 import { endReviewSession, getOrCreateReviewSession, type ReviewSession } from '@/lib/review-sessions';
 import { getReviewTargetMinutes, type ReviewTargetMinutes } from '@/lib/review-time-settings';
 import { selectTodayReviewItems } from '@/lib/today-review';
@@ -13,6 +13,7 @@ import type { ConfirmationPlan } from '@/lib/understanding-confirmation';
 type TodayReviewPageProps = {
   questions: QuestionCardQuestion[];
   student: StudentId;
+  subject: SubjectId;
   theme: 'pink' | 'green';
   homeHref: string;
   homeLabel: string;
@@ -23,7 +24,7 @@ const themeClasses = {
   green: { page: 'bg-green-50', title: 'text-green-600', button: 'bg-green-500 hover:bg-green-600' },
 };
 
-export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel }: TodayReviewPageProps) {
+export function TodayReviewPage({ questions, student, subject, theme, homeHref, homeLabel }: TodayReviewPageProps) {
   const [reviewItems, setReviewItems] = useState<ConfirmationPlan<QuestionCardQuestion>[] | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
   const [reviewSession, setReviewSession] = useState<ReviewSession | null>(null);
@@ -37,7 +38,7 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
           questions,
           records: readLearningRecords(),
           student,
-          subject: 'chinese',
+          subject,
           now: new Date(),
           timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         }),
@@ -45,7 +46,7 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
     }, 0);
 
     return () => window.clearTimeout(timeoutId);
-  }, [questions, student]);
+  }, [questions, student, subject]);
 
   if (reviewItems === null) {
     return <main className={`min-h-screen ${classes.page}`} />;
@@ -57,6 +58,7 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
         questions={reviewItems.map((item) => item.primary)}
         reviewItems={reviewItems}
         student={student}
+        subject={subject}
         theme={theme}
         pageTitle="今日複習"
         homeHref={homeHref}
@@ -65,7 +67,7 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
         completionMessage="今天的複習已完成，做得很好！"
         reviewStartedAt={reviewSession.startedAt}
         reviewTargetMinutes={reviewTargetMinutes}
-        onReviewComplete={() => endReviewSession(student, 'chinese')}
+        onReviewComplete={() => endReviewSession(student, subject)}
       />
     );
   }
@@ -81,12 +83,12 @@ export function TodayReviewPage({ questions, student, theme, homeHref, homeLabel
             <button type="button" onClick={() => {
               const session = getOrCreateReviewSession({
                 student,
-                subject: 'chinese',
+                subject,
                 now: new Date(),
                 timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
               });
               setReviewSession(session);
-              setReviewTargetMinutes(getReviewTargetMinutes(student, 'chinese'));
+              setReviewTargetMinutes(getReviewTargetMinutes(student, subject));
               setHasStarted(true);
             }} className={`mt-8 rounded-xl px-6 py-3 font-bold text-white transition-colors ${classes.button}`}>
               開始複習

@@ -211,3 +211,13 @@
 - Compatibility verification: 136/136 Node tests, lint, TypeScript, production build, 9/9 isolated Browser smoke tests, and `git diff --check` passed.
 - Learning Record／ReviewSession schemas, Parent Summary v2 semantics, Sprint 18/19 behavior, 1/3/7, retry, confirmation, and timer semantics remain unchanged.
 - Status: Completed. Dependency security follow-up、Sprint 20 commit、push 與 Sprint Close 均已完成；Next Step: Sprint 21 規劃。
+## Sprint 22 — Mathematics Implementation
+
+- **Status:** Completed.
+- **Content:** Added the approved original Mathematics banks `jiejie-mathematics-1`–`-6` and `meimei-mathematics-1`–`-6`, with exact metadata/content tests, independent answer checks, one learning unit per question, and no variation/review group.
+- **Product:** Added Mathematics first practice, Today Review, 1/3/7 scheduling, retry, reinforcement no-write practice, review-time isolation, and Parent Summary isolation through shared existing engines.
+- **Compatibility:** Existing Chinese routes and Sprint 18 confirmation, Sprint 19 practice, Sprint 20 summary, timer／`startedAt`, schemas, storage keys, and student／subject boundaries remain protected.
+- **Verification:** Node 147/147, lint passed, TypeScript `--incremental false` passed, build passed, full browser smoke 16/16 passed in disposable Chromium with synthetic whitelisted storage, and `git diff --check` passed.
+- **Content note:** The 12 questions are original practice content based on the Human-approved scope; they are not claimed to be official Nan-I textbook material.
+- **Implementation commit:** `Complete Sprint 22 mathematics foundation` (created after final verification).
+- **Next Step:** Sprint 23 規劃。

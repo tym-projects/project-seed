@@ -1,6 +1,8 @@
 import { type LearningRecord } from '@/lib/learning-records';
 import { questions as jiejieChineseQuestions } from '@/lib/questions/jiejie-chinese';
+import { questions as jiejieMathematicsQuestions } from '@/lib/questions/jiejie-mathematics';
 import { questions as meimeiChineseQuestions } from '@/lib/questions/meimei-chinese';
+import { questions as meimeiMathematicsQuestions } from '@/lib/questions/meimei-mathematics';
 
 type Question = {
   id: string;
@@ -19,9 +21,11 @@ export type LearningRecordDisplay = LearningRecord & {
 const questionBanks: Record<LearningRecord['student'], Record<LearningRecord['subject'], Question[]>> = {
   jiejie: {
     chinese: jiejieChineseQuestions,
+    mathematics: jiejieMathematicsQuestions,
   },
   meimei: {
     chinese: meimeiChineseQuestions,
+    mathematics: meimeiMathematicsQuestions,
   },
 };
 

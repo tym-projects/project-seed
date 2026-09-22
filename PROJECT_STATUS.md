@@ -1,5 +1,19 @@
 # Project Status
 
+## Sprint 22 — Mathematics Implementation
+
+- **Current Sprint:** Sprint 22
+- **Sprint Status:** Completed.
+- **Scope:** Added the 12 Human-approved original Mathematics questions: 姐姐 and 妹妹 each have 南一版指定年級上學期第 1–6 單元、6 learning units、6 questions. Each `questionId` is its own learning unit; no `reviewGroupId` or variation was added.
+- **Implementation:** Reused QuestionCard／Question Flow, hint／explanation／retry, Learning Record, Today Review, 1/3/7, practice no-write, ReviewSession, timer, review settings, and Parent Summary. Added Mathematics first-practice, review, and reinforcement routes; parameterized only the existing Chinese hard-coded subject points.
+- **Data protection:** Learning Record／ReviewSession persisted schemas and storage keys are unchanged. Student and subject isolation, singleton confirmation eligibility, practice no-write, timer／`startedAt`, and Parent Summary indicator semantics remain protected by tests.
+- **Verification:** 147/147 Node tests passed; lint passed; `npx tsc --noEmit --incremental false` passed; production build passed; full disposable Chromium browser smoke passed 16/16; `git diff --check` passed. Browser tests used synthetic whitelisted storage only and no real user profile or localStorage.
+- **Known limitation:** Question content is original practice content based on the Human-approved scope; it is not claimed to be an official Nan-I textbook question or textbook audit. The 12-question initial bank is intentionally small.
+- **Implementation Commit:** Pending this close commit.
+- **Push Status:** Pending this close push.
+- **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`.
+- **Next step:** Sprint 23 規劃。
+
 ## Sprint 21 — Question Bank Quality and Understanding Feedback v2
 
 - **Current Sprint:** Sprint 21
