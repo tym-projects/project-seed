@@ -1,5 +1,13 @@
 # Sprint Log
 
+## Sprint 27 — Website home navigation
+
+- **Status:** Implementation complete / Awaiting Final Human Review.
+- Added shared high-contrast 「返回網站首頁」 links to `/jiejie`、`/meimei`、and `/parent`, targeting the existing `/` site home.
+- Existing site-home mode links, Sprint 26 student-home returns, four-subject routes, parent switching, and all learning/data semantics remain unchanged.
+- Focused Browser tests passed 3/3 using disposable Chromium contexts and synthetic storage; 768×1024 portrait and 1024×768 landscape checks passed. Full regression and actual tablet acceptance remain pending Human.
+- **Next Step:** Sprint 27 Final Human Review; no commit／push yet.
+
 ## Sprint 26 — LAN Learning Record fallback and return navigation
 
 - **Status:** Completed.

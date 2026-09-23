@@ -1,5 +1,13 @@
 # Project Seed Roadmap
 
+## Sprint 27 — Website home navigation
+
+- **Status:** Implementation complete / Awaiting Final Human Review.
+- Added one shared high-contrast 「返回網站首頁」入口 to 姐姐學習、妹妹學習及家長模式 pages; all target the existing `/` route.
+- Preserved Sprint 26 student-home return controls and all learning/data semantics. No schema, storage-key, question-bank, or review-rule changes.
+- Focused Browser verification: 3/3 passed at 768×1024 and 1024×768 with disposable contexts and synthetic storage. Full regression and actual tablet acceptance remain pending.
+- **Next Step:** Final Human Review; do not start Sprint 28 implementation.
+
 ## Sprint 26 — LAN Learning Record fallback and return navigation
 
 - **Status:** Completed.

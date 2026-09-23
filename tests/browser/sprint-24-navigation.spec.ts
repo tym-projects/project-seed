@@ -19,7 +19,7 @@ function expectedLinks(student: 'jiejie' | 'meimei') {
 
 async function assertHomeLinks(page: import('@playwright/test').Page, student: 'jiejie' | 'meimei') {
   await page.goto(`/${student}`);
-  const links = page.locator('a');
+  const links = page.locator(`a[href^="/${student}/"]`);
   await expect(links).toHaveCount(12);
   const hrefs = await links.evaluateAll((elements) => elements.map((element) => element.getAttribute('href')));
   expect(hrefs).toEqual(expectedLinks(student));
@@ -75,15 +75,15 @@ test('手機 viewport 可看到並點擊所有首頁入口且沒有水平溢出'
 
   for (const student of ['jiejie', 'meimei'] as const) {
     await page.goto(`/${student}`);
-    await expect(page.locator('a')).toHaveCount(12);
-    const layout = await page.evaluate(() => ({
+    await expect(page.locator(`a[href^="/${student}/"]`)).toHaveCount(12);
+    const layout = await page.evaluate((student) => ({
       viewportWidth: document.documentElement.clientWidth,
       scrollWidth: document.documentElement.scrollWidth,
-      links: Array.from(document.querySelectorAll('a')).map((element) => {
+      links: Array.from(document.querySelectorAll(`a[href^="/${student}/"]`)).map((element) => {
         const rect = element.getBoundingClientRect();
         return { left: rect.left, right: rect.right, width: rect.width, height: rect.height };
       }),
-    }));
+    }), student);
     expect(layout.scrollWidth).toBeLessThanOrEqual(layout.viewportWidth);
     expect(layout.links.every(({ left, right, width, height }) => left >= 0 && right <= layout.viewportWidth && width > 0 && height > 0)).toBe(true);
   }
