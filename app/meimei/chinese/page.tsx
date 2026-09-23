@@ -12,7 +12,7 @@ export default function MeiMeiChinesePage() {
       theme="green"
       pageTitle="🌱 妹妹的國語複習"
       homeHref="/meimei"
-      homeLabel="回到妹妹首頁"
+      homeLabel="返回妹妹首頁"
     />
   );
 }

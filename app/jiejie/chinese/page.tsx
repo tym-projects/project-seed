@@ -12,7 +12,7 @@ export default function JieJieChinesePage() {
       theme="pink"
       pageTitle="🌸 姐姐的國語複習"
       homeHref="/jiejie"
-      homeLabel="回到姐姐首頁"
+      homeLabel="返回姐姐首頁"
     />
   );
 }

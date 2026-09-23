@@ -21,9 +21,11 @@ test('all four student flows expose an explicit home return target', async ({ br
     for (const subject of subjects) {
       for (const suffix of [subject.practice, subject.review, subject.reinforce]) {
         await page.goto(`/${student.id}/${suffix}`);
-        const link = page.getByRole('link', { name: new RegExp(`${student.label}首頁`) }).first();
+        const link = page.getByRole('link', { name: `返回${student.label}首頁` }).first();
         await expect(link).toBeVisible();
         await expect(link).toHaveAttribute('href', student.home);
+        const rect = await link.boundingBox();
+        expect(rect?.y ?? Number.POSITIVE_INFINITY).toBeLessThan(360);
       }
     }
   }
@@ -61,22 +63,37 @@ test('parent center switches one student and one subject while preserving isolat
   await closeIsolatedContext(context);
 });
 
-test('unfinished answer asks before leaving, while completed record remains', async ({ browser }) => {
+test('unfinished answer uses an in-page leave dialog and preserves state when cancelled', async ({ browser }) => {
   const context = await newIsolatedContext(browser, createSyntheticStorageState({ learningRecords: [] }));
   const page = await context.newPage();
   await page.goto('/jiejie/mathematics');
   await page.getByRole('button', { name: '2 × 2 × 3 × 7' }).click();
-  let dialogSeen = false;
-  page.once('dialog', async (dialog) => { dialogSeen = true; await dialog.dismiss(); });
-  await page.getByRole('link', { name: '回到姐姐首頁' }).click();
+  await page.getByRole('link', { name: '返回姐姐首頁' }).click();
   await expect(page).toHaveURL(/\/jiejie\/mathematics$/);
-  expect(dialogSeen).toBe(true);
+  await expect(page.getByRole('dialog')).toBeVisible();
+  await expect(page.getByRole('dialog')).toHaveAttribute('aria-modal', 'true');
+  await expect(page.getByRole('heading', { name: '確定要返回首頁嗎？' })).toBeVisible();
+  await expect(page.getByText('目前這題尚未完成，離開後不會保留這題的作答進度。')).toBeVisible();
+  await expect(page.getByRole('button', { name: '繼續作答' })).toBeFocused();
+  await page.getByRole('button', { name: '繼續作答' }).click();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
   await expect(page.getByRole('button', { name: '2 × 2 × 3 × 7' })).toHaveClass(/bg-pink-100/);
   expect(await page.evaluate(() => localStorage.getItem('project-seed:learning-records:v1'))).toBe('[]');
 
+  await page.getByRole('link', { name: '返回姐姐首頁' }).click();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page).toHaveURL(/\/jiejie\/mathematics$/);
+  await page.getByRole('link', { name: '返回姐姐首頁' }).click();
+  await page.getByRole('button', { name: '確認返回首頁' }).click();
+  await expect(page).toHaveURL(/\/jiejie$/);
+  expect(await page.evaluate(() => localStorage.getItem('project-seed:learning-records:v1'))).toBe('[]');
+
+  await page.goto('/jiejie/mathematics');
+  await page.getByRole('button', { name: '2 × 2 × 3 × 7' }).click();
   await page.getByRole('button', { name: '送出答案' }).click();
   await expect(page.getByText('答對了！')).toBeVisible();
-  await page.getByRole('link', { name: '回到姐姐首頁' }).click();
+  await page.getByRole('link', { name: '返回姐姐首頁' }).click();
   await expect(page).toHaveURL(/\/jiejie$/);
   const records = await page.evaluate(() => JSON.parse(localStorage.getItem('project-seed:learning-records:v1') ?? '[]'));
   expect(records).toHaveLength(1);
@@ -91,7 +108,7 @@ test('tablet portrait and landscape keep return and parent controls usable', asy
     }, createSyntheticStorageState());
     const page = await context.newPage();
     await page.goto('/meimei/natural-science');
-    await expect(page.getByRole('link', { name: /妹妹首頁/ })).toBeVisible();
+    await expect(page.getByRole('link', { name: '返回妹妹首頁' })).toBeVisible();
     await page.goto('/parent');
     await expect(page.getByRole('button', { name: '姐姐' })).toBeVisible();
     await expect(page.getByRole('button', { name: '社會' })).toBeVisible();
@@ -99,4 +116,20 @@ test('tablet portrait and landscape keep return and parent controls usable', asy
     expect(layout.scrollWidth).toBeLessThanOrEqual(layout.viewportWidth);
     await closeIsolatedContext(context);
   }
+});
+
+test('saves a Learning Record when randomUUID is unavailable but getRandomValues remains available', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 768, height: 1024 }, timezoneId: 'Asia/Taipei' });
+  await context.addInitScript(() => {
+    window.localStorage.setItem('project-seed:learning-records:v1', '[]');
+    Object.defineProperty(window.crypto, 'randomUUID', { configurable: true, value: undefined });
+  });
+  const page = await context.newPage();
+  await page.goto('/jiejie/mathematics');
+  await page.getByRole('button', { name: '2 × 2 × 3 × 7' }).click();
+  await page.getByRole('button', { name: '送出答案' }).click();
+  const records = await page.evaluate(() => JSON.parse(localStorage.getItem('project-seed:learning-records:v1') ?? '[]'));
+  expect(records).toHaveLength(1);
+  expect(records[0].id).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/);
+  await closeIsolatedContext(context);
 });

@@ -1,5 +1,20 @@
 # Project Status
 
+## Sprint 26 — LAN Learning Record fallback and return navigation
+
+- **Current Sprint:** Sprint 26
+- **Sprint Status:** Implementation complete / Awaiting Final Human Review.
+- **Root cause:** On an HTTP LAN address, some browsers do not expose `crypto.randomUUID`; the existing Learning Record creation path then failed before saving the record. ReviewSession has no UUID call; the affected production path was `components/question/ChineseQuestionFlow.tsx`.
+- **Implementation:** Added `lib/learning-record-id.ts`: native `crypto.randomUUID` remains preferred; when unavailable, `crypto.getRandomValues` creates a UUID v4 with correct version／variant bits. If neither secure API exists, the flow shows a clear unsaved-record error and does not create an unreliable ID. No schema, storage key, or learning-rule change was made.
+- **Navigation:** Unified all two-student／four-subject practice, Today Review, and 再練一次 labels to 「返回姐姐首頁／返回妹妹首頁」 and moved start-page links near the title while retaining the shared leave confirmation.
+- **Navigation:** Unified all two-student／four-subject practice, Today Review, and 再練一次 labels to 「返回姐姐首頁／返回妹妹首頁」 and moved start-page links near the title. The shared `FlowExitLink` now uses a high-contrast touch-friendly button and an in-page accessible dialog for unfinished-answer exits; Continue／Escape preserve state, Confirm returns to the current student's home, and no incomplete record is written.
+- **Verification:** Sprint 26 focused Node ID tests 4/4 and focused Browser smoke 5/5 passed. Full Node tests passed 165/165; full disposable Chromium Browser smoke passed 29/29; lint, `npx tsc --noEmit --incremental false`, production build, and `git diff --check` passed. Browser used disposable contexts and synthetic storage, including `randomUUID` unavailable／`getRandomValues` available, dialog focus／ARIA／Escape, both tablet viewports, and parent-record readback.
+- **Data protection:** Learning Record／ReviewSession schemas and storage keys, student／subject isolation, 1/3/7, retry, confirmation, practice no-write, timer／`startedAt`, and Parent Summary semantics remain unchanged. No question bank or real learning data was modified.
+- **Known limitation:** Actual post-fix tablet verification remains for Human confirmation; Browser smoke is not a substitute for the physical tablet. The `.next` EPERM was handled by clearing only the confirmed Next build cache.
+- **Implementation commit:** None; Final Human Review is required before commit／push.
+- **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
+- **Next step:** Human actual LAN／tablet re-verification, then Final Human Review.
+
 ## Sprint 25 — Return controls and parent center integration
 
 - **Current Sprint:** Sprint 25

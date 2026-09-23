@@ -69,6 +69,7 @@ export function ChineseReinforcementPracticePage({ questions, student, subject, 
     <main className={`flex min-h-screen flex-col items-center justify-center px-6 py-12 ${classes.page}`}>
       <section className="w-full max-w-xl rounded-2xl bg-white p-8 text-center shadow-lg sm:p-10">
         <h1 className={`text-4xl font-bold ${classes.title}`}>再練一次</h1>
+        <FlowExitLink href={homeHref} label={homeLabel} shouldConfirm={false} className={`mt-3 inline-block font-bold ${classes.title}`} />
         {items.length > 0 ? (
           <>
             <p className="mt-5 text-2xl font-bold text-gray-800">今天準備了 {items.length} 個需要再練的觀念。</p>
@@ -83,7 +84,6 @@ export function ChineseReinforcementPracticePage({ questions, student, subject, 
             <p className="mt-3 text-lg text-gray-700">先完成今天的學習，之後再回來看看吧！</p>
           </>
         )}
-        <FlowExitLink href={homeHref} label={homeLabel} shouldConfirm={false} className={`mt-5 inline-block font-bold ${classes.title}`} />
       </section>
     </main>
   );

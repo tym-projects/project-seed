@@ -12,7 +12,7 @@ export default function MeiMeiMathematicsPage() {
       theme="green"
       pageTitle="🌱 妹妹的數學練習"
       homeHref="/meimei"
-      homeLabel="回到妹妹首頁"
+      homeLabel="返回妹妹首頁"
     />
   );
 }

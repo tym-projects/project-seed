@@ -76,6 +76,7 @@ export function TodayReviewPage({ questions, student, subject, theme, homeHref, 
     <main className={`flex min-h-screen flex-col items-center justify-center px-6 py-12 ${classes.page}`}>
       <section className="w-full max-w-xl rounded-2xl bg-white p-8 text-center shadow-lg sm:p-10">
         <h1 className={`text-4xl font-bold ${classes.title}`}>今日複習</h1>
+        <FlowExitLink href={homeHref} label={homeLabel} shouldConfirm={false} className={`mt-3 inline-block font-bold ${classes.title}`} />
         {reviewItems.length > 0 ? (
           <>
             <p className="mt-5 text-2xl font-bold text-gray-800">今天準備了 {reviewItems.length} 題。</p>
@@ -100,7 +101,6 @@ export function TodayReviewPage({ questions, student, subject, theme, homeHref, 
             <p className="mt-3 text-lg text-gray-700">今天做過的題目明天再見！</p>
           </>
         )}
-        <FlowExitLink href={homeHref} label={homeLabel} shouldConfirm={false} className={`mt-5 inline-block font-bold ${classes.title}`} />
       </section>
     </main>
   );

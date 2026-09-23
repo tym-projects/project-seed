@@ -1,5 +1,14 @@
 # Project Seed Roadmap
 
+## Sprint 26 — LAN Learning Record fallback and return navigation
+
+- **Status:** Implementation complete / Awaiting Final Human Review.
+- Fixed HTTP LAN Learning Record ID creation by preferring native `crypto.randomUUID` and falling back to UUID v4 from `crypto.getRandomValues`; no unreliable fallback is used when secure random APIs are unavailable.
+- Unified two-student／four-subject return labels and moved start-page return links near the title. Replaced the browser-native leave confirmation with a shared high-contrast touch-friendly in-page dialog; Continue／Escape preserve state and Confirm returns to the current student's home. Learning semantics remain unchanged.
+- Verification: focused Node 4/4, focused Browser 5/5, full Node 165/165, full Browser 29/29, lint, TypeScript with `--incremental false`, build, and diff-check passed.
+- Verification: focused Browser 5/5 additionally covers dialog focus／ARIA／Escape, cancellation, confirmation, incomplete-record protection, and 768×1024／1024×768 viewports.
+- Out of scope: schema/storage-key changes, question-bank expansion, new learning features, and Sprint 27 implementation. Actual post-fix tablet verification remains pending Human confirmation.
+
 ## Sprint 25 — Return controls and parent center integration
 
 - **Status:** Completed.

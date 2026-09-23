@@ -11,6 +11,7 @@ import { getReviewTimeNotice } from '@/lib/review-session-time';
 import type { ReviewTargetMinutes } from '@/lib/review-time-settings';
 import { useReviewElapsedMinutes } from '@/components/review/useReviewElapsedMinutes';
 import { shouldConfirmFlowExit, type FlowAnswerState } from '@/lib/flow-exit';
+import { createLearningRecordId } from '@/lib/learning-record-id';
 
 type ChineseQuestionFlowProps = {
   questions: QuestionCardQuestion[];
@@ -66,6 +67,7 @@ export function ChineseQuestionFlow({
   const [flowState, setFlowState] = useState(() => getInitialConfirmationFlowState(flowItems.length));
   const [pendingCompletion, setPendingCompletion] = useState<QuestionCompletion | null>(null);
   const [answerState, setAnswerState] = useState<FlowAnswerState>({ selectedAnswer: null, isSubmitted: false, isCorrect: false });
+  const [persistenceError, setPersistenceError] = useState<string | null>(null);
   const isComplete = flowState.isComplete;
   const currentItem = flowItems[flowState.itemIndex];
   const question = flowState.phase === 'confirmation' && currentItem.confirmation ? currentItem.confirmation : currentItem.primary;
@@ -82,8 +84,9 @@ export function ChineseQuestionFlow({
       <main className={`flex min-h-screen flex-col items-center justify-center px-6 py-12 ${classes.page}`}>
         <section className="w-full max-w-xl rounded-2xl bg-white p-8 text-center shadow-lg sm:p-10">
           <p className="text-5xl">🎉</p>
-          <h1 className={`mt-4 text-4xl font-bold ${classes.title}`}>{completionTitle}</h1>
+          <h1 className={`mt-4 text-4xl font-bold ${classes.title}`}>{persistenceError ? '作答完成，但紀錄未保存' : completionTitle}</h1>
           <p className="mt-5 text-2xl font-bold text-gray-800">{completionMessage}</p>
+          {persistenceError && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-3 text-lg font-bold text-red-800">{persistenceError}</p>}
           <p className="mt-4 text-lg text-gray-700">你完成了 {flowItems.length} / {flowItems.length} 題。</p>
           <p className="mt-3 text-lg text-gray-700">休息一下，明天再來學習！</p>
           <FlowExitLink href={homeHref} label={homeLabel} shouldConfirm={false} className={`mt-8 inline-block rounded-xl px-6 py-3 font-bold text-white transition-colors ${classes.button}`} />
@@ -97,6 +100,7 @@ export function ChineseQuestionFlow({
       <section className="w-full max-w-xl rounded-2xl bg-white p-8 shadow-lg sm:p-10">
         <h1 className={`text-4xl font-bold ${classes.title}`}>{pageTitle}</h1>
         <FlowExitLink href={homeHref} label={homeLabel} shouldConfirm={shouldConfirmFlowExit(answerState)} className={`mt-3 inline-block font-bold ${classes.title}`} />
+        {persistenceError && <p role="alert" className="mt-3 rounded-xl bg-red-50 p-3 text-lg font-bold text-red-800">{persistenceError}</p>}
         {reviewStartedAt && <p className="mt-3 text-lg font-bold text-gray-700">已複習 {elapsedMinutes} 分鐘</p>}
         {reviewTimeNotice?.kind === 'gentle-ten-minute' && <p className="mt-3 rounded-xl bg-amber-50 p-3 text-lg font-bold text-amber-800">已經複習 10 分鐘，可以完成目前題目後休息。</p>}
         {reviewTimeNotice?.kind === 'target-complete' && reviewTimeNotice.targetMinutes === 10 && <p className="mt-3 rounded-xl bg-amber-100 p-3 text-lg font-bold text-amber-900">今天已經複習 10 分鐘，可以休息囉！</p>}
@@ -123,8 +127,16 @@ export function ChineseQuestionFlow({
             setFlowState(nextState);
           }}
           onQuestionComplete={(completion) => {
+            let recordId: string;
+            try {
+              recordId = createLearningRecordId();
+            } catch (error) {
+              setPersistenceError(error instanceof Error ? error.message : '學習紀錄未保存，請稍後再試。');
+              return;
+            }
+
             const record: LearningRecord = {
-              id: crypto.randomUUID(),
+              id: recordId,
               student,
               subject,
               questionId: completion.questionId,
@@ -137,7 +149,12 @@ export function ChineseQuestionFlow({
             };
 
             if (shouldPersistLearningRecord(mode)) {
-              saveLearningRecord(record);
+              try {
+                saveLearningRecord(record);
+                setPersistenceError(null);
+              } catch (error) {
+                setPersistenceError(error instanceof Error ? error.message : '學習紀錄未保存，請稍後再試。');
+              }
             }
             setPendingCompletion(completion);
           }}
