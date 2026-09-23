@@ -1,6 +1,6 @@
 # Sprint 27 網站總首頁導覽改善 Implementation Plan
 
-**Status:** Implementation complete / Awaiting Final Human Review.
+**Status:** Completed.
 
 ## Task 1 — 導覽 RED 測試
 
@@ -19,3 +19,10 @@
 - 執行 `npm test`、lint、`npx tsc --noEmit --incremental false`、build、`npm run test:browser`、`git diff --check`。
 - 同步 PROJECT_STATUS、roadmap、sprint-log。
 - 狀態維持 `Implementation complete / Awaiting Final Human Review`，Final Human Approval 前不 commit／push。
+
+## Close record
+
+- Human 實際平板驗收 5/5 通過。
+- Implementation commit：`9cf33de`。
+- 已推送至 `origin/main`；Sprint 27 正式 Completed。
+- Next Step：Sprint 28 規劃。

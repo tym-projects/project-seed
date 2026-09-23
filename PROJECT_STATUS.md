@@ -3,13 +3,15 @@
 ## Sprint 27 — Website home navigation
 
 - **Current Sprint:** Sprint 27
-- **Sprint Status:** Implementation complete / Awaiting Final Human Review.
+- **Sprint Status:** Completed.
 - **Scope:** Added a shared high-contrast 「返回網站首頁」 link to `/jiejie`、`/meimei`、and `/parent`; all links target the existing site home route `/`.
 - **Navigation protection:** Sprint 26 student-home links remain separate and unchanged. The site home still reaches both student modes and parent mode. No Learning Record／ReviewSession schema, storage key, question bank, selection, review, practice, timer, or Parent Summary semantics changed.
-- **Verification:** Sprint 27 focused Browser 3/3 passed with disposable contexts and synthetic storage; tablet viewport checks passed at 768×1024 and 1024×768. Full Node／Browser、lint、TypeScript、build、and diff-check remain to be recorded after final verification.
-- **Known limitation:** Viewport checks are technical simulations; actual tablet acceptance remains for Human confirmation.
+- **Verification:** Sprint 27 focused Browser 3/3 passed with disposable contexts and synthetic storage; full Node 165/165 and Browser 32/32 passed; lint, `npx tsc --noEmit --incremental false`, production build, and `git diff --check` passed. Tablet viewport checks passed at 768×1024 and 1024×768.
+- **Human tablet verification:** Human completed the five approved actual tablet checks successfully.
+- **Implementation commit:** `9cf33de` Complete Sprint 27 site home navigation.
+- **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
 - **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
-- **Next step:** Final Human Review, then Sprint 27 close if approved.
+- **Next step:** Sprint 28 規劃。
 
 ## Sprint 26 — LAN Learning Record fallback and return navigation
 
