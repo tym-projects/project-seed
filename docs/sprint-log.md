@@ -2,13 +2,12 @@
 
 ## Sprint 25 — Return controls and parent center integration
 
-- **Status:** Implementation complete / Final Close pending.
+- **Status:** Completed.
 - Human tablet trial reported the four-subject flows and existing Parent Summary／review-time settings normal. Implemented the approved follow-ups: shared return-home controls for practice, Today Review, and 再練一次; unfinished-answer leave confirmation; and a compact `/parent` student／subject selector that displays one isolated summary/settings panel at a time.
 - Completed records remain intact; unfinished answers do not create completion records; practice remains no-write. Learning Record／ReviewSession schemas, storage keys, 1/3/7, retry, confirmation, timer／`startedAt`, and Parent Summary metric semantics are unchanged.
 - Focused verification passed 2/2 flow tests, Sprint 25 Browser smoke 4/4, and affected Sprint 20–23 Browser regression 13/13 using disposable contexts and synthetic storage. Full Node tests passed 161/161 and full disposable Chromium Browser smoke passed 28/28; lint, TypeScript with `--incremental false`, production build, and `git diff --check` passed. Portrait 768×1024 and landscape 1024×768 checks passed.
-- No commit／push before Final Human Approval. No question bank or OneDrive backup changes.
-- Final Human Review 已核准；正式 commit／push／Sprint Close 尚未執行。下次依序核對 repository、執行 Final Verification、建立 implementation commit、push、同步結案文件並確認 working tree clean；之後安排新版實際平板複驗，再進入 Sprint 26 規劃。
-- **Next Step:** Sprint 25 Final Approval & Close.
+- No question bank or OneDrive backup changes. Final Verification passed; implementation commit `8f8a7c0` 已推送至 `origin/main`，結案文件已同步，working tree 已確認 clean。
+- **Next Step:** 安排新版返回與家長中心的實際平板複驗，再進入 Sprint 26 規劃。
 
 ## Sprint 24 — Four-subject home navigation
 

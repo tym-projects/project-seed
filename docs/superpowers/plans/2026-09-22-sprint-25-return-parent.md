@@ -1,10 +1,10 @@
 # Sprint 25 返回操作與家長中心 Implementation Plan
 
-**Status:** Implementation complete / Final Close pending.
+**Status:** Completed.
 
 **Result:** Added shared return-home controls with an unfinished-answer confirmation, and changed `/parent` to a single selected student／subject view with isolated review-time settings. No persisted schema, storage key, Learning Record, ReviewSession, scheduling, practice, timer, or Parent Summary metric semantics changed.
 
-**Verification:** Focused flow tests 2/2; focused Sprint 25 Browser smoke 4/4; affected Sprint 20–23 Browser regression 13/13; full Node tests 161/161; full disposable Chromium Browser smoke 28/28; lint, `npx tsc --noEmit --incremental false`, production build, and `git diff --check` passed. Browser contexts use synthetic storage only, with 768×1024 portrait and 1024×768 landscape checks. Final Human Review 已核准，但 Final Verification、commit、push 與 Sprint Close 尚未執行。
+**Verification:** Focused flow tests 2/2; focused Sprint 25 Browser smoke 4/4; affected Sprint 20–23 Browser regression 13/13; full Node tests 161/161; full disposable Chromium Browser smoke 28/28; lint, `npx tsc --noEmit --incremental false`, production build, and `git diff --check` passed. Browser contexts use synthetic storage only, with 768×1024 portrait and 1024×768 landscape checks. Final Human Review、Final Verification、implementation commit、push 與 Sprint Close 均已完成。
 
 ## Task 1 — 返回與離開確認的 pure tests（RED first）
 
@@ -39,11 +39,9 @@
 - 執行 focused tests、`npm test`、lint、`npx tsc --noEmit --incremental false`、build、full Browser smoke、`git diff --check`。
 - 更新 `PROJECT_STATUS.md`、`docs/roadmap.md`、`docs/sprint-log.md` 及本 Plan，記錄 Human 實際平板六項檢查正常、兩項改善、測試結果與待人工確認事項。
 - Final Human Approval 前不 commit／push，Sprint 25 不標記 Completed。
-- **Status:** Completed. Full verification passed; Final Human Review 已核准，repository remains uncommitted and unpushed，Final Close pending.
+- **Status:** Completed. Full verification passed; implementation commit `8f8a7c0` 已推送，結案文件已同步，Sprint 25 已 Completed。
 
-## Next-session checklist
+## Post-close next steps
 
-1. 核對正式 Documents repository、main、HEAD、origin 與 Sprint 25 未提交變更。
-2. 執行已核准的 Sprint 25 Final Approval & Close：Final Verification → implementation commit → push → close-document sync。
-3. 確認 `main = origin/main`、ahead／behind `0/0`、working tree clean 後，才標記 Sprint 25 Completed。
-4. 安排新版返回操作與家長中心的實際平板複驗，再開始 Sprint 26 規劃。
+1. 安排新版返回操作與家長中心的實際平板複驗。
+2. 依實際回饋進入 Sprint 26 規劃；不得直接開始 Sprint 26 Implementation。
