@@ -29,14 +29,15 @@ test('renders isolated parent summary metrics and actionable states', async ({ b
   await page.goto('/parent');
 
   await expect(page.getByRole('heading', { name: '姐姐的學習摘要' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: '妹妹的學習摘要' })).toBeVisible();
   await expect(page.getByText('完成作答紀錄', { exact: true }).first()).toBeVisible();
   await expect(page.getByText('首次答對率（作答紀錄）', { exact: true }).first()).toBeVisible();
   await expect(page.getByText('曾需再次嘗試的作答紀錄', { exact: true }).first()).toBeVisible();
   await expect(page.getByText('可以陪同複習', { exact: true }).first()).toBeVisible();
   await expect(page.getByText('到期但尚未完成', { exact: true }).first()).toBeVisible();
   await expect(page.getByText('今日複習尚有理解確認待完成', { exact: true }).first()).toBeVisible();
-  await expect(page.getByText('目前沒有跨日期反覆需要再次嘗試的紀錄', { exact: true }).first()).toBeVisible();
+  await page.getByRole('button', { name: '妹妹' }).click();
+  await expect(page.getByRole('heading', { name: '妹妹的學習摘要' })).toBeVisible();
+  await expect(page.getByText('目前沒有跨日期反覆需要再次嘗試的紀錄', { exact: true })).toBeVisible();
   expect(consoleErrors).toEqual([]);
   await closeIsolatedContext(context);
 });

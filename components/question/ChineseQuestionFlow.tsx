@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { useState } from 'react';
+import { FlowExitLink } from '@/components/navigation/FlowExitLink';
 import { QuestionCard, type QuestionCardQuestion, type QuestionCompletion } from '@/components/question/QuestionCard';
 import { type StudentId, type SubjectId, type LearningRecord, saveLearningRecord } from '@/lib/learning-records';
 import { shouldPersistLearningRecord, type QuestionFlowMode } from '@/lib/practice-persistence';
@@ -10,6 +10,7 @@ import { advanceAfterCompletion, getInitialConfirmationFlowState } from '@/lib/u
 import { getReviewTimeNotice } from '@/lib/review-session-time';
 import type { ReviewTargetMinutes } from '@/lib/review-time-settings';
 import { useReviewElapsedMinutes } from '@/components/review/useReviewElapsedMinutes';
+import { shouldConfirmFlowExit, type FlowAnswerState } from '@/lib/flow-exit';
 
 type ChineseQuestionFlowProps = {
   questions: QuestionCardQuestion[];
@@ -64,6 +65,7 @@ export function ChineseQuestionFlow({
   }));
   const [flowState, setFlowState] = useState(() => getInitialConfirmationFlowState(flowItems.length));
   const [pendingCompletion, setPendingCompletion] = useState<QuestionCompletion | null>(null);
+  const [answerState, setAnswerState] = useState<FlowAnswerState>({ selectedAnswer: null, isSubmitted: false, isCorrect: false });
   const isComplete = flowState.isComplete;
   const currentItem = flowItems[flowState.itemIndex];
   const question = flowState.phase === 'confirmation' && currentItem.confirmation ? currentItem.confirmation : currentItem.primary;
@@ -84,9 +86,7 @@ export function ChineseQuestionFlow({
           <p className="mt-5 text-2xl font-bold text-gray-800">{completionMessage}</p>
           <p className="mt-4 text-lg text-gray-700">你完成了 {flowItems.length} / {flowItems.length} 題。</p>
           <p className="mt-3 text-lg text-gray-700">休息一下，明天再來學習！</p>
-          <Link href={homeHref} className={`mt-8 inline-block rounded-xl px-6 py-3 font-bold text-white transition-colors ${classes.button}`}>
-            {homeLabel}
-          </Link>
+          <FlowExitLink href={homeHref} label={homeLabel} shouldConfirm={false} className={`mt-8 inline-block rounded-xl px-6 py-3 font-bold text-white transition-colors ${classes.button}`} />
         </section>
       </main>
     );
@@ -96,7 +96,7 @@ export function ChineseQuestionFlow({
     <main className={`flex min-h-screen flex-col items-center justify-center px-6 py-12 ${classes.page}`}>
       <section className="w-full max-w-xl rounded-2xl bg-white p-8 shadow-lg sm:p-10">
         <h1 className={`text-4xl font-bold ${classes.title}`}>{pageTitle}</h1>
-        {mode === 'reinforcement-practice' && <Link href={homeHref} className={`mt-3 inline-block font-bold ${classes.title}`}>{homeLabel}</Link>}
+        <FlowExitLink href={homeHref} label={homeLabel} shouldConfirm={shouldConfirmFlowExit(answerState)} className={`mt-3 inline-block font-bold ${classes.title}`} />
         {reviewStartedAt && <p className="mt-3 text-lg font-bold text-gray-700">已複習 {elapsedMinutes} 分鐘</p>}
         {reviewTimeNotice?.kind === 'gentle-ten-minute' && <p className="mt-3 rounded-xl bg-amber-50 p-3 text-lg font-bold text-amber-800">已經複習 10 分鐘，可以完成目前題目後休息。</p>}
         {reviewTimeNotice?.kind === 'target-complete' && reviewTimeNotice.targetMinutes === 10 && <p className="mt-3 rounded-xl bg-amber-100 p-3 text-lg font-bold text-amber-900">今天已經複習 10 分鐘，可以休息囉！</p>}
@@ -116,6 +116,7 @@ export function ChineseQuestionFlow({
               itemCount: flowItems.length,
             });
             setPendingCompletion(null);
+            setAnswerState({ selectedAnswer: null, isSubmitted: false, isCorrect: false });
             if (nextState.isComplete) {
               onReviewComplete?.();
             }
@@ -144,6 +145,7 @@ export function ChineseQuestionFlow({
             onReviewComplete?.();
             setFlowState((currentState) => ({ ...currentState, isComplete: true }));
           }}
+          onAnswerStateChange={setAnswerState}
           theme={theme}
         />
       </section>

@@ -35,6 +35,7 @@ type QuestionCardProps = {
   onQuestionComplete: (completion: QuestionCompletion) => void;
   onComplete: () => void;
   theme: 'pink' | 'green';
+  onAnswerStateChange?: (state: { selectedAnswer: number | null; isSubmitted: boolean; isCorrect: boolean }) => void;
 };
 
 const themeClasses = {
@@ -59,6 +60,7 @@ export function QuestionCard({
   onQuestionComplete,
   onComplete,
   theme,
+  onAnswerStateChange,
 }: QuestionCardProps) {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -71,6 +73,7 @@ export function QuestionCard({
   function selectAnswer(answerIndex: number) {
     setSelectedAnswer(answerIndex);
     setIsSubmitted(false);
+    onAnswerStateChange?.({ selectedAnswer: answerIndex, isSubmitted: false, isCorrect: answerIndex === question.answer });
   }
 
   function submitAnswer() {
@@ -84,6 +87,7 @@ export function QuestionCard({
     setAttempts(nextAttempts);
     setFirstAnswer(recordedFirstAnswer);
     setIsSubmitted(true);
+    onAnswerStateChange?.({ selectedAnswer, isSubmitted: true, isCorrect });
 
     if (selectedAnswer === question.answer && !hasCompletedQuestion.current) {
       hasCompletedQuestion.current = true;

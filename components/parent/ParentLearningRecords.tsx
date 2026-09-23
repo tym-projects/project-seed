@@ -15,6 +15,12 @@ import { questions as meimeiSocialStudiesQuestions } from '@/lib/questions/meime
 import { getReviewTargetMinutes, saveReviewTargetMinutes, type ReviewTargetMinutes } from '@/lib/review-time-settings';
 type StudentSection = { id: StudentId; subject: SubjectId; label: string; records: LearningRecordDisplay[]; summary: ParentLearningSummary };
 type ReviewTargets = Record<string, ReviewTargetMinutes | null>;
+const subjectOptions: { id: SubjectId; label: string }[] = [
+  { id: 'chinese', label: '國語' },
+  { id: 'mathematics', label: '數學' },
+  { id: 'natural_science', label: '自然' },
+  { id: 'social_studies', label: '社會' },
+];
 function PeriodCard({ label, summary }: { label: string; summary: ParentLearningSummary['today'] }) {
   const rate = summary.firstTryCorrectRate === null ? '尚無有效作答紀錄' : `${Math.round(summary.firstTryCorrectRate * 100)}%`;
   return <article className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-gray-100"><h3 className="text-xl font-bold text-gray-800">{label}</h3><dl className="mt-3 space-y-2 text-gray-700"><div className="flex justify-between gap-4"><dt>完成作答紀錄</dt><dd>{summary.completedRecordCount} 筆</dd></div><div className="flex justify-between gap-4"><dt>完成 learning groups</dt><dd>{summary.completedLearningGroupCount} 組</dd></div><div className="flex justify-between gap-4"><dt>首次答對率（作答紀錄）</dt><dd>{rate}</dd></div><div className="flex justify-between gap-4"><dt>曾需再次嘗試的作答紀錄</dt><dd>{summary.retryRecordCount} 筆</dd></div></dl><p className="mt-3 text-sm text-gray-500">這些是作答紀錄，不是能力或理解度評分。</p></article>;
@@ -22,6 +28,8 @@ function PeriodCard({ label, summary }: { label: string; summary: ParentLearning
 export function ParentLearningRecords() {
   const [records, setRecords] = useState<LearningRecord[] | null>(null);
   const [reviewTargets, setReviewTargets] = useState<ReviewTargets | null>(null);
+  const [selectedStudent, setSelectedStudent] = useState<StudentId>('jiejie');
+  const [selectedSubject, setSelectedSubject] = useState<SubjectId>('chinese');
   useEffect(() => { const id = window.setTimeout(() => { setRecords(readLearningRecords()); setReviewTargets({ 'jiejie:chinese': getReviewTargetMinutes('jiejie', 'chinese'), 'jiejie:mathematics': getReviewTargetMinutes('jiejie', 'mathematics'), 'jiejie:natural_science': getReviewTargetMinutes('jiejie', 'natural_science'), 'jiejie:social_studies': getReviewTargetMinutes('jiejie', 'social_studies'), 'meimei:chinese': getReviewTargetMinutes('meimei', 'chinese'), 'meimei:mathematics': getReviewTargetMinutes('meimei', 'mathematics'), 'meimei:natural_science': getReviewTargetMinutes('meimei', 'natural_science'), 'meimei:social_studies': getReviewTargetMinutes('meimei', 'social_studies') }); }, 0); return () => window.clearTimeout(id); }, []);
   const sections = useMemo<StudentSection[]>(() => {
     const source = records ?? []; const sorted = sortLearningRecords(source);
@@ -29,7 +37,25 @@ export function ParentLearningRecords() {
     return [make('jiejie', '姐姐', 'chinese', jiejieChineseQuestions), make('jiejie', '姐姐', 'mathematics', jiejieMathematicsQuestions), make('jiejie', '姐姐', 'natural_science', jiejieNaturalScienceQuestions), make('jiejie', '姐姐', 'social_studies', jiejieSocialStudiesQuestions), make('meimei', '妹妹', 'chinese', meimeiChineseQuestions), make('meimei', '妹妹', 'mathematics', meimeiMathematicsQuestions), make('meimei', '妹妹', 'natural_science', meimeiNaturalScienceQuestions), make('meimei', '妹妹', 'social_studies', meimeiSocialStudiesQuestions)];
   }, [records]);
   if (records === null) return <p className="mt-8 text-center text-gray-600">正在讀取學習摘要…</p>;
-  return <section className="mt-8 grid gap-8 lg:grid-cols-2">{sections.map((section) => {
+  return <section className="mt-8">
+    <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-gray-100">
+      <div className="flex flex-wrap gap-3" role="group" aria-label="選擇孩子">
+        {(['jiejie', 'meimei'] as const).map((student) => (
+          <button key={student} type="button" aria-pressed={selectedStudent === student} onClick={() => setSelectedStudent(student)} className={`rounded-xl px-5 py-3 font-bold ${selectedStudent === student ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-700'}`}>
+            {student === 'jiejie' ? '姐姐' : '妹妹'}
+          </button>
+        ))}
+      </div>
+      <div className="mt-4 flex flex-wrap gap-3" role="group" aria-label="選擇科目">
+        {subjectOptions.map((subject) => (
+          <button key={subject.id} type="button" aria-pressed={selectedSubject === subject.id} onClick={() => setSelectedSubject(subject.id)} className={`rounded-xl px-4 py-3 font-bold ${selectedSubject === subject.id ? 'bg-sky-600 text-white' : 'bg-sky-50 text-sky-800'}`}>
+            {subject.label}
+          </button>
+        ))}
+      </div>
+    </div>
+    <div className="mt-8 grid gap-8">
+    {sections.filter((section) => section.id === selectedStudent && section.subject === selectedSubject).map((section) => {
     const targetKey = `${section.id}:${section.subject}`;
     const targetMinutes = reviewTargets?.[targetKey] ?? null;
     const radioName = `review-time-${targetKey}`;
@@ -41,5 +67,7 @@ export function ParentLearningRecords() {
     const subjectLabel = section.subject === 'mathematics' ? '數學學習摘要' : section.subject === 'natural_science' ? '自然學習摘要' : '社會學習摘要';
    return <article key={targetKey} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-100"><h2 className="text-2xl font-bold text-gray-800">{section.label}的{subjectLabel}</h2><fieldset className="mt-5 rounded-xl bg-sky-50 p-4"><legend className="px-1 text-lg font-bold text-sky-900">今日複習時間</legend>{targetMinutes === null && <p className="mt-1 text-sm text-sky-800">未設定（10 分鐘提醒、15 分鐘完成提醒）</p>}<div className="mt-3 flex gap-5 text-sky-900"><label htmlFor={`${radioName}-10`}><input id={`${radioName}-10`} name={radioName} type="radio" checked={targetMinutes === 10} onChange={() => updateTarget(10)} className="mr-2" />10 分鐘</label><label htmlFor={`${radioName}-15`}><input id={`${radioName}-15`} name={radioName} type="radio" checked={targetMinutes === 15} onChange={() => updateTarget(15)} className="mr-2" />15 分鐘</label></div></fieldset><div className="mt-5 grid gap-4 sm:grid-cols-2"><PeriodCard label="今日" summary={section.summary.today} /><PeriodCard label="最近 7 天" summary={section.summary.last7Days} /></div><section className="mt-5 rounded-xl bg-amber-50 p-4"><h3 className="text-lg font-bold text-amber-900">可以陪同複習</h3>{section.summary.attentionItems.some((item) => item.kind === 'repeated-retry') ? <ul className="mt-2 space-y-2 text-amber-900">{section.summary.attentionItems.filter((item) => item.kind === 'repeated-retry').map((item) => <li key={`${item.kind}:${item.unitId}`}>{item.label}：最近 7 天在 {item.retryDateCount} 個不同日期曾需要再次嘗試，可以陪孩子換個方式複習。</li>)}</ul> : <p className="mt-2 text-amber-800">目前沒有跨日期反覆需要再次嘗試的紀錄</p>}</section><section className="mt-5 rounded-xl bg-orange-50 p-4"><h3 className="text-lg font-bold text-orange-900">到期但尚未完成</h3><p className="mt-2 text-orange-800">{section.summary.dueLearningUnitCount === 0 ? '目前沒有尚未完成的到期複習' : `共有 ${section.summary.dueLearningUnitCount} 個 learning groups 到期。`}</p>{section.summary.dueItems.length > 0 && <ul className="mt-2 space-y-2 text-orange-900">{section.summary.dueItems.map((item) => <li key={item.unitId}>{item.label}{item.unstable ? '：最近一次複習需要再次嘗試。' : '：今天尚未完成。'}</li>)}</ul>}{section.summary.pendingConfirmationItems.length > 0 && <p className="mt-3 font-bold text-orange-900">今日複習尚有理解確認待完成</p>}</section><dl className="mt-5 rounded-xl bg-gray-50 p-4 text-gray-700"><div className="flex justify-between gap-4"><dt>最近一次學習</dt><dd>{section.summary.latestLearningLocalDate ?? '尚無完成作答'}</dd></div><div className="mt-2 flex justify-between gap-4"><dt>待複習 learning units</dt><dd>{section.summary.dueLearningUnitCount}</dd></div></dl><div className="mt-5"><LearningRecordList studentLabel={section.label} records={section.records} /></div></article>;
     if (section.subject === "mathematics") return <article key={targetKey} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-gray-100"><h2 className="text-2xl font-bold text-gray-800">{section.label}的{section.subject === "chinese" ? "學習摘要" : "數學學習摘要"}</h2><fieldset className="mt-5 rounded-xl bg-sky-50 p-4"><legend className="px-1 text-lg font-bold text-sky-900">今日複習時間</legend>{targetMinutes === null && <p className="mt-1 text-sm text-sky-800">未設定（10 分鐘提醒、15 分鐘完成提醒）</p>}<div className="mt-3 flex gap-5 text-sky-900"><label htmlFor={`${radioName}-10`}><input id={`${radioName}-10`} name={radioName} type="radio" checked={targetMinutes === 10} onChange={() => updateTarget(10)} className="mr-2" />10 分鐘</label><label htmlFor={`${radioName}-15`}><input id={`${radioName}-15`} name={radioName} type="radio" checked={targetMinutes === 15} onChange={() => updateTarget(15)} className="mr-2" />15 分鐘</label></div></fieldset><div className="mt-5 grid gap-4 sm:grid-cols-2"><PeriodCard label="今日" summary={section.summary.today} /><PeriodCard label="最近 7 天" summary={section.summary.last7Days} /></div><section className="mt-5 rounded-xl bg-amber-50 p-4"><h3 className="text-lg font-bold text-amber-900">可以陪同複習</h3>{section.summary.attentionItems.some((item) => item.kind === 'repeated-retry') ? <ul className="mt-2 space-y-2 text-amber-900">{section.summary.attentionItems.filter((item) => item.kind === 'repeated-retry').map((item) => <li key={`${item.kind}:${item.unitId}`}>{item.label}：最近 7 天在 {item.retryDateCount} 個不同日期曾需要再次嘗試，可以陪孩子換個方式複習。</li>)}</ul> : <p className="mt-2 text-amber-800">目前沒有跨日期反覆需要再次嘗試的紀錄</p>}</section><section className="mt-5 rounded-xl bg-orange-50 p-4"><h3 className="text-lg font-bold text-orange-900">到期但尚未完成</h3><p className="mt-2 text-orange-800">{section.summary.dueLearningUnitCount === 0 ? '目前沒有尚未完成的到期複習' : `共有 ${section.summary.dueLearningUnitCount} 個 learning groups 到期。`}</p>{section.summary.dueItems.length > 0 && <ul className="mt-2 space-y-2 text-orange-900">{section.summary.dueItems.map((item) => <li key={item.unitId}>{item.label}{item.unstable ? '：最近一次複習需要再次嘗試。' : '：今天尚未完成。'}</li>)}</ul>}{section.summary.pendingConfirmationItems.length > 0 && <p className="mt-3 font-bold text-orange-900">今日複習尚有理解確認待完成</p>}</section><dl className="mt-5 rounded-xl bg-gray-50 p-4 text-gray-700"><div className="flex justify-between gap-4"><dt>最近一次學習</dt><dd>{section.summary.latestLearningLocalDate ?? '尚無完成作答'}</dd></div><div className="mt-2 flex justify-between gap-4"><dt>待複習 learning units</dt><dd>{section.summary.dueLearningUnitCount}</dd></div></dl><div className="mt-5"><LearningRecordList studentLabel={section.label} records={section.records} /></div></article>;
-  })}</section>;
+  })}
+    </div>
+  </section>;
 }

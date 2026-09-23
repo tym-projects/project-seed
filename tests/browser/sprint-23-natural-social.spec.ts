@@ -85,9 +85,12 @@ test('shows separated natural and social parent summaries and preserves existing
   const consoleErrors: string[] = [];
   page.on('console', (message) => { if (message.type() === 'error') consoleErrors.push(message.text()); });
   await page.goto('/parent');
+  await page.getByRole('button', { name: '自然' }).click();
   await expect(page.getByText('陽光照射下，地面上的水逐漸變少')).toBeVisible();
-  await expect(page.getByText('下列哪一個說法最符合家庭生活中的分工合作')).toBeVisible();
   await expect(page.getByText('姐姐的自然學習摘要')).toHaveCount(1);
+  await page.getByRole('button', { name: '妹妹' }).click();
+  await page.getByRole('button', { name: '社會' }).click();
+  await expect(page.getByText('下列哪一個說法最符合家庭生活中的分工合作')).toBeVisible();
   await expect(page.getByText('妹妹的社會學習摘要')).toHaveCount(1);
   expect(consoleErrors).toEqual([]);
   await closeIsolatedContext(context);

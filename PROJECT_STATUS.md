@@ -1,5 +1,20 @@
 # Project Status
 
+## Sprint 25 — Return controls and parent center integration
+
+- **Current Sprint:** Sprint 25
+- **Sprint Status:** Implementation complete / Final Close pending.
+- **Human trial baseline:** The Human's tablet trial found the four-subject learning flows, question text, options, Hint／Explanation, portrait／landscape use, Parent Summary, and review-time settings normal. This implementation addresses the two approved follow-ups: clear return-home controls and one compact parent center.
+- **Implementation:** Added shared return-home controls to first practice, Today Review, and 再練一次 flows for both students and all four subjects. If a selected answer is unfinished or incorrect, leaving asks for confirmation; cancelling preserves the current screen, while completed or untouched states leave without an unnecessary prompt. Completed Learning Records remain unchanged and unfinished answers are not persisted.
+- **Parent center:** `/parent` now switches between 姐姐／妹妹 and 國語／數學／自然／社會, showing only the selected student+subject summary and its review-time setting. Existing summary calculations, setting persistence, legacy route, and student／subject boundaries are preserved.
+- **Data protection:** Learning Record／ReviewSession persisted schemas and storage keys are unchanged. 1/3/7, retry, confirmation, practice no-write, timer／`startedAt`, and Parent Summary metric semantics are unchanged. No question bank was expanded and no real user storage was used.
+- **Verification:** Focused flow tests 2/2 passed; Sprint 25 Browser smoke 4/4 passed with synthetic storage, including return cancellation, completed-record preservation, settings readback, and 768×1024 portrait／1024×768 landscape checks. Affected Sprint 20–23 Browser regression passed 13/13. Full Node tests passed 161/161; full disposable Chromium Browser smoke passed 28/28; lint, `npx tsc --noEmit --incremental false`, production build, and `git diff --check` passed.
+- **Known limitation:** Browser tablet viewport checks are technical simulations; the Human's actual tablet trial is recorded as normal, but this change has not been committed or pushed and Sprint 25 remains awaiting Final Human Review.
+- **Implementation commit:** None yet; Final Human Approval is required before commit／push.
+- **Close readiness:** Final Human Review is approved, but Final Verification、implementation commit、push、結案文件同步、main／origin 同步與 working-tree clean 尚未執行。
+- **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
+- **Next step:** 下次先核對未提交變更，執行已核准的 Sprint 25 Final Approval & Close；結案後安排新版返回與家長中心的實際平板複驗，再進入 Sprint 26 規劃。
+
 ## Sprint 24 — Four-subject home navigation
 
 - **Current Sprint:** Sprint 24

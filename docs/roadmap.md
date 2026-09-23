@@ -1,5 +1,14 @@
 # Project Seed Roadmap
 
+## Sprint 25 — Return controls and parent center integration
+
+- **Status:** Implementation complete / Final Close pending.
+- Added shared return-home controls across both students' four-subject first practice, Today Review, and 再練一次 flows. Unfinished selected answers require a short leave confirmation; cancel preserves the current state, and no unfinished answer becomes a completed record.
+- `/parent` remains the single parent entry and now switches one student and one subject at a time, preserving existing summary calculations and student+subject-isolated review-time settings.
+- No question bank expansion, persisted schema change, storage-key change, or core learning-semantic change.
+- Verification recorded: focused flow 2/2, Sprint 25 Browser 4/4, affected Sprint 20–23 Browser regression 13/13, full Node 161/161, and full disposable Chromium Browser 28/28; lint, TypeScript with `--incremental false`, production build, and `git diff --check` passed. Tablet simulations cover 768×1024 portrait and 1024×768 landscape; the Human's actual tablet trial was normal.
+- Final Human Review 已核准，但尚未 commit／push／Sprint Close；下次先完成 Final Approval & Close，再安排實際平板複驗與 Sprint 26 規劃。
+
 ## Sprint 24 — Four-subject home navigation
 
 - **Status:** Completed.

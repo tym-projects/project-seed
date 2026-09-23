@@ -99,10 +99,10 @@ test('keeps Mathematics Parent Summary and review settings isolated from Chinese
   }));
   const page = await context.newPage();
   await page.goto('/parent');
+  await page.getByRole('button', { name: '數學' }).click();
   await expect(page.getByText('84 的質因數分解是哪一個？')).toBeVisible();
-  await expect(page.getByText('姐姐的學習摘要')).toHaveCount(1);
   await expect(page.getByText('姐姐的數學學習摘要')).toHaveCount(1);
-  await expect(page.locator('input[type="radio"]').nth(3)).toBeChecked();
+  await expect(page.getByLabel('15 分鐘')).toBeChecked();
   await closeIsolatedContext(context);
 });
 

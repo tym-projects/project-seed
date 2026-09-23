@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { FlowExitLink } from '@/components/navigation/FlowExitLink';
 import { ChineseQuestionFlow } from '@/components/question/ChineseQuestionFlow';
 import type { QuestionCardQuestion } from '@/components/question/QuestionCard';
 import { readLearningRecords, type StudentId, type SubjectId } from '@/lib/learning-records';
@@ -83,7 +83,7 @@ export function ChineseReinforcementPracticePage({ questions, student, subject, 
             <p className="mt-3 text-lg text-gray-700">先完成今天的學習，之後再回來看看吧！</p>
           </>
         )}
-        <Link href={homeHref} className={`mt-5 inline-block font-bold ${classes.title}`}>{homeLabel}</Link>
+        <FlowExitLink href={homeHref} label={homeLabel} shouldConfirm={false} className={`mt-5 inline-block font-bold ${classes.title}`} />
       </section>
     </main>
   );

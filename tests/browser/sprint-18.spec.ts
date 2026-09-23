@@ -98,6 +98,7 @@ test('reopens a seeded primary-only record as the alternate question', async ({ 
 });
 
 test('renders the approved MeiMei action variation in the existing review flow', async ({ browser }) => {
+  const fixedReviewDate = new Date('2026-09-22T12:00:00+08:00');
   const todayOtherGroups = [
     'meimei-chinese-1', 'meimei-chinese-3', 'meimei-chinese-6', 'meimei-chinese-7',
     'meimei-chinese-8', 'meimei-chinese-9', 'meimei-chinese-10', 'meimei-chinese-11',
@@ -105,7 +106,7 @@ test('renders the approved MeiMei action variation in the existing review flow',
     id: `smoke-s21-today-${questionId}`,
     student: 'meimei', subject: 'chinese', questionId,
     firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true,
-    createdAt: isoAtLocalDay(0, 4),
+    createdAt: '2026-09-22T04:00:00+08:00',
   }));
   const context = await newIsolatedContext(browser, createSyntheticStorageState({ learningRecords: [
     {
@@ -116,6 +117,7 @@ test('renders the approved MeiMei action variation in the existing review flow',
     ...todayOtherGroups,
   ] }));
   const page = await context.newPage();
+  await page.clock.install({ time: fixedReviewDate });
   await page.goto('/meimei/review');
   await page.getByRole('button', { name: '開始複習' }).click();
   await expect(page.locator('main p.text-xl')).toContainText('小安拿起鉛筆');
