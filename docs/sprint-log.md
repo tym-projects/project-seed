@@ -2,12 +2,14 @@
 
 ## Sprint 26 — LAN Learning Record fallback and return navigation
 
-- **Status:** Implementation complete / Awaiting Final Human Review.
+- **Status:** Completed.
 - Root cause confirmed: HTTP LAN browsers may lack `crypto.randomUUID`, and the previous Learning Record creation path failed before saving. Added a shared cryptographic UUID v4 fallback through `crypto.getRandomValues`; if both APIs are unavailable, the UI reports that the record was not saved.
 - Unified all return labels as 「返回姐姐首頁／返回妹妹首頁」 and placed start-page links near the title. Replaced the native confirmation with a shared high-contrast touch-friendly in-page dialog; Continue／Escape preserve the current state and Confirm returns to the current student's home. Review、practice、storage schema、storage keys and no-write semantics remain unchanged.
 - Verification: focused Node ID tests 4/4, focused Browser smoke 5/5, full Node 165/165, full disposable Chromium Browser smoke 29/29, lint, TypeScript with `--incremental false`, production build, and `git diff --check` passed using synthetic storage only. Browser coverage includes dialog focus／ARIA／Escape, incomplete-record protection, parent readback, and 768×1024／1024×768 viewports.
-- No question bank, real learning data, OneDrive backup, commit or push changes. Actual post-fix tablet verification remains pending Human confirmation.
-- **Next Step:** Human actual LAN／tablet re-verification, then Sprint 26 Final Human Review Gate.
+- Human completed all six post-fix tablet checks successfully. No question bank, real learning data, or OneDrive backup was changed.
+- **Implementation commit:** `0a0646e` Complete Sprint 26 LAN record and tablet navigation fixes.
+- **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
+- **Next Step:** Sprint 27 網站總首頁導覽改善規劃. Backlog: 姐姐學習、妹妹學習及家長模式頁面提供清楚的「返回網站首頁」入口；尚未實作。
 
 ## Sprint 25 — Return controls and parent center integration
 

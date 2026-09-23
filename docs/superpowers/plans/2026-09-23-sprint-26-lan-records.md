@@ -1,6 +1,6 @@
 # Sprint 26 LAN 紀錄儲存與返回導覽 Implementation Plan
 
-**Status:** Implementation complete / Awaiting Final Human Review.
+**Status:** Completed.
 
 ## Task 1 — UUID fallback tests（RED first）
 
@@ -32,3 +32,10 @@
 - 執行 Sprint 26 focused tests、`npm test`、lint、TypeScript `--incremental false`、build、Browser smoke、`git diff --check`。
 - 同步 PROJECT_STATUS、roadmap、sprint-log；記錄實際 LAN／平板複驗仍由 Human 確認。
 - Final Human Approval 前不 commit／push，不標記 Sprint 26 Completed。
+
+## Close record
+
+- Human 實際平板複驗六項全部通過。
+- Implementation commit：`0a0646e`。
+- 已推送至 `origin/main`；Sprint 26 正式 Completed。
+- Next Step：Sprint 27 網站總首頁導覽改善規劃；「返回網站首頁」backlog 尚未實作。
