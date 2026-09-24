@@ -7,7 +7,7 @@
 - Final inventory: 56 questions and 51 learning units. Each addition is a singleton without `reviewGroupId`; no variation, schema, storage-key, selection, review, or learning-semantic changes were made.
 - 姐姐第 3 單元 `6.3 ÷ 0.8` estimation remains deferred pending textbook confirmation. No other subject or unapproved question was added.
 - Human actual tablet acceptance: 6/6 passed. Focused 5/5, Node 167/167, Browser 32/32, lint, TypeScript `--incremental false`, build, and `git diff --check` passed with disposable Chromium and synthetic storage.
-- **Implementation commit:** `TBD` Complete Sprint 28 first mathematics question expansion.
+- **Implementation commit:** `742cfc7` Complete Sprint 28 first mathematics question expansion.
 - **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
 - **Next Step:** 規劃題目隨機順序的最小安全方案；尚未設計或實作。
 

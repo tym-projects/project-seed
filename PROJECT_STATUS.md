@@ -9,7 +9,7 @@
 - **Data protection:** Added only the seven approved mathematics questions. Existing question content, persisted schemas, storage keys, learning records, review rules, and real user data were not changed. All additions are singleton learning units; no variation or review-group migration was made.
 - **Verification:** Focused 5/5; Node 167/167; Browser smoke 32/32 passed with disposable Chromium and synthetic storage; lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Build required clearing only confirmed `.next` artifacts; Browser smoke required clearing only the confirmed Playwright `.last-run.json` artifact. Human tablet acceptance passed 6/6.
 - **Planning documents:** `docs/superpowers/specs/2026-09-23-sprint-28-candidate-questions.md`, `docs/superpowers/specs/2026-09-24-sprint-28-mathematics-design.md`, `docs/superpowers/plans/2026-09-24-sprint-28-mathematics.md`
-- **Implementation commit:** `TBD` Complete Sprint 28 first mathematics question expansion.
+- **Implementation commit:** `742cfc7` Complete Sprint 28 first mathematics question expansion.
 - **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
 - **Next step:** 規劃題目隨機順序的最小安全方案；不得在本 Sprint 收尾中實作。
 

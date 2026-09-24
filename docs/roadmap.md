@@ -6,7 +6,7 @@
 - Added the seven approved original mathematics questions: 姐姐 3 題（第 1、2、4 單元） and 妹妹 4 題（第 1–4 單元）. The actual inventory is 56 questions and 51 learning units.
 - All seven additions are singleton units without `reviewGroupId`; existing questions, selection, review, schemas, storage keys, and learning semantics remain unchanged. 姐姐第 3 單元小數除法估算題 remains deferred pending教材 confirmation.
 - Human actual tablet acceptance: 6/6 passed. Focused 5/5, Node 167/167, Browser 32/32, lint, TypeScript `--incremental false`, build, and `git diff --check` passed.
-- Implementation commit: `TBD` Complete Sprint 28 first mathematics question expansion; pushed to `origin/main`.
+- Implementation commit: `742cfc7` Complete Sprint 28 first mathematics question expansion; pushed to `origin/main`.
 - **Next Step:** 規劃題目隨機順序的最小安全方案；不在本 Sprint 實作。
 
 ## Sprint 27 — Website home navigation
