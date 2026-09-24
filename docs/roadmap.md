@@ -199,3 +199,10 @@
 - Sprint 28 first mathematics batch is Completed and pushed to `origin/main`.
 - The batch contains seven implemented original mathematics questions: 3 for 姐姐南一六上 Units 1, 2, and 4, and 4 for 妹妹南一三上 Units 1–4. 姐姐 Unit 3 estimation remains excluded pending textbook confirmation.
 - Deferred subjects still require textbook evidence before expansion. Random question ordering is backlog only and was not implemented.
+# Sprint 31 — First natural question batch
+
+- Added two Human-approved original 姐姐自然 questions within the confirmed first-month-exam Units 1–2: water-cycle sequence and water-solution uniformity.
+- Both are singleton learning units without `reviewGroupId`; no existing question, answer, schema, storage key, selection rule, or review semantic changed.
+- Actual inventory is 64 questions and 59 learning units. Codex did not directly access the original textbook screenshots, so page-by-page textbook verification is not claimed.
+- Verification: focused 3/3, Node 176/176, Browser 36/36, lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Existing disposable Browser and tablet viewport coverage remained green.
+- Status: Completed after Human tablet acceptance 6/6. Implementation and close commit status are recorded in the close entry.

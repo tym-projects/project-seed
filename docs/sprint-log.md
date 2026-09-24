@@ -325,3 +325,10 @@
 - **Human review:** First tablet acceptance and supplementary 妹妹社會親屬稱謂 verification passed. Final verification passed; implementation commit and push remain for this close.
 - **Close:** Implementation commit `fb49b4e` pushed to `origin/main`. Final Node 173/173, Browser 36/36, focused Node 3/3, focused Browser 1/1, lint, TypeScript, build, viewport coverage, and `git diff --check` passed. LAN test server stopped after verification.
 - **Next:** 規劃下一批第一次月考題庫擴充。
+# Sprint 31 — First natural question batch
+
+- Added only `jiejie-natural-science-7` and `jiejie-natural-science-8` as two original singleton questions for the confirmed first-month-exam natural-science Units 1–2.
+- Updated the natural-bank regression expectations and Sprint 30 Browser smoke so existing six questions plus the two new questions are all covered; no existing question content changed.
+- Actual inventory: 64 questions, 59 learning units. No schema, storage key, review group, variation, first-practice randomization, Today Review, reinforcement, or learning-record semantic change.
+- Verification: focused 3/3, Node 176/176, Browser 36/36, lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Confirmed build/test artifacts were the only EPERM cleanup targets.
+- Status: Completed after Human tablet acceptance 6/6; implementation and close commit status are recorded in the close entry.

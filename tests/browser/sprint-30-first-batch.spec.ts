@@ -17,6 +17,8 @@ test('loads the new Sprint 30 natural and social questions in isolated first pra
         ['兩杯水的溫度和水量相同', '甲杯較快，因為攪拌能增加水和砂糖接觸、混合的機會'],
         ['從冰箱拿出一瓶冰水', '空氣中的水蒸氣遇冷凝結成小水滴'],
         ['觀察衛星雲圖時', '該地有較多雲層，是否降雨仍需配合其他資料判斷'],
+        ['下列哪一個順序最能表示自然界中水循環的一段常見變化', '水蒸發 → 水蒸氣凝結 → 降水'],
+        ['將少量砂糖加入水中並充分攪拌', '砂糖均勻分散在水中，糖水各部分都含有砂糖'],
       ],
     },
     {
@@ -67,7 +69,7 @@ test('loads the new Sprint 30 natural and social questions in isolated first pra
       if (await next.count() === 0) break;
       await next.click();
     }
-    expect(seenQuestionPrefixes.size).toBe(6);
+    expect(seenQuestionPrefixes.size).toBe(item.questions.length);
     for (const target of item.targetPrefixes) {
       expect(seenQuestionPrefixes.has(target)).toBe(true);
     }
