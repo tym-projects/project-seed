@@ -2,7 +2,7 @@
 
 ## 狀態
 
-Final Human Review approved / close pending
+Completed
 
 本文件記錄已核准、尚待 Final Human Review 的第一批 6 題；本階段不含 commit、push 或 Sprint 30 close。
 
@@ -45,3 +45,7 @@ Final Human Review approved / close pending
 
 1. 確認 6 題的細部教材對應及年級適切性，尤其「衛星雲圖判讀限制」是否符合實際教材教學深度。
 2. Human 已完成平板驗收及妹妹社會親屬稱謂補充複驗；Final Approval 已取得。
+
+## Close
+
+Implementation commit `fb49b4e` 已推送至 `origin/main`。Sprint 30 第一批正式結案；後續依 roadmap backlog 規劃下一批月考題庫。

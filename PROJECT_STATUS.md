@@ -3,14 +3,18 @@
 ## Sprint 30 — First natural and social question expansion
 
 - **Current Sprint:** Sprint 30
-- **Sprint Status:** Final Human Review approved / close pending.
+- **Sprint Status:** Completed.
 - **Scope:** Added six Human-approved original questions: 姐姐自然 2 題、姐姐社會 2 題、妹妹社會 2 題，均落在本次第一次月考的已確認單元範圍。姐姐小數除法估算、妹妹國語、妹妹自然與其他科目未加入。
 - **Question IDs:** `jiejie-natural-science-5`、`jiejie-natural-science-6`、`jiejie-social-studies-5`、`jiejie-social-studies-6`、`meimei-social-studies-5`、`meimei-social-studies-6`。
 - **Learning units:** Six new singleton units; no `reviewGroupId` or variation. Existing questions and learning semantics were not changed.
 - **Evidence boundary:** Codex did not directly access the original textbook screenshots in the prior conversation. The six questions follow the Human-provided scope and approved content; detailed textbook alignment, especially satellite-cloud terminology, remains for Human content review.
 - **Verification:** Sprint 30 focused question tests 3/3; focused Browser 1/1; full Node 173/173; full disposable Chromium Browser 36/36; lint, TypeScript `--incremental false`, build, viewport coverage from the existing suite, and `git diff --check` passed. Human completed the approved tablet checks and the supplementary 妹妹社會親屬稱謂 check. Browser used disposable Chromium and synthetic storage only. The LAN test server was stopped before final build.
 - **Planning documents:** `docs/superpowers/specs/2026-09-24-sprint-30-first-batch-question-expansion-design.md`, `docs/superpowers/plans/2026-09-24-sprint-30-first-batch-question-expansion.md`。
-- **Next step:** 完成 implementation commit、push 與文件 close，之後進入下一批第一次月考題庫規劃。
+- **Human acceptance:** 第一批平板驗收通過；妹妹社會「親屬稱謂」補充複驗完成，先前未看到該題是因只完成部分練習，不是程式故障。
+- **Implementation commit:** `fb49b4e` Complete Sprint 30 first exam question expansion.
+- **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
+- **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; LAN test server stopped after verification; OneDrive backup not modified.
+- **Next step:** 規劃下一批第一次月考題庫擴充。
 
 ## Sprint 29 — First-practice random order
 

@@ -192,4 +192,4 @@ Human 已核准 6 題自然／社會候選進入實作範圍：
 
 6 題均為原創 singleton learning unit，沒有 `reviewGroupId` 或 variation。姐姐自然「衛星雲圖判讀限制」及其餘細部教材對應仍須 Human Final Review；本次沒有加入妹妹國語、妹妹自然、姐姐國語、數學或其他未核准題目。
 
-Sprint 30 第一批 6 題已完成 Human 實際平板驗收及妹妹社會親屬稱謂補充複驗；不得將先前只完成部分練習而未看到親屬稱謂題記為程式故障。Final Approval 已取得，現在進行 implementation commit 與 Sprint Close。
+Sprint 30 第一批 6 題已完成 Human 實際平板驗收及妹妹社會親屬稱謂補充複驗；不得將先前只完成部分練習而未看到親屬稱謂題記為程式故障。Final Approval 已取得，implementation commit `fb49b4e` 已推送，Sprint 30 已正式結案。

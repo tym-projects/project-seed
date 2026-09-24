@@ -51,9 +51,9 @@ TypeScript question banks、Node test runner、Playwright disposable Chromium、
 - 先驗證：三個實際首次練習入口可載入新增題目、選答與送出回饋，並無 console error；使用 synthetic storage、可控 RNG 與 disposable context。
 - 完成條件：不觸碰真實 profile／localStorage，且不影響今日複習與再練一次。
 
-### Task 4 — 完整回歸與文件同步（完成，Final Approval approved）
+### Task 4 — 完整回歸與文件同步（完成，Sprint 30 Completed）
 
 - 更新：本 Design／Plan、候選題規劃文件、`PROJECT_STATUS.md`、`docs/roadmap.md`、`docs/sprint-log.md`。
 - 驗證：focused tests、`npm test`、lint、`npx tsc --noEmit --incremental false`、build、`npm run test:browser`、`git diff --check`。
 - 實際結果：focused question 3/3、focused Browser 1/1、Node 173/173、Browser 36/36、lint、TypeScript `--incremental false`、build、既有 768×1024／1024×768 viewport coverage、`git diff --check` 通過。Build 僅清理已確認 `.next` 產物；Browser 因預設 3100 launcher stale conflict，使用 repo 外臨時設定於 3101 執行同一 harness。
-- 完成條件：文件已記錄實際結果與 Human 平板驗收；等待 implementation commit、push 與 close 文件同步。
+- 完成條件：文件已記錄實際結果與 Human 平板驗收；implementation commit `fb49b4e` 已 push，Sprint 30 已結案。

@@ -2,11 +2,13 @@
 
 ## Sprint 30 — First natural and social question expansion
 
-- **Status:** Final Human Review approved / close pending.
+- **Status:** Completed.
 - Added six original singleton questions within the approved first-month-exam scope: two for 姐姐自然, two for 姐姐社會, and two for 妹妹社會.
 - No existing question, review group, schema, storage key, learning rule, or other subject bank was changed. 姐姐小數除法估算、妹妹國語、妹妹自然及後續科目擴充 remain backlog or pending教材核對.
 - Design／Plan: `docs/superpowers/specs/2026-09-24-sprint-30-first-batch-question-expansion-design.md`, `docs/superpowers/plans/2026-09-24-sprint-30-first-batch-question-expansion.md`.
 - Verification: focused question 3/3, focused Browser 1/1, Node 173/173, Browser 36/36, lint, TypeScript `--incremental false`, build, existing tablet viewport coverage, and `git diff --check` passed. Human tablet acceptance and 妹妹社會親屬稱謂 supplementary check passed; the LAN test server was stopped before final build.
+- Implementation commit: `fb49b4e` Complete Sprint 30 first exam question expansion; pushed to `origin/main`.
+- Backlog: 姐姐自然第 2 單元教材細節、姐姐社會第 2 單元其他觀念、妹妹國語第 1–6 課、姐姐國語／妹妹自然月考範圍，以及姐姐小數除法估算題教材確認。
 
 ## Sprint 29 — First-practice random order
 

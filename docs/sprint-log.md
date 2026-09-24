@@ -317,10 +317,11 @@
 - Push Status: Both commits pushed; local `main` is synchronized with `origin/main`.
 # Sprint 30 — First natural and social question expansion
 
-- **Status:** Final Human Review approved / close pending.
+- **Status:** Completed.
 - **Scope:** Six original singleton questions: 姐姐自然 2 題、姐姐社會 2 題、妹妹社會 2 題. No question was added outside the approved scope.
 - **IDs:** `jiejie-natural-science-5`、`jiejie-natural-science-6`、`jiejie-social-studies-5`、`jiejie-social-studies-6`、`meimei-social-studies-5`、`meimei-social-studies-6`。
 - **Protection:** Existing questions, Learning Record／ReviewSession schema, storage keys, review groups, variations, and learning rules remain unchanged. All six are singleton units.
 - **Testing:** Focused question tests 3/3, focused Browser 1/1, full Node 173/173, and full disposable Chromium Browser 36/36 passed. Lint, TypeScript `--incremental false`, build, existing 768×1024／1024×768 viewport checks, and `git diff --check` passed. Build required clearing only the confirmed `.next` build artifact; default Browser 3100 startup had a stale launcher conflict, so the same harness ran on temporary local port 3101 with repo-external output.
 - **Human review:** First tablet acceptance and supplementary 妹妹社會親屬稱謂 verification passed. Final verification passed; implementation commit and push remain for this close.
-- **Next:** Create the approved implementation commit, push, then record the final close state.
+- **Close:** Implementation commit `fb49b4e` pushed to `origin/main`. Final Node 173/173, Browser 36/36, focused Node 3/3, focused Browser 1/1, lint, TypeScript, build, viewport coverage, and `git diff --check` passed. LAN test server stopped after verification.
+- **Next:** 規劃下一批第一次月考題庫擴充。
