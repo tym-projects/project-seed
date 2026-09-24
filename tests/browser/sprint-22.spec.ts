@@ -51,7 +51,7 @@ test('selects a due jiejie mathematics question in Today Review', async ({ brows
         firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true,
         createdAt: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(),
       },
-      ...[2, 3, 4, 5, 6].map((unit) => ({
+      ...[2, 3, 4, 5, 6, 7, 8, 9].map((unit) => ({
         id: `jiejie-math-completed-${unit}`, student: 'jiejie', subject: 'mathematics', questionId: `jiejie-mathematics-${unit}`,
         firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true,
         createdAt: new Date().toISOString(),

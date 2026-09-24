@@ -1,5 +1,18 @@
 # Project Status
 
+## Sprint 28 — First mathematics question expansion
+
+- **Current Sprint:** Sprint 28
+- **Sprint Status:** Completed.
+- **Scope:** Added the seven Human-approved original mathematics questions: 姐姐南一六上第 1、2、4 單元 3 題 and 妹妹南一三上第 1–4 單元 4 題. 姐姐第 3 單元小數除法估算題 remains excluded pending textbook confirmation. Actual production inventory is 56 questions and 51 learning units.
+- **Evidence boundary:** Public curriculum references were used only as supporting evidence. Codex cannot directly access the original textbook screenshots from the prior chat, so lesson-level details and assessment alignment remain marked pending image review. 姐姐國語 and 妹妹自然 ranges remain unconfirmed.
+- **Data protection:** Added only the seven approved mathematics questions. Existing question content, persisted schemas, storage keys, learning records, review rules, and real user data were not changed. All additions are singleton learning units; no variation or review-group migration was made.
+- **Verification:** Focused 5/5; Node 167/167; Browser smoke 32/32 passed with disposable Chromium and synthetic storage; lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Build required clearing only confirmed `.next` artifacts; Browser smoke required clearing only the confirmed Playwright `.last-run.json` artifact. Human tablet acceptance passed 6/6.
+- **Planning documents:** `docs/superpowers/specs/2026-09-23-sprint-28-candidate-questions.md`, `docs/superpowers/specs/2026-09-24-sprint-28-mathematics-design.md`, `docs/superpowers/plans/2026-09-24-sprint-28-mathematics.md`
+- **Implementation commit:** `TBD` Complete Sprint 28 first mathematics question expansion.
+- **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
+- **Next step:** 規劃題目隨機順序的最小安全方案；不得在本 Sprint 收尾中實作。
+
 ## Sprint 27 — Website home navigation
 
 - **Current Sprint:** Sprint 27
