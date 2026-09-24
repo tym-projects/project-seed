@@ -1,5 +1,13 @@
 # Sprint Log
 
+## Sprint 33 Final Close
+
+- Sprint 33 已完成並正式更新家庭 LAN 服務。新增 8 題、正式題庫 86 題／81 learning units，六組月考 allowlist 合計 69 題。
+- Human 平板驗收 6/6 通過；focused Node 6/6、完整 Node 185/185、disposable Browser 41/41、lint、TypeScript `--incremental false`、隔離 build 與 `git diff --check` 通過。
+- Implementation commit `be1e1f1`（`Complete Sprint 33 first exam question expansion`）已 push 至 `origin/main`。`main` 與遠端同步。
+- 正式服務已由正式 repo 的 Sprint 33 build 提供：`192.168.22.208:3100`、PID 5124。舊 build 保留在 `C:\Users\admin\Documents\Codex\sprint33-formal-backup-20260924-214928`；未修改任何學習紀錄或 storage keys。
+- Sprint 33 隔離驗收服務 `192.168.22.208:3101` 仍運行，待 Human 確認正式環境後安全停止。姐姐國語與妹妹自然仍為題庫準備中，未宣稱完成。
+
 ## Sprint 33 — First exam eight-subject bulk expansion
 
 - Sprint 33 本批先完成 8 題證據充分的原創 singleton：姐姐數學 2、姐姐自然 2、姐姐社會 2、妹妹社會 2；未擴充妹妹國語、妹妹數學，也未猜測姐姐國語、妹妹自然的月考範圍。

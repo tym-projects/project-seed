@@ -37,4 +37,4 @@
 - Task 3：完成四組 explicit monthly allowlist；六組已開放月考題數為 13／12／12／12／10／10，合計 69 題；姐姐國語與妹妹自然仍準備中。
 - Task 4：更新受新增題目影響的既有 Browser fixtures，新增 Sprint 33 Browser smoke；隔離 Browser 41/41 通過，使用 disposable Chromium 與 synthetic storage。
 - Task 5：focused Node 6/6、完整 Node 185/185、lint、TypeScript `--incremental false`、隔離 production build、Browser 41/41 與 `git diff --check` 通過。正式家庭 LAN 服務 192.168.22.208:3100 未被中斷；隔離驗證使用 127.0.0.1:3101，驗證後已停止。
-- Sprint 33 尚未 commit、push 或部署，等待 Human Review 與後續平板驗收核准。
+- Sprint 33 Final Close：Human 平板驗收 6/6 通過；implementation commit `be1e1f1` 已 push。正式 LAN 服務已切換至 Sprint 33 build，3100 維持原 origin；3101 隔離驗收服務暫留至正式環境確認完成。

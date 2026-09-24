@@ -160,11 +160,11 @@
 
 > 此文件保存已決定但延後的功能與 backlog。即時 Sprint 狀態以 [`PROJECT_STATUS.md`](../PROJECT_STATUS.md) 為準；已完成項目不列為未來工作。
 
-## Sprint 33 規劃中 — 八科第一次月考題庫集中擴充
+## Sprint 33 Completed — 八科第一次月考題庫集中擴充
 
 - 已加入八題有充分依據的原創 singleton：姐姐數學、自然、社會各兩題，妹妹社會兩題；月考 allowlist 只擴充這四組。
 - 姐姐國語與妹妹自然因正式月考範圍未確認，維持「題庫準備中」；妹妹國語與妹妹數學本批未新增低信心或重複觀念題。
-- 題庫與月考入口仍沿用既有 schema、allowlist、Learning Record、複習與隔離語意；Sprint 33 尚待 Human Review，不得視為 Completed。
+- 題庫與月考入口仍沿用既有 schema、allowlist、Learning Record、複習與隔離語意；Human 平板驗收 6/6 通過，正式 LAN 服務已更新至已驗收版本。姐姐國語與妹妹自然仍待正式月考範圍資料。
 
 ## Backlog — 已決定但延後
 

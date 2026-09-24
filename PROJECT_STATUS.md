@@ -3,13 +3,14 @@
 ## Sprint 33 — First exam bulk expansion
 
 - **Current Sprint:** Sprint 33
-- **Sprint Status:** Implementation complete / Awaiting Human Review; not committed, pushed, deployed, or marked Completed.
+- **Sprint Status:** Completed.
 - **Scope:** Added eight evidence-supported original singleton questions: 姐姐數學 2、姐姐自然 2、姐姐社會 2、妹妹社會 2. 妹妹國語與妹妹數學本批未新增；姐姐國語與妹妹自然的第一次月考範圍仍未確認，維持準備中。
 - **Question IDs:** `jiejie-mathematics-14`、`jiejie-mathematics-15`、`jiejie-natural-science-11`、`jiejie-natural-science-12`、`jiejie-social-studies-11`、`jiejie-social-studies-12`、`meimei-social-studies-9`、`meimei-social-studies-10`。
 - **Allowlist:** 姐姐數學 13、自然 12、社會 12；妹妹國語 12、數學 10、社會 10；姐姐國語與妹妹自然仍為準備中。六組月考 allowlist 合計 69 題。
 - **Inventory:** 目前正式題庫 86 題、81 learning units；八題均為 singleton，沒有 `reviewGroupId` 或 variation。
 - **Evidence boundary:** 本批依 Human 已確認月考範圍、既有題庫與可驗證學科概念設計；Codex 未直接存取原始教材截圖，不宣稱完成逐頁教材核對。姐姐國語、妹妹自然仍待最小必要的出版社／課次資料。
-- **Protection:** Learning Record／ReviewSession schema、storage keys、首次練習 shuffle、Today Review、再練一次、1/3/7、confirmation、practice no-write、timer 與 Parent Summary 語意不變。現有家庭 LAN 服務保持不動，Sprint 33 未部署新版本。
+- **Protection:** Learning Record／ReviewSession schema、storage keys、首次練習 shuffle、Today Review、再練一次、1/3/7、confirmation、practice no-write、timer 與 Parent Summary 語意不變。未清除或遷移真實學習資料。
+- **Verification and deployment:** Focused Node 6/6、完整 Node 185/185、disposable Browser 41/41、lint、TypeScript `--incremental false`、隔離 production build 與 `git diff --check` 通過；Human 平板驗收 6/6 通過。Implementation commit `be1e1f1` 已 push 至 `origin/main`。正式 LAN 服務已安全切換至 Sprint 33 build，PID 5124、`192.168.22.208:3100`；舊 `.next` 保留於 `C:\Users\admin\Documents\Codex\sprint33-formal-backup-20260924-214928` 作為回復備份。隔離測試服務 `192.168.22.208:3101` 仍運行，待正式環境確認後停止。
 - **Planning documents:** `docs/superpowers/specs/2026-09-24-sprint-33-eight-subject-question-expansion-design.md`、`docs/superpowers/plans/2026-09-24-sprint-33-bulk-question-expansion.md`。
 
 ## Sprint 31 — First natural question batch
