@@ -4,6 +4,7 @@ import { closeIsolatedContext, newIsolatedContext } from './helpers/context';
 
 test('runs jiejie mathematics first practice and saves a mathematics record', async ({ browser }) => {
   const context = await newIsolatedContext(browser, createSyntheticStorageState());
+  await context.addInitScript(() => { Math.random = () => 0.999999; });
   const page = await context.newPage();
   await page.goto('/jiejie/mathematics');
   await expect(page.getByRole('heading', { name: '🌸 姐姐的數學練習' })).toBeVisible();
@@ -30,6 +31,7 @@ test('runs meimei mathematics first practice with isolated student data', async 
       firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true, createdAt: '2026-09-20T00:00:00.000Z',
     }],
   }));
+  await context.addInitScript(() => { Math.random = () => 0.999999; });
   const page = await context.newPage();
   await page.goto('/meimei/mathematics');
   await expect(page.getByRole('heading', { name: '🌱 妹妹的數學練習' })).toBeVisible();

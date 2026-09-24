@@ -4,6 +4,7 @@ import { closeIsolatedContext, newIsolatedContext } from './helpers/context';
 
 test('runs all four natural and social first-practice entries with isolated records', async ({ browser }) => {
   const context = await newIsolatedContext(browser, createSyntheticStorageState());
+  await context.addInitScript(() => { Math.random = () => 0.999999; });
   const cases = [
     { path: '/jiejie/natural-science', heading: '🌸 姐姐的自然練習', question: '陽光照射下，地面上的水逐漸變少', answer: '水變成水蒸氣，進入空氣中', student: 'jiejie', subject: 'natural_science', id: 'jiejie-natural-science-1' },
     { path: '/jiejie/social-studies', heading: '🌸 姐姐的社會練習', question: '下列哪一項是臺灣民主政治發展中的可查證歷史事實', answer: '1996 年臺灣舉行第一次總統直接民選', student: 'jiejie', subject: 'social_studies', id: 'jiejie-social-studies-1' },

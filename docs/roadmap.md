@@ -1,5 +1,15 @@
 # Project Seed Roadmap
 
+## Sprint 29 — First-practice random order
+
+- **Status:** Awaiting Human Tablet Re-test; not Completed.
+- First-practice flows for both students and all four subjects now shuffle a copied question list once after hydration and keep that order stable during the flow.
+- Chinese variation questions remain individual entries with their existing `reviewGroupId`. Today Review and 再練一次 were not shuffled and retain their existing selection semantics.
+- No storage state, schema, question content, cross-session avoidance, or unfinished-progress resumption was added.
+- Diagnosis: pre-fix Browser diagnostic reproduced React hydration error `#418` because SSR and client each shuffled in the state initializer. The fix uses a stable initial render plus one guarded post-hydration shuffle; review/reinforcement and data semantics are unchanged.
+- Verification: focused unit 8/8, Sprint 29 Browser 3/3, Node 170/170, full Browser 35/35, lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Existing tablet viewport checks at 768×1024 and 1024×768 passed.
+- **Next Step:** Human tablet re-test against the rebuilt LAN server; no commit or push yet.
+
 ## Sprint 28 — First mathematics question expansion
 
 - **Status:** Completed.

@@ -65,6 +65,7 @@ test('parent center switches one student and one subject while preserving isolat
 
 test('unfinished answer uses an in-page leave dialog and preserves state when cancelled', async ({ browser }) => {
   const context = await newIsolatedContext(browser, createSyntheticStorageState({ learningRecords: [] }));
+  await context.addInitScript(() => { Math.random = () => 0.999999; });
   const page = await context.newPage();
   await page.goto('/jiejie/mathematics');
   await page.getByRole('button', { name: '2 × 2 × 3 × 7' }).click();
@@ -120,6 +121,7 @@ test('tablet portrait and landscape keep return and parent controls usable', asy
 
 test('saves a Learning Record when randomUUID is unavailable but getRandomValues remains available', async ({ browser }) => {
   const context = await browser.newContext({ viewport: { width: 768, height: 1024 }, timezoneId: 'Asia/Taipei' });
+  await context.addInitScript(() => { Math.random = () => 0.999999; });
   await context.addInitScript(() => {
     window.localStorage.setItem('project-seed:learning-records:v1', '[]');
     Object.defineProperty(window.crypto, 'randomUUID', { configurable: true, value: undefined });

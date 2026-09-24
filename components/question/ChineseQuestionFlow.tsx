@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { FlowExitLink } from '@/components/navigation/FlowExitLink';
 import { QuestionCard, type QuestionCardQuestion, type QuestionCompletion } from '@/components/question/QuestionCard';
 import { type StudentId, type SubjectId, type LearningRecord, saveLearningRecord } from '@/lib/learning-records';
@@ -12,6 +12,7 @@ import type { ReviewTargetMinutes } from '@/lib/review-time-settings';
 import { useReviewElapsedMinutes } from '@/components/review/useReviewElapsedMinutes';
 import { shouldConfirmFlowExit, type FlowAnswerState } from '@/lib/flow-exit';
 import { createLearningRecordId } from '@/lib/learning-record-id';
+import { shuffleQuestions } from '@/lib/first-practice-order';
 
 type ChineseQuestionFlowProps = {
   questions: QuestionCardQuestion[];
@@ -59,11 +60,20 @@ export function ChineseQuestionFlow({
   mode = 'formal-review',
   onReviewComplete,
 }: ChineseQuestionFlowProps) {
-  const flowItems: ConfirmationPlan<QuestionCardQuestion>[] = reviewItems ?? questions.map((question) => ({
-    groupId: question.reviewGroupId ?? question.id,
-    primary: question,
-    confirmation: null,
-  }));
+  const isFirstPractice = reviewItems === undefined && reviewStartedAt === undefined;
+  const [flowItems, setFlowItems] = useState<ConfirmationPlan<QuestionCardQuestion>[]>(() => reviewItems ?? questions.map((question) => ({
+      groupId: question.reviewGroupId ?? question.id,
+      primary: question,
+      confirmation: null,
+    })));
+  const hasShuffledFirstPractice = useRef(false);
+
+  useEffect(() => {
+    if (!isFirstPractice || hasShuffledFirstPractice.current) return;
+
+    hasShuffledFirstPractice.current = true;
+    setFlowItems((currentItems) => shuffleQuestions(currentItems));
+  }, [isFirstPractice]);
   const [flowState, setFlowState] = useState(() => getInitialConfirmationFlowState(flowItems.length));
   const [pendingCompletion, setPendingCompletion] = useState<QuestionCompletion | null>(null);
   const [answerState, setAnswerState] = useState<FlowAnswerState>({ selectedAnswer: null, isSubmitted: false, isCorrect: false });

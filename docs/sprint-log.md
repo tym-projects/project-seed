@@ -1,5 +1,17 @@
 # Sprint Log
 
+## Sprint 29 — First-practice random order
+
+- **Status:** Awaiting Human Tablet Re-test.
+- Added `lib/first-practice-order.ts` with a pure, testable Fisher–Yates shuffle and wired it only to first-practice initialization in `ChineseQuestionFlow`.
+- Tablet failure diagnosis: pre-fix shuffle ran during SSR and client hydration, reproducing React error `#418` on all eight first-practice routes. The page-load failure was a hydration mismatch, not a question-bank or persisted-record issue.
+- Minimal fix: stable copied initial state plus one guarded post-hydration shuffle; Today Review and 再練一次 remain unchanged.
+- Every original question appears at most once per flow; Chinese variations retain their own question IDs and `reviewGroupId`. React rerenders and answer submission do not reshuffle the active flow.
+- Today Review, 1/3/7 scheduling, topic spread, deterministic variation, five-group limit, 再練一次 selection, three-group limit, and practice no-write remain unchanged.
+- No new storage key, persisted schema, cross-session avoidance, or unfinished-progress recovery was added.
+- Verification: focused unit 8/8, Sprint 29 Browser 3/3 including hydration diagnostic, Node 170/170, full Browser 35/35, lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Browser used disposable Chromium and synthetic storage; existing 768×1024／1024×768 checks passed.
+- **Next Step:** Human tablet re-test using the rebuilt LAN server. Commit／push remain prohibited until approval.
+
 ## Sprint 28 — First mathematics question expansion
 
 - **Status:** Completed.
