@@ -331,4 +331,4 @@
 - Updated the natural-bank regression expectations and Sprint 30 Browser smoke so existing six questions plus the two new questions are all covered; no existing question content changed.
 - Actual inventory: 64 questions, 59 learning units. No schema, storage key, review group, variation, first-practice randomization, Today Review, reinforcement, or learning-record semantic change.
 - Verification: focused 3/3, Node 176/176, Browser 36/36, lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Confirmed build/test artifacts were the only EPERM cleanup targets.
-- Status: Completed after Human tablet acceptance 6/6; implementation and close commit status are recorded in the close entry.
+- Status: Completed after Human tablet acceptance 6/6. Implementation commit: `22fd4dd` Complete Sprint 31 natural science question expansion. Close-document synchronization is pending before push.

@@ -11,6 +11,8 @@
 - **Verification:** Sprint 31 focused tests 3/3; full Node 176/176; full disposable Chromium Browser 36/36; lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Browser reused existing isolated synthetic-storage coverage, including the updated natural bank flow and existing tablet viewport checks. Build／Playwright EPERM affected only confirmed `.next\trace`／`.last-run.json` artifacts, which were cleared and reverified.
 - **Planning documents:** `docs/superpowers/specs/2026-09-24-sprint-31-first-natural-batch-design.md`, `docs/superpowers/plans/2026-09-24-sprint-31-first-natural-batch.md`。
 - **Human acceptance:** Human completed the six approved tablet checks successfully.
+- **Implementation commit:** `22fd4dd` Complete Sprint 31 natural science question expansion.
+- **Push status:** Pending final close-document synchronization at this point.
 - **Next step:** 規劃下一批第一次月考題庫擴充。
 
 ## Sprint 30 — First natural and social question expansion

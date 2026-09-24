@@ -205,4 +205,4 @@
 - Both are singleton learning units without `reviewGroupId`; no existing question, answer, schema, storage key, selection rule, or review semantic changed.
 - Actual inventory is 64 questions and 59 learning units. Codex did not directly access the original textbook screenshots, so page-by-page textbook verification is not claimed.
 - Verification: focused 3/3, Node 176/176, Browser 36/36, lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Existing disposable Browser and tablet viewport coverage remained green.
-- Status: Completed after Human tablet acceptance 6/6. Implementation and close commit status are recorded in the close entry.
+- Status: Completed after Human tablet acceptance 6/6. Implementation commit: `22fd4dd` Complete Sprint 31 natural science question expansion. Close-document synchronization is pending before push.
