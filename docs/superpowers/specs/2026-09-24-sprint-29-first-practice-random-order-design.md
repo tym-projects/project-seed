@@ -35,4 +35,4 @@ focused tests 驗證原始陣列不變、可控 RNG 排列、空／單題／多�
 - 不新增跨次順序記錄。
 - 不改變 1/3/7、retry、confirmation、practice、timer 或 Parent Summary。
 
-目前狀態：Awaiting Human Tablet Re-test；桌面自動化通過不等同實際平板驗收。
+目前狀態：Completed。修復後 Human 實際平板驗收 6/6 通過；桌面自動化不取代實機驗收。

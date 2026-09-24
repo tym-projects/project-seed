@@ -4,7 +4,7 @@
 
 ## Status
 
-Awaiting Human Tablet Re-test; not committed or pushed.
+Completed. Implementation commit `bf46eb4` pushed to `origin/main`.
 
 ## Task 1 — focused shuffle tests
 
@@ -29,9 +29,9 @@ Awaiting Human Tablet Re-test; not committed or pushed.
 
 - [x] 修正前隔離診斷重現 React hydration error #418。
 - [x] 修正後 focused unit 8/8; Sprint 29 Browser 3/3（含 hydration diagnostic）；Node 170/170；完整 Browser 35/35；lint、TypeScript、build、diff-check passed。
-- [ ] Human tablet re-test pending; 768×1024／1024×768 自動化 viewport 已通過。
+- [x] Human tablet re-test 6/6 passed; 768×1024／1024×768 自動化 viewport 已通過。
 
 ## Task 4 — 文件同步
 
 - 更新 `PROJECT_STATUS.md`、`docs/roadmap.md`、`docs/sprint-log.md` 及本 Design／Plan。
-- 狀態為 `Awaiting Human Tablet Re-test`；未取得 Final Approval 前不 commit／push。
+- 狀態為 `Completed`；implementation commit `bf46eb4` 已 push。跨次避重與未完成進度接續仍未實作。

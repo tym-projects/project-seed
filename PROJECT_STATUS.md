@@ -3,7 +3,7 @@
 ## Sprint 29 — First-practice random order
 
 - **Current Sprint:** Sprint 29
-- **Sprint Status:** Awaiting Human Tablet Re-test; not Completed.
+- **Sprint Status:** Completed.
 - **Scope:** Added one-time Fisher–Yates random ordering only when `ChineseQuestionFlow` initializes a first-practice flow. All original questions, including Chinese variations, remain present once per flow; the order is held in React state for the duration of that flow.
 - **Protected flows:** Today Review continues to use `selectTodayReviewItems` with its existing 1/3/7, topic spread, deterministic variation, and five-group limit. Reinforcement practice continues to use `selectReinforcementPracticeItems` with its existing retry selection, three-group limit, and no-write behavior.
 - **Data protection:** No Learning Record／ReviewSession schema, storage key, question content, metadata, or learning rule changed. Cross-session avoidance and unfinished-progress resumption were not implemented.
@@ -11,7 +11,10 @@
 - **Fix:** `ChineseQuestionFlow` now initializes with an SSR/client-stable copied list and performs one client-side shuffle in `useEffect`, guarded by `useRef`. Today Review and reinforcement remain unchanged; no schema, storage key, or learning-semantic change was made.
 - **Verification:** Focused unit 8/8; Sprint 29 Browser 3/3 including hydration diagnostic; Node 170/170; full Browser 35/35 using disposable Chromium and synthetic storage; lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Existing 768×1024 portrait and 1024×768 landscape checks passed.
 - **Planning documents:** `docs/superpowers/specs/2026-09-24-sprint-29-first-practice-random-order-design.md`, `docs/superpowers/plans/2026-09-24-sprint-29-first-practice-random-order.md`
-- **Next step:** Restart the rebuilt Sprint 29 LAN server and await Human tablet re-test; do not commit or push in this phase.
+- **Human tablet verification:** 修復後實際平板驗收 6/6 通過；桌面與 LAN Browser 驗證不取代實機驗收。
+- **Implementation commit:** `bf46eb4` Complete Sprint 29 practice question randomization.
+- **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
+- **Next step:** 規劃下一批第一次月考題庫擴充；跨次避重與進度接續仍為 backlog。
 
 ## Sprint 28 — First mathematics question expansion
 
