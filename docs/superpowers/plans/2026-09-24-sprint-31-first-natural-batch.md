@@ -51,4 +51,4 @@
 - Lint、TypeScript `--incremental false`、build、`git diff --check` 通過。
 - Build／Browser 曾遇已確認的 `.next\trace` 與 Playwright `.last-run.json` EPERM；僅清理相應建置／測試產物後重新驗證通過。
 - Implementation commit：`22fd4dd` `Complete Sprint 31 natural science question expansion`。
-- Close document commit 與 push status 於本次結案後補記。
+- Close document commit：`1e44688`；push status 已同步至 `origin/main`。

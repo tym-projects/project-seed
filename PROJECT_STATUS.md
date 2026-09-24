@@ -12,7 +12,7 @@
 - **Planning documents:** `docs/superpowers/specs/2026-09-24-sprint-31-first-natural-batch-design.md`, `docs/superpowers/plans/2026-09-24-sprint-31-first-natural-batch.md`。
 - **Human acceptance:** Human completed the six approved tablet checks successfully.
 - **Implementation commit:** `22fd4dd` Complete Sprint 31 natural science question expansion.
-- **Push status:** Pending final close-document synchronization at this point.
+- **Push status:** Pushed to `origin/main`; local `main` is synchronized.
 - **Next step:** 規劃下一批第一次月考題庫擴充。
 
 ## Sprint 30 — First natural and social question expansion
