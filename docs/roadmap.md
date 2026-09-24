@@ -172,8 +172,8 @@
 - **Sprint 8：** 妹妹國語與共用學習流程。
 - **Sprint 9：** 孩子學習紀錄頁面。
 - **Sprint 10：** 今日複習選題與流程。
-# Sprint 28 planning note
+# Sprint 28 close note
 
-- Sprint 28 is currently at Candidate Questions Human Review pending.
-- The first batch now contains seven implemented original mathematics questions: 3 for 姐姐南一六上 Units 1, 2, and 4, and 4 for 妹妹南一三上 Units 1–4. 姐姐 Unit 3 estimation remains excluded pending textbook confirmation.
-- Sprint 28 remains `Implementation complete / Awaiting Final Human Review`; no commit or push has been made. Deferred subjects still require textbook evidence before expansion.
+- Sprint 28 first mathematics batch is Completed and pushed to `origin/main`.
+- The batch contains seven implemented original mathematics questions: 3 for 姐姐南一六上 Units 1, 2, and 4, and 4 for 妹妹南一三上 Units 1–4. 姐姐 Unit 3 estimation remains excluded pending textbook confirmation.
+- Deferred subjects still require textbook evidence before expansion. Random question ordering is backlog only and was not implemented.

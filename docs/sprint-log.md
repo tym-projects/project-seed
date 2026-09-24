@@ -283,17 +283,20 @@
 - **Content note:** The 12 questions are original practice content based on the Human-approved scope; they are not claimed to be official Nan-I textbook material.
 - **Implementation commit:** `28af403` Complete Sprint 22 mathematics foundation; pushed to `origin/main`.
 - **Next Step:** Sprint 23 規劃。
-# Sprint 28 — Candidate question planning
+# Sprint 28 — Candidate question planning (historical planning record)
 
 - Human-provided first-month-exam ranges were recorded for 姐姐數學／自然／社會、妹妹國語／數學／社會. 姐姐國語與妹妹自然 remain unconfirmed.
 - Existing banks were compared by question content and learning-unit identity. Existing mathematics questions are singleton units without `reviewGroupId`.
-- Eight original mathematics candidates were drafted for Human review; they are not in production and no implementation plan has been started.
+- Eight original mathematics candidates were drafted for Human review; seven were later approved and implemented in the first mathematics batch. The estimation candidate remains excluded.
 - Public curriculum references support unit-level planning only. Original textbook screenshots and detailed content review remain pending.
 
-## Sprint 28 — First mathematics batch implementation
+## Sprint 28 — First mathematics batch implementation and close
 
 - Added seven Human-approved original mathematics questions: 姐姐 Units 1, 2, 4 (3 questions) and 妹妹 Units 1–4 (4 questions). All are singleton learning units without `reviewGroupId` or variation.
 - 姐姐 Unit 3 decimal-division estimation remains excluded pending textbook confirmation. No Chinese, Natural Science, Social Studies, or additional Mathematics questions were added.
 - Actual bank inventory: 56 questions and 51 learning units.
 - Verification: Node 167/167, Browser 32/32, lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Browser used disposable Chromium with synthetic storage.
-- Sprint 28 status: Implementation complete / Awaiting Final Human Review. No commit or push in this phase.
+- Sprint 28 status: Completed after Final Human Review.
+- Implementation commit: `742cfc7` Complete Sprint 28 first mathematics question expansion.
+- Close commit: `0d65000` Close Sprint 28 mathematics expansion.
+- Push Status: Both commits pushed; local `main` is synchronized with `origin/main`.
