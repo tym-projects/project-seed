@@ -181,3 +181,15 @@
 5. 妹妹社會第 1–2 單元課文／評量重點截圖。
 
 本批已實作的 7 題 questionId 為 `jiejie-mathematics-7`、`jiejie-mathematics-8`、`jiejie-mathematics-9`、`meimei-mathematics-7`、`meimei-mathematics-8`、`meimei-mathematics-9`、`meimei-mathematics-10`。Candidate J-M-03 的「四捨五入到個位」仍暫緩，等待教材確認；其餘科目與後續題目仍需教材圖片及 Human 內容審核。
+
+## Sprint 30 第一批候選實作狀態
+
+Human 已核准 6 題自然／社會候選進入實作範圍：
+
+- 姐姐自然：`jiejie-natural-science-5`、`jiejie-natural-science-6`。
+- 姐姐社會：`jiejie-social-studies-5`、`jiejie-social-studies-6`。
+- 妹妹社會：`meimei-social-studies-5`、`meimei-social-studies-6`。
+
+6 題均為原創 singleton learning unit，沒有 `reviewGroupId` 或 variation。姐姐自然「衛星雲圖判讀限制」及其餘細部教材對應仍須 Human Final Review；本次沒有加入妹妹國語、妹妹自然、姐姐國語、數學或其他未核准題目。
+
+Sprint 30 第一批 6 題已完成 Human 實際平板驗收及妹妹社會親屬稱謂補充複驗；不得將先前只完成部分練習而未看到親屬稱謂題記為程式故障。Final Approval 已取得，現在進行 implementation commit 與 Sprint Close。

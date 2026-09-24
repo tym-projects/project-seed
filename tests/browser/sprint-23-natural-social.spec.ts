@@ -44,7 +44,7 @@ test('selects a natural science due item without mixing social studies', async (
   }));
   const page = await context.newPage();
   await page.goto('/jiejie/natural-science/review');
-  await expect(page.getByText('今天準備了 4 題。')).toBeVisible();
+  await expect(page.getByText('今天準備了 5 題。')).toBeVisible();
   await page.getByRole('button', { name: '開始複習' }).click();
   await expect(page.getByText('陽光照射下，地面上的水逐漸變少')).toBeVisible();
   await expect(page.getByText('下列哪一項是臺灣民主政治發展中的可查證歷史事實')).toHaveCount(0);
