@@ -69,4 +69,14 @@ export const questions: Question[] = [
     question: '若要比較兩種水溶液是否容易導電，哪一種做法最公平？', options: ['使用不同體積且不記錄濃度', '使用相同裝置與相同體積，再比較結果', '只看顏色猜測', '只測其中一杯一次且不記錄'], answer: 1,
     hint: '公平比較要固定哪些條件？', explanation: '相同裝置與體積等條件能減少其他因素影響，才較能比較水溶液差異。', encouragement: '答對了！你知道公平比較實驗要控制條件。',
   },
+  {
+    id: 'jiejie-natural-science-11', topic: '探索天氣的變化', type: 'application', title: '降水形成', instruction: '請判斷水循環中的現象。',
+    question: '雲中的小水滴或小冰晶逐漸變大，最後落到地面，這種現象稱為什麼？', options: ['蒸發', '凝結', '降水', '溶解'], answer: 2,
+    hint: '想想雨和雪是怎麼從雲中回到地面的。', explanation: '雲中的水滴或冰晶增長後落到地面，稱為降水；雨、雪等都屬於降水。', encouragement: '答對了！你能辨認水循環中的降水現象。',
+  },
+  {
+    id: 'jiejie-natural-science-12', topic: '水溶液', type: 'application', title: '分離糖水', instruction: '請選出可行的觀察方法。',
+    question: '想觀察糖水中的砂糖，將糖水加熱使水逐漸蒸發，最可能看到什麼結果？', options: ['砂糖完全變成空氣', '水蒸發後留下砂糖', '砂糖變成泥土', '水和砂糖都消失'], answer: 1,
+    hint: '水蒸發時，已溶解的砂糖會不會跟著變成水蒸氣？', explanation: '加熱時水可以蒸發離開，砂糖不會跟著水蒸氣離開，水分減少後可留下砂糖。', encouragement: '答對了！你能用蒸發理解水溶液的分離。',
+  },
 ];

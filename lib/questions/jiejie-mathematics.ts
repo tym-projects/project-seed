@@ -140,4 +140,14 @@ export const questions: Question[] = [
     question: '一個圓的直徑是 10 公分，π 取 3.14，圓周長是多少？', options: ['15.7 公分', '31.4 公分', '62.8 公分', '100 公分'], answer: 1,
     hint: '圓周長可用直徑 × π。', explanation: '10×3.14=31.4 公分；15.7 是半徑 5 乘 π，62.8 是正解兩倍，100 不符合公式。', encouragement: '答對了！你會由直徑求出圓周長。',
   },
+  {
+    id: 'jiejie-mathematics-14', topic: '質因數分解和短除法', type: 'basic', title: '最小公倍數', instruction: '請找出兩個數的最小公倍數。',
+    question: '12 和 18 的最小公倍數是多少？', options: ['24', '30', '36', '48'], answer: 2,
+    hint: '找出同時是 12 和 18 倍數的最小正整數。', explanation: '12 的倍數有 12、24、36；18 的倍數有 18、36，所以兩者共同的最小倍數是 36。', encouragement: '答對了！你能找出最小公倍數。',
+  },
+  {
+    id: 'jiejie-mathematics-15', topic: '圓周長和圓面積', type: 'basic', title: '半徑和直徑', instruction: '請判斷圓的半徑和直徑關係。',
+    question: '一個圓的直徑是 14 公分，它的半徑是多少公分？', options: ['7 公分', '14 公分', '21 公分', '28 公分'], answer: 0,
+    hint: '直徑是通過圓心的完整線段，半徑是其中的一半。', explanation: '半徑是直徑的一半，14 ÷ 2 = 7，所以半徑是 7 公分。', encouragement: '答對了！你理解半徑和直徑的關係。',
+  },
 ];

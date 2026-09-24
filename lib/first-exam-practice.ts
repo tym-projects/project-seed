@@ -8,16 +8,17 @@ const FIRST_EXAM_QUESTION_IDS: Readonly<Record<StudentId, Readonly<Partial<Recor
       'jiejie-mathematics-1', 'jiejie-mathematics-2', 'jiejie-mathematics-3', 'jiejie-mathematics-4',
       'jiejie-mathematics-7', 'jiejie-mathematics-8', 'jiejie-mathematics-9', 'jiejie-mathematics-10',
       'jiejie-mathematics-11', 'jiejie-mathematics-12', 'jiejie-mathematics-13',
+      'jiejie-mathematics-14', 'jiejie-mathematics-15',
     ],
     natural_science: [
       'jiejie-natural-science-1', 'jiejie-natural-science-2', 'jiejie-natural-science-3', 'jiejie-natural-science-4',
       'jiejie-natural-science-5', 'jiejie-natural-science-6', 'jiejie-natural-science-7', 'jiejie-natural-science-8',
-      'jiejie-natural-science-9', 'jiejie-natural-science-10',
+      'jiejie-natural-science-9', 'jiejie-natural-science-10', 'jiejie-natural-science-11', 'jiejie-natural-science-12',
     ],
     social_studies: [
       'jiejie-social-studies-1', 'jiejie-social-studies-2', 'jiejie-social-studies-3', 'jiejie-social-studies-4',
       'jiejie-social-studies-5', 'jiejie-social-studies-6', 'jiejie-social-studies-7', 'jiejie-social-studies-8',
-      'jiejie-social-studies-9', 'jiejie-social-studies-10',
+      'jiejie-social-studies-9', 'jiejie-social-studies-10', 'jiejie-social-studies-11', 'jiejie-social-studies-12',
     ],
   },
   meimei: {
@@ -35,6 +36,7 @@ const FIRST_EXAM_QUESTION_IDS: Readonly<Record<StudentId, Readonly<Partial<Recor
     social_studies: [
       'meimei-social-studies-1', 'meimei-social-studies-2', 'meimei-social-studies-3', 'meimei-social-studies-4',
       'meimei-social-studies-5', 'meimei-social-studies-6', 'meimei-social-studies-7', 'meimei-social-studies-8',
+      'meimei-social-studies-9', 'meimei-social-studies-10',
     ],
   },
 };

@@ -1,5 +1,12 @@
 # Sprint Log
 
+## Sprint 33 — First exam eight-subject bulk expansion
+
+- Sprint 33 本批先完成 8 題證據充分的原創 singleton：姐姐數學 2、姐姐自然 2、姐姐社會 2、妹妹社會 2；未擴充妹妹國語、妹妹數學，也未猜測姐姐國語、妹妹自然的月考範圍。
+- 正式題庫盤點為 86 題／81 learning units；月考 allowlist 為姐姐數學 13、自然 12、社會 12，妹妹國語 12、數學 10、社會 10。姐姐國語與妹妹自然維持題庫準備中。
+- 8 題均未設定 `reviewGroupId` 或 variation；沒有 schema、storage key、Learning Record／ReviewSession、shuffle、Today Review、再練一次或其他學習規則變更。
+- Human Review 前不 commit、push 或部署；現有家庭 LAN 服務不得被 Sprint 33 build／測試覆蓋。原始教材截圖未由 Codex 直接存取，不宣稱逐頁教材核對完成。
+
 ## Sprint 29 — First-practice random order
 
 - **Status:** Completed.
