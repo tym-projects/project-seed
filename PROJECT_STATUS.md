@@ -15,6 +15,47 @@
 - **Push status:** Pushed to `origin/main`; local `main` is synchronized.
 - **Next step:** 規劃下一批第一次月考題庫擴充。
 
+## Sprint 32 — First exam bulk question expansion
+
+- **Current Sprint:** Sprint 32
+- **Sprint Status:** Completed; six-subject first-exam mode is available, while 姐姐國語與妹妹自然 remain in preparation.
+- **Scope:** Planning only for the confirmed first-month-exam ranges: 姐姐數學／自然／社會 and 妹妹國語／數學／社會. 姐姐國語 and 妹妹自然 remain out of scope until their exam ranges are confirmed.
+- **Inventory:** The batch added 14 approved-ready singleton questions; actual inventory after verification is 78 questions and 73 learning units.
+- **Planning output:** `docs/superpowers/specs/2026-09-24-sprint-32-first-exam-bulk-expansion-design.md`, `docs/superpowers/plans/2026-09-24-sprint-32-bulk-question-expansion.md`。
+- **Candidate review:** 24 complete original candidate drafts were audited: 14 Ready, 0 Revised, and 10 `pending-review`. Pending candidates were excluded from production because of concept overlap or insufficient lesson-specific evidence. The approximately 120-question figure is a capacity target, not a quota.
+- **Evidence boundary:** Public curriculum sources support some science／social concept planning, but Codex did not directly access the original textbook screenshots. 妹妹國語 lesson-level vocabulary and some version／unit details remain pending Human evidence.
+- **Verification state:** Focused question tests are GREEN; full regression and launch-readiness verification are recorded below after execution.
+- **Next step:** 規劃下一批第一次月考題庫擴充；家庭 LAN 使用依當次實際驗證的 canonical build 管理。
+
+### Sprint 32 全題庫範圍稽核追加
+
+- **Audit:** 78 題分類為 A 月考範圍 49、B 已確認超出月考範圍 4、C 教材對應待確認 23、D 早期測試／不適合目前正式練習 2。
+- **姐姐國語修正:** `jiejie-chinese-2`「天空的天是什麼部首」及相近的 `jiejie-chinese-4` 不再進入姐姐國語首次練習、Today Review 或再練一次。完整題庫仍保留以支援歷史 Learning Record 顯示，沒有刪除或重用 questionId。
+- **範圍界線:** 姐姐國語與妹妹自然月考範圍未確認；妹妹國語課次細節未完成教材核對。姐姐／妹妹數學第 5–6 單元雖不在本次月考範圍，仍保留作一般學習題，因目前沒有月考專用題庫模式。
+- **Verification:** 範圍 focused Node 2/2、focused Browser 1/1；完整 Node 179/179、Browser 37/37；lint、TypeScript `--incremental false`、production build、`git diff --check` 通過。Browser 使用 disposable Chromium 與 synthetic storage。
+
+### Sprint 32 implementation audit
+
+- Added only: 姐姐數學 `-10`～`-13`、姐姐自然 `-9`～`-10`、姐姐社會 `-7`～`-10`、妹妹數學 `-11`～`-12`、妹妹社會 `-7`～`-8`.
+- No 妹妹國語 candidate was added. 姐姐國語、妹妹自然 remain out of scope.
+- No schema, storage key, reviewGroup, variation, Learning Record／ReviewSession or learning-rule change was made.
+
+### Sprint 32 第一次月考練習模式追加
+
+- 依全題庫稽核的 A 類 questionId 建立獨立「第一次月考」練習入口；姐姐數學 11、姐姐自然 10、姐姐社會 10、妹妹國語 12、妹妹數學 10、妹妹社會 8 題可用。姐姐國語與妹妹自然目前顯示「第一次月考題庫準備中」，不得回退到一般題庫。
+- 妹妹國語未新增題目；Human 已確認三上第壹、貳單元第 1–6 課範圍後，既有 12 題詞語／動作詞／量詞題納入明確 allowlist。教材範圍已確認，但未宣稱完成逐頁課本核對。
+- 一般練習仍保留有效一般題目，包括 B 類數學第 5–6 單元；月考模式只使用明確 questionId allowlist，不依題號、陣列位置或整個題庫推定資格。
+- 沿用 `ChineseQuestionFlow` 的首次練習 shuffle、作答、Hint／Explanation、Learning Record、返回與離開確認；Today Review、再練一次及其選題規則未套用 allowlist。
+- 沒有新增 storage key、Question／Learning Record／ReviewSession schema 或資料遷移。姐姐國語 D 類歷史題仍保留以供紀錄對應，未刪除或重用 questionId。
+- Eligibility focused Node tests 6/6、月考 Browser focused 2/2、完整 Node 183/183、完整 disposable Browser 39/39、lint、TypeScript `--incremental false`、production build 與 `git diff --check` 均通過。Browser 使用 synthetic storage，並覆蓋 768×1024、1024×768 viewport；Playwright teardown 曾留下已確認的本次測試 server，已安全停止。Human 已完成六科平板驗收；Sprint 32 功能結案完成。
+
+### Sprint 32 Final Close
+
+- Human 已完成六科平板驗收並核准結案：姐姐數學 11、自然 10、社會 10；妹妹國語 12、數學 10、社會 8 題，共 61 題月考 allowlist。姐姐國語與妹妹自然維持「題庫準備中」，不回退一般題庫。
+- 最終驗證：Node 183/183、Browser 39/39、lint、TypeScript `--incremental false`、production build、`git diff --check` 通過；Browser 使用 disposable Chromium、synthetic storage 與 768×1024／1024×768 viewport。
+- 正式題庫維持 78 題、73 learning units；未改變 Learning Record／ReviewSession schema、storage keys、首次練習隨機排序、Today Review、再練一次或其他學習規則。
+- 六科功能結案與正式家庭 LAN 使用分開管理；LAN 網址只以當次驗證後實際啟動的 canonical build 為準，非公開部署。
+
 ## Sprint 30 — First natural and social question expansion
 
 - **Current Sprint:** Sprint 30

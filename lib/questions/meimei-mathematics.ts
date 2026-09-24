@@ -131,4 +131,14 @@ export const questions: QuestionCardQuestion[] = [
     explanation: '公分：6+2=8；毫米：4+9=13 毫米，也就是 1 公分 3 毫米，所以總長是 9 公分 3 毫米。',
     encouragement: '答對了！你會計算公分和毫米的長度。',
   },
+  {
+    id: 'meimei-mathematics-11', topic: '數到 10000', type: 'basic', title: '錢幣與數值', instruction: '請計算錢幣代表的總數。',
+    question: '有 3 張 100 元、2 個 10 元和 5 個 1 元，合起來是多少元？', options: ['325 元', '352 元', '3052 元', '235 元'], answer: 0,
+    hint: '分別算百元、十元和一元，再相加。', explanation: '300+20+5=325 元。', encouragement: '答對了！你會用位值概念計算錢幣總數。',
+  },
+  {
+    id: 'meimei-mathematics-12', topic: '四位數的加減', type: 'basic', title: '四位數加法估算', instruction: '請選出合理的估算結果。',
+    question: '398＋205 大約是多少？', options: ['約 500', '約 600', '約 700', '約 800'], answer: 1,
+    hint: '把數字估成容易計算的整百數。', explanation: '398 約 400、205 約 200，400+200 約 600。', encouragement: '答對了！你能用估算快速判斷答案範圍。',
+  },
 ];

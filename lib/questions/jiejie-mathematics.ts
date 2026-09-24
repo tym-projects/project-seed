@@ -120,4 +120,24 @@ export const questions: Question[] = [
     explanation: '圓周長 = 2 × 3.14 × 4 = 25.12，所以圓周長是 25.12 公分。',
     encouragement: '答對了！你會使用圓周長公式。',
   },
+  {
+    id: 'jiejie-mathematics-10', topic: '質因數分解和短除法', type: 'basic', title: '短除法第一步', instruction: '請選出最適合的第一個除數。',
+    question: '用短除法分解 60，第一個除數選哪一個最適合？', options: ['2', '4', '6', '9'], answer: 0,
+    hint: '先找能整除 60 的最小質數。', explanation: '60 是偶數，可先除以質數 2；短除法每一步使用質數因數。60÷2=30；4、6 不是質數，9 不能整除 60。', encouragement: '答對了！你會找出短除法的第一個質數因數。',
+  },
+  {
+    id: 'jiejie-mathematics-11', topic: '分數的除法', type: 'application', title: '分數平分緞帶', instruction: '請解決分數除法的生活問題。',
+    question: '一條長 3/4 公尺的緞帶，平均分成 3 段，每段長幾公尺？', options: ['1/4', '1/2', '3/7', '9/4'], answer: 0,
+    hint: '把 3/4 平分成 3 份，就是 3/4 ÷ 3。', explanation: '3/4 ÷ 3 = 3/4 × 1/3 = 1/4 公尺；1/4×3=3/4。', encouragement: '答對了！你能用分數除法解決平分問題。',
+  },
+  {
+    id: 'jiejie-mathematics-12', topic: '小數的除法', type: 'application', title: '小數除法剪繩', instruction: '請解決小數除法的生活問題。',
+    question: '一條 6.4 公尺的繩子，每 0.8 公尺剪成一段，可以剪成幾段？', options: ['0.8', '8', '80', '5.6'], answer: 1,
+    hint: '計算 6.4 ÷ 0.8，先把除數變成整數。', explanation: '6.4 ÷ 0.8 = 64 ÷ 8 = 8 段；0.8×8=6.4。', encouragement: '答對了！你能用小數除法解決分段問題。',
+  },
+  {
+    id: 'jiejie-mathematics-13', topic: '圓周長和圓面積', type: 'application', title: '由直徑求圓周長', instruction: '請計算圓的周長。',
+    question: '一個圓的直徑是 10 公分，π 取 3.14，圓周長是多少？', options: ['15.7 公分', '31.4 公分', '62.8 公分', '100 公分'], answer: 1,
+    hint: '圓周長可用直徑 × π。', explanation: '10×3.14=31.4 公分；15.7 是半徑 5 乘 π，62.8 是正解兩倍，100 不符合公式。', encouragement: '答對了！你會由直徑求出圓周長。',
+  },
 ];

@@ -59,4 +59,14 @@ export const questions: Question[] = [
     hint: '看不見砂糖顆粒，是否代表砂糖已經不存在？',
     explanation: '砂糖完全溶解後，仍存在於糖水中，並均勻分散；看不見原本的顆粒，不代表砂糖消失。', encouragement: '答對了！你知道溶解後的物質仍存在於水溶液中。',
   },
+  {
+    id: 'jiejie-natural-science-9', topic: '探索天氣的變化', type: 'basic', title: '水氣遇冷凝結', instruction: '請判斷水氣遇冷後的變化。',
+    question: '下列哪一項最能說明空氣中的水氣遇冷後可能發生的變化？', options: ['凝結成小水滴', '變成砂糖', '消失成土壤', '變成聲音'], answer: 0,
+    hint: '想想冷玻璃外的小水滴從哪裡來。', explanation: '水氣遇冷可能凝結成小水滴，形成霧或雲的一部分；其餘不是水氣遇冷的變化。', encouragement: '答對了！你能判斷水氣遇冷的變化。',
+  },
+  {
+    id: 'jiejie-natural-science-10', topic: '水溶液', type: 'basic', title: '比較水溶液導電性', instruction: '請選出公平比較實驗的方法。',
+    question: '若要比較兩種水溶液是否容易導電，哪一種做法最公平？', options: ['使用不同體積且不記錄濃度', '使用相同裝置與相同體積，再比較結果', '只看顏色猜測', '只測其中一杯一次且不記錄'], answer: 1,
+    hint: '公平比較要固定哪些條件？', explanation: '相同裝置與體積等條件能減少其他因素影響，才較能比較水溶液差異。', encouragement: '答對了！你知道公平比較實驗要控制條件。',
+  },
 ];

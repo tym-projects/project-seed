@@ -332,3 +332,29 @@
 - Actual inventory: 64 questions, 59 learning units. No schema, storage key, review group, variation, first-practice randomization, Today Review, reinforcement, or learning-record semantic change.
 - Verification: focused 3/3, Node 176/176, Browser 36/36, lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Confirmed build/test artifacts were the only EPERM cleanup targets.
 - Status: Completed after Human tablet acceptance 6/6. Implementation commit: `22fd4dd` Complete Sprint 31 natural science question expansion. Close-document synchronization and push completed; local `main` is synchronized with `origin/main`.
+
+# Sprint 32 — First exam bulk question expansion
+
+- Six confirmed first-month-exam combinations remain in scope—姐姐數學／自然／社會 and 妹妹國語／數學／社會. 姐姐國語 and 妹妹自然 remain unconfirmed and out of scope.
+- Candidate audit: 24 complete drafts classified as 14 Ready, 0 Revised, and 10 `pending-review`; pending candidates were excluded from production.
+- Added 14 approved-ready singleton questions. Actual production inventory is 78 questions and 73 learning units.
+- Design／Plan: `docs/superpowers/specs/2026-09-24-sprint-32-first-exam-bulk-expansion-design.md`, `docs/superpowers/plans/2026-09-24-sprint-32-bulk-question-expansion.md`。
+- Focused exact-match tests followed RED→GREEN; full verification is recorded after completion. No schema, storage key, review-group, variation, or learning-rule change.
+- Status: Implementation complete / Awaiting Final Human Review. No commit, push, or public deployment performed.
+- Follow-up range audit: all 78 questions classified A 49 / B 4 / C 23 / D 2. `jiejie-chinese-2` and `jiejie-chinese-4` are retained for historical record lookup but excluded from current first practice, Today Review, and reinforcement practice through the non-destructive `practiceQuestions` view. No question ID or persisted data was deleted.
+- Verification after audit: focused Node 2/2, focused Browser 1/1, full Node 179/179, and full disposable Chromium Browser 37/37; lint, TypeScript `--incremental false`, production build, and `git diff --check` passed. The LAN server was stopped before the final build and no public deployment was made.
+
+## Sprint 32 — First exam practice mode追加
+
+- Added an independent first-month-exam practice route for each student／subject combination. Eligibility is an explicit questionId allowlist derived from the completed A/B/C/D audit; no array-position, ID-pattern, date, or whole-bank inference is used.
+- Eligible counts: 姐姐數學 11、姐姐自然 10、姐姐社會 10、妹妹國語 12、妹妹數學 10、妹妹社會 8. 姐姐國語與妹妹自然 show 題庫準備中 without fallback. 妹妹國語沿用 Human 已確認第 1–6 課範圍的既有 12 題；一般 practice retains valid general-learning questions, including out-of-range B mathematics questions.
+- Reused `ChineseQuestionFlow` and its one-time first-practice shuffle. No Question／Learning Record／ReviewSession schema, storage key, review rule, or Today Review／reinforcement selection change.
+- Focused eligibility Node 6/6、monthly Browser 2/2、full Node 183/183、full Browser 39/39、lint、TypeScript `--incremental false`、build、diff-check passed. Browser used disposable Chromium with synthetic storage and both tablet viewports; a confirmed test-server teardown process was safely stopped after the run.
+
+## Sprint 32 — Final Close and six-subject first-exam availability
+
+- Status: Completed after Human tablet acceptance. Six available first-exam combinations are 姐姐數學 11、姐姐自然 10、姐姐社會 10、妹妹國語 12、妹妹數學 10、妹妹社會 8, for 61 allowlist questions within the 78-question／73-learning-unit production inventory.
+- 姐姐國語與妹妹自然 remain explicitly in preparation and continue to show `題庫準備中`; they are not counted as passed first-exam banks and do not fall back to general practice questions.
+- Final verification: Node 183/183, disposable Browser 39/39, lint, TypeScript `--incremental false`, production build, and `git diff --check` passed. No schema, storage-key, Learning Record／ReviewSession, or learning-rule changes.
+- Six-subject tablet acceptance passed. Family-LAN use must use the currently verified canonical build and a freshly verified LAN URL; this is not a public deployment.
+- Pending backlog: complete 姐姐國語／妹妹自然 first-exam content, continue textbook calibration, and improve cross-device record backup without changing current learning semantics.

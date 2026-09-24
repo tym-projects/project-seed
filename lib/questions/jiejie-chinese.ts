@@ -121,3 +121,9 @@ export const questions: Question[] = [
     encouragement: '很棒！你能在較長的文章中運用字義找出錯別字。',
   },
 ];
+
+// Keep retired early test questions available for historical Learning Records,
+// but exclude them from current formal practice and review flows.
+export const practiceQuestions: Question[] = questions.filter(
+  ({ id }) => !['jiejie-chinese-2', 'jiejie-chinese-4'].includes(id),
+);

@@ -18,6 +18,7 @@ export default function JieJiePage() {
               <h3 className="font-bold text-gray-800">{label}</h3>
               <div className="mt-2 grid gap-2 sm:grid-cols-3">
                 <a href={actions.practice} className="rounded-lg border border-pink-200 px-3 py-2 text-center hover:bg-pink-50 hover:text-pink-600">練習</a>
+                <a href={actions.exam} className="rounded-lg border border-pink-200 bg-pink-50 px-3 py-2 text-center font-bold hover:bg-pink-100 hover:text-pink-600">第一次月考</a>
                 <a href={actions.review} className="rounded-lg border border-pink-200 px-3 py-2 text-center hover:bg-pink-50 hover:text-pink-600">今日複習</a>
                 <a href={actions.reinforce} className="rounded-lg border border-pink-200 px-3 py-2 text-center hover:bg-pink-50 hover:text-pink-600">再練一次</a>
               </div>

@@ -12,6 +12,7 @@ const subjects = [
 function expectedLinks(student: 'jiejie' | 'meimei') {
   return subjects.flatMap(({ practice, review, reinforce }) => [
     `/${student}/${practice}`,
+    `/${student}/exam/${practice === 'chinese' ? 'chinese' : practice}`,
     `/${student}/${review}`,
     `/${student}/${reinforce}`,
   ]);
@@ -20,7 +21,7 @@ function expectedLinks(student: 'jiejie' | 'meimei') {
 async function assertHomeLinks(page: import('@playwright/test').Page, student: 'jiejie' | 'meimei') {
   await page.goto(`/${student}`);
   const links = page.locator(`a[href^="/${student}/"]`);
-  await expect(links).toHaveCount(12);
+  await expect(links).toHaveCount(16);
   const hrefs = await links.evaluateAll((elements) => elements.map((element) => element.getAttribute('href')));
   expect(hrefs).toEqual(expectedLinks(student));
   await expect(page.getByRole('heading', { name: '📚 選擇練習' })).toBeVisible();
@@ -33,7 +34,7 @@ async function assertHomeLinks(page: import('@playwright/test').Page, student: '
   }
 }
 
-test('姐姐與妹妹首頁各提供四科三入口並保留正確 student route', async ({ browser }) => {
+test('姐姐與妹妹首頁各提供四科四入口並保留正確 student route', async ({ browser }) => {
   const context = await newIsolatedContext(browser, createSyntheticStorageState());
   const page = await context.newPage();
   const consoleErrors: string[] = [];
@@ -75,7 +76,7 @@ test('手機 viewport 可看到並點擊所有首頁入口且沒有水平溢出'
 
   for (const student of ['jiejie', 'meimei'] as const) {
     await page.goto(`/${student}`);
-    await expect(page.locator(`a[href^="/${student}/"]`)).toHaveCount(12);
+    await expect(page.locator(`a[href^="/${student}/"]`)).toHaveCount(16);
     const layout = await page.evaluate((student) => ({
       viewportWidth: document.documentElement.clientWidth,
       scrollWidth: document.documentElement.scrollWidth,

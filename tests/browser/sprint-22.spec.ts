@@ -58,6 +58,11 @@ test('selects a due jiejie mathematics question in Today Review', async ({ brows
         firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true,
         createdAt: new Date().toISOString(),
       })),
+      ...[10, 11, 12, 13].map((unit) => ({
+        id: `jiejie-math-completed-${unit}`, student: 'jiejie', subject: 'mathematics', questionId: `jiejie-mathematics-${unit}`,
+        firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true,
+        createdAt: new Date().toISOString(),
+      })),
     ],
   }));
   const page = await context.newPage();

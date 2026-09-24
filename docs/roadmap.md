@@ -180,6 +180,18 @@
 - 教材管理。
 - 資料庫與跨裝置資料保存。
 
+### Sprint 32 月考練習模式追加
+
+- 已建立依明確 questionId allowlist 的第一次月考練習入口；一般練習、Today Review、再練一次與既有學習資料語意維持不變。
+- 姐姐數學／自然／社會、妹妹國語／數學／社會可使用已確認月考題；姐姐國語與妹妹自然顯示題庫準備中，不回退一般題庫。
+- 月考 focused Browser 2/2、完整 Browser 39/39、Node 183/183、lint、TypeScript、build 與 diff-check 已通過；六科已通過 Human 平板驗收並完成 Sprint 32 功能結案。姐姐國語與妹妹自然仍為準備中，未公開部署。
+
+### Sprint 32 Final Close
+
+- 六科第一次月考 allowlist：姐姐數學 11、自然 10、社會 10；妹妹國語 12、數學 10、社會 8，共 61 題。正式題庫 78 題、73 learning units。
+- 姐姐國語與妹妹自然維持「第一次月考題庫準備中」；不回退一般題庫，也不宣稱已完成教材對應。
+- Human 平板驗收通過；Node 183/183、Browser 39/39、lint、TypeScript `--incremental false`、build 與 diff-check 通過。家庭 LAN 使用仍須由當次啟動的 canonical build 提供網址，非公開部署。
+
 ### AI 與分析能力
 
 - AI 教學引導。
@@ -206,3 +218,14 @@
 - Actual inventory is 64 questions and 59 learning units. Codex did not directly access the original textbook screenshots, so page-by-page textbook verification is not claimed.
 - Verification: focused 3/3, Node 176/176, Browser 36/36, lint, TypeScript `--incremental false`, build, and `git diff --check` passed. Existing disposable Browser and tablet viewport coverage remained green.
 - Status: Completed after Human tablet acceptance 6/6. Implementation commit: `22fd4dd` Complete Sprint 31 natural science question expansion. Close-document synchronization and push completed; local `main` is synchronized with `origin/main`.
+
+## Sprint 32 — First exam bulk question expansion
+
+- 以第一次月考範圍集中規劃姐姐數學／自然／社會與妹妹國語／數學／社會的批量原創題庫擴充。
+- 24 題候選已完成逐題審核：14 題 Ready、0 題 Revised、10 題 pending-review。Ready 題目已批量加入正式題庫，正式題庫實際盤點為 78 題／73 learning units。
+- 約 120 題是六組各約 20 題的容量目標，不是湊題數配額；來源不足的題目標為 `pending-review`。
+- Sprint 32 Design／Plan：`docs/superpowers/specs/2026-09-24-sprint-32-first-exam-bulk-expansion-design.md`、`docs/superpowers/plans/2026-09-24-sprint-32-bulk-question-expansion.md`。
+- Status：Implementation complete / Awaiting Final Human Review；尚未 commit、push 或公開部署。
+- 本批未改變 schema、storage key、Learning Record／ReviewSession、首次練習隨機排序、Today Review、再練一次或其他學習規則。Pending 題目及姐姐國語／妹妹自然仍為 backlog。
+- 全題庫稽核：78 題分類為 A 49、B 4、C 23、D 2；姐姐國語兩道早期部首題已從目前正式練習／複習流程隔離，但歷史題目保留。月考範圍外數學題仍作一般學習題，月考專用題庫模式尚未建立。
+- 範圍修正驗證：focused Node 2/2、focused Browser 1/1、完整 Node 179/179、Browser 37/37；lint、TypeScript `--incremental false`、build、`git diff --check` 通過。

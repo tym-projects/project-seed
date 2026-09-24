@@ -45,4 +45,14 @@ export const questions: Question[] = [
     hint: '想想把工作分成幾個步驟，是否有助於安排時間與完成任務。',
     explanation: '先整理需要完成的工作，再安排資料蒐集、撰寫與檢查的時間，有助於依序完成報告。', encouragement: '答對了！你會安排學習步驟。',
   },
+  {
+    id: 'meimei-social-studies-7', topic: '我和我的家人', type: 'basic', title: '家庭組成多樣性', instruction: '請選出對家庭的合適理解。',
+    question: '下列哪一項最適合說明家庭的樣子？', options: ['每個家庭成員數量都一樣', '家庭組成可能不同，但都可以互相照顧與合作', '只有和自己同住的人才算家人', '家庭一定要有相同職業'], answer: 1,
+    hint: '想想不同家庭可能有哪些成員。', explanation: '家庭組成與生活方式可能不同，成員仍可互相照顧與合作。', encouragement: '答對了！你知道不同家庭都能互相照顧。',
+  },
+  {
+    id: 'meimei-social-studies-8', topic: '我和我的家人', type: 'application', title: '自己的家庭責任', instruction: '請選出適合的家庭責任做法。',
+    question: '小安要整理自己的書包，哪一種做法最符合家庭與自己的責任？', options: ['把所有物品交給家人整理', '先自己整理，再在需要時請家人協助', '故意把物品丟在地上', '說謊表示已經整理好'], answer: 1,
+    hint: '自己的事情可以先怎麼做？', explanation: '先負責自己的物品，遇到需要時再尋求協助，是合作而非推卸責任。', encouragement: '答對了！你會先負責自己的事情，也知道何時求助。',
+  },
 ];

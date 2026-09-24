@@ -45,4 +45,24 @@ export const questions: Question[] = [
     hint: '想想不同族群分享食材與料理方式後，生活文化可能發生什麼變化。',
     explanation: '不同族群透過生活往來分享飲食文化，可能互相影響並發展出新的料理方式。文化交流不代表原有文化必須消失。', encouragement: '答對了！你能理解文化交流帶來的影響。',
   },
+  {
+    id: 'jiejie-social-studies-7', topic: '個人發展如何受到社會變遷的影響？', type: 'application', title: '家庭角色變遷', instruction: '請選出符合現代家庭分工的說法。',
+    question: '下列哪一項最符合現代家庭分工的觀念？', options: ['家事只能由女性負責', '家庭成員可依能力、時間與需要協調分工', '只有收入最高者能決定所有事', '小孩完全不能參與家庭工作'], answer: 1,
+    hint: '分工應看需要，不應只用性別決定。', explanation: '家庭角色會隨社會變遷調整，成員可協調分工並共同承擔責任。', encouragement: '答對了！你了解家庭分工可以一起協調。',
+  },
+  {
+    id: 'jiejie-social-studies-8', topic: '個人發展如何受到社會變遷的影響？', type: 'application', title: '個人興趣與發展', instruction: '請判斷尊重個人發展的做法。',
+    question: '同學對未來興趣不同，哪一種做法最符合個人發展的學習？', options: ['要求所有人選同一興趣', '依自己的興趣與能力探索，並尊重別人的選擇', '只以別人的成績決定方向', '因為不同就不合作'], answer: 1,
+    hint: '個人發展可以有差異，也要尊重他人。', explanation: '個人可有多元發展選擇，探索自我不等於否定他人。', encouragement: '答對了！你能尊重自己和別人的發展選擇。',
+  },
+  {
+    id: 'jiejie-social-studies-9', topic: '族群交流如何影響臺灣社會？', type: 'basic', title: '文化形成背景', instruction: '請選出有助於理解文化背景的資料。',
+    question: '要了解一項族群文化活動，哪一項資料最有助於理解它的背景？', options: ['只看活動名稱', '了解生活環境、歷史交流與活動意義', '只用自己的習慣判斷', '以一句刻板印象概括所有人'], answer: 1,
+    hint: '文化特色通常和哪些背景有關？', explanation: '理解環境、歷史與交流能避免只看表面或刻板化。', encouragement: '答對了！你能從背景理解文化特色。',
+  },
+  {
+    id: 'jiejie-social-studies-10', topic: '族群交流如何影響臺灣社會？', type: 'application', title: '文化交流與尊重', instruction: '請選出適合介紹文化的說法。',
+    question: '介紹不同族群的飲食文化時，哪一種說法最合適？', options: ['每個族群的人都一定吃同樣的食物', '只比較誰的文化比較好', '說明文化交流形成的特色，也尊重同一族群內的差異', '不查資料只靠印象'], answer: 2,
+    hint: '介紹文化要同時做到理解與尊重。', explanation: '文化交流可能形成新特色，但不能把單一例子說成所有人的共同特徵。', encouragement: '答對了！你能理解文化交流並尊重差異。',
+  },
 ];

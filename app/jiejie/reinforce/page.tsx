@@ -1,8 +1,8 @@
 'use client';
 
 import { ChineseReinforcementPracticePage } from '@/components/practice/ChineseReinforcementPracticePage';
-import { questions } from '@/lib/questions/jiejie-chinese';
+import { practiceQuestions } from '@/lib/questions/jiejie-chinese';
 
 export default function JieJieReinforcementPage() {
-  return <ChineseReinforcementPracticePage questions={questions} student="jiejie" subject="chinese" theme="pink" homeHref="/jiejie" homeLabel="返回姐姐首頁" />;
+  return <ChineseReinforcementPracticePage questions={practiceQuestions} student="jiejie" subject="chinese" theme="pink" homeHref="/jiejie" homeLabel="返回姐姐首頁" />;
 }
