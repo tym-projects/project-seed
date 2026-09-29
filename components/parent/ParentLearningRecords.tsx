@@ -13,6 +13,7 @@ import { questions as jiejieSocialStudiesQuestions } from '@/lib/questions/jieji
 import { questions as meimeiNaturalScienceQuestions } from '@/lib/questions/meimei-natural-science';
 import { questions as meimeiSocialStudiesQuestions } from '@/lib/questions/meimei-social-studies';
 import { getReviewTargetMinutes, saveReviewTargetMinutes, type ReviewTargetMinutes } from '@/lib/review-time-settings';
+import { LearningRecordBackup } from '@/components/parent/LearningRecordBackup';
 type StudentSection = { id: StudentId; subject: SubjectId; label: string; records: LearningRecordDisplay[]; summary: ParentLearningSummary };
 type ReviewTargets = Record<string, ReviewTargetMinutes | null>;
 const subjectOptions: { id: SubjectId; label: string }[] = [
@@ -38,6 +39,7 @@ export function ParentLearningRecords() {
   }, [records]);
   if (records === null) return <p className="mt-8 text-center text-gray-600">正在讀取學習摘要…</p>;
   return <section className="mt-8">
+    <LearningRecordBackup />
     <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-gray-100">
       <div className="flex flex-wrap gap-3" role="group" aria-label="選擇孩子">
         {(['jiejie', 'meimei'] as const).map((student) => (

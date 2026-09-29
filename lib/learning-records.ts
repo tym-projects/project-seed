@@ -21,7 +21,7 @@ function isBrowserStorageAvailable() {
   return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
 }
 
-function isLearningRecord(value: unknown): value is LearningRecord {
+export function isLearningRecord(value: unknown): value is LearningRecord {
   if (typeof value !== 'object' || value === null) {
     return false;
   }

@@ -6,6 +6,13 @@
 - Do not clear site data or change origin/device/browser without first assessing the Learning Record impact.
 - The prior origin investigation found no recoverable Learning Record export or backup. No real data was repaired or migrated. Backup/restore remains a high-priority future capability.
 
+## Sprint 35 — Learning Record backup and restore
+
+- **Status:** Implementation complete / Awaiting Human Review.
+- Added parent-center export/import for the existing Learning Record storage key using a versioned JSON envelope. Full validation occurs before a single storage write; imports are idempotent by record ID and reject conflicting duplicates.
+- ReviewSession, question banks, monthly allowlists, learning rules, storage keys, and persisted schemas are unchanged. Formal use remains normal-browser-only; backup files must be kept private.
+- No real records were used or changed. Formal 3100 remains running; Human tablet review uses an isolated Sprint 35 server.
+
 ## Sprint 34 — Completed
 
 - Scope confirmed: 姐姐國語第壹、貳單元；妹妹自然第一單元「認識植物」與第二單元「空氣和水」。

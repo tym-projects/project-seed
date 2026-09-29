@@ -1,5 +1,14 @@
 # Project Status
 
+## Sprint 35 — Learning Record backup and restore — Implementation complete / Awaiting Human Review
+
+- Added a parent-center JSON backup panel for the existing `project-seed:learning-records:v1` data. The versioned envelope contains `format`, `version`, `exportedAt`, `recordCount`, and `records`; ReviewSession is intentionally excluded from V1.
+- Import validates the entire envelope and every Learning Record before any write. Records merge by existing `id`, identical duplicates are skipped, conflicting duplicate IDs are rejected, and a successful import performs one atomic storage write. No new storage key or persisted schema was introduced.
+- Added pure backup/restore validation and merge tests plus disposable Browser coverage for export, valid import, invalid-import no-write behavior, duplicate-safe behavior, console errors, and 768×1024／1024×768 layout checks. No real Learning Record was used or changed.
+- Verification: focused Node 7/7, full Node 203/203, lint, TypeScript `--incremental false`, isolated production build, focused Browser 4/4, full Browser regression 45/45, Restore Drill, and `git diff --check` passed against the isolated Sprint 35 server.
+- Formal 3100 remains running and was not rebuilt or interrupted. An isolated Sprint 35 build/server is used for validation; Sprint 35 has not been committed or pushed.
+- Human tablet review 6/6 passed. Final formal-origin verification remains: export-only check on 3100 using the existing normal-browser records; no formal import test.
+
 ## Data Safety Gate — Learning Record origin diagnosis
 
 - Human confirmed prior 2026AST use was through browser private/incognito tabs. On the original tablet, original browser profile, and current formal origin `http://192.168.22.208:3100`, the read-only diagnostic reported `keyExists=false`, `rawIsNull=true`, `parseStatus=failed`, `parsedContainerType=none`, and zero records.
