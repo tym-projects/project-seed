@@ -3,7 +3,10 @@ import type { QuestionCardQuestion } from '@/components/question/QuestionCard';
 
 const FIRST_EXAM_QUESTION_IDS: Readonly<Record<StudentId, Readonly<Partial<Record<SubjectId, readonly string[]>>>>> = {
   jiejie: {
-    chinese: [],
+    chinese: [
+      'jiejie-chinese-10', 'jiejie-chinese-11', 'jiejie-chinese-12', 'jiejie-chinese-13',
+      'jiejie-chinese-14', 'jiejie-chinese-15', 'jiejie-chinese-16', 'jiejie-chinese-17',
+    ],
     mathematics: [
       'jiejie-mathematics-1', 'jiejie-mathematics-2', 'jiejie-mathematics-3', 'jiejie-mathematics-4',
       'jiejie-mathematics-7', 'jiejie-mathematics-8', 'jiejie-mathematics-9', 'jiejie-mathematics-10',
@@ -32,7 +35,11 @@ const FIRST_EXAM_QUESTION_IDS: Readonly<Record<StudentId, Readonly<Partial<Recor
       'meimei-mathematics-7', 'meimei-mathematics-8', 'meimei-mathematics-9', 'meimei-mathematics-10',
       'meimei-mathematics-11', 'meimei-mathematics-12',
     ],
-    natural_science: [],
+    natural_science: [
+      'meimei-natural-science-1', 'meimei-natural-science-2', 'meimei-natural-science-3', 'meimei-natural-science-4',
+      'meimei-natural-science-5', 'meimei-natural-science-6', 'meimei-natural-science-7', 'meimei-natural-science-8',
+      'meimei-natural-science-9', 'meimei-natural-science-10', 'meimei-natural-science-11', 'meimei-natural-science-12',
+    ],
     social_studies: [
       'meimei-social-studies-1', 'meimei-social-studies-2', 'meimei-social-studies-3', 'meimei-social-studies-4',
       'meimei-social-studies-5', 'meimei-social-studies-6', 'meimei-social-studies-7', 'meimei-social-studies-8',

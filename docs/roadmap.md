@@ -6,10 +6,15 @@
 - Do not clear site data or change origin/device/browser without first assessing the Learning Record impact.
 - The prior origin investigation found no recoverable Learning Record export or backup. No real data was repaired or migrated. Backup/restore remains a high-priority future capability.
 
-## Sprint 34 — Planning ready
+## Sprint 34 — Completed
 
 - Scope confirmed: 姐姐國語第壹、貳單元；妹妹自然第一單元「認識植物」與第二單元「空氣和水」。
-- Next planning work is limited to bank audit, monthly allowlists, and original question candidates. Implementation has not started.
+- Added 8 original singleton questions for 姐姐國語 (`jiejie-chinese-10`–`-17`) and 8 for 妹妹自然 (`meimei-natural-science-5`–`-12`); both monthly allowlists now explicitly expose these confirmed ranges. The retired 姐姐國語 radical questions remain out of current practice/review selection for historical compatibility.
+- Actual inventory is 94 questions and 89 learning units; monthly allowlists total 85 questions. No schema, storage key, Learning Record／ReviewSession, shuffle, review, or practice semantic changed.
+- Evidence boundary: Human confirmed the ranges, but Codex did not directly access the original textbook photos; no page-by-page textbook verification is claimed.
+- Focused tests 5/5, full Node 196/196, lint, TypeScript `--incremental false`, production build, disposable Browser smoke 41/41, focused monthly Browser 4/4, and `git diff --check` passed. Human tablet acceptance passed; formal-origin re-verification uses the updated 3100 build.
+- Answer-position audit found the new Jiejie Chinese questions at 8/0/0/0 and the new Meimei Natural Science bank at 9/1/1/1 before correction. Twelve fixed option reorderings produced Jiejie Chinese 2/2/2/2 and Meimei Natural Science 3/3/3/3; the other six banks were unchanged. Overall monthly distribution is 25/32/21/11. No correct answer content changed.
+- Data Safety Gate is closed; the temporary diagnostics page is absent from the production build, formal use must avoid private/incognito mode, and Learning Record backup/restore remains high-priority backlog. Next step is formal-origin re-verification, then the next monthly question-bank expansion planning.
 
 ## Sprint 30 — First natural and social question expansion
 

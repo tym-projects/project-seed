@@ -26,13 +26,14 @@ test('Sprint 33 additions are reachable from the four expanded monthly banks', a
   await closeIsolatedContext(context);
 });
 
-test('Sprint 33 monthly routes remain isolated from unconfirmed subjects', async ({ browser }) => {
+test('Sprint 34 newly confirmed monthly routes remain isolated and usable', async ({ browser }) => {
   const context = await newIsolatedContext(browser, createSyntheticStorageState());
   const page = await context.newPage();
 
   for (const path of ['/jiejie/exam/chinese', '/meimei/exam/natural-science']) {
     await page.goto(path);
-    await expect(page.getByText('第一次月考題庫準備中')).toBeVisible();
+    await expect(page.getByText('第一次月考題庫準備中')).toHaveCount(0);
+    await expect(page.getByText('第 1 題')).toBeVisible();
   }
 
   await closeIsolatedContext(context);

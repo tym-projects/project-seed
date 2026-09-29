@@ -25,7 +25,11 @@ const historyRecord = {
   createdAt: isoAtLocalDay(-3, 4),
 };
 
-const completedTodayOtherGroups = ['jiejie-chinese-2', 'jiejie-chinese-5', 'jiejie-chinese-6', 'jiejie-chinese-7', 'jiejie-chinese-8', 'jiejie-chinese-9'].map((questionId) => ({
+const completedTodayOtherGroups = [
+  'jiejie-chinese-2', 'jiejie-chinese-5', 'jiejie-chinese-6', 'jiejie-chinese-7', 'jiejie-chinese-8', 'jiejie-chinese-9',
+  'jiejie-chinese-10', 'jiejie-chinese-11', 'jiejie-chinese-12', 'jiejie-chinese-13',
+  'jiejie-chinese-14', 'jiejie-chinese-15', 'jiejie-chinese-16', 'jiejie-chinese-17',
+].map((questionId) => ({
   id: `smoke-s18-today-${questionId}`, student: 'jiejie', subject: 'chinese', questionId,
   firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true,
   createdAt: isoAtLocalDay(0, 4),

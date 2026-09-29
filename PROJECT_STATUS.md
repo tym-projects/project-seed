@@ -8,10 +8,16 @@
 - Formal use rule: use a normal browser window with the same device, browser profile, and formal origin; do not use private/incognito mode or clear site data. Record backup/restore is a high-priority backlog item and must not change the current storage schema without a later approved design.
 - The temporary diagnostic route and Browser smoke were removed from source after the check. The pure read-only diagnostic parser and synthetic Node tests remain as governance-only tooling; the currently running 3100 process may continue serving its already-built diagnostic route until the next controlled production restart.
 
-## Sprint 34 — Ready for planning
+## Sprint 34 — Completed
 
 - Human confirmed the first-month-exam scope: 姐姐國語第壹、貳單元；妹妹自然第一單元「認識植物」與第二單元「空氣和水」。
-- Sprint 34 planning only: audit the two banks, create explicit monthly allowlists, and prepare original questions so all eight first-exam entrances can become available. No Sprint 34 implementation has started.
+- Added eight original singleton questions to 姐姐國語 (`jiejie-chinese-10`–`-17`) and eight to 妹妹自然 (`meimei-natural-science-5`–`-12`). Both monthly allowlists now explicitly select the new ranges; retired 姐姐國語 radical questions remain excluded from formal practice and are retained only for historical record lookup.
+- Actual inventory after implementation: 94 questions and 89 learning units; monthly allowlist total is 85 questions. No existing question, answer, review group, schema, storage key, or learning rule changed.
+- Evidence boundary: the exam ranges are Human-confirmed, but Codex did not directly access the original textbook photos in this environment; the new questions use the confirmed ranges and grade-appropriate concepts and are not claimed as page-by-page textbook verification.
+- Focused tests 5/5, full Node 196/196, lint, TypeScript `--incremental false`, production build, disposable Browser smoke 41/41, focused monthly Browser 4/4, and `git diff --check` passed. Human tablet acceptance passed for the answer-position correction and the formal 3100 update is ready for final environment re-verification.
+- Answer-position audit: before correction, 姐姐國語為 8/0/0/0、妹妹自然為 9/1/1/1（index 0/1/2/3）；12 題固定重排後，姐姐國語為 2/2/2/2、妹妹自然為 3/3/3/3。其餘六科維持既有順序；八科合計為 25/32/21/11。只改 options 順序與 answer index，正解內容、題目 ID、allowlist、Hint、Explanation 及學習語意均未改變。
+- Data Safety Gate is closed with no repair, migration, or recoverable old-record source. Formal use must use a normal browser; backup/restore remains high-priority backlog. The temporary diagnostics page is absent from the production build; only the pure read-only parser and synthetic tests remain.
+- Human completed the approved Sprint 34 tablet checks. The implementation is ready for final formal-origin verification at `http://192.168.22.208:3100`; no real Learning Record was read or changed.
 
 ## Sprint 33 — First exam bulk expansion
 

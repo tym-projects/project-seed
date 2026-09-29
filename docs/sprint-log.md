@@ -6,10 +6,15 @@
 - Sprint 32/33 did not alter the Learning Record schema, storage key, or Parent Summary reader. No export or backup was found; no real data was written, cleared, migrated, restored, or repaired. The high-probability cause is private-session storage being discarded, without claiming independently proven permanent loss.
 - Temporary diagnostic route and Browser test were removed from source. Pure parser plus synthetic Node tests remain as governance-only validation. Current 3100 remains running; 3101 is closed after this gate.
 
-## Sprint 34 ready
+## Sprint 34 — First exam two-bank expansion — Completed
 
 - Confirmed scope: 姐姐國語第壹、貳單元；妹妹自然第一單元「認識植物」與第二單元「空氣和水」。
-- Planning only: complete the two bank audits, add explicit monthly allowlists, and prepare original questions. Sprint 34 implementation has not started.
+- Added 16 original singleton questions: 姐姐國語 `-10`–`-17` and 妹妹自然 `-5`–`-12`. Monthly allowlists now select the new questions explicitly; existing early radical questions remain retained for historical lookup but excluded from current formal practice/review.
+- Actual inventory is 94 questions and 89 learning units; monthly allowlists total 85. No existing question, answer, schema, storage key, review group, Learning Record／ReviewSession, or selection semantic changed.
+- Focused tests 5/5, full Node 196/196, lint, TypeScript `--incremental false`, production build, disposable Browser smoke 41/41, focused monthly Browser 4/4, and `git diff --check` passed. Human tablet acceptance passed; the updated formal 3100 build is held for final environment re-verification.
+- Evidence boundary: ranges are Human-confirmed; original textbook photos were not directly accessible to Codex, so page-level textbook verification is not claimed.
+- Answer-position audit: before correction, 姐姐國語 was 8/0/0/0 and 妹妹自然 was 9/1/1/1. Twelve questions were fixed by reordering existing options and updating only `answer`; after correction the two banks are 2/2/2/2 and 3/3/3/3, while the other six banks remain unchanged. Overall monthly distribution is 25/32/21/11.
+- Data Safety Gate is closed with no real-record repair or migration. The temporary diagnostics page is absent from the production build; the read-only parser and synthetic tests remain governance tooling. Formal use remains normal-browser-only, with backup/restore as high-priority backlog.
 
 ## Sprint 33 Final Close
 

@@ -31,11 +31,12 @@ test('student home exposes monthly practice and monthly routes never fall back t
     await expect(page.getByText('第一次月考題庫準備中')).toHaveCount(0);
   }
 
-  for (const path of ['/jiejie/exam/chinese', '/meimei/exam/natural-science']) {
+  for (const path of [
+    '/jiejie/exam/chinese', '/meimei/exam/natural-science',
+  ]) {
     await page.goto(path);
-    await expect(page.getByText('第一次月考題庫準備中')).toBeVisible();
-    await expect(page.getByText('高興')).toHaveCount(0);
-    await expect(page.getByText('天空')).toHaveCount(0);
+    await expect(page.getByText('第一次月考題庫準備中')).toHaveCount(0);
+    await expect(page.getByText('第 1 題')).toBeVisible();
   }
 
   expect(consoleErrors).toEqual([]);
