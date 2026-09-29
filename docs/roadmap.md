@@ -16,6 +16,8 @@
 - Answer-position audit found the new Jiejie Chinese questions at 8/0/0/0 and the new Meimei Natural Science bank at 9/1/1/1 before correction. Twelve fixed option reorderings produced Jiejie Chinese 2/2/2/2 and Meimei Natural Science 3/3/3/3; the other six banks were unchanged. Overall monthly distribution is 25/32/21/11. No correct answer content changed.
 - Data Safety Gate is closed; the temporary diagnostics page is absent from the production build, formal use must avoid private/incognito mode, and Learning Record backup/restore remains high-priority backlog. Next step is formal-origin re-verification, then the next monthly question-bank expansion planning.
 - Implementation commit `a19f279` has been pushed to `origin/main`; formal 3100 is serving the verified build and 3101 remains available for the pending formal Human check.
+- Formal 3100 Human re-verification passed for all eight monthly entrances, new questions, answer-position distribution, answering/feedback/navigation, normal-browser Learning Records, and diagnostics-route removal. Confirmed Sprint 34 server 3101 was stopped; 3100 remains at `http://192.168.22.208:3100`.
+- Next priorities: Learning Record backup/restore, further first-exam question-bank expansion, and later school-exam calibration.
 
 ## Sprint 30 — First natural and social question expansion
 

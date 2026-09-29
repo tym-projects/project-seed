@@ -39,3 +39,4 @@ Sprint 34 implementation and Human tablet review are complete. The final formal-
 - Answer-position focused test now uses quality thresholds rather than exact 25% quotas and verifies the new questions are not all index 0.
 - Close status: Sprint 34 Completed; implementation commit and push follow the final staged-diff review, with formal 3100 kept running for Human re-verification and 3101 retained until that check passes.
 - Implementation commit: `a19f279`; push to `origin/main` succeeded. A documentation-only close commit records the final service state after this update.
+- Final environment gate: Human confirmed the formal 3100 version, then the verified isolated 3101 service (PID `11060`) was stopped. Formal 3100 (PID `15480`) remains running at `http://192.168.22.208:3100`.

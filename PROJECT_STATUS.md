@@ -19,6 +19,8 @@
 - Data Safety Gate is closed with no repair, migration, or recoverable old-record source. Formal use must use a normal browser; backup/restore remains high-priority backlog. The temporary diagnostics page is absent from the production build; only the pure read-only parser and synthetic tests remain.
 - Human completed the approved Sprint 34 tablet checks. The implementation is ready for final formal-origin verification at `http://192.168.22.208:3100`; no real Learning Record was read or changed.
 - Implementation commit: `a19f279` (`Complete Sprint 34 eight-subject first exam coverage`), pushed to `origin/main`; formal 3100 PID `15480` is serving the verified build. Isolated 3101 PID `11060` remains running until formal Human re-verification completes.
+- Formal 3100 Human re-verification completed successfully: all eight first-exam entrances, the new 姐姐國語／妹妹自然 questions, answer positions, answering/scoring/feedback/navigation, Parent Summary records in a normal browser, and removal of the diagnostics route were confirmed. The confirmed Sprint 34 isolated server PID `11060` was then stopped; 3100 PID `15480` remains running at `http://192.168.22.208:3100`.
+- Next priorities: Learning Record backup/restore, further first-exam question-bank expansion, and calibration against later school exam papers when provided.
 
 ## Sprint 33 — First exam bulk expansion
 
