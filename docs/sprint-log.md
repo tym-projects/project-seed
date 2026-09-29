@@ -12,7 +12,7 @@
 - Import validates format/version, timestamps, record count, container, and every record before writing. Existing records remain first; identical IDs are skipped, conflicting IDs reject the import, and success uses one storage write. No schema, storage key, question bank, or learning-rule change.
 - Focused Node 7/7 and full Node 203/203 passed. Focused Browser 4/4 and full Browser regression 45/45 passed against the isolated Sprint 35 production server, including the synthetic Restore Drill (export, reset, import, reload, duplicate import), invalid no-write, console errors, and tablet viewports. Lint, TypeScript `--incremental false`, isolated build, and `git diff --check` passed.
 - Human tablet acceptance passed 6/6. Formal-origin Human verification remains export-only; no import or reset will be performed on 3100.
-- Formal 3100 was not stopped or rebuilt. Sprint 35 implementation remains uncommitted and unpushed. No real Learning Record was accessed or modified.
+- Implementation commit `6b8b212` was pushed to `origin/main`. Formal 3100 was safely updated from the committed build and passed HTTP／isolated-browser health checks; no real Learning Record was accessed or modified. Formal Human verification remains export-only, while isolated 3101 stays running.
 
 ## Sprint 34 — First exam two-bank expansion — Completed
 

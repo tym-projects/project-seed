@@ -12,6 +12,7 @@
 - Added parent-center export/import for the existing Learning Record storage key using a versioned JSON envelope. Full validation occurs before a single storage write; imports are idempotent by record ID and reject conflicting duplicates.
 - ReviewSession, question banks, monthly allowlists, learning rules, storage keys, and persisted schemas are unchanged. Formal use remains normal-browser-only; backup files must be kept private.
 - No real records were used or changed. Formal 3100 remains running; Human tablet review uses an isolated Sprint 35 server.
+- Human tablet review passed 6/6. Implementation commit `6b8b212` is pushed; formal 3100 is updated at `http://192.168.22.208:3100`. Formal Human verification is still pending and is export-only; 3101 remains available until that check completes.
 
 ## Sprint 34 — Completed
 
