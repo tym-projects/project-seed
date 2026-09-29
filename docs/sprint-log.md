@@ -1,5 +1,16 @@
 # Sprint Log
 
+## Data Safety Gate close — Learning Record origin
+
+- Human confirmed prior use through private/incognito tabs. The original tablet/browser on formal origin `http://192.168.22.208:3100` reported no `project-seed:learning-records:v1` key and zero records through the masked read-only diagnostic.
+- Sprint 32/33 did not alter the Learning Record schema, storage key, or Parent Summary reader. No export or backup was found; no real data was written, cleared, migrated, restored, or repaired. The high-probability cause is private-session storage being discarded, without claiming independently proven permanent loss.
+- Temporary diagnostic route and Browser test were removed from source. Pure parser plus synthetic Node tests remain as governance-only validation. Current 3100 remains running; 3101 is closed after this gate.
+
+## Sprint 34 ready
+
+- Confirmed scope: 姐姐國語第壹、貳單元；妹妹自然第一單元「認識植物」與第二單元「空氣和水」。
+- Planning only: complete the two bank audits, add explicit monthly allowlists, and prepare original questions. Sprint 34 implementation has not started.
+
 ## Sprint 33 Final Close
 
 - Sprint 33 已完成並正式更新家庭 LAN 服務。新增 8 題、正式題庫 86 題／81 learning units，六組月考 allowlist 合計 69 題。

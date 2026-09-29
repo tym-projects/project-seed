@@ -1,5 +1,16 @@
 # Project Seed Roadmap
 
+## Data Safety and usage guidance
+
+- Formal learning must use a normal browser window, the same device/browser profile, and `http://192.168.22.208:3100`; private/incognito tabs are not a durable Learning Record solution.
+- Do not clear site data or change origin/device/browser without first assessing the Learning Record impact.
+- The prior origin investigation found no recoverable Learning Record export or backup. No real data was repaired or migrated. Backup/restore remains a high-priority future capability.
+
+## Sprint 34 — Planning ready
+
+- Scope confirmed: 姐姐國語第壹、貳單元；妹妹自然第一單元「認識植物」與第二單元「空氣和水」。
+- Next planning work is limited to bank audit, monthly allowlists, and original question candidates. Implementation has not started.
+
 ## Sprint 30 — First natural and social question expansion
 
 - **Status:** Completed.

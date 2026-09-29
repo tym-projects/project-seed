@@ -1,5 +1,18 @@
 # Project Status
 
+## Data Safety Gate — Learning Record origin diagnosis
+
+- Human confirmed prior 2026AST use was through browser private/incognito tabs. On the original tablet, original browser profile, and current formal origin `http://192.168.22.208:3100`, the read-only diagnostic reported `keyExists=false`, `rawIsNull=true`, `parseStatus=failed`, `parsedContainerType=none`, and zero records.
+- Sprint 32/33 did not change the Learning Record schema, storage key, or Parent Summary read path. No Learning Record export or backup was found. The high-probability explanation is that private-session `localStorage` was discarded when those sessions ended; permanent loss is not independently provable from the current evidence.
+- No repair, migration, import, restore, browser-data clearing, or real-record write was performed. The Data Safety Gate is closed as: 「舊紀錄無可用來源恢復；未執行任何資料修復或遷移。」
+- Formal use rule: use a normal browser window with the same device, browser profile, and formal origin; do not use private/incognito mode or clear site data. Record backup/restore is a high-priority backlog item and must not change the current storage schema without a later approved design.
+- The temporary diagnostic route and Browser smoke were removed from source after the check. The pure read-only diagnostic parser and synthetic Node tests remain as governance-only tooling; the currently running 3100 process may continue serving its already-built diagnostic route until the next controlled production restart.
+
+## Sprint 34 — Ready for planning
+
+- Human confirmed the first-month-exam scope: 姐姐國語第壹、貳單元；妹妹自然第一單元「認識植物」與第二單元「空氣和水」。
+- Sprint 34 planning only: audit the two banks, create explicit monthly allowlists, and prepare original questions so all eight first-exam entrances can become available. No Sprint 34 implementation has started.
+
 ## Sprint 33 — First exam bulk expansion
 
 - **Current Sprint:** Sprint 33
