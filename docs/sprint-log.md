@@ -6,13 +6,13 @@
 - Sprint 32/33 did not alter the Learning Record schema, storage key, or Parent Summary reader. No export or backup was found; no real data was written, cleared, migrated, restored, or repaired. The high-probability cause is private-session storage being discarded, without claiming independently proven permanent loss.
 - Temporary diagnostic route and Browser test were removed from source. Pure parser plus synthetic Node tests remain as governance-only validation. Current 3100 remains running; 3101 is closed after this gate.
 
-## Sprint 35 — Learning Record backup and restore — Awaiting Human Review
+## Sprint 35 — Learning Record backup and restore — Completed
 
 - Added a parent-center 「學習紀錄備份」panel. Export downloads a UTF-8 version-1 JSON envelope for the existing `project-seed:learning-records:v1` key; ReviewSession is excluded from V1 because it is temporary session state.
 - Import validates format/version, timestamps, record count, container, and every record before writing. Existing records remain first; identical IDs are skipped, conflicting IDs reject the import, and success uses one storage write. No schema, storage key, question bank, or learning-rule change.
 - Focused Node 7/7 and full Node 203/203 passed. Focused Browser 4/4 and full Browser regression 45/45 passed against the isolated Sprint 35 production server, including the synthetic Restore Drill (export, reset, import, reload, duplicate import), invalid no-write, console errors, and tablet viewports. Lint, TypeScript `--incremental false`, isolated build, and `git diff --check` passed.
-- Human tablet acceptance passed 6/6. Formal-origin Human verification remains export-only; no import or reset will be performed on 3100.
-- Implementation commit `6b8b212` was pushed to `origin/main`. Formal 3100 was safely updated from the committed build and passed HTTP／isolated-browser health checks; no real Learning Record was accessed or modified. Formal Human verification remains export-only, while isolated 3101 stays running.
+- Human tablet acceptance passed 6/6. Formal 3100 export acceptance also passed: UI, JSON download, count/time, and preservation of existing records were confirmed. No formal import, clear, or restore drill was performed.
+- Implementation commit `6b8b212` and close document commit `47786fc` were pushed to `origin/main`. Formal 3100 was safely updated from the committed build and remains healthy; isolated 3101 PID `12844` was verified and stopped after formal acceptance. No real Learning Record was accessed or modified by automation.
 
 ## Sprint 34 — First exam two-bank expansion — Completed
 
