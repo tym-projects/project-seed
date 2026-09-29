@@ -18,6 +18,7 @@
 - Answer-position audit: before correction, 姐姐國語為 8/0/0/0、妹妹自然為 9/1/1/1（index 0/1/2/3）；12 題固定重排後，姐姐國語為 2/2/2/2、妹妹自然為 3/3/3/3。其餘六科維持既有順序；八科合計為 25/32/21/11。只改 options 順序與 answer index，正解內容、題目 ID、allowlist、Hint、Explanation 及學習語意均未改變。
 - Data Safety Gate is closed with no repair, migration, or recoverable old-record source. Formal use must use a normal browser; backup/restore remains high-priority backlog. The temporary diagnostics page is absent from the production build; only the pure read-only parser and synthetic tests remain.
 - Human completed the approved Sprint 34 tablet checks. The implementation is ready for final formal-origin verification at `http://192.168.22.208:3100`; no real Learning Record was read or changed.
+- Implementation commit: `a19f279` (`Complete Sprint 34 eight-subject first exam coverage`), pushed to `origin/main`; formal 3100 PID `15480` is serving the verified build. Isolated 3101 PID `11060` remains running until formal Human re-verification completes.
 
 ## Sprint 33 — First exam bulk expansion
 

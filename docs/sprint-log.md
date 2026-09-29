@@ -15,6 +15,7 @@
 - Evidence boundary: ranges are Human-confirmed; original textbook photos were not directly accessible to Codex, so page-level textbook verification is not claimed.
 - Answer-position audit: before correction, 姐姐國語 was 8/0/0/0 and 妹妹自然 was 9/1/1/1. Twelve questions were fixed by reordering existing options and updating only `answer`; after correction the two banks are 2/2/2/2 and 3/3/3/3, while the other six banks remain unchanged. Overall monthly distribution is 25/32/21/11.
 - Data Safety Gate is closed with no real-record repair or migration. The temporary diagnostics page is absent from the production build; the read-only parser and synthetic tests remain governance tooling. Formal use remains normal-browser-only, with backup/restore as high-priority backlog.
+- Implementation commit `a19f279` (`Complete Sprint 34 eight-subject first exam coverage`) was pushed to `origin/main`. Formal 3100 is running the verified build; 3101 remains running until formal Human re-verification.
 
 ## Sprint 33 Final Close
 
