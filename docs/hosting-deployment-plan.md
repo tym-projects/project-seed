@@ -1,4 +1,4 @@
-# Hosting Authentication Deployment Plan — Phase 1B
+# Hosting Authentication and Role Authorization Deployment Plan — Final Closeout
 
 This document tracks the Hosting/Auth closeout. It records configuration and verification state only; secrets, passwords, share tokens, and bypass values are never recorded.
 
@@ -12,7 +12,7 @@ This document tracks the Hosting/Auth closeout. It records configuration and ver
 
 1. Use the isolated auth branch/worktree.
 2. Run focused auth tests, full Node tests, lint, TypeScript, and build.
-3. Deploy a Vercel Preview using Clerk Development keys. DONE: latest verified deployment is READY at `https://2026ast-hosting-preview-k81jmt0k8-2026-ast.vercel.app`.
+3. Deploy a Vercel Preview using Clerk Development keys. DONE: Human-verified Role Authorization deployment `dpl_4CcR38yoiyzpT6ftLLWxwEoP3X7M` is READY at `https://2026ast-hosting-preview-67brvrvab-2026-ast.vercel.app`.
 4. Create or invite the three test users in the Development instance. DONE: `yenmin`, `ariel`, and `linda` are present; Human login passed for all three.
 5. Verify signed-out redirects, sign-in, sign-out, reload/back, all student/parent routes, and no public signup. DONE: signed-out `/`, `/parent`, `/jiejie`, and `/meimei` redirect to Clerk; Human confirmed logout protection and one wrong-password rejection. Final Clerk state is Google OFF, Public signup OFF, and Access mode Invite-only.
 
@@ -37,21 +37,24 @@ Keep local 3100 available as short-term fallback. A Vercel rollback should targe
 
 ## Current environment gate
 
-## Hosting/Auth closeout state
+## Hosting/Auth and Role Authorization closeout state
 
 - Vercel Preview Next.js hosting: PASS.
 - Clerk Authentication: PASS.
 - Human login for `yenmin`, `ariel`, and `linda`: PASS.
 - One deliberate wrong-password rejection: PASS.
 - Google login: OFF; Public signup: OFF; Access mode: Invite-only.
-- V1 currently has Authentication only. Role Authorization is not implemented.
-- The formal next phase is independent Role Authorization design and TDD after this Hosting/Auth closeout:
-  - `yenmin` can see all content and Parent mode.
-  - `ariel` is limited to 姐姐 home and related features; no 妹妹 entry and no Parent mode.
-  - `linda` is limited to 妹妹 home and related features; no 姐姐 entry and no Parent mode.
-- Do not fold this requirement into Sprint 36 or lose it in a later Sprint.
+- Role Authorization: Completed / Human Verified.
+- Implementation commit: `afed01b` (`feat: add Clerk role authorization`).
+- Authorization source: Clerk `publicMetadata.role` exposed through the session custom claim `metadata`; username and Clerk user ID are not authorization sources.
+- `yenmin` → `parent`: all content and Parent mode.
+- `ariel` → `jiejie`: 姐姐 home and related features only; direct access to 妹妹/Parent routes is blocked.
+- `linda` → `meimei`: 妹妹 home and related features only; direct access to 姐姐/Parent routes is blocked.
+- Missing or invalid roles fail closed to `/access-denied`; reload and back navigation do not bypass the policy.
+- The shared policy is enforced by proxy, server layouts, and role-aware home/navigation.
 - Final Clerk state: username/password login retained; Google login OFF; Public signup OFF; Access mode Invite-only. No password, key, token, or bypass value is recorded.
-- Vercel Deployment Protection requires Vercel Authentication. One older Preview domain is listed as a Protection Exception and is a cleanup DELETE CANDIDATE. No Sharable Link was listed. One automation-bypass metadata entry exists and is a cleanup REVOKE CANDIDATE; its value is intentionally omitted.
-- Production placeholder and older Preview deployments remain for a separate cleanup review; no deletion or revoke was performed.
+- Vercel Deployment Protection remains enabled. The earlier Hosting/Auth Preview `AiUo9PyK3` is retained as a rollback candidate; no Preview was deleted in this closeout.
 - Learning Record has not been migrated to the cloud, and Vercel Production has not been formally launched.
-- Real Clerk Preview sign-in E2E has been exercised by Human for the three Development users, including one deliberate wrong-password rejection. No correct password is recorded or requested from Codex. Production deployment is not authorized by this document.
+- Human Role Authorization Preview acceptance passed for `yenmin`, `ariel`, and `linda`. No credential, key, token, user ID, or bypass value is recorded here.
+- The Learning Record remains `project-seed:learning-records:v1` in same-origin/profile localStorage. It has not been migrated, and this storage is not account-isolated.
+- Production is not live: Clerk Production, production users/roles, production session claims, Production deployment, and Learning Record migration are all still pending.
