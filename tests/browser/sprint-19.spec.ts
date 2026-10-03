@@ -8,31 +8,13 @@ const practiceHistory = [
   { id: 'smoke-s19-recovery-2', student: 'jiejie', subject: 'chinese', questionId: 'jiejie-chinese-5', firstAnswer: 1, finalAnswer: 1, attempts: 1, correct: true, completed: true, createdAt: '2026-09-20T04:00:00.000Z' },
 ];
 
-test('runs jiejie reinforcement with hint and leaves records/session unchanged', async ({ browser }) => {
+test('does not reinforce an inactive姐姐 Chinese question', async ({ browser }) => {
   const reviewSessions = [{ student: 'jiejie', subject: 'chinese', localReviewDate: '2026-09-21', startedAt: '2026-09-21T01:00:00.000Z' }];
   const context = await newIsolatedContext(browser, createSyntheticStorageState({ learningRecords: practiceHistory, reviewSessions }));
   const page = await context.newPage();
   await page.clock.install({ time: new Date('2026-09-22T12:00:00+08:00') });
   await page.goto('/jiejie/reinforce');
-  await expect(page.getByText('今天準備了 1 個需要再練的觀念。')).toBeVisible();
-  await page.getByRole('button', { name: '開始再練一次' }).click();
-  await expect(page.getByRole('heading', { name: '第 1 題' })).toBeVisible();
-
-  const before = await page.evaluate(() => ({
-    records: localStorage.getItem('project-seed:learning-records:v1'),
-    sessions: localStorage.getItem('project-seed:review-sessions:v1'),
-  }));
-  await page.getByRole('button', { name: '自暴自棄' }).click();
-  await page.getByRole('button', { name: '送出答案' }).click();
-  await expect(page.getByText(/提示：/)).toBeVisible();
-  await page.getByRole('button', { name: '掉以輕心' }).click();
-  await page.getByRole('button', { name: '送出答案' }).click();
-  await expect(page.getByText('再練習完成！')).toBeVisible();
-  const after = await page.evaluate(() => ({
-    records: localStorage.getItem('project-seed:learning-records:v1'),
-    sessions: localStorage.getItem('project-seed:review-sessions:v1'),
-  }));
-  expect(after).toEqual(before);
+  await expect(page.getByText('目前沒有需要再練的題目。')).toBeVisible();
   await closeIsolatedContext(context);
 });
 

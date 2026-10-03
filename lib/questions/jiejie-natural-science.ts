@@ -80,3 +80,5 @@ export const questions: Question[] = [
     hint: '水蒸發時，已溶解的砂糖會不會跟著變成水蒸氣？', explanation: '加熱時水可以蒸發離開，砂糖不會跟著水蒸氣離開，水分減少後可留下砂糖。', encouragement: '答對了！你能用蒸發理解水溶液的分離。',
   },
 ];
+
+export const practiceQuestions: Question[] = questions;

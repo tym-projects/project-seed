@@ -1,5 +1,17 @@
 # Project Status
 
+## Sprint 36 — 平時練習題庫擴充 — Planning / Scope Human Review
+
+- 本階段只完成八科平時練習題庫的唯讀盤點與擴充方案，尚未修改正式題庫、production code、tests 或 Learning Record。
+- 正式 repo 實際盤點為 102 題、97 learning units；目前 `lib/first-exam-practice.ts` 的月考 allowlist 合計 89 題。這些數字與較早文件中的 94／89／85 歷史線索不同，後續以程式實際定義為準。
+- 覆蓋矩陣：`docs/sprint36-practice-coverage-matrix.md`；設計與 plan：`docs/superpowers/specs/2026-09-29-sprint-36-practice-expansion-design.md`、`docs/superpowers/plans/2026-09-29-sprint-36-practice-expansion.md`。
+- Baseline closure：目前 source／validation 實際為 102 題、97 learning units、89 monthly-allowlist。舊 94 少的是 Sprint 33 八題；舊 85 少的是 Sprint 34 納入的 `meimei-natural-science-1`～`-4`，不回退、不刪題。
+- Evidence closure：36 個候選中 11 Ready、5 Revised、20 Pending Review、0 Rejected；Ready／Revised 草案與證據記錄於 `docs/sprint36-evidence-closure-and-candidate-drafts.md`。Pending 不計入正式入庫數。
+- 初始候選容量約 36 個新 learning-unit（合理區間 32–40，可依證據縮減，不是湊題配額）；目前尚未修改正式題庫、monthly allowlist、production code 或 tests。
+- Human Review 修訂已記錄：MM-02 改為乘法加減兩步題；MM-03 重做為無等值選項的公分／毫米題；MN-01～MN-03 改為部位整合、植物生活用途、空氣／水比較；JN-02／JN-03 用語同步修正。尚未入庫，答案位置重排尚待 automated validation。
+- 姐姐四科 Scope Audit：原 56 題中 43 IN-SCOPE、4 OUT-OF-SCOPE、7 UNCERTAIN；安全 active pool 應為 43 題。姐姐社會 monthly allowlist 仍含 `jiejie-social-studies-1`、`-2` 兩題民主政治題，與已確認前兩單元範圍不一致，已停止於 Human Scope／Allowlist Review Gate，未自行刪除。
+- Sprint 36 尚未 Completed；正式 3100 維持運行，未啟動新的測試服務。
+
 ## Sprint 35 — Learning Record backup and restore — Completed
 
 - Added a parent-center JSON backup panel for the existing `project-seed:learning-records:v1` data. The versioned envelope contains `format`, `version`, `exportedAt`, `recordCount`, and `records`; ReviewSession is intentionally excluded from V1.
@@ -331,6 +343,15 @@
 
 
 > **Single Source of Truth:** 此文件是目前專案進度、驗證結果與下一步的唯一真相來源。判斷最新狀態時，仍須先以正式 repository 的實際 Git 狀態核對；不得只依聊天紀錄或記憶判斷。
+
+## Sprint 36 Scope Decision — Active Practice Filter
+
+- Current source baseline: 102 questions, 97 learning units, 89 monthly-allowlist entries.
+- Human approved a non-destructive 姐姐 scope filter. Active practice now contains 43 questions: Chinese 8, Mathematics 13, Natural Science 12, Social Studies 10.
+- The six excluded IDs are retained in the full banks for historical Learning Record compatibility: `jiejie-chinese-2`, `jiejie-chinese-4`, `jiejie-mathematics-5`, `jiejie-mathematics-6`, `jiejie-social-studies-1`, and `jiejie-social-studies-2`. 姐姐 Chinese uncertain IDs `-1`, `-3`, `-5`–`-9` are also inactive.
+- Only `jiejie-social-studies-1` and `jiejie-social-studies-2` were removed from the monthly allowlist; the other seven subject allowlists are unchanged. Total monthly allowlist is now 87.
+- Sprint 36 remains Implementation complete / Awaiting Human Review. No commit, push, or formal deployment has been performed.
+- Verification: scope focused 3/3, full Node 206/206, isolated production build passed, isolated LAN Browser regression 45/45, lint, TypeScript `--incremental false`, and `git diff --check` passed. Formal 3100 remains PID 2940; isolated Sprint 36 3101 is PID 7568 at `http://192.168.22.208:3101` for Human review.
 
 ## Current Baseline
 

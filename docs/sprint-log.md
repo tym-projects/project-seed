@@ -8,6 +8,22 @@
 
 ## Sprint 35 — Learning Record backup and restore — Completed
 
+## Sprint 36 — 平時練習題庫擴充規劃
+
+### Scope decision and active filter implementation
+
+- Human confirmed 姐姐 active practice scope: Chinese 8, Mathematics 13, Natural Science 12, Social Studies 10; total 43 questions. 姐姐 Chinese uncertain IDs `jiejie-chinese-1`, `-3`, `-5`, `-6`, `-7`, `-8`, `-9` remain inactive.
+- Confirmed out-of-scope IDs retained for history but excluded from new selection: `jiejie-chinese-2`, `jiejie-chinese-4`, `jiejie-mathematics-5`, `jiejie-mathematics-6`, `jiejie-social-studies-1`, `jiejie-social-studies-2`.
+- Only the two 姐姐 social IDs were removed from the monthly allowlist: 89 → 87; all other seven allowlists remain unchanged.
+- Full question arrays, Learning Record／ReviewSession schema, storage keys, backup／restore, and妹妹 selection are unchanged. Scope tests are green; full verification and isolated tablet review remain pending.
+- Implementation verification is complete: scope focused 3/3, full Node 206/206, isolated production build, Browser 45/45, lint, TypeScript `--incremental false`, and `git diff --check` passed. 3100 (PID 2940) was not stopped or overwritten; isolated 3101 (PID 7568) is running at `http://192.168.22.208:3101` for Human review. Sprint 36 remains at the Human Review Gate.
+
+- Status: Planning / Scope Human Review pending。未修改正式題庫、production code、tests 或真實學習資料。
+- 實際盤點八科為 102 題、97 learning units；`lib/first-exam-practice.ts` 現行 allowlist 合計 89 題。舊 94 遺漏 Sprint 33 八題；舊 85 遺漏 Sprint 34 納入妹妹自然 `-1`～`-4`，不回退 source。
+- 已完成 Baseline／Evidence Closure 與 Ready／Revised 草案：11 Ready、5 Revised、20 Pending Review、0 Rejected。完整記錄在 `docs/sprint36-evidence-closure-and-candidate-drafts.md`；pending 題不計入正式入庫。
+- 保持正式 3100 運行，尚未啟動 Sprint 36 隔離測試服務；下一步等待 Human 確認候選容量、來源與實作範圍。
+- Human Review 修訂與姐姐四科 Scope Audit 已記錄於候選文件：姐姐安全 active pool 為 43 題；姐姐社會 monthly allowlist 的 `-1`、`-2` 超出已確認範圍，暫停於 Allowlist Review Gate，未修改 production 或 allowlist。
+
 - Added a parent-center 「學習紀錄備份」panel. Export downloads a UTF-8 version-1 JSON envelope for the existing `project-seed:learning-records:v1` key; ReviewSession is excluded from V1 because it is temporary session state.
 - Import validates format/version, timestamps, record count, container, and every record before writing. Existing records remain first; identical IDs are skipped, conflicting IDs reject the import, and success uses one storage write. No schema, storage key, question bank, or learning-rule change.
 - Focused Node 7/7 and full Node 203/203 passed. Focused Browser 4/4 and full Browser regression 45/45 passed against the isolated Sprint 35 production server, including the synthetic Restore Drill (export, reset, import, reload, duplicate import), invalid no-write, console errors, and tablet viewports. Lint, TypeScript `--incremental false`, isolated build, and `git diff --check` passed.

@@ -151,3 +151,10 @@ export const questions: Question[] = [
     hint: '直徑是通過圓心的完整線段，半徑是其中的一半。', explanation: '半徑是直徑的一半，14 ÷ 2 = 7，所以半徑是 7 公分。', encouragement: '答對了！你理解半徑和直徑的關係。',
   },
 ];
+
+// Keep out-of-scope questions available for historical Learning Records,
+// but exclude them from current practice, review, and reinforcement flows.
+export const practiceQuestions: Question[] = questions.filter(({ id }) => ![
+  'jiejie-mathematics-5',
+  'jiejie-mathematics-6',
+].includes(id));

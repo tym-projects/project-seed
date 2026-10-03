@@ -1,12 +1,12 @@
 'use client';
 
 import { ChineseQuestionFlow } from '@/components/question/ChineseQuestionFlow';
-import { questions } from '@/lib/questions/jiejie-mathematics';
+import { practiceQuestions } from '@/lib/questions/jiejie-mathematics';
 
 export default function JieJieMathematicsPage() {
   return (
     <ChineseQuestionFlow
-      questions={questions}
+      questions={practiceQuestions}
       student="jiejie"
       subject="mathematics"
       theme="pink"

@@ -7,7 +7,7 @@ test('runs all four natural and social first-practice entries with isolated reco
   await context.addInitScript(() => { Math.random = () => 0.999999; });
   const cases = [
     { path: '/jiejie/natural-science', heading: '🌸 姐姐的自然練習', question: '陽光照射下，地面上的水逐漸變少', answer: '水變成水蒸氣，進入空氣中', student: 'jiejie', subject: 'natural_science', id: 'jiejie-natural-science-1' },
-    { path: '/jiejie/social-studies', heading: '🌸 姐姐的社會練習', question: '下列哪一項是臺灣民主政治發展中的可查證歷史事實', answer: '1996 年臺灣舉行第一次總統直接民選', student: 'jiejie', subject: 'social_studies', id: 'jiejie-social-studies-1' },
+    { path: '/jiejie/social-studies', heading: '🌸 姐姐的社會練習', question: '下列哪一個例子最能說明「社會變遷」', answer: '隨著交通與科技改變，人們工作的方式和生活安排也跟著改變', student: 'jiejie', subject: 'social_studies', id: 'jiejie-social-studies-3' },
     { path: '/meimei/natural-science', heading: '🌿 妹妹的自然練習', question: '觀察一株完整的植物', answer: '固定植物，並幫助植物吸收水分', student: 'meimei', subject: 'natural_science', id: 'meimei-natural-science-1' },
     { path: '/meimei/social-studies', heading: '🌿 妹妹的社會練習', question: '下列哪一個說法最符合家庭生活中的分工合作', answer: '家庭成員可以依能力和需要一起分擔生活中的工作', student: 'meimei', subject: 'social_studies', id: 'meimei-social-studies-1' },
   ] as const;
@@ -27,7 +27,7 @@ test('runs all four natural and social first-practice entries with isolated reco
   expect(records).toHaveLength(4);
   expect(records.map((record: { student: string; subject: string; questionId: string }) => `${record.student}:${record.subject}:${record.questionId}`)).toEqual([
     'jiejie:natural_science:jiejie-natural-science-1',
-    'jiejie:social_studies:jiejie-social-studies-1',
+    'jiejie:social_studies:jiejie-social-studies-3',
     'meimei:natural_science:meimei-natural-science-1',
     'meimei:social_studies:meimei-social-studies-1',
   ]);

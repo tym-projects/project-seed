@@ -6,6 +6,15 @@
 - Do not clear site data or change origin/device/browser without first assessing the Learning Record impact.
 - The prior origin investigation found no recoverable Learning Record export or backup. No real data was repaired or migrated. Backup/restore remains a high-priority future capability.
 
+## Sprint 36 Scope Decision — Active Practice Filter
+
+- Source baseline: 102 questions, 97 learning units, and 89 monthly-allowlist entries before this change.
+- 姐姐 active practice is now 43 questions: Chinese 8, Mathematics 13, Natural Science 12, Social Studies 10.
+- Full question banks remain intact for historical Learning Record display. Only new 姐姐 practice/review/reinforcement selection is filtered.
+- The two confirmed out-of-scope 姐姐 social questions were removed from the monthly allowlist; total monthly allowlist is now 87. No other subject allowlist changed.
+- Sprint 36 remains in Human Review; no commit, push, or formal deployment.
+- Verification passed: scope focused 3/3, Node 206/206, isolated production build, Browser 45/45, lint, TypeScript `--incremental false`, and `git diff --check`. Formal 3100 remains untouched; isolated 3101 is available at `http://192.168.22.208:3101`.
+
 ## Sprint 35 — Learning Record backup and restore — Completed
 
 - **Status:** Implementation complete / Awaiting Human Review.
@@ -240,6 +249,12 @@
 - **Sprint 9：** 孩子學習紀錄頁面。
 - **Sprint 10：** 今日複習選題與流程。
 # Sprint 28 close note
+
+## Sprint 36 — 平時練習題庫擴充規劃
+
+- 以八個學生／科目組合建立平時練習覆蓋矩陣，規劃初始約 36 個新 learning-unit 候選；尚未新增正式題目。
+- 實際 repo 盤點為 102 題／97 learning units；程式中的第一次月考 allowlist 為 89 題。較早文件的歷史數字不作現況基準。
+- 設計、plan 與證據界線已建立，等待 Human Scope Review；不改變題庫 schema、Learning Record、複習規則或正式服務。
 
 - Sprint 28 first mathematics batch is Completed and pushed to `origin/main`.
 - The batch contains seven implemented original mathematics questions: 3 for 姐姐南一六上 Units 1, 2, and 4, and 4 for 妹妹南一三上 Units 1–4. 姐姐 Unit 3 estimation remains excluded pending textbook confirmation.

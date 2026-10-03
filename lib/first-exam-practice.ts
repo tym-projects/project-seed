@@ -19,7 +19,7 @@ const FIRST_EXAM_QUESTION_IDS: Readonly<Record<StudentId, Readonly<Partial<Recor
       'jiejie-natural-science-9', 'jiejie-natural-science-10', 'jiejie-natural-science-11', 'jiejie-natural-science-12',
     ],
     social_studies: [
-      'jiejie-social-studies-1', 'jiejie-social-studies-2', 'jiejie-social-studies-3', 'jiejie-social-studies-4',
+      'jiejie-social-studies-3', 'jiejie-social-studies-4',
       'jiejie-social-studies-5', 'jiejie-social-studies-6', 'jiejie-social-studies-7', 'jiejie-social-studies-8',
       'jiejie-social-studies-9', 'jiejie-social-studies-10', 'jiejie-social-studies-11', 'jiejie-social-studies-12',
     ],

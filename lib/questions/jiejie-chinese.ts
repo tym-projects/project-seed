@@ -181,5 +181,8 @@ export const questions: Question[] = [
 // Keep retired early test questions available for historical Learning Records,
 // but exclude them from current formal practice and review flows.
 export const practiceQuestions: Question[] = questions.filter(
-  ({ id }) => !['jiejie-chinese-2', 'jiejie-chinese-4'].includes(id),
+  ({ id }) => [
+    'jiejie-chinese-10', 'jiejie-chinese-11', 'jiejie-chinese-12', 'jiejie-chinese-13',
+    'jiejie-chinese-14', 'jiejie-chinese-15', 'jiejie-chinese-16', 'jiejie-chinese-17',
+  ].includes(id),
 );

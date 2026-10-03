@@ -76,3 +76,10 @@ export const questions: Question[] = [
     hint: '介紹文化時，資料來源和對差異的態度都很重要。', explanation: '查證資料並承認同一族群內也可能有不同做法，能較完整且尊重地介紹文化；不能靠猜測或刻板印象。', encouragement: '答對了！你能用尊重和查證的方式認識文化。',
   },
 ];
+
+// Keep the two out-of-scope democracy questions for history lookup,
+// but exclude them from current practice, review, and reinforcement flows.
+export const practiceQuestions: Question[] = questions.filter(({ id }) => ![
+  'jiejie-social-studies-1',
+  'jiejie-social-studies-2',
+].includes(id));
