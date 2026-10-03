@@ -1,13 +1,25 @@
 import { clerkMiddleware } from '@clerk/nextjs/server';
-import { getAuthRouteDecision } from './lib/auth-route-policy';
+import { NextResponse } from 'next/server';
+import { isPublicAuthPath } from './lib/auth-route-policy';
+import { getRoleRouteDecision, parseAppRole } from './lib/role-authorization-policy';
 
 export default clerkMiddleware(async (auth, request) => {
-  const { isAuthenticated, redirectToSignIn } = await auth();
-  const decision = getAuthRouteDecision(request.nextUrl.pathname, isAuthenticated);
+  const pathname = request.nextUrl.pathname;
+  if (isPublicAuthPath(pathname)) return NextResponse.next();
 
-  if (decision.type === 'redirect') {
+  const { isAuthenticated, redirectToSignIn, sessionClaims } = await auth();
+
+  if (!isAuthenticated) {
     return redirectToSignIn({ returnBackUrl: request.url });
   }
+
+  const role = parseAppRole(sessionClaims?.metadata?.role);
+  const decision = getRoleRouteDecision(pathname, role);
+  if (decision.type === 'redirect') {
+    return NextResponse.redirect(new URL(decision.location, request.nextUrl.origin));
+  }
+
+  return NextResponse.next();
 });
 
 export const config = {
