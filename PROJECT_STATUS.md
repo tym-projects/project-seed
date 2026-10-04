@@ -12,6 +12,14 @@
 - Human tablet acceptance：PASS（16 題跨八科抽驗、姐姐／妹妹平時練習、月考練習、登入／角色均通過）；Human Exception `0`。
 - **Next Step:** 等待 Owner 指定 Sprint 38；不得自行開始 Sprint 38。
 
+### Vercel Preview Deployment
+
+- Sprint 37 final HEAD `3879fb45471170c61fc0ac35cdebbdcecafcbbd6` deployed to `2026ast-hosting-preview` in team `2026-ast`。
+- Deployment `dpl_BtJVhswTFpHREHtaNs7SnB4VvALX` is `READY` at `https://2026ast-hosting-preview-hdpe67kx4-2026-ast.vercel.app`；Production project `2026ast-production` was not used。
+- Authenticated HTTP route smoke returned `200` for home, parent, both student entries, all eight subject practice routes, and monthly entry routes. Browser smoke passed one question in each of the eight subject routes, including answer feedback and next-question flow。
+- Preview Clerk Development environment variables were preserved unchanged. Login／role account smoke was not independently executed in this deployment session because no credentials were entered；no Auth or role source change was made。
+- Previous known-good Preview deployment `dpl_4CcR38yoiyzpT6ftLLWxwEoP3X7M` at `https://2026ast-hosting-preview-67brvrvab-2026-ast.vercel.app` remains retained for rollback。
+
 ## Sprint 36 — 平時練習題庫擴充 — Completed
 
 - 已完成 36 題正式題庫實作；原 16 個 Pending 已依正式 scope 自動建立逐題 manifest、完成 QA 並全部 Ready，Deferred Human Exception 為 0。

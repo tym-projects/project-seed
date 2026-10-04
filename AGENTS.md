@@ -90,6 +90,22 @@ git rev-parse --show-toplevel
 3. 視需要更新 `PROJECT_STATUS.md`。
 4. 完成一個明確階段後再 Git commit。
 
+## Question Bank Auto-Deploy Rule
+
+若變更僅涉及題庫新增、題目修正、難度調整、explanation／hint 修正或 Active Practice 題庫擴增，且不涉及 Learning Record schema、ReviewSession、Backup/Restore、retry／1/3/7、Auth／Clerk／role authorization、storage migration、重大 UI 架構或 Production hosting，則在以下驗證全部 PASS、commit 與 feature branch push 完成後，Codex 可直接部署至既有 Vercel Preview project `2026ast-hosting-preview`，不需再次要求 Owner 核准是否部署：
+
+1. focused question tests
+2. scope、duplicate、unique-answer、option 與 answerIndex validation
+3. `npm test`
+4. `npm run lint`
+5. `npx tsc --noEmit --incremental false`
+6. `npm run build`
+7. Browser regression
+8. `git diff --check`
+9. working tree、commit 與 push 狀態正常
+
+部署後必須確認 Preview deployment READY、HTTP／route smoke PASS，並回報 deployment URL、source commit、題庫 counts、Monthly allowlist 與任何未驗證項目。不得使用 `--prod`、不得部署 `2026ast-production`、不得建立新 project、不得修改或清除既有環境變數。Learning Record、ReviewSession、Backup/Restore、Auth／Clerk、role authorization、schema migration、Production hosting、重大 UI 或資料風險變更仍必須停在 Human Review Gate。
+
 ## 與使用者合作
 
 - 使用繁體中文。

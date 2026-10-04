@@ -9,6 +9,13 @@
 - Human tablet acceptance：PASS（16 題跨八科抽驗、姐姐／妹妹平時練習、月考練習、登入／角色均通過）；Human Exception `0`。
 - Next Step：等待 Owner 指定 Sprint 38，不自行開始 Sprint 38。
 
+### Vercel Preview deployment
+
+- Final closeout commit `3879fb4` deployed to existing project `2026ast-hosting-preview` (`2026-ast` team) as Preview deployment `dpl_BtJVhswTFpHREHtaNs7SnB4VvALX`。
+- Status `READY`; URL: `https://2026ast-hosting-preview-hdpe67kx4-2026-ast.vercel.app`; source is Sprint 37 final HEAD `3879fb45471170c61fc0ac35cdebbdcecafcbbd6`。
+- Authenticated HTTP route smoke returned `200`; browser smoke passed one question through answer feedback and next-question flow in all eight subject routes. Previous READY deployment `dpl_4CcR38yoiyzpT6ftLLWxwEoP3X7M` remains available for rollback。
+- Clerk Development environment variable configuration was preserved. Login／role account smoke remains unverified in this session because no credentials were entered；no Auth／Clerk／role source was changed. `2026ast-production` remains Deferred and was not used。
+
 ## Data Safety Gate close — Learning Record origin
 
 - Human confirmed prior use through private/incognito tabs. The original tablet/browser on formal origin `http://192.168.22.208:3100` reported no `project-seed:learning-records:v1` key and zero records through the masked read-only diagnostic.
