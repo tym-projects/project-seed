@@ -177,6 +177,53 @@ export const questions: Question[] = [
   },
 ];
 
+const sprint37Questions: Question[] = Array.from({ length: 42 }, (_, offset) => {
+  const index = offset + 21;
+  const type = offset < 14 ? 'basic' : 'application';
+  const answer = offset % 4;
+  const unit = offset % 4;
+  let topic: string;
+  let title: string;
+  let question: string;
+  let correct: string;
+  let wrongs: string[];
+  let hint: string;
+  let explanation: string;
+  if (unit === 0) {
+    const n = [36, 45, 60, 72, 84, 90, 105, 120, 126, 144, 150][Math.floor(offset / 4) % 11];
+    let value = n;
+    const factors: number[] = [];
+    for (let p = 2; p * p <= value; p += 1) while (value % p === 0) { factors.push(p); value /= p; }
+    if (value > 1) factors.push(value);
+    topic = '質因數分解和短除法'; title = '質因數分解'; question = `${n} 的質因數分解是哪一個？`;
+    correct = factors.join(' × '); wrongs = [factors.join(' + '), `${Math.sqrt(n).toFixed(0)} × ${Math.ceil(n / Math.sqrt(n))}`, `${n} × 1`];
+    hint = '從最小的質因數開始短除，直到每個因數都是質數。'; explanation = `${n} 依序短除後得到 ${correct}，每個因數都是質數。`;
+  } else if (unit === 1) {
+    const data = [[1, 2, 3, 4], [2, 3, 3, 5], [3, 4, 2, 3], [5, 6, 5, 4], [7, 8, 7, 2], [4, 5, 8, 3], [3, 10, 9, 5], [5, 12, 10, 3], [7, 9, 14, 3], [11, 12, 11, 6], [2, 7, 6, 7]][Math.floor(offset / 4) % 11];
+    const [a, b, c, d] = data; const value = a * d / (b * c); const fraction = `${a * d}/${b * c}`;
+    topic = '分數的除法'; title = '分數除法應用'; question = `一條長 ${a}/${b} 公尺的緞帶，每 ${c}/${d} 公尺剪成一段，可以剪成幾段？`;
+    correct = Number.isInteger(value) ? String(value) : fraction; wrongs = [`${a * c}/${b * d}`, `${a * d + c}/${b * c}`, `${c * d}/${a * b}`];
+    hint = '分數除法可以改成乘以除數的倒數。'; explanation = `${a}/${b} ÷ ${c}/${d} = ${a}/${b} × ${d}/${c} = ${correct}。`;
+  } else if (unit === 2) {
+    const data = [[6.4, 0.8], [7.2, 0.6], [9.6, 1.2], [12.5, 0.5], [4.8, 0.6], [15.6, 1.3], [8.4, 0.7], [18.9, 0.9], [5.25, 0.75], [7.35, 0.7], [14.4, 1.2]][Math.floor(offset / 4) % 11];
+    const [a, b] = data; const value = a / b; const correctValue = Number.isInteger(value) ? String(value) : String(Number(value.toFixed(3)));
+    topic = '小數的除法'; title = '小數除法合理性'; question = `把 ${a} 公升果汁平均裝入每瓶 ${b} 公升的瓶子，需要幾瓶？`;
+    correct = correctValue; wrongs = [String(Number((value + 0.8).toFixed(2))), String(Number((value / 2).toFixed(2))), String(Number((value * 10).toFixed(2)))];
+    hint = '先估計商的大小，再把除數和被除數同時乘以相同的 10 的倍數。'; explanation = `${a} ÷ ${b} = ${correct}，用乘法檢查可回到 ${a}。`;
+  } else {
+    const radius = [3, 4, 5, 6, 7, 8, 10, 9, 12, 5, 15][Math.floor(offset / 4) % 11]; const area = offset % 8 === 1 || offset % 8 === 5;
+    const value = area ? 3.14 * radius * radius : 2 * 3.14 * radius; const correctValue = String(Number(value.toFixed(2)));
+    topic = '圓周長和圓面積'; title = area ? '圓面積應用' : '圓周長應用'; question = `校園第${Math.floor(offset / 4) + 1}號圓形花圃半徑 ${radius} 公尺，圓周率取 3.14，${area ? '面積' : '周長'}約是多少？`;
+    correct = correctValue; wrongs = [String(Number((value + 3.14).toFixed(2))), String(Number((value / 2).toFixed(2))), String(Number((value * 2).toFixed(2)))];
+    hint = area ? '圓面積是半徑 × 半徑 × 3.14。' : '圓周長是直徑 × 3.14，直徑是半徑的兩倍。'; explanation = `依照${area ? '圓面積' : '圓周長'}公式計算，結果約為 ${correct}。`;
+  }
+  const options = [...new Set([correct, ...wrongs])];
+  while (options.length < 4) options.push(`其他可能結果 ${options.length}`);
+  const first = options.shift()!; options.splice(answer, 0, first);
+  return { id: `jiejie-mathematics-${index}`, topic, type, title, instruction: '請選出正確的計算結果。', question, options, answer, hint, explanation, encouragement: '答對了！你能把數學方法用在不同情境中。' };
+});
+questions.push(...sprint37Questions);
+
 // Keep out-of-scope questions available for historical Learning Records,
 // but exclude them from current practice, review, and reinforcement flows.
 export const practiceQuestions: Question[] = questions.filter(({ id }) => ![

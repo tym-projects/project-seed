@@ -113,3 +113,25 @@ export const questions: Question[] = [
     hint: '比較一個因素時，其他條件要盡量相同。', explanation: '要比較陽光的影響，兩塊布的大小和含水量應相同，只改變放置的位置；這樣觀察結果才較能比較。', encouragement: '答對了！你知道如何公平比較水分變化。',
   },
 ];
+
+const sprint37Questions: QuestionCardQuestion[] = Array.from({ length: 43 }, (_, offset) => {
+  const index = offset + 18;
+  const type = offset < 14 ? 'basic' : 'application';
+  const answer = offset % 4;
+  const topic = offset % 2 === 0 ? '認識植物' : '空氣和水';
+  const cases = [
+    ['小組觀察校園植物，記下根、莖、葉所在的位置，再比較不同植物。', '先觀察植物的身體構造，再依共同特徵比較。'],
+    ['同學發現向光處的植物葉片較多，便把位置和葉片數量一起記錄。', '同時記錄條件與結果，才能提出有資料支持的比較。'],
+    ['小安用透明袋套住葉子，過一段時間看到袋內有小水珠。', '根據觀察到的水珠提出推論，不能只說植物把水變不見。'],
+    ['把空氣打進兩個相同的袋子，一個壓緊、一個不壓，再比較形狀變化。', '相同物品和方法能幫助比較空氣被壓縮時的變化。'],
+    ['用注射筒裝入空氣後堵住出口，再慢慢推壓活塞，感覺到阻力。', '空氣占有空間，受到壓縮時會產生推回的力量。'],
+    ['杯子底部貼著乾紙巾倒扣入水中，取出後紙巾仍是乾的。', '杯中的空氣占有空間，水不容易立刻進入紙巾所在位置。'],
+    ['把植物放在有水和沒有水的兩種條件下，其他條件盡量相同並觀察數日。', '只改變水分條件並記錄結果，才能比較水對植物的影響。'],
+    ['同學用紙條觀察窗邊空氣流動，先固定紙條位置，再比較開窗前後。', '保持觀察位置相同，才能比較空氣流動前後的差異。'],
+  ];
+  const [question, correct] = cases[offset % cases.length];
+  const wrongs = ['看不見的東西就一定不存在，也不需要觀察。', '一次改變很多條件，最容易知道哪個因素造成結果。', '只要一次觀察不同，就能推論所有情況永遠相同。'];
+  const options = [correct, ...wrongs]; const first = options.shift()!; options.splice(answer, 0, first);
+  return { id: `meimei-natural-science-${index}`, topic, type, title: '觀察與推論', instruction: '請根據題目提供的觀察選出答案。', question: `${question}（自編觀察第${Math.floor(offset / 8) + 1}組）從題目可以知道什麼？`, options, answer, hint: '注意題目中的觀察條件和結果，不要加入沒有提供的知識。', explanation: `題目中的條件與結果支持「${correct}」；其他選項不是由題目資訊推出。`, encouragement: '答對了！你能從觀察結果做出合理判斷。' };
+});
+questions.push(...sprint37Questions);

@@ -1,5 +1,13 @@
 # Sprint Log
 
+## Sprint 37 — Practice Bank Scale-up to 60 per Subject — Implementation Complete / Awaiting Human Acceptance
+
+- 新增 355 題原創 singleton 題目；八科 Active Practice 均由既有數量提升至 60，Total Active Practice 為 480。
+- 題庫 `138 → 493`，learning units `133 → 488`；新題 answerIndex `91/91/88/85`。
+- Monthly allowlist 維持 87；Learning Record、ReviewSession、Backup/Restore、retry、1/3/7 未修改；Human Exception 0。
+- Candidate manifest、coverage matrix、source/provenance 與 automated QA 已同步；focused 7/7、Node 215/215、Browser 45/45 通過；Human tablet acceptance 尚待進行。
+- **Next Step:** 完成 final Browser regression，啟動 LAN 測試 server，停止於 Sprint 37 Human Acceptance Gate。
+
 ## Data Safety Gate close — Learning Record origin
 
 - Human confirmed prior use through private/incognito tabs. The original tablet/browser on formal origin `http://192.168.22.208:3100` reported no `project-seed:learning-records:v1` key and zero records through the masked read-only diagnostic.

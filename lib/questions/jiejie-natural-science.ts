@@ -106,4 +106,26 @@ export const questions: Question[] = [
   },
 ];
 
+const sprint37Questions: Question[] = Array.from({ length: 43 }, (_, offset) => {
+  const index = offset + 18;
+  const type = offset < 14 ? 'basic' : 'application';
+  const answer = offset % 4;
+  const topic = offset % 2 === 0 ? '探索天氣的變化' : '水溶液';
+  const cases = [
+    ['小組把相同大小的紙片放在不同位置，固定其他條件後記錄飄動距離。', '一次只改變一個條件並記錄結果，才能公平比較。'],
+    ['小安觀察天空變化，記下雲量、風向和溫度，再和下午的紀錄比較。', '連續記錄不同時間的觀察結果，才能看出天氣變化。'],
+    ['同學把等量的水溶液分裝，用相同光線觀察透明程度並記錄。', '比較時要保持用量和觀察條件相同，結論才較可靠。'],
+    ['實驗前老師提醒先檢查器材，操作時保持距離，完成後再整理桌面。', '依照安全步驟操作能降低實驗中的風險。'],
+    ['兩杯液體外觀看起來不同，小組先標記來源，再依照相同方法觀察。', '先確認資料和條件，再用相同方法比較不同結果。'],
+    ['雨前風變大，氣象紀錄也顯示雲量增加；小組把兩項觀察一起記下。', '把多項觀察資料放在一起，能提出較完整的天氣推論。'],
+    ['加入相同量的水後，一杯溶液攪拌較快變得均勻，另一杯仍有顆粒。', '要根據觀察到的結果說明差異，不能只用猜測代替記錄。'],
+    ['小組想知道溫度是否影響溶解速度，決定只改變水溫，其他條件保持相同。', '只改變研究中的一個條件，才能判斷它和結果的關係。'],
+  ];
+  const [question, correct] = cases[offset % cases.length];
+  const wrongs = ['只要結果不同，就能確定所有原因都相同。', '不需要記錄條件，只要憑感覺判斷即可。', '一次改變很多條件，最容易知道是哪個因素造成結果。'];
+  const options = [correct, ...wrongs]; const first = options.shift()!; options.splice(answer, 0, first);
+  return { id: `jiejie-natural-science-${index}`, topic, type, title: '觀察與推論', instruction: '請根據觀察資料選出合理答案。', question: `${question}（自編觀察第${Math.floor(offset / 8) + 1}組）從題目可以知道什麼？`, options, answer, hint: '找出固定的條件、改變的條件和觀察到的結果。', explanation: `題目中的條件與結果支持「${correct}」；其他選項忽略公平比較或超出題目資訊。`, encouragement: '答對了！你能用觀察資料做出合理推論。' };
+});
+questions.push(...sprint37Questions);
+
 export const practiceQuestions: Question[] = questions;

@@ -86,3 +86,24 @@ export const questions: Question[] = [
     hint: '學習時不只要改答案，也要找出錯誤的地方。', explanation: '找出錯誤步驟、改正並再做一題確認，可以知道自己是否真的理解；其他做法沒有處理錯誤原因。', encouragement: '答對了！你知道檢查和修正能幫助學習。',
   },
 ];
+
+const sprint37Questions: QuestionCardQuestion[] = Array.from({ length: 46 }, (_, offset) => {
+  const index = offset + 15;
+  const type = offset < 15 ? 'basic' : 'application';
+  const answer = offset % 4;
+  const cases = [
+    ['家人一起整理客廳，先討論要做的事，再依年齡和能力分工。', '先討論再依能力分工，能讓家庭合作更順利。'],
+    ['小安完成作業前先看題目要求，再準備需要的文具，最後檢查答案。', '按照理解、準備、檢查的步驟學習，較能減少遺漏。'],
+    ['姊姊用畫圖記住自然課內容，弟弟用朗讀和卡片複習，兩人都記下不懂的地方。', '每個人可以選擇適合自己的方法，也要整理不懂的地方。'],
+    ['家人對假日安排有不同想法，先說明理由，再一起找出大家都能接受的方案。', '傾聽理由並共同討論，能處理家庭中的不同意見。'],
+    ['小組讀書時把大任務分成每天一小段，完成後在表格上打勾。', '把任務分段並留下紀錄，有助於掌握學習進度。'],
+    ['弟弟找不到作業本，家人陪他回想最後使用的地方，再一起整理固定放置的位置。', '先根據線索尋找，再建立固定位置，能改善整理和找物品的方法。'],
+    ['同學介紹自己的讀書方法，大家先試做一週，再分享哪個方法最適合自己。', '實際嘗試並比較結果，能幫助選擇合適的學習方法。'],
+    ['家中長輩需要休息，其他家人討論後分擔晚餐和整理工作。', '家人遇到狀況時互相分擔，能同時照顧需要休息的人和完成生活工作。'],
+  ];
+  const [question, correct] = cases[offset % cases.length];
+  const wrongs = ['不需要了解任務，只要等別人提醒就好。', '家庭或學習中的事情都應該全部交給年紀最小的人。', '遇到不同想法時直接生氣，不必聽別人的理由。'];
+  const options = [correct, ...wrongs]; const first = options.shift()!; options.splice(answer, 0, first);
+  return { id: `meimei-social-studies-${index}`, topic: offset % 2 === 0 ? '我和我的家人' : '學習的方法', type, title: '生活情境判讀', instruction: '請根據生活情境選出最適合的做法。', question: `${question}從短文可以知道什麼？（自編情境第${Math.floor(offset / 8) + 1}組）`, options, answer, hint: '注意人物如何溝通、分工、準備或檢查。', explanation: `題目中的做法支持「${correct}」；其他選項沒有運用題目提供的合作或學習線索。`, encouragement: '答對了！你能把學習方法用在生活中。' };
+});
+questions.push(...sprint37Questions);

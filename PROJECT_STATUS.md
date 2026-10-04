@@ -1,5 +1,16 @@
 # Project Status
 
+## Sprint 37 — Practice Bank Scale-up to 60 per Subject — Implementation Complete / Awaiting Human Acceptance
+
+- 八科 Active Practice 已全部達到 60：姐姐國語／數學／自然／社會 `60/60/60/60`；妹妹國語／數學／自然／社會 `60/60/60/60`；Total Active Practice `480`。
+- 新增 355 題 singleton learning units；題庫 `138 → 493`，learning units `133 → 488`。
+- 新題全部位於已確認第一次月考範圍；妹妹自然未加入動物或磁鐵內容；Sprint 36 排除題未重新啟用。
+- 新題 answerIndex 分布：`91/91/88/85`；題目選項、唯一正解、scope、duplicate 與 manifest QA 均通過。
+- Monthly allowlist 維持 `87`；Learning Record、ReviewSession、Backup/Restore、retry、1/3/7 與既有 questionId 未修改。
+- 來源統計：`fully_original 355`、`web_inspired_original 0`、`direct_reuse_licensed 0`；Human Exception `0`。
+- Final regression：focused 7/7、Node 215/215、Browser 45/45、lint、TypeScript 與 diff-check 已通過；Human tablet acceptance 尚待抽驗，前不得標示 Completed。
+- **Next Step:** 啟動測試 server，提供 LAN URL，進入 Sprint 37 Human Acceptance Gate。
+
 ## Sprint 36 — 平時練習題庫擴充 — Completed
 
 - 已完成 36 題正式題庫實作；原 16 個 Pending 已依正式 scope 自動建立逐題 manifest、完成 QA 並全部 Ready，Deferred Human Exception 為 0。

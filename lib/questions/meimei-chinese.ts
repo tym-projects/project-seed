@@ -124,3 +124,25 @@ export const questions: QuestionCardQuestion[] = [
     hint: '把「下大雨」「撐傘」和「慢慢走」三個線索連起來。', explanation: '下大雨時撐傘能減少被雨淋濕，看到積水後慢慢走也能降低滑倒的機會；這兩個行動都有短文線索支持。', encouragement: '很好！你能根據多個線索推想行動原因。',
   },
 ];
+
+const sprint37Questions: QuestionCardQuestion[] = Array.from({ length: 44 }, (_, offset) => {
+  const index = offset + 17;
+  const type = offset < 14 ? 'basic' : 'application';
+  const answer = offset % 4;
+  const lessons = ['時間是什麼', '妙用便利貼', '提早五分鐘', '水滾了', '為梨花撐傘', '小鉛筆大學問'];
+  const cases = [
+    ['小安看到明天要交閱讀紀錄，今天先把書放進書包，再在紙上寫下完成時間。', '先確認任務並提早準備，能減少忘記或匆忙的情況。'],
+    ['小美把長篇作業分成三小段，每完成一段就休息一下，最後檢查是否全部完成。', '把任務分段並檢查，有助於穩定完成較長的工作。'],
+    ['小凱發現水壺旁有熱氣，便聽從家人提醒退到安全位置，等大人處理。', '看見可能造成危險的線索時，應依提醒保持安全距離。'],
+    ['小芳借用同學的彩色筆後，先記下物品名稱，下課前主動歸還並道謝。', '借用物品後記錄、歸還並道謝，是負責任的做法。'],
+    ['老師說明活動規則後，小宇先重述一次，再依序準備用品，遇到不懂的地方才提問。', '先確認規則和步驟，再準備並提問，能減少做錯的機會。'],
+    ['小玲整理書桌時，把每天會用的文具放在固定位置，把暫時不用的物品收進盒子。', '分類和固定位置能讓用品較容易找到，也幫助維持整潔。'],
+    ['小杰早上發現下雨，便查看路線和雨具，再決定提早出門。', '根據天氣和路線資訊調整準備與時間，是周全的安排。'],
+    ['小琪寫完句子後，讀出聲音檢查是否通順，再依照意思換上更合適的詞。', '讀句子並依語意修正，能讓表達更清楚。'],
+  ];
+  const [passage, correct] = cases[offset % cases.length];
+  const wrongs = ['只要最後有人提醒，前面完全不必準備。', '遇到不確定的事情就直接放棄，不用查看線索。', '短文表示所有事情都必須由同一個人完成。'];
+  const options = [correct, ...wrongs]; const first = options.shift()!; options.splice(answer, 0, first);
+  return { id: `meimei-chinese-${index}`, topic: `第${lessons[offset % lessons.length]}｜語文理解`, type, title: '自編短文理解', instruction: '閱讀自編短文後回答問題。', question: `${passage}（自編情境第${Math.floor(offset / 8) + 1}組）從短文可以知道什麼？`, options, answer, hint: '把人物先做的事、後做的事和結果連起來。', explanation: `短文的行動和結果支持「${correct}」；其他選項與短文線索不符。`, encouragement: '答對了！你能找出短文中的重要做法。' };
+});
+questions.push(...sprint37Questions);

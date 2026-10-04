@@ -97,6 +97,27 @@ export const questions: Question[] = [
   },
 ];
 
+const sprint37Questions: Question[] = Array.from({ length: 46 }, (_, offset) => {
+  const index = offset + 17;
+  const type = offset < 15 ? 'basic' : 'application';
+  const answer = offset % 4;
+  const cases = [
+    ['社區新增圖書館後，小晴可以利用放學時間查資料和參加閱讀活動。', '公共設施和生活環境的改變，可能帶來新的學習與生活機會。'],
+    ['家中長輩小時候用紙本聯絡，現在家人也會使用訊息，但重要事情仍約定要當面確認。', '工具改變溝通方式，但清楚表達與互相確認仍然重要。'],
+    ['市集裡有不同族群帶來的食物、音樂和手工藝，居民互相介紹做法並一起參加活動。', '不同族群交流能讓生活文化更豐富，也需要互相尊重。'],
+    ['同學分享家中的節慶習俗，大家先聆聽再比較相同與不同，沒有用自己的習慣否定別人。', '了解差異並尊重彼此，有助於不同族群友善相處。'],
+    ['社區比較不同年代的照片，發現交通改善後商店和公共服務也增加了。', '比較不同時間的資料，可以看見社會環境如何改變。'],
+    ['小組討論是否保留老建築，先查資料、聽居民意見，再比較保存價值和使用需求。', '公共議題需要蒐集資料並聽取不同觀點，再作出有根據的判斷。'],
+    ['新住民家長在學校分享家鄉故事，學校安排翻譯並邀請大家提問。', '提供理解與交流的機會，有助於尊重不同背景的人。'],
+    ['家庭成員依年齡和能力分工，孩子記錄活動內容，長輩分享經驗。', '家庭成員可以依能力合作，讓共同活動順利進行。'],
+  ];
+  const [question, correct] = cases[offset % cases.length];
+  const wrongs = ['只要和自己習慣不同，就一定不能在社會中出現。', '社會改變只會影響物品外觀，不會影響生活方式。', '遇到不同意見時，不需要資料或討論就能直接否定。'];
+  const options = [correct, ...wrongs]; const first = options.shift()!; options.splice(answer, 0, first);
+  return { id: `jiejie-social-studies-${index}`, topic: offset % 2 === 0 ? '個人發展如何受到社會變遷的影響' : '族群交流如何影響臺灣社會', type, title: '社會情境判讀', instruction: '請根據情境選出合理答案。', question: `${question}（自編情境第${Math.floor(offset / 8) + 1}組）從題目可以知道什麼？`, options, answer, hint: '先找出情境中的改變、交流或合作，再判斷它帶來的影響。', explanation: `情境中的具體做法支持「${correct}」；其他選項把內容過度簡化或與題意相反。`, encouragement: '答對了！你能從生活情境理解社會變化。' };
+});
+questions.push(...sprint37Questions);
+
 // Keep the two out-of-scope democracy questions for history lookup,
 // but exclude them from current practice, review, and reinforcement flows.
 export const practiceQuestions: Question[] = questions.filter(({ id }) => ![

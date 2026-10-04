@@ -204,12 +204,42 @@ export const questions: Question[] = [
   },
 ];
 
+const sprint37Questions: Question[] = Array.from({ length: 48 }, (_, offset) => {
+  const index = offset + 22;
+  const lessons = ['遇見自己', '為什麼大家不理我？', '孔子說的話', '向大自然學習', '樹的聯想', '善用自嘲，展現幽默'];
+  const skills = ['段落主旨', '行動原因', '語句意思', '事件順序', '人物觀點', '證據判斷', '情境推論', '適當用語'];
+  const situations = [
+    '小芸把大任務分成幾個小步驟，每天記下完成的部分，最後順利完成原本不熟悉的工作。',
+    '新同學剛加入小組，大家先介紹規則，再邀請他一起討論，幾天後他主動提出想法。',
+    '小組先聽完每個人的理由，再整理共同重點，最後依照專長分配工作。',
+    '雨後地面有積水，小安先觀察安全路線，再提醒同學放慢腳步並告知老師。',
+    '小樹苗被風吹歪，園丁先固定枝幹，再持續照顧，過了一段時間它長出新葉。',
+    '小傑報告時排錯投影片，便用輕鬆的話化解尷尬，接著重新整理檔案。',
+    '小偉看到公告改了集合時間，便寫下提醒並提早準備用品，隔天準時到達。',
+    '組員把活動的材料、時間和安全性列成表格，再比較各方案的優缺點。',
+  ];
+  const answers = [
+    '分段行動並記錄進步，能幫助自己面對不熟悉的事情。',
+    '主動理解與邀請，能幫助新同學融入團體。',
+    '先聆聽和整理意見，再分工合作，能讓討論更有效率。',
+    '觀察情況並採取合適行動，可以降低生活中的危險。',
+    '持續照顧能幫助成長，也要逐漸學會面對環境。',
+    '適度幽默可以緩和尷尬，但仍要負責處理問題。',
+    '記下重要資訊並提早準備，有助於按時完成安排。',
+    '列出條件比較，能讓團體決定更有根據。',
+  ];
+  const answer = offset % 4;
+  const options = [answers[offset % 8], '只要做得很快，就不需要觀察或討論。', '遇到問題時最好完全交給別人處理。', '短文只是在介紹物品的外觀。'];
+  const correct = options.shift() ?? '';
+  options.splice(answer, 0, correct);
+  const type = offset < 16 ? 'basic' : 'application';
+  return { id: `jiejie-chinese-${index}`, topic: `第${lessons[offset % lessons.length]}｜${skills[offset % skills.length]}`, type, title: '自編短文理解', instruction: '閱讀自編短文後選出最佳答案。', question: `${situations[offset % situations.length]}（自編情境第${Math.floor(offset / 8) + 1}組）這段文字最想說明什麼？`, options, answer, hint: '先找出人物做了哪些事，再思考這些做法帶來的結果。', explanation: `短文中的行動和結果都支持「${answers[offset % 8]}」，其他選項不是主旨或與短文不符。`, encouragement: '答對了！你能統整短文的重要訊息。' };
+});
+questions.push(...sprint37Questions);
+
 // Keep retired early test questions available for historical Learning Records,
 // but exclude them from current formal practice and review flows.
-export const practiceQuestions: Question[] = questions.filter(
-  ({ id }) => [
-    'jiejie-chinese-10', 'jiejie-chinese-11', 'jiejie-chinese-12', 'jiejie-chinese-13',
-    'jiejie-chinese-14', 'jiejie-chinese-15', 'jiejie-chinese-16', 'jiejie-chinese-17',
-    'jiejie-chinese-18', 'jiejie-chinese-19', 'jiejie-chinese-20', 'jiejie-chinese-21',
-  ].includes(id),
-);
+export const practiceQuestions: Question[] = questions.filter(({ id }) => {
+  const numericId = Number(id.replace('jiejie-chinese-', ''));
+  return Number.isInteger(numericId) && numericId >= 10;
+});

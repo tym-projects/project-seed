@@ -167,3 +167,29 @@ export const questions: QuestionCardQuestion[] = [
     hint: '先算兩種餅乾各有幾片，再把兩個結果相加。', explanation: '第一種有 3 × 24 = 72 片，第二種有 2 × 15 = 30 片；72 + 30 = 102 片。', encouragement: '答對了！你能用乘法和加法整理兩組數量。',
   },
 ];
+
+const sprint37Questions: QuestionCardQuestion[] = Array.from({ length: 43 }, (_, offset) => {
+  const index = offset + 18;
+  const type = offset < 14 ? 'basic' : 'application';
+  const answer = offset % 4;
+  const unit = offset % 4;
+  let topic: string; let title: string; let question: string; let correct: string; let wrongs: string[]; let hint: string; let explanation: string;
+  if (unit === 0) {
+    const [a, b] = [[2345, 678], [4000, 1256], [3078, 942], [1560, 785], [2890, 1345], [5000, 2768], [4217, 899], [3605, 1777], [1980, 965], [2754, 1288], [6320, 2456]][Math.floor(offset / 4) % 11];
+    const result = a + b; topic = '數到10000'; title = '四位數加法'; question = `文具店上午有 ${a} 枝鉛筆，下午又進貨 ${b} 枝，現在共有幾枝？`; correct = String(result); wrongs = [String(result - 100), String(result + b), String(a - b)]; hint = '把千位、百位、十位和個位分別相加，注意進位。'; explanation = `${a} + ${b} = ${result}，所以現在共有 ${result} 枝鉛筆。`;
+  } else if (unit === 1) {
+    const [a, b] = [[4000, 1256], [3078, 942], [1560, 785], [2890, 1345], [5000, 2768], [4217, 899], [3605, 1777], [1980, 965], [2754, 1288], [6320, 2456], [7100, 3688]][Math.floor(offset / 4) % 11];
+    const result = a - b; topic = '四位數的加減'; title = '四位數減法'; question = `倉庫有 ${a} 個紙箱，送出 ${b} 個後還剩幾個？`; correct = String(result); wrongs = [String(result + 100), String(a + b), String(b - a)]; hint = '先確認原來有多少和用掉多少，再用減法計算。'; explanation = `${a} - ${b} = ${result}，所以還剩 ${result} 個紙箱。`;
+  } else if (unit === 2) {
+    const [a, b] = [[23, 4], [16, 5], [32, 3], [24, 6], [15, 7], [42, 2], [18, 5], [27, 3], [34, 2], [19, 4], [25, 6]][Math.floor(offset / 4) % 11];
+    const result = a * b; topic = '乘法'; title = '乘法情境'; question = `每排有 ${a} 顆珠子，排成 ${b} 排，一共有幾顆？`; correct = String(result); wrongs = [String(result + a), String(result - b), String(a + b)]; hint = '每排一樣多，可以用乘法表示。'; explanation = `${a} × ${b} = ${result}，所以一共有 ${result} 顆珠子。`;
+  } else {
+    const [cm, mm] = [[3, 4], [5, 6], [7, 8], [9, 4], [12, 5], [15, 7], [2, 9], [6, 8], [11, 3], [14, 6]][Math.floor(offset / 4) % 10];
+    const result = cm * 10 + mm; topic = '幾毫米'; title = '公分和毫米換算'; question = `${cm} 公分又 ${mm} 毫米合起來是幾毫米？`; correct = `${result} 毫米`; wrongs = [`${cm + mm} 毫米`, `${cm * 100 + mm} 毫米`, `${result + 10} 毫米`]; hint = '1 公分等於 10 毫米。'; explanation = `${cm} 公分是 ${cm * 10} 毫米，再加上 ${mm} 毫米，共 ${result} 毫米。`;
+  }
+  const options = [...new Set([correct, ...wrongs])];
+  while (options.length < 4) options.push(`其他可能結果 ${options.length}`);
+  const first = options.shift()!; options.splice(answer, 0, first);
+  return { id: `meimei-mathematics-${index}`, topic, type, title, instruction: '請選出正確的計算結果。', question, options, answer, hint, explanation, encouragement: '答對了！你能把計算方法用在生活情境中。' };
+});
+questions.push(...sprint37Questions);
