@@ -6,14 +6,22 @@
 - Do not clear site data or change origin/device/browser without first assessing the Learning Record impact.
 - The prior origin investigation found no recoverable Learning Record export or backup. No real data was repaired or migrated. Backup/restore remains a high-priority future capability.
 
-## Sprint 36 Scope Decision — Active Practice Filter
+## Sprint 36 Scope Decision — Active Practice Filter（historical decision; superseded by Final Closeout）
 
 - Source baseline: 102 questions, 97 learning units, and 89 monthly-allowlist entries before this change.
 - 姐姐 active practice is now 43 questions: Chinese 8, Mathematics 13, Natural Science 12, Social Studies 10.
 - Full question banks remain intact for historical Learning Record display. Only new 姐姐 practice/review/reinforcement selection is filtered.
 - The two confirmed out-of-scope 姐姐 social questions were removed from the monthly allowlist; total monthly allowlist is now 87. No other subject allowlist changed.
-- Sprint 36 remains in Human Review; no commit, push, or formal deployment.
+- At this historical checkpoint Sprint 36 remained in Human Review; the later Final Closeout supersedes that status.
 - Verification passed: scope focused 3/3, Node 206/206, isolated production build, Browser 45/45, lint, TypeScript `--incremental false`, and `git diff --check`. Formal 3100 remains untouched; isolated 3101 is available at `http://192.168.22.208:3101`.
+
+## Sprint 36 Final Closeout — Completed
+
+- 36 題已依正式 scope 完成逐題 candidate manifest、QA 與八科題庫實作；36/36 candidates implemented，Deferred 0，Rejected 0，Human Exception 0。
+- 題庫 102／97 增至 138／133（questions／learning units）；新增分布為姐姐 18 題、妹妹 18 題。
+- Active practice after implementation：姐姐 12／18／17／14，妹妹 16／17／17／14；monthly allowlist 維持 87，未擴大月考範圍。
+- Sprint 36 新增題 answerIndex 分布為 `9/9/9/9`；Learning Record、ReviewSession、Backup/Restore、retry、1/3/7 與既有 questionId 未改變。
+- Human tablet acceptance：PASS（8 題跨八科抽驗、一般練習、月考練習、登入／角色均通過）。Next Step：等待 Owner 指定 Sprint 37，不自行開啟 Sprint 37。
 
 ## Sprint 35 — Learning Record backup and restore — Completed
 
@@ -250,7 +258,7 @@
 - **Sprint 10：** 今日複習選題與流程。
 # Sprint 28 close note
 
-## Sprint 36 — 平時練習題庫擴充規劃
+## Sprint 36 — 平時練習題庫擴充規劃（historical planning record; superseded by Final Closeout）
 
 - 以八個學生／科目組合建立平時練習覆蓋矩陣，規劃初始約 36 個新 learning-unit 候選；尚未新增正式題目。
 - 實際 repo 盤點為 102 題／97 learning units；程式中的第一次月考 allowlist 為 89 題。較早文件的歷史數字不作現況基準。

@@ -141,4 +141,29 @@ export const questions: QuestionCardQuestion[] = [
     question: '398＋205 大約是多少？', options: ['約 500', '約 600', '約 700', '約 800'], answer: 1,
     hint: '把數字估成容易計算的整百數。', explanation: '398 約 400、205 約 200，400+200 約 600。', encouragement: '答對了！你能用估算快速判斷答案範圍。',
   },
+  {
+    id: 'meimei-mathematics-13', topic: '數到 10000', type: 'basic', title: '位值與數的比較', instruction: '請選出符合條件的數。',
+    question: '下列哪個數最接近 5000，且比 5000 小？', options: ['5010', '4990', '5900', '490'], answer: 1,
+    hint: '先找比 5000 小的數，再比較差多少。', explanation: '4990 比 5000 少 10，是選項中最接近且小於 5000 的數。', encouragement: '答對了！你會比較數字和 5000 的差距。',
+  },
+  {
+    id: 'meimei-mathematics-14', topic: '乘法', type: 'application', title: '乘法意義與情境', instruction: '請用乘法解決問題。',
+    question: '每盒有 6 枝彩色筆，買 4 盒共有幾枝？', options: ['10', '18', '24', '46'], answer: 2,
+    hint: '把 6 個重複 4 次，可以用哪個乘法？', explanation: '6 × 4 = 24，表示 4 盒、每盒 6 枝。', encouragement: '答對了！你能用乘法表示重複的數量。',
+  },
+  {
+    id: 'meimei-mathematics-15', topic: '幾毫米', type: 'application', title: '公分與毫米換算', instruction: '請計算長度的總和。',
+    question: '一條緞帶長 5 公分 6 毫米，又接上 2 公分 8 毫米，合起來是多少？', options: ['7 公分 14 毫米', '8 公分 4 毫米', '8 公分 14 毫米', '7 公分 4 毫米'], answer: 3,
+    hint: '10 毫米等於 1 公分，先把毫米合起來再進位。', explanation: '6+8=14 毫米 = 1 公分 4 毫米，再加 5+2+1=8 公分，所以是 8 公分 4 毫米。', encouragement: '答對了！你會在長度相加時進行換算。',
+  },
+  {
+    id: 'meimei-mathematics-16', topic: '四位數的加減', type: 'application', title: '四位數兩步驟應用', instruction: '請用加法和減法解決問題。',
+    question: '書店上午收到 2356 本書，下午又收到 1789 本，當天送出 204 本。現在還剩下幾本？', options: ['3941 本', '3737 本', '4145 本', '1843 本'], answer: 0,
+    hint: '先把兩次收到的書相加，再減去送出的數量。', explanation: '先算 2356 + 1789 = 4145，再算 4145 − 204 = 3941，所以還剩 3941 本。', encouragement: '答對了！你能用兩步驟完成四位數加減。',
+  },
+  {
+    id: 'meimei-mathematics-17', topic: '乘法', type: 'application', title: '分組數量兩步驟', instruction: '請根據分組情境計算總數。',
+    question: '第一種餅乾有 3 盒，每盒 24 片；第二種餅乾有 2 盒，每盒 15 片。兩種餅乾共有幾片？', options: ['72 片', '78 片', '120 片', '102 片'], answer: 3,
+    hint: '先算兩種餅乾各有幾片，再把兩個結果相加。', explanation: '第一種有 3 × 24 = 72 片，第二種有 2 × 15 = 30 片；72 + 30 = 102 片。', encouragement: '答對了！你能用乘法和加法整理兩組數量。',
+  },
 ];

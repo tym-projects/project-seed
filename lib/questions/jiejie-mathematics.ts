@@ -150,6 +150,31 @@ export const questions: Question[] = [
     question: '一個圓的直徑是 14 公分，它的半徑是多少公分？', options: ['7 公分', '14 公分', '21 公分', '28 公分'], answer: 0,
     hint: '直徑是通過圓心的完整線段，半徑是其中的一半。', explanation: '半徑是直徑的一半，14 ÷ 2 = 7，所以半徑是 7 公分。', encouragement: '答對了！你理解半徑和直徑的關係。',
   },
+  {
+    id: 'jiejie-mathematics-16', topic: '分數的除法', type: 'application', title: '分數除法生活情境', instruction: '請用分數除法解決問題。',
+    question: '一壺果汁有 3/4 公升，每杯倒 1/8 公升，最多可以倒滿幾杯？', options: ['4 杯', '6 杯', '8 杯', '12 杯'], answer: 1,
+    hint: '把 3/4 除以 1/8，想想四分之三裡有幾個八分之一。', explanation: '3/4 = 6/8，所以 6/8 ÷ 1/8 = 6，最多可以倒滿 6 杯。', encouragement: '答對了！你能把分數除法用在生活情境中。',
+  },
+  {
+    id: 'jiejie-mathematics-17', topic: '圓周長和圓面積', type: 'application', title: '圓面積情境', instruction: '請計算圓形花圃的面積。',
+    question: '圓形花圃半徑 5 公尺，圓周率取 3.14，花圃面積約是多少平方公尺？', options: ['15.7', '31.4', '78.5', '157'], answer: 2,
+    hint: '圓面積用「半徑 × 半徑 × 圓周率」。', explanation: '5 × 5 × 3.14 = 78.5，所以花圃面積約是 78.5 平方公尺。', encouragement: '答對了！你會在生活情境中使用圓面積公式。',
+  },
+  {
+    id: 'jiejie-mathematics-18', topic: '小數的除法', type: 'application', title: '估算與合理性判斷', instruction: '請選出最接近的答案。',
+    question: '6.3 ÷ 0.8 的結果最接近哪一個數？', options: ['0.8', '4', '80', '8'], answer: 3,
+    hint: '先把 6.3 想成約 6.4，0.8 × 8 等於多少？', explanation: '6.3 ÷ 0.8 = 7.875，最接近 8，因此答案是 8。', encouragement: '答對了！你能用估算判斷答案是否合理。',
+  },
+  {
+    id: 'jiejie-mathematics-19', topic: '分數的除法', type: 'application', title: '分數除法兩步驟', instruction: '請解決分數除法的兩步驟問題。',
+    question: '有 4 盒麵粉，每盒 3/4 公斤，平均分裝成 6 袋。每袋有幾公斤？', options: ['1/2 公斤', '2/3 公斤', '3/8 公斤', '1 又 1/2 公斤'], answer: 0,
+    hint: '先算出麵粉總重量，再把總重量平均分成 6 袋。', explanation: '總重量是 4 × 3/4 = 3 公斤；3 ÷ 6 = 1/2 公斤，所以每袋有 1/2 公斤。', encouragement: '答對了！你能用兩個步驟完成分數情境題。',
+  },
+  {
+    id: 'jiejie-mathematics-20', topic: '圓周長和圓面積', type: 'application', title: '圓面積兩步驟', instruction: '請計算兩張圓形貼紙的總面積。',
+    question: '每張圓形貼紙的半徑是 3 公分，圓周率取 3.14。買 2 張這樣的貼紙，總面積約是多少平方公分？', options: ['28.26', '56.52', '18.84', '113.04'], answer: 1,
+    hint: '先算一張貼紙的圓面積，再乘以 2 張。', explanation: '一張面積是 3.14 × 3 × 3 = 28.26 平方公分；兩張是 28.26 × 2 = 56.52 平方公分。', encouragement: '答對了！你能把圓面積公式用在兩步驟問題中。',
+  },
 ];
 
 // Keep out-of-scope questions available for historical Learning Records,

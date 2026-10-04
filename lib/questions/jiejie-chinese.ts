@@ -176,6 +176,32 @@ export const questions: Question[] = [
     hint: '便利貼可以幫助人記下重要的事情。',
     explanation: '小安把要帶和要交的事情寫下來，是為了在需要時查看，提醒自己不要遺忘。', encouragement: '很棒！你能理解留言的目的。',
   },
+  {
+    id: 'jiejie-chinese-18', topic: '第伍單元段落主旨', type: 'application', title: '統整段落主旨', instruction: '閱讀短文後選出最適合的主旨。',
+    question: '校園角落有一棵老樹。它的樹枝曾被風吹斷，卻在園丁和同學照顧下重新長出嫩芽。小樹苗也在老樹旁慢慢長高，兩棵樹一起為路過的人遮陽。小芸看著它們，想到成長不一定順利，但只要堅持，也能在別人的幫助下變得更強壯。最適合當作這段文字主旨的是哪一項？',
+    options: ['樹木的成長讓人明白，面對困難要堅持，也要互相幫助。', '老樹的枝葉可以在天氣炎熱時遮陽。', '小樹苗需要在老樹旁邊才有辦法長大。', '同學可以每天觀察樹木長出多少嫩芽。'], answer: 0,
+    hint: '先找出短文最後小芸想到的事情，再回頭看看前文哪些內容支持這個想法。',
+    explanation: '短文先寫老樹受傷後重新長出嫩芽，再寫老樹和小樹一起成長，最後明確指出小芸得到的想法，因此主旨是從樹木成長聯想到堅持與互助。其他選項只提到局部細節。', encouragement: '答對了！你能統整段落中的重要訊息。',
+  },
+  {
+    id: 'jiejie-chinese-19', topic: '第陸單元人物觀點推論', type: 'application', title: '推論人物行動原因', instruction: '閱讀情境後回答問題。',
+    question: '班級報告時，小傑不小心把投影片順序放反了。他笑著說：「我的投影片今天想玩猜謎遊戲，請大家先猜下一頁在哪裡。」同學笑了出來，小傑趁大家等待時重新整理檔案，接著說：「好了，這次輪到正確順序上場。」他沒有責怪自己，也沒有嘲笑別人。小傑這樣說、這樣做，最主要的原因是什麼？',
+    options: ['他想故意把報告時間拖得更久。', '他想讓氣氛放鬆，並冷靜處理自己的錯誤。', '他認為報告內容不重要，可以不用完成。', '他希望同學一直取笑他的失誤。'], answer: 1,
+    hint: '注意他說完玩笑後，接著做了什麼。',
+    explanation: '小傑用輕鬆的話化解投影片順序錯誤，接著重新整理檔案完成報告；這兩個線索都表示他是為了讓氣氛放鬆並處理問題，不是逃避或貶低自己。', encouragement: '很好！你能從人物的話和行動推想原因。',
+  },
+  {
+    id: 'jiejie-chinese-20', topic: '第壹單元閱讀理解', type: 'application', title: '統整短文重點', instruction: '閱讀短文後選出最適合的重點。',
+    question: '學校舉辦舊物再利用活動，同學先把不再使用的紙盒分類，再設計成筆筒和收納盒。雖然第一次做得不整齊，他們仍互相討論、修改，最後讓原本要丟掉的紙盒有了新的用途。這段文字最想告訴我們什麼？',
+    options: ['紙盒只能拿來做筆筒。', '第一次做作品一定會很整齊。', '動手改造和合作討論，可以讓舊物重新發揮用途。', '學校活動只要分類物品，不必完成作品。'], answer: 2,
+    hint: '看看同學做了哪些事，以及最後舊紙盒有了什麼改變。', explanation: '短文寫到分類、設計、討論和修改，最後讓舊紙盒重新被使用，因此主旨是透過合作改造讓舊物發揮新用途；其他選項只說局部或與短文相反。', encouragement: '答對了！你能整合短文中的做法和結果。',
+  },
+  {
+    id: 'jiejie-chinese-21', topic: '第貳單元語句理解', type: 'application', title: '根據線索推論', instruction: '閱讀短文後回答問題。',
+    question: '放學前，老師發現窗外風勢變大，便請同學把窗邊的輕物品移到桌內，並提醒大家離開教室前再檢查一次。老師這樣安排，最主要是因為什麼？',
+    options: ['她想讓同學把物品帶回家。', '她不希望同學在教室裡學習。', '窗戶一定已經破掉，不能再使用。', '她根據風勢變大的情況，先降低物品被吹落的風險。'], answer: 3,
+    hint: '把「風勢變大」和老師接著做的安排連起來想。', explanation: '風勢變大可能使窗邊的輕物品移動或掉落，所以老師先請同學移開並再次檢查，是為了降低風造成的風險。短文沒有說窗戶已經破掉。', encouragement: '很好！你能用前後線索推想人物安排的原因。',
+  },
 ];
 
 // Keep retired early test questions available for historical Learning Records,
@@ -184,5 +210,6 @@ export const practiceQuestions: Question[] = questions.filter(
   ({ id }) => [
     'jiejie-chinese-10', 'jiejie-chinese-11', 'jiejie-chinese-12', 'jiejie-chinese-13',
     'jiejie-chinese-14', 'jiejie-chinese-15', 'jiejie-chinese-16', 'jiejie-chinese-17',
+    'jiejie-chinese-18', 'jiejie-chinese-19', 'jiejie-chinese-20', 'jiejie-chinese-21',
   ].includes(id),
 );

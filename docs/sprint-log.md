@@ -8,21 +8,30 @@
 
 ## Sprint 35 — Learning Record backup and restore — Completed
 
-## Sprint 36 — 平時練習題庫擴充規劃
+## Sprint 36 — 平時練習題庫擴充 — Completed
 
-### Scope decision and active filter implementation
+### Final Closeout
+
+- 目前 36 題 disposition 為 36 題 Ready、0 題 Deferred；起始統計為 15 Ready、5 Revised、16 Pending Review、0 Rejected。
+- 36 題新增至八科正式 question banks，總題數 102 → 138、learning units 97 → 133；新增題全為 singleton，既有 questionId 與 Learning Record 相容性保留。
+- Active practice：姐姐國語／數學／自然／社會為 12／18／17／14；妹妹國語／數學／自然／社會為 16／17／17／14。Monthly allowlist 維持 87。
+- 原 16 個 Pending 已依正式 scope 建立逐題 Candidate ID、完整題目欄位、QA 與正式 questionId 對照，全部通過後列為 Ready。
+- Focused candidate／scope／question-bank tests、完整 Node 209/209、lint、TypeScript、production build、Browser regression 45/45 與 `git diff --check` 均已通過；Human Batch Acceptance 與平板抽驗亦已通過。
+- Human tablet acceptance：PASS（8 題跨八科抽驗、一般練習、月考練習、登入／角色均通過）。Sprint 36 Completed。
+- Next Step：等待 Owner 指定 Sprint 37，不自行開啟 Sprint 37。
+
+### Scope decision and active filter implementation（historical checkpoint）
 
 - Human confirmed 姐姐 active practice scope: Chinese 8, Mathematics 13, Natural Science 12, Social Studies 10; total 43 questions. 姐姐 Chinese uncertain IDs `jiejie-chinese-1`, `-3`, `-5`, `-6`, `-7`, `-8`, `-9` remain inactive.
 - Confirmed out-of-scope IDs retained for history but excluded from new selection: `jiejie-chinese-2`, `jiejie-chinese-4`, `jiejie-mathematics-5`, `jiejie-mathematics-6`, `jiejie-social-studies-1`, `jiejie-social-studies-2`.
 - Only the two 姐姐 social IDs were removed from the monthly allowlist: 89 → 87; all other seven allowlists remain unchanged.
-- Full question arrays, Learning Record／ReviewSession schema, storage keys, backup／restore, and妹妹 selection are unchanged. Scope tests are green; full verification and isolated tablet review remain pending.
-- Implementation verification is complete: scope focused 3/3, full Node 206/206, isolated production build, Browser 45/45, lint, TypeScript `--incremental false`, and `git diff --check` passed. 3100 (PID 2940) was not stopped or overwritten; isolated 3101 (PID 7568) is running at `http://192.168.22.208:3101` for Human review. Sprint 36 remains at the Human Review Gate.
+- Full question arrays, Learning Record／ReviewSession schema, storage keys, backup／restore, and妹妹 selection are unchanged. This was a historical checkpoint; final verification and tablet acceptance are recorded above as passed.
+- Historical implementation verification passed before Human acceptance; the isolated Sprint 36 3101 review server was later stopped after acceptance. The Final Closeout above is authoritative.
 
-- Status: Planning / Scope Human Review pending。未修改正式題庫、production code、tests 或真實學習資料。
-- 實際盤點八科為 102 題、97 learning units；`lib/first-exam-practice.ts` 現行 allowlist 合計 89 題。舊 94 遺漏 Sprint 33 八題；舊 85 遺漏 Sprint 34 納入妹妹自然 `-1`～`-4`，不回退 source。
-- 已完成 Baseline／Evidence Closure 與 Ready／Revised 草案：11 Ready、5 Revised、20 Pending Review、0 Rejected。完整記錄在 `docs/sprint36-evidence-closure-and-candidate-drafts.md`；pending 題不計入正式入庫。
-- 保持正式 3100 運行，尚未啟動 Sprint 36 隔離測試服務；下一步等待 Human 確認候選容量、來源與實作範圍。
-- Human Review 修訂與姐姐四科 Scope Audit 已記錄於候選文件：姐姐安全 active pool 為 43 題；姐姐社會 monthly allowlist 的 `-1`、`-2` 超出已確認範圍，暫停於 Allowlist Review Gate，未修改 production 或 allowlist。
+- Historical planning baseline：實作前八科為 102 題、97 learning units；`lib/first-exam-practice.ts` 現行 allowlist 維持 87 題。
+- Historical evidence／implementation record before Final 16 closure：15 Ready、5 Revised、16 Pending Review、0 Rejected；the later Final Closeout supersedes these counts with 36 Ready and 138 questions.
+- 姐姐安全 active pool 實作前為 43 題；新增已確認 scope 題後，active practice 為 10／16／15／12。妹妹四科為 14／15／15／12。
+- Human Review 修訂與 Final 16 closure 已記錄於 candidate/evidence 文件；monthly allowlist 與 Learning Record schema 未修改。
 
 - Added a parent-center 「學習紀錄備份」panel. Export downloads a UTF-8 version-1 JSON envelope for the existing `project-seed:learning-records:v1` key; ReviewSession is excluded from V1 because it is temporary session state.
 - Import validates format/version, timestamps, record count, container, and every record before writing. Existing records remain first; identical IDs are skipped, conflicting IDs reject the import, and success uses one storage write. No schema, storage key, question bank, or learning-rule change.

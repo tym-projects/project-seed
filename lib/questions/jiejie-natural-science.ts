@@ -79,6 +79,31 @@ export const questions: Question[] = [
     question: '想觀察糖水中的砂糖，將糖水加熱使水逐漸蒸發，最可能看到什麼結果？', options: ['砂糖完全變成空氣', '水蒸發後留下砂糖', '砂糖變成泥土', '水和砂糖都消失'], answer: 1,
     hint: '水蒸發時，已溶解的砂糖會不會跟著變成水蒸氣？', explanation: '加熱時水可以蒸發離開，砂糖不會跟著水蒸氣離開，水分減少後可留下砂糖。', encouragement: '答對了！你能用蒸發理解水溶液的分離。',
   },
+  {
+    id: 'jiejie-natural-science-13', topic: '探索天氣的變化', type: 'basic', title: '天氣資料判讀', instruction: '請根據資料判斷。',
+    question: '某日早上氣溫 18°C、下午 25°C，且下午降雨量增加。下列哪項敘述最合理？', options: ['下午比早上溫暖，且天氣變化需要持續觀察', '下午一定沒有雲', '降雨量增加表示氣溫一定下降', '只量一次就能知道整週天氣'], answer: 0,
+    hint: '分別讀氣溫和降雨量，不要把一項資料當成全部原因。', explanation: '資料顯示下午氣溫較高、降雨量增加；天氣判斷要綜合並持續觀察，不能由單一資料推出其他選項。', encouragement: '答對了！你能綜合判讀不同的天氣資料。',
+  },
+  {
+    id: 'jiejie-natural-science-14', topic: '探索天氣的變化', type: 'application', title: '水蒸氣遇冷凝結', instruction: '請根據生活現象推論。',
+    question: '裝冰水的杯子外壁出現小水珠，這些水最可能從哪裡來？', options: ['杯內的水穿過杯壁', '空氣中的水蒸氣遇冷凝結', '冰塊變成砂糖', '杯子自己產生水'], answer: 1,
+    hint: '想想看不見的水蒸氣遇到較冷表面會怎樣。', explanation: '空氣中的水蒸氣遇到冷杯壁會凝結成小水滴，水珠不是杯內的水穿出來。', encouragement: '答對了！你能從生活現象推論凝結。',
+  },
+  {
+    id: 'jiejie-natural-science-15', topic: '水溶液', type: 'application', title: '公平比較實驗', instruction: '請選出最公平的做法。',
+    question: '想比較攪拌是否會影響砂糖溶解速度，哪一種做法最公平？', options: ['一杯用熱水且攪拌，另一杯用冷水且不攪拌', '一杯砂糖較多，另一杯水較少', '兩杯水量、溫度、砂糖量相同，只改變是否攪拌', '兩杯同時改變溫度和攪拌'], answer: 2,
+    hint: '公平比較時一次只改變一個條件。', explanation: '要判斷攪拌的影響，其他條件應相同，只改變是否攪拌。', encouragement: '答對了！你知道如何設計公平的比較。',
+  },
+  {
+    id: 'jiejie-natural-science-16', topic: '水溶液', type: 'application', title: '溶解現象比較', instruction: '請根據觀察結果判斷。',
+    question: '把相同量的鹽和小石子分別放入兩杯等量的水中並攪拌。過一會兒，鹽看不見了，小石子仍在杯底。下列哪一項最合理？', options: ['鹽可能溶解在水中，小石子沒有溶解', '鹽和小石子都變成水蒸氣', '小石子溶解後一定比鹽更甜', '只要看不見就表示物質消失了'], answer: 0,
+    hint: '比較兩種物質在水中的觀察結果，不要把「看不見」當成消失。', explanation: '鹽看不見表示可能已均勻分散在水中，小石子仍在杯底表示沒有溶解；物質不會因看不見就消失。', encouragement: '答對了！你能從實驗觀察比較溶解情形。',
+  },
+  {
+    id: 'jiejie-natural-science-17', topic: '探索天氣的變化', type: 'application', title: '連續天氣資料判讀', instruction: '請根據連續觀察判斷。',
+    question: '氣象站連續記錄同一天上午、中午和下午的氣溫，數值依序是 19°C、23°C、26°C。這些資料最能支持哪一項說法？', options: ['只要上午的氣溫就能知道整個月的天氣', '氣溫升高表示一定正在下雨', '下午的氣溫一定會比隔天高', '這一天氣溫從上午到下午逐漸升高'], answer: 3,
+    hint: '只根據題目提供的三個時間和數值，判斷這一天的變化。', explanation: '同一天三次記錄從 19°C 增加到 23°C，再到 26°C，因此只能支持這一天上午到下午氣溫逐漸升高；其他說法超出資料。', encouragement: '答對了！你能從連續資料判讀天氣變化。',
+  },
 ];
 
 export const practiceQuestions: Question[] = questions;
