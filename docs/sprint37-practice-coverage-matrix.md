@@ -1,6 +1,6 @@
 # Sprint 37 Practice Coverage Matrix
 
-Status: Phase 1 planning. This matrix is the production scope ledger; all planned questions must map to one row before implementation.
+Status: Completed. This matrix is the production scope ledger; all 355 implemented questions map to one row and all eight active practice pools equal 60.
 
 | Student | Subject | Confirmed scope | Existing active | Target | Planned new | Basic | Application | Reasoning | Candidate ID range |
 |---|---|---|---:|---:|---:|---:|---:|---:|---|

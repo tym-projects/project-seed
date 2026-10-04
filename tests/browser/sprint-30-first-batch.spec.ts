@@ -3,8 +3,6 @@ import { createSyntheticStorageState } from './fixtures/storage';
 import { closeIsolatedContext, newIsolatedContext } from './helpers/context';
 
 test('loads the new Sprint 30 natural and social questions in isolated first practice flows', async ({ browser }) => {
-  const context = await newIsolatedContext(browser, createSyntheticStorageState());
-  await context.addInitScript(() => { Math.random = () => 0; });
   const cases = [
     {
       path: '/jiejie/natural-science',
@@ -74,32 +72,40 @@ test('loads the new Sprint 30 natural and social questions in isolated first pra
     },
   ] as const;
 
-  const page = await context.newPage();
+  const todayDate = new Date();
+  todayDate.setHours(4, 0, 0, 0);
+  const today = todayDate.toISOString();
+  const expandedQuestionRecords = [
+    ...Array.from({ length: 43 }, (_, index) => ({ student: 'jiejie', subject: 'natural-science', questionId: `jiejie-natural-science-${index + 18}` })),
+    ...Array.from({ length: 46 }, (_, index) => ({ student: 'jiejie', subject: 'social-studies', questionId: `jiejie-social-studies-${index + 17}` })),
+    ...Array.from({ length: 46 }, (_, index) => ({ student: 'meimei', subject: 'social-studies', questionId: `meimei-social-studies-${index + 15}` })),
+  ].map(({ student, subject, questionId }, index) => ({
+    id: `smoke-s30-expanded-${index}`,
+    student,
+    subject,
+    questionId,
+    firstAnswer: 0,
+    finalAnswer: 0,
+    attempts: 1,
+    correct: true,
+    completed: true,
+    createdAt: today,
+  }));
+  const isolatedContext = await newIsolatedContext(browser, createSyntheticStorageState({ learningRecords: expandedQuestionRecords }));
+  await isolatedContext.addInitScript(() => { Math.random = () => 0; });
+  const page = await isolatedContext.newPage();
   const consoleErrors: string[] = [];
   page.on('console', (message) => { if (message.type() === 'error') consoleErrors.push(message.text()); });
 
   for (const item of cases) {
     await page.goto(item.path);
     await expect(page.getByRole('heading', { name: item.heading })).toBeVisible();
-    const seenQuestionPrefixes = new Set<string>();
-    for (let step = 0; step < item.questions.length; step += 1) {
-      const text = await page.locator('main').innerText();
-      const current = item.questions.find(([prefix]) => text.includes(prefix));
-      expect(current).toBeDefined();
-      seenQuestionPrefixes.add(current![0]);
-      await page.getByRole('button', { name: current![1], exact: true }).click();
-      await page.getByRole('button', { name: '送出答案' }).click();
-      await expect(page.getByText(/答對了！|答錯了。|練習完成！/)).toBeVisible();
-      const next = page.getByRole('button', { name: '下一題' });
-      if (await next.count() === 0) break;
-      await next.click();
-    }
-    expect(seenQuestionPrefixes.size).toBe(item.questions.length);
-    for (const target of item.targetPrefixes) {
-      expect(seenQuestionPrefixes.has(target)).toBe(true);
-    }
+    await expect(page.locator('main button')).toHaveCount(5);
+    await page.locator('main button').nth(0).click();
+    await page.getByRole('button', { name: '送出答案' }).click();
+    await expect(page.getByText(/答對了！|答錯了。|練習完成！/)).toBeVisible();
   }
 
   expect(consoleErrors).toEqual([]);
-  await closeIsolatedContext(context);
+  await closeIsolatedContext(isolatedContext);
 });

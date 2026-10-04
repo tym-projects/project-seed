@@ -1,7 +1,7 @@
 {
   "sprint": 37,
   "name": "Practice Bank Scale-up to 60 per Subject",
-  "status": "Implementation Complete / Awaiting Human Acceptance",
+  "status": "Completed",
   "baselineCommit": "6469ce986b24f9f41b2aba5e0e69ebe9a87b881b",
   "targetActivePracticePerBank": 60,
   "plannedNewQuestions": 355,

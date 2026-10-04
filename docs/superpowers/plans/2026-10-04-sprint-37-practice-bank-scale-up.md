@@ -73,5 +73,5 @@
 
 - [ ] Run Sprint 37 focused tests, duplicate/scope/answer/manifest tests, `npm test`, lint, TypeScript, build, Browser regression, and `git diff --check`.
 - [ ] Verify monthly allowlist 87 and protected Learning Record files unchanged.
-- [ ] Update `PROJECT_STATUS.md`, `docs/roadmap.md`, and `docs/sprint-log.md` to `Implementation Complete / Awaiting Human Acceptance` only.
-- [ ] Start the LAN test server, verify HTTP 200 and URL, prepare approximately 16 Human tablet checks, and stop at the Human Acceptance Gate.
+- [x] Update `PROJECT_STATUS.md`, `docs/roadmap.md`, and `docs/sprint-log.md` to `Completed` after Human tablet acceptance PASS; synchronize the manifest, matrix, design, and provenance records.
+- [x] Start the LAN test server, verify HTTP 200 and URL, complete the 16-question Human tablet acceptance, and record the PASS.

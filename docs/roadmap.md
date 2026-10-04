@@ -1,11 +1,12 @@
 # Project Seed Roadmap
 
-## Sprint 37 — Practice Bank Scale-up to 60 per Subject — Implementation Complete / Awaiting Human Acceptance
+## Sprint 37 — Practice Bank Scale-up to 60 per Subject — Completed
 
 - 八科 Active Practice 均為 60，Total Active Practice `480`；新增 355 題，題庫 `138 → 493`，learning units `133 → 488`。
 - 新題均為 confirmed first-month scope 內的原創 singleton；Monthly allowlist 維持 87，Learning Record／ReviewSession 與既有學習語意未修改。
-- QA：scope、manifest、duplicate、unique-answer、answerIndex、Node 215/215 與 Browser 45/45 已通過；Human Acceptance 尚未完成。
-- **Next Step:** Browser regression 後啟動 LAN 測試 server，準備約 16 題平板抽驗；不得自行標記 Completed。
+- QA：scope、manifest、duplicate、unique-answer、option、answerIndex、Node 215/215、Browser 45/45、lint、TypeScript、build 與 diff-check 均已通過。
+- Human tablet acceptance：PASS（16 題跨八科抽驗、平時練習、月考練習、登入／角色均通過）；Human Exception `0`。
+- **Next Step:** 等待 Owner 指定 Sprint 38，不自行開始 Sprint 38。
 
 ## Data Safety and usage guidance
 

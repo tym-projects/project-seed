@@ -1,5 +1,11 @@
 # Sprint 37 Source and Provenance Policy
 
+## Final outcome
+
+- Status: `Completed`; Human tablet acceptance: `PASS`; Human Exception: `0`.
+- Implemented entries: `355`; all are `fully_original` and in confirmed first-month scope.
+- All eight Active Practice pools equal `60`; Monthly allowlist remains `87`.
+
 ## Policy
 
 Sprint 37 questions are original practice content. Research may confirm curriculum concepts, grade level, common misconceptions, and suitable question shapes. Research is not permission to reproduce a publisher, cram-school, school, or online question verbatim.

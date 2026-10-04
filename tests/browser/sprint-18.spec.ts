@@ -26,10 +26,8 @@ const historyRecord = {
 };
 
 const completedTodayOtherGroups = [
-  'jiejie-chinese-2', 'jiejie-chinese-5', 'jiejie-chinese-6', 'jiejie-chinese-7', 'jiejie-chinese-8', 'jiejie-chinese-9',
-  'jiejie-chinese-10', 'jiejie-chinese-11', 'jiejie-chinese-12', 'jiejie-chinese-13',
-  'jiejie-chinese-14', 'jiejie-chinese-15', 'jiejie-chinese-16', 'jiejie-chinese-17',
-  'jiejie-chinese-18', 'jiejie-chinese-19', 'jiejie-chinese-20', 'jiejie-chinese-21',
+  'jiejie-chinese-2', 'jiejie-chinese-4',
+  ...Array.from({ length: 60 }, (_, index) => `jiejie-chinese-${index + 10}`),
 ].map((questionId) => ({
   id: `smoke-s18-today-${questionId}`, student: 'jiejie', subject: 'chinese', questionId,
   firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true,
