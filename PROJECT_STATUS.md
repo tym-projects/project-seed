@@ -10,7 +10,7 @@
 - 來源統計：`fully_original 355`、`web_inspired_original 0`、`direct_reuse_licensed 0`；Human Exception `0`。
 - Final regression：focused 7/7、Node 215/215、Browser 45/45、lint、TypeScript、build 與 diff-check 已通過。
 - Human tablet acceptance：PASS（16 題跨八科抽驗、姐姐／妹妹平時練習、月考練習、登入／角色均通過）；Human Exception `0`。
-- **Next Step:** 等待 Owner 指定 Sprint 38；不得自行開始 Sprint 38。
+- **Next Step:** 下一階段：繼續擴增平時練習題庫及第一次月考題庫。平時練習目前基線為 8 科各 60 題；第一次月考 allowlist 基線為 87。下一次開工先依實際題庫 coverage、重複度、難度與第一次月考範圍規劃下一輪擴增，不超出已確認第一次月考範圍。題庫後續仍可依 Question Bank Auto-Deploy Rule，在完整測試 PASS 後自動部署至 `2026ast-hosting-preview`；Production 仍 Deferred；不自行啟動新的功能 Sprint。下一次工作重點是題庫內容擴增，而不是 Auth、Production 或架構改造。
 
 ### Vercel Preview Deployment
 
