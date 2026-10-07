@@ -1,5 +1,14 @@
 # Sprint Log
 
+# Sprint 38 — Practice and Monthly Question Bank Expansion — Implementation Complete / Awaiting Human Acceptance
+
+- Branch: `codex/sprint38-practice-bank-expansion`; baseline `ac2eb5ac769ecab7b433c310d315023dfce52f2b`.
+- Coverage audit completed across all eight banks. First batch adds 80 original singleton questions, ten per bank, with practice active counts 60 → 70 and total active practice 560.
+- Monthly allowlist changes from 87 to 127, five in-scope additions per bank. Total questions 573; learning units 568.
+- Focused Sprint 38 QA 5/5 and full Node 221/221 pass; lint, TypeScript, build, Browser 45/45 and diff-check pass. No Learning Record, ReviewSession, Backup/Restore, retry, 1/3/7, Auth or Production changes.
+- Current deployed Preview source remains Sprint 37 commit `3879fb45471170c61fc0ac35cdebbdcecafcbbd6`; it is not being confused with the current repository HEAD.
+- Next Step: run remaining quality gates, deploy Preview only, and stop at Human Acceptance.
+
 ## Sprint 37 — Practice Bank Scale-up to 60 per Subject — Completed
 
 - 新增 355 題原創 singleton 題目；八科 Active Practice 均由既有數量提升至 60，Total Active Practice 為 480。

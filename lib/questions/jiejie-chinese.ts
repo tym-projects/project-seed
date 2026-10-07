@@ -236,6 +236,10 @@ const sprint37Questions: Question[] = Array.from({ length: 48 }, (_, offset) => 
   return { id: `jiejie-chinese-${index}`, topic: `第${lessons[offset % lessons.length]}｜${skills[offset % skills.length]}`, type, title: '自編短文理解', instruction: '閱讀自編短文後選出最佳答案。', question: `${situations[offset % situations.length]}（自編情境第${Math.floor(offset / 8) + 1}組）這段文字最想說明什麼？`, options, answer, hint: '先找出人物做了哪些事，再思考這些做法帶來的結果。', explanation: `短文中的行動和結果都支持「${answers[offset % 8]}」，其他選項不是主旨或與短文不符。`, encouragement: '答對了！你能統整短文的重要訊息。' };
 });
 questions.push(...sprint37Questions);
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sprint38QuestionModule = typeof require === 'function' ? require('./sprint38-question-additions') : undefined;
+const sprint38QuestionsByBank = (sprint38QuestionModule?.sprint38QuestionsByBank ?? {}) as Record<string, Question[]>;
+questions.push(...(sprint38QuestionsByBank['jiejie/chinese'] ?? []));
 
 // Keep retired early test questions available for historical Learning Records,
 // but exclude them from current formal practice and review flows.

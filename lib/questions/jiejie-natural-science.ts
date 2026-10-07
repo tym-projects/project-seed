@@ -127,5 +127,9 @@ const sprint37Questions: Question[] = Array.from({ length: 43 }, (_, offset) => 
   return { id: `jiejie-natural-science-${index}`, topic, type, title: '觀察與推論', instruction: '請根據觀察資料選出合理答案。', question: `${question}（自編觀察第${Math.floor(offset / 8) + 1}組）從題目可以知道什麼？`, options, answer, hint: '找出固定的條件、改變的條件和觀察到的結果。', explanation: `題目中的條件與結果支持「${correct}」；其他選項忽略公平比較或超出題目資訊。`, encouragement: '答對了！你能用觀察資料做出合理推論。' };
 });
 questions.push(...sprint37Questions);
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sprint38QuestionModule = typeof require === 'function' ? require('./sprint38-question-additions') : undefined;
+const sprint38QuestionsByBank = (sprint38QuestionModule?.sprint38QuestionsByBank ?? {}) as Record<string, Question[]>;
+questions.push(...(sprint38QuestionsByBank['jiejie/natural_science'] ?? []));
 
 export const practiceQuestions: Question[] = questions;

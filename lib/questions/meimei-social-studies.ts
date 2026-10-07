@@ -107,3 +107,7 @@ const sprint37Questions: QuestionCardQuestion[] = Array.from({ length: 46 }, (_,
   return { id: `meimei-social-studies-${index}`, topic: offset % 2 === 0 ? '我和我的家人' : '學習的方法', type, title: '生活情境判讀', instruction: '請根據生活情境選出最適合的做法。', question: `${question}從短文可以知道什麼？（自編情境第${Math.floor(offset / 8) + 1}組）`, options, answer, hint: '注意人物如何溝通、分工、準備或檢查。', explanation: `題目中的做法支持「${correct}」；其他選項沒有運用題目提供的合作或學習線索。`, encouragement: '答對了！你能把學習方法用在生活中。' };
 });
 questions.push(...sprint37Questions);
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sprint38QuestionModule = typeof require === 'function' ? require('./sprint38-question-additions') : undefined;
+const sprint38QuestionsByBank = (sprint38QuestionModule?.sprint38QuestionsByBank ?? {}) as Record<string, QuestionCardQuestion[]>;
+questions.push(...(sprint38QuestionsByBank['meimei/social_studies'] ?? []));

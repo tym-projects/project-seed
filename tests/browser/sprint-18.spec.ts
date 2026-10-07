@@ -28,6 +28,7 @@ const historyRecord = {
 const completedTodayOtherGroups = [
   'jiejie-chinese-2', 'jiejie-chinese-4',
   ...Array.from({ length: 60 }, (_, index) => `jiejie-chinese-${index + 10}`),
+  ...Array.from({ length: 10 }, (_, index) => `jiejie-chinese-${index + 70}`),
 ].map((questionId) => ({
   id: `smoke-s18-today-${questionId}`, student: 'jiejie', subject: 'chinese', questionId,
   firstAnswer: 0, finalAnswer: 0, attempts: 1, correct: true, completed: true,

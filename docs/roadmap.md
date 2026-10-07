@@ -1,5 +1,13 @@
 # Project Seed Roadmap
 
+# Sprint 38 — Practice and Monthly Question Bank Expansion — Implementation Complete / Awaiting Human Acceptance
+
+- First coverage batch: 80 original questions, ten per bank; active practice 60 → 70 per bank, 480 → 560 total.
+- Monthly allowlist: 87 → 127, with five confirmed-scope additions per bank. Total questions 493 → 573; learning units 488 → 568.
+- Scope, option uniqueness, answer-index, singleton-unit, preserved-filter and 妹妹自然 forbidden-topic checks pass. Focused QA is 5/5 and full Node is 221/221; Browser is 45/45.
+- Current repository HEAD and deployed Preview source are tracked separately: repository work is on `codex/sprint38-practice-bank-expansion`; the currently deployed Sprint 37 Preview source remains `3879fb45471170c61fc0ac35cdebbdcecafcbbd6`.
+- Next Step: complete remaining regression gates and Preview deploy, then Human Acceptance. Protected Learning Record and Production boundaries remain unchanged.
+
 ## Sprint 37 — Practice Bank Scale-up to 60 per Subject — Completed
 
 - 八科 Active Practice 均為 60，Total Active Practice `480`；新增 355 題，題庫 `138 → 493`，learning units `133 → 488`。

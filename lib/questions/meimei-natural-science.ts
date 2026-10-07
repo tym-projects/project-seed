@@ -135,3 +135,7 @@ const sprint37Questions: QuestionCardQuestion[] = Array.from({ length: 43 }, (_,
   return { id: `meimei-natural-science-${index}`, topic, type, title: '觀察與推論', instruction: '請根據題目提供的觀察選出答案。', question: `${question}（自編觀察第${Math.floor(offset / 8) + 1}組）從題目可以知道什麼？`, options, answer, hint: '注意題目中的觀察條件和結果，不要加入沒有提供的知識。', explanation: `題目中的條件與結果支持「${correct}」；其他選項不是由題目資訊推出。`, encouragement: '答對了！你能從觀察結果做出合理判斷。' };
 });
 questions.push(...sprint37Questions);
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sprint38QuestionModule = typeof require === 'function' ? require('./sprint38-question-additions') : undefined;
+const sprint38QuestionsByBank = (sprint38QuestionModule?.sprint38QuestionsByBank ?? {}) as Record<string, QuestionCardQuestion[]>;
+questions.push(...(sprint38QuestionsByBank['meimei/natural_science'] ?? []));

@@ -117,6 +117,10 @@ const sprint37Questions: Question[] = Array.from({ length: 46 }, (_, offset) => 
   return { id: `jiejie-social-studies-${index}`, topic: offset % 2 === 0 ? '個人發展如何受到社會變遷的影響' : '族群交流如何影響臺灣社會', type, title: '社會情境判讀', instruction: '請根據情境選出合理答案。', question: `${question}（自編情境第${Math.floor(offset / 8) + 1}組）從題目可以知道什麼？`, options, answer, hint: '先找出情境中的改變、交流或合作，再判斷它帶來的影響。', explanation: `情境中的具體做法支持「${correct}」；其他選項把內容過度簡化或與題意相反。`, encouragement: '答對了！你能從生活情境理解社會變化。' };
 });
 questions.push(...sprint37Questions);
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sprint38QuestionModule = typeof require === 'function' ? require('./sprint38-question-additions') : undefined;
+const sprint38QuestionsByBank = (sprint38QuestionModule?.sprint38QuestionsByBank ?? {}) as Record<string, Question[]>;
+questions.push(...(sprint38QuestionsByBank['jiejie/social_studies'] ?? []));
 
 // Keep the two out-of-scope democracy questions for history lookup,
 // but exclude them from current practice, review, and reinforcement flows.

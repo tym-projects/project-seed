@@ -1,0 +1,22 @@
+{
+  "sprint": 38,
+  "status": "Implementation Complete / Awaiting Human Acceptance",
+  "baselineHead": "ac2eb5ac769ecab7b433c310d315023dfce52f2b",
+  "candidateCount": 80,
+  "practiceAdditionCount": 80,
+  "monthlyAllowlistBefore": 87,
+  "monthlyAllowlistAfter": 127,
+  "learningRecordSchema": "project-seed:learning-records:v1 unchanged",
+  "scopePolicy": "confirmed first-month exam ranges only",
+  "provenancePolicy": "fully original; public references may inform concepts but no unlicensed text is reproduced",
+  "entries": [
+    {"bank":"jiejie/chinese","candidatePrefix":"S38-JC","questionIds":["jiejie-chinese-70","jiejie-chinese-71","jiejie-chinese-72","jiejie-chinese-73","jiejie-chinese-74","jiejie-chinese-75","jiejie-chinese-76","jiejie-chinese-77","jiejie-chinese-78","jiejie-chinese-79"],"scope":"六上第壹、貳單元第1–6課","monthlyIds":["jiejie-chinese-70","jiejie-chinese-71","jiejie-chinese-72","jiejie-chinese-73","jiejie-chinese-74"]},
+    {"bank":"jiejie/mathematics","candidatePrefix":"S38-JM","questionIds":["jiejie-mathematics-63","jiejie-mathematics-64","jiejie-mathematics-65","jiejie-mathematics-66","jiejie-mathematics-67","jiejie-mathematics-68","jiejie-mathematics-69","jiejie-mathematics-70","jiejie-mathematics-71","jiejie-mathematics-72"],"scope":"南一六上第1–4單元","monthlyIds":["jiejie-mathematics-63","jiejie-mathematics-64","jiejie-mathematics-65","jiejie-mathematics-66","jiejie-mathematics-67"]},
+    {"bank":"jiejie/natural_science","candidatePrefix":"S38-JN","questionIds":["jiejie-natural-science-61","jiejie-natural-science-62","jiejie-natural-science-63","jiejie-natural-science-64","jiejie-natural-science-65","jiejie-natural-science-66","jiejie-natural-science-67","jiejie-natural-science-68","jiejie-natural-science-69","jiejie-natural-science-70"],"scope":"康軒六上第1–2單元","monthlyIds":["jiejie-natural-science-61","jiejie-natural-science-62","jiejie-natural-science-63","jiejie-natural-science-64","jiejie-natural-science-65"]},
+    {"bank":"jiejie/social_studies","candidatePrefix":"S38-JS","questionIds":["jiejie-social-studies-63","jiejie-social-studies-64","jiejie-social-studies-65","jiejie-social-studies-66","jiejie-social-studies-67","jiejie-social-studies-68","jiejie-social-studies-69","jiejie-social-studies-70","jiejie-social-studies-71","jiejie-social-studies-72"],"scope":"康軒六上第1–2單元","monthlyIds":["jiejie-social-studies-63","jiejie-social-studies-64","jiejie-social-studies-65","jiejie-social-studies-66","jiejie-social-studies-67"]},
+    {"bank":"meimei/chinese","candidatePrefix":"S38-MC","questionIds":["meimei-chinese-61","meimei-chinese-62","meimei-chinese-63","meimei-chinese-64","meimei-chinese-65","meimei-chinese-66","meimei-chinese-67","meimei-chinese-68","meimei-chinese-69","meimei-chinese-70"],"scope":"三上第1–6課","monthlyIds":["meimei-chinese-61","meimei-chinese-62","meimei-chinese-63","meimei-chinese-64","meimei-chinese-65"]},
+    {"bank":"meimei/mathematics","candidatePrefix":"S38-MM","questionIds":["meimei-mathematics-61","meimei-mathematics-62","meimei-mathematics-63","meimei-mathematics-64","meimei-mathematics-65","meimei-mathematics-66","meimei-mathematics-67","meimei-mathematics-68","meimei-mathematics-69","meimei-mathematics-70"],"scope":"南一三上第1–4單元","monthlyIds":["meimei-mathematics-61","meimei-mathematics-62","meimei-mathematics-63","meimei-mathematics-64","meimei-mathematics-65"]},
+    {"bank":"meimei/natural_science","candidatePrefix":"S38-MN","questionIds":["meimei-natural-science-61","meimei-natural-science-62","meimei-natural-science-63","meimei-natural-science-64","meimei-natural-science-65","meimei-natural-science-66","meimei-natural-science-67","meimei-natural-science-68","meimei-natural-science-69","meimei-natural-science-70"],"scope":"認識植物、空氣和水；排除動物與磁鐵","monthlyIds":["meimei-natural-science-61","meimei-natural-science-62","meimei-natural-science-63","meimei-natural-science-64","meimei-natural-science-65"]},
+    {"bank":"meimei/social_studies","candidatePrefix":"S38-MS","questionIds":["meimei-social-studies-61","meimei-social-studies-62","meimei-social-studies-63","meimei-social-studies-64","meimei-social-studies-65","meimei-social-studies-66","meimei-social-studies-67","meimei-social-studies-68","meimei-social-studies-69","meimei-social-studies-70"],"scope":"三上第1–2單元","monthlyIds":["meimei-social-studies-61","meimei-social-studies-62","meimei-social-studies-63","meimei-social-studies-64","meimei-social-studies-65"]}
+  ]
+}

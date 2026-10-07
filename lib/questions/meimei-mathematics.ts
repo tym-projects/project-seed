@@ -193,3 +193,7 @@ const sprint37Questions: QuestionCardQuestion[] = Array.from({ length: 43 }, (_,
   return { id: `meimei-mathematics-${index}`, topic, type, title, instruction: '請選出正確的計算結果。', question, options, answer, hint, explanation, encouragement: '答對了！你能把計算方法用在生活情境中。' };
 });
 questions.push(...sprint37Questions);
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sprint38QuestionModule = typeof require === 'function' ? require('./sprint38-question-additions') : undefined;
+const sprint38QuestionsByBank = (sprint38QuestionModule?.sprint38QuestionsByBank ?? {}) as Record<string, QuestionCardQuestion[]>;
+questions.push(...(sprint38QuestionsByBank['meimei/mathematics'] ?? []));

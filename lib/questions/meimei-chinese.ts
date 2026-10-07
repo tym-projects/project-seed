@@ -146,3 +146,7 @@ const sprint37Questions: QuestionCardQuestion[] = Array.from({ length: 44 }, (_,
   return { id: `meimei-chinese-${index}`, topic: `第${lessons[offset % lessons.length]}｜語文理解`, type, title: '自編短文理解', instruction: '閱讀自編短文後回答問題。', question: `${passage}（自編情境第${Math.floor(offset / 8) + 1}組）從短文可以知道什麼？`, options, answer, hint: '把人物先做的事、後做的事和結果連起來。', explanation: `短文的行動和結果支持「${correct}」；其他選項與短文線索不符。`, encouragement: '答對了！你能找出短文中的重要做法。' };
 });
 questions.push(...sprint37Questions);
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sprint38QuestionModule = typeof require === 'function' ? require('./sprint38-question-additions') : undefined;
+const sprint38QuestionsByBank = (sprint38QuestionModule?.sprint38QuestionsByBank ?? {}) as Record<string, QuestionCardQuestion[]>;
+questions.push(...(sprint38QuestionsByBank['meimei/chinese'] ?? []));
