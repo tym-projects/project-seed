@@ -1,13 +1,14 @@
 # Sprint Log
 
-# Sprint 38 — Practice and Monthly Question Bank Expansion — Implementation Complete / Awaiting Human Acceptance
+# Sprint 38 — Practice and Monthly Question Bank Expansion — Completed
 
-- Branch: `codex/sprint38-practice-bank-expansion`; baseline `ac2eb5ac769ecab7b433c310d315023dfce52f2b`.
-- Coverage audit completed across all eight banks. First batch adds 80 original singleton questions, ten per bank, with practice active counts 60 → 70 and total active practice 560.
-- Monthly allowlist changes from 87 to 127, five in-scope additions per bank. Total questions 573; learning units 568.
-- Focused Sprint 38 QA 5/5 and full Node 221/221 pass; lint, TypeScript, build, Browser 45/45 and diff-check pass. No Learning Record, ReviewSession, Backup/Restore, retry, 1/3/7, Auth or Production changes.
-- Current deployed Preview source remains Sprint 37 commit `3879fb45471170c61fc0ac35cdebbdcecafcbbd6`; it is not being confused with the current repository HEAD.
-- Next Step: run remaining quality gates, deploy Preview only, and stop at Human Acceptance.
+- Branch: `codex/sprint38-practice-bank-expansion`; implementation baseline `ac2eb5ac769ecab7b433c310d315023dfce52f2b`.
+- Human tablet / online acceptance: PASS for 16 cross-subject samples, general practice, first monthly-exam practice, and yenmin／ariel／linda roles. Deferred `0`; Human Exception `0`。
+- 80 original singleton questions were implemented, ten per bank. Active Practice is `70` in each of the eight banks, `560` total.
+- Monthly allowlist is `87 → 127`, with five in-scope additions per bank. Total questions are `573`; learning units are `568`.
+- Focused Sprint 38 QA `5/5`, full Node `221/221`, lint, TypeScript, build, Browser `45/45`, scope, duplicate, unique-answer, option, answerIndex, and diff-check all pass. Learning Record, ReviewSession, Backup/Restore, retry, 1/3/7, Auth and Production remain unchanged.
+- Accepted Preview deployment: project `2026ast-hosting-preview`, deployment `dpl_31EMD566uLxSduwuaMVToY4FKM3w`, URL `https://2026ast-hosting-preview-ty5kcu0d1-2026-ast.vercel.app/`, deployed source commit `17f15c5d96ff152a92bc508e4740d43d1eb29747`. The prior Preview deployment remains available for rollback. A later governance-only repository HEAD must not be treated as a new deployment source.
+- Next Step: continue expansion of practice and first monthly-exam banks within confirmed first-month scope. Start the next round with a coverage audit, then size it by actual gaps. Do not start Sprint 39 automatically; Production remains Deferred.
 
 ## Sprint 37 — Practice Bank Scale-up to 60 per Subject — Completed
 

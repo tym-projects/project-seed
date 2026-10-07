@@ -1,7 +1,15 @@
 {
   "sprint": 38,
-  "status": "Implementation Complete / Awaiting Human Acceptance",
+  "status": "Completed",
   "baselineHead": "ac2eb5ac769ecab7b433c310d315023dfce52f2b",
+  "acceptedSourceCommit": "17f15c5d96ff152a92bc508e4740d43d1eb29747",
+  "humanAcceptance": "PASS: tablet / online, 16 cross-subject samples, general practice, monthly practice, yenmin, ariel, linda",
+  "deferredCount": 0,
+  "humanExceptionCount": 0,
+  "previewDeployment": {
+    "id": "dpl_31EMD566uLxSduwuaMVToY4FKM3w",
+    "url": "https://2026ast-hosting-preview-ty5kcu0d1-2026-ast.vercel.app/"
+  },
   "candidateCount": 80,
   "practiceAdditionCount": 80,
   "monthlyAllowlistBefore": 87,

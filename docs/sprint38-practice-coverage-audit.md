@@ -28,3 +28,7 @@ The audit used the eight repository question-bank modules and preserved the exis
 ## Quality observations
 
 The batch adds comprehension, application, comparison, data interpretation, fair-test reasoning and two-step calculation rather than numeric-only variants. Each item has four distinct options, one indexed answer, an explanation consistent with that answer, and a non-answer-revealing hint. The focused Sprint 38 QA checks IDs, option uniqueness, scope boundaries, active filters and monthly inventory.
+
+## Closeout
+
+Sprint 38 is **Completed** after Human tablet / online acceptance PASS. All 80 additions passed scope, duplicate, unique-answer and option QA; Deferred and Human Exception are `0`. The accepted Preview deployment is `dpl_31EMD566uLxSduwuaMVToY4FKM3w` from source commit `17f15c5d96ff152a92bc508e4740d43d1eb29747`. Learning Record compatibility is unchanged.

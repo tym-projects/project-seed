@@ -1,12 +1,13 @@
 # Project Seed Roadmap
 
-# Sprint 38 — Practice and Monthly Question Bank Expansion — Implementation Complete / Awaiting Human Acceptance
+# Sprint 38 — Practice and Monthly Question Bank Expansion — Completed
 
-- First coverage batch: 80 original questions, ten per bank; active practice 60 → 70 per bank, 480 → 560 total.
-- Monthly allowlist: 87 → 127, with five confirmed-scope additions per bank. Total questions 493 → 573; learning units 488 → 568.
-- Scope, option uniqueness, answer-index, singleton-unit, preserved-filter and 妹妹自然 forbidden-topic checks pass. Focused QA is 5/5 and full Node is 221/221; Browser is 45/45.
-- Current repository HEAD and deployed Preview source are tracked separately: repository work is on `codex/sprint38-practice-bank-expansion`; the currently deployed Sprint 37 Preview source remains `3879fb45471170c61fc0ac35cdebbdcecafcbbd6`.
-- Next Step: complete remaining regression gates and Preview deploy, then Human Acceptance. Protected Learning Record and Production boundaries remain unchanged.
+- Human tablet / online acceptance: PASS (16 題跨八科抽驗、一般練習、第一次月考練習，以及 yenmin／ariel／linda 角色); Deferred `0`，Human Exception `0`。
+- 80 題 original singleton questions 已完成；各科 Active Practice `60 → 70`，Total Active Practice `480 → 560`。
+- Monthly allowlist `87 → 127`，每科新增 5 題；Total questions `493 → 573`，learning units `488 → 568`。
+- Scope、duplicate、unique-answer、option、answerIndex、singleton-unit、preserved-filter 與妹妹自然 forbidden-topic QA 均通過；focused QA `5/5`、Node `221/221`、Browser `45/45`、lint、TypeScript、build 與 diff-check 均通過。
+- 已接受的家庭 Preview：`2026ast-hosting-preview` deployment `dpl_31EMD566uLxSduwuaMVToY4FKM3w`，source `17f15c5d96ff152a92bc508e4740d43d1eb29747`，URL `https://2026ast-hosting-preview-ty5kcu0d1-2026-ast.vercel.app/`。後續純治理 commit 與 deployed source 分開記錄；前一個 Preview 保留 rollback，Production 未使用。
+- Next Step：繼續擴增平時練習題庫及第一次月考題庫，僅限已確認第一次月考範圍；先做 coverage audit，再依缺口決定擴增量。不自行啟動 Sprint 39；Learning Record 保護維持，Production Deferred。
 
 ## Sprint 37 — Practice Bank Scale-up to 60 per Subject — Completed
 

@@ -52,4 +52,8 @@
 - Create: `docs/sprint38-practice-coverage-audit.md`
 
 - [x] Verify unique IDs, four distinct options, answer index validity, scope restrictions, monthly count, active counts and preserved exclusions.
-- [ ] Run full Node, lint, TypeScript, build and Browser regression before Preview deployment.
+- [x] Run full Node, lint, TypeScript, build and Browser regression before Preview deployment.
+
+## Closeout outcome
+
+Sprint 38 is **Completed** after Human tablet / online acceptance PASS. All 80 candidates were implemented; Deferred and Human Exception are both `0`. Final counts are eight Active Practice banks at `70` each (`560` total), monthly allowlist `127`, total questions `573`, and learning units `568`. The accepted Preview deployment is `dpl_31EMD566uLxSduwuaMVToY4FKM3w` from `17f15c5d96ff152a92bc508e4740d43d1eb29747`; Production was not used.

@@ -1,6 +1,6 @@
 # Sprint 38 Source / Provenance Record
 
-Status: Implementation Complete / Awaiting Human Acceptance.
+Status: Completed after Human tablet / online acceptance PASS. Deferred `0`; Human Exception `0`.
 
 All 80 Sprint 38 questions are original, self-authored content. No commercial or publisher question bank text was copied. The content uses the confirmed first-month scope and was written from general curriculum concepts and grade-level question-shape knowledge; no external text is presented as textbook wording.
 
@@ -16,3 +16,5 @@ All 80 Sprint 38 questions are original, self-authored content. No commercial or
 | 妹妹社會 | 10 | 5 | Original self-authored | 三上第1–2單元 |
 
 Learning Record, ReviewSession, Backup/Restore, retry and 1/3/7 scheduling are not part of this provenance change.
+
+The accepted Preview deployment is `dpl_31EMD566uLxSduwuaMVToY4FKM3w` at `https://2026ast-hosting-preview-ty5kcu0d1-2026-ast.vercel.app/`, sourced from `17f15c5d96ff152a92bc508e4740d43d1eb29747`. This deployment source remains distinct from later governance-only repository commits.

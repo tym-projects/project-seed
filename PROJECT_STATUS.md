@@ -1,13 +1,14 @@
 # Project Status
 
-# Sprint 38 — Practice and Monthly Question Bank Expansion — Implementation Complete / Awaiting Human Acceptance
+# Sprint 38 — Practice and Monthly Question Bank Expansion — Completed
 
-- Current repository branch: `codex/sprint38-practice-bank-expansion`; current repository HEAD remains the Sprint 38 working baseline until the next commit. The deployed Preview source commit is tracked separately as Sprint 37 deployment source `3879fb45471170c61fc0ac35cdebbdcecafcbbd6`.
-- Coverage audit and first implementation batch are complete: 80 original singleton questions added, ten per bank; active practice is 70 per bank / 560 total.
-- Monthly allowlist expanded from 87 to 127 with five in-scope additions per bank. No excluded historical question was reactivated.
-- Inventory is 573 total questions and 568 learning units. Learning Record, ReviewSession, Backup/Restore, retry, 1/3/7 scheduling, Auth and Production remain unchanged.
-- Sprint 38 focused QA 5/5 and full Node 221/221 pass. Lint, TypeScript, build, Browser regression 45/45 and diff-check pass.
-- **Next Step:** complete lint, TypeScript, build, Browser regression and diff-check, then deploy only to `2026ast-hosting-preview` under the Question Bank Auto-Deploy Rule and stop at Human Acceptance.
+- Human tablet / online acceptance: PASS (16 題跨八科抽驗、一般練習、第一次月考練習與 yenmin／ariel／linda 角色均通過); Deferred `0`，Human Exception `0`。
+- 80 題 fully original singleton questions 已全部實作，每科各 10 題；八科 Active Practice 均為 `70`，Total Active Practice `560`。
+- Monthly allowlist `87 → 127`，每科新增 5 題，未重新啟用任何已排除的舊題。
+- Inventory：Total questions `493 → 573`，Learning units `488 → 568`。Learning Record、ReviewSession、Backup/Restore、retry、1/3/7 scheduling、Auth 與 Production 均未修改。
+- 驗證：Sprint 38 focused QA `5/5`、Node `221/221`、lint、TypeScript、build、Browser regression `45/45` 與 diff-check 均通過。
+- 家庭 Preview：`2026ast-hosting-preview` deployment `dpl_31EMD566uLxSduwuaMVToY4FKM3w`，URL `https://2026ast-hosting-preview-ty5kcu0d1-2026-ast.vercel.app/`，deployed / accepted source commit `17f15c5d96ff152a92bc508e4740d43d1eb29747`；前一個 Preview deployment 保留供 rollback，Production 未使用。Repository 後續的純治理 commit 不代表重新部署。
+- **Next Step:** 繼續擴增平時練習題庫及第一次月考題庫，仍限於已確認第一次月考範圍；下一輪先做 coverage audit，再依缺口決定擴增量。不自行啟動 Sprint 39；Production 維持 Deferred。
 
 ## Sprint 37 — Practice Bank Scale-up to 60 per Subject — Completed
 
