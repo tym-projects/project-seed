@@ -1,7 +1,16 @@
 {
   "sprint": 39,
-  "status": "Implementation verified; Preview deployment blocked; Human acceptance pending",
+  "status": "Completed",
   "baselineHead": "3ab84c411bf1ac2ca1b949aee0ef10a9c1171f92",
+  "acceptedReleaseHead": "6d2f35d49e0712d34d21e55154e5cd5dfda94a10",
+  "humanAcceptance": "PASS: online / tablet, 16 cross-subject samples, general practice, monthly practice, yenmin, ariel, linda",
+  "deferredCount": 0,
+  "humanExceptionCount": 0,
+  "previewDeployment": {
+    "id": "dpl_QR4Uxkc2rhvP3Vc6vWEyPHXD3f3N",
+    "status": "READY",
+    "url": "https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/"
+  },
   "candidateCount": 40,
   "practiceAdditionCount": 40,
   "monthlyAllowlistBefore": 127,

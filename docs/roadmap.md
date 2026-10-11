@@ -1,13 +1,13 @@
 # Project Seed Roadmap
 
-# Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Implementation Verified
+# Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Completed
 
-- Coverage audit sized the batch from monthly counts `13/18/17/15/17/15/17/15`; eight Active Practice banks were all at `70`.
-- Added 40 fully original singleton questions, five per bank; Active Practice is now `75` per bank (`600` total), total questions `573 → 613`, learning units `568 → 608`.
+- 40 fully original singleton questions completed, five per bank. Active Practice is `75` in each of eight banks (`600` total); total questions `573 → 613` and learning units `568 → 608`.
 - Monthly allowlist is `127 → 144`, with every bank at `18`; only confirmed first-month ranges were used. 妹妹自然 remains restricted to `認識植物` and `空氣和水`.
-- Learning Record／ReviewSession／Backup/Restore／retry／1/3/7／Auth／Production and schema remain unchanged. Human acceptance is pending; Production remains Deferred.
-- Verification passed: focused `4/4`, Node `225/225`, lint, TypeScript, build, Browser `45/45`, and diff-check. Commit `3321edd` is pushed and branch is synchronized; Preview deployment is blocked by Vercel `Not authorized`, while Production remains untouched.
-- Audit: `docs/sprint39-practice-coverage-audit.md`; manifest: `docs/sprint39-candidate-manifest.json`.
+- Human online / tablet acceptance PASS: 16 cross-subject samples, general practice, monthly practice, and yenmin／ariel／linda role authorization. Deferred `0`; Human Exception `0`.
+- Focused `4/4`, Node `225/225`, lint, TypeScript, build, Browser `45/45`, and diff-check pass. Learning Record／ReviewSession／Backup/Restore／retry／1/3/7／Auth／Production and schema remain unchanged.
+- Accepted Preview: `2026ast-hosting-preview`, `dpl_QR4Uxkc2rhvP3Vc6vWEyPHXD3f3N`, `READY`, `https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/`. Vercel Authentication is off; Preview routes proceed to Clerk. Production remains Deferred.
+- Next Step: continue practice and first-month-exam expansion only within confirmed scope. Start the next round with a coverage audit, then size it by gaps. Do not start Sprint 40 automatically.
 
 # Sprint 38 — Practice and Monthly Question Bank Expansion — Completed
 

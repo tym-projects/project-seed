@@ -1,15 +1,14 @@
 # Sprint Log
 
-# Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Implementation Verified
+# Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Completed
 
-- Branch continues from Sprint 38 feature branch; baseline HEAD `3ab84c411bf1ac2ca1b949aee0ef10a9c1171f92`.
+- Branch continues from Sprint 38 feature branch; implementation / accepted release HEAD `6d2f35d49e0712d34d21e55154e5cd5dfda94a10`.
 - Coverage audit found monthly counts `13/18/17/15/17/15/17/15`; added 40 original singleton questions, five per bank, and 17 monthly entries to bring every bank to 18.
-- Current inventory: `613` questions, `608` learning units, `600` active practice questions, and `144` monthly allowlist entries.
-- No Learning Record／ReviewSession／Backup/Restore／retry／1/3/7／Auth／Production or schema changes. 妹妹自然 additions remain only in `認識植物` and `空氣和水`.
-- Verification: focused `4/4`, Node `225/225`, lint, TypeScript, build, and Browser `45/45` passed. Human tablet／online acceptance remains pending; Production remains Deferred.
-- Audit and manifest: `docs/sprint39-practice-coverage-audit.md`, `docs/sprint39-candidate-manifest.json`.
-- Final diff/Git closeout and feature-branch push completed. Preview deployment is blocked: Vercel CLI returned `Not authorized`; the dashboard still shows the prior deployment `dpl_31EMD566uLxSduwuaMVToY4FKM3w`, not source `3321edd`. Existing Preview and Production were not changed.
-- Next Step: authorized Owner retries the existing Preview deployment, then runs route smoke and records Human acceptance.
+- Final inventory: `613` questions, `608` learning units, `600` active practice questions, and `144` monthly allowlist entries.
+- Human online / tablet acceptance PASS: 16 cross-subject samples, general practice, monthly practice, and yenmin／ariel／linda role authorization. Deferred `0`; Human Exception `0`.
+- Focused `4/4`, Node `225/225`, lint, TypeScript, build, Browser `45/45`, and diff-check passed. Learning Record／ReviewSession／Backup/Restore／retry／1/3/7／Auth／Production or schema changes: none. 妹妹自然 additions remain only in `認識植物` and `空氣和水`.
+- Accepted Preview: `2026ast-hosting-preview`, deployment `dpl_QR4Uxkc2rhvP3Vc6vWEyPHXD3f3N`, status `READY`, URL `https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/`. Vercel Authentication is disabled, so Preview routes proceed to Clerk; Production remains Deferred and untouched.
+- Next Step: continue practice and first-month-exam expansion within confirmed scope. Start with a coverage audit, then size the batch by gaps. Do not start Sprint 40 automatically.
 
 # Sprint 38 — Practice and Monthly Question Bank Expansion — Completed
 
