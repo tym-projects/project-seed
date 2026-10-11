@@ -1,6 +1,6 @@
 {
   "sprint": 39,
-  "status": "Implementation verified; Human acceptance pending",
+  "status": "Implementation verified; Preview deployment blocked; Human acceptance pending",
   "baselineHead": "3ab84c411bf1ac2ca1b949aee0ef10a9c1171f92",
   "candidateCount": 40,
   "practiceAdditionCount": 40,

@@ -8,7 +8,8 @@
 - Inventory is now `613` questions and `608` learning units. Learning Record, ReviewSession, Backup/Restore, retry, 1/3/7 scheduling, Auth and Production were not modified.
 - Verification: focused QA `4/4`, Node `225/225`, lint, TypeScript, build, disposable Browser `45/45`; diff-check and final Git closeout remain to be recorded below.
 - Human tablet／online acceptance: pending; Production remains Deferred. Full audit and candidate disposition: `docs/sprint39-practice-coverage-audit.md` and `docs/sprint39-candidate-manifest.json`.
-- **Next Step:** complete final diff/Git closeout, push the feature branch, and deploy only the existing `2026ast-hosting-preview` after the final gates; then request/record Human acceptance. Do not deploy Production.
+- Preview deployment: blocked by Vercel authorization. CLI returned `Not authorized`; dashboard read-only check still shows the prior deployment `dpl_31EMD566uLxSduwuaMVToY4FKM3w`, not source commit `3321edd`. Existing Preview was not changed and Production was not touched.
+- **Next Step:** an authorized Owner must retry deployment of source `3321edd` to the existing `2026ast-hosting-preview`, then run Preview route smoke and record Human acceptance. Do not deploy Production.
 
 # Sprint 38 — Practice and Monthly Question Bank Expansion — Completed
 

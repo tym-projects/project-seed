@@ -8,7 +8,8 @@
 - No Learning Record／ReviewSession／Backup/Restore／retry／1/3/7／Auth／Production or schema changes. 妹妹自然 additions remain only in `認識植物` and `空氣和水`.
 - Verification: focused `4/4`, Node `225/225`, lint, TypeScript, build, and Browser `45/45` passed. Human tablet／online acceptance remains pending; Production remains Deferred.
 - Audit and manifest: `docs/sprint39-practice-coverage-audit.md`, `docs/sprint39-candidate-manifest.json`.
-- Next Step: final diff/Git closeout, feature-branch push, existing Preview deployment, route smoke, then Human acceptance.
+- Final diff/Git closeout and feature-branch push completed. Preview deployment is blocked: Vercel CLI returned `Not authorized`; the dashboard still shows the prior deployment `dpl_31EMD566uLxSduwuaMVToY4FKM3w`, not source `3321edd`. Existing Preview and Production were not changed.
+- Next Step: authorized Owner retries the existing Preview deployment, then runs route smoke and records Human acceptance.
 
 # Sprint 38 — Practice and Monthly Question Bank Expansion — Completed
 

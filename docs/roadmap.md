@@ -6,7 +6,7 @@
 - Added 40 fully original singleton questions, five per bank; Active Practice is now `75` per bank (`600` total), total questions `573 → 613`, learning units `568 → 608`.
 - Monthly allowlist is `127 → 144`, with every bank at `18`; only confirmed first-month ranges were used. 妹妹自然 remains restricted to `認識植物` and `空氣和水`.
 - Learning Record／ReviewSession／Backup/Restore／retry／1/3/7／Auth／Production and schema remain unchanged. Human acceptance is pending; Production remains Deferred.
-- Verification passed: focused `4/4`, Node `225/225`, lint, TypeScript, build, Browser `45/45`; final diff/Git closeout and Preview deployment are the next gates.
+- Verification passed: focused `4/4`, Node `225/225`, lint, TypeScript, build, Browser `45/45`, and diff-check. Commit `3321edd` is pushed and branch is synchronized; Preview deployment is blocked by Vercel `Not authorized`, while Production remains untouched.
 - Audit: `docs/sprint39-practice-coverage-audit.md`; manifest: `docs/sprint39-candidate-manifest.json`.
 
 # Sprint 38 — Practice and Monthly Question Bank Expansion — Completed
