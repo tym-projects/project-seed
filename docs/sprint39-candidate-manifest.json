@@ -8,8 +8,9 @@
   "humanExceptionCount": 0,
   "previewDeployment": {
     "id": "dpl_QR4Uxkc2rhvP3Vc6vWEyPHXD3f3N",
-    "status": "READY",
-    "url": "https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/"
+    "status": "SUPERSEDED_DO_NOT_USE",
+    "url": "https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/",
+    "replacementUrl": "https://2026ast-hosting-preview-gd6yctj5a-2026-ast.vercel.app/"
   },
   "candidateCount": 40,
   "practiceAdditionCount": 40,

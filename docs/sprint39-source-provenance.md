@@ -17,4 +17,4 @@ All 40 Sprint 39 questions are fully original, self-authored content. No commerc
 
 Learning Record, ReviewSession, Backup/Restore, retry, 1/3/7 scheduling, Auth, and Production are outside this content change and remain unchanged.
 
-Accepted Preview deployment: `dpl_QR4Uxkc2rhvP3Vc6vWEyPHXD3f3N`, `READY`, `https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/`. Vercel Authentication is disabled; the family flow is Preview → Clerk → role authorization. Production remains Deferred.
+The original question-bank Preview `dpl_QR4Uxkc2rhvP3Vc6vWEyPHXD3f3N` at `https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/` is Superseded / Do Not Use after the Post-Sprint 39 Auth Regression Remediation. The protected family Preview is `https://2026ast-hosting-preview-gd6yctj5a-2026-ast.vercel.app/`; Vercel Authentication is OFF and the family flow is Preview → Clerk → role authorization. Production remains Deferred.

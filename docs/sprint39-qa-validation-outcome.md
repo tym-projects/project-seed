@@ -20,4 +20,4 @@ Status: **Completed** after Human online / tablet acceptance PASS.
 
 ## Acceptance and deployment
 
-Human acceptance passed for 16 cross-subject samples, general practice, first monthly-exam practice, and yenmin / ariel / linda role flows. The accepted Preview deployment is `dpl_QR4Uxkc2rhvP3Vc6vWEyPHXD3f3N` at `https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/`, status `READY`. Vercel Authentication is disabled and hands users to Clerk; Production was not changed.
+Human acceptance passed for 16 cross-subject samples, general practice, first monthly-exam practice, and yenmin / ariel / linda role flows. The original question-bank Preview deployment `dpl_QR4Uxkc2rhvP3Vc6vWEyPHXD3f3N` is Superseded / Do Not Use after the Auth Regression Remediation. The protected family Preview is `https://2026ast-hosting-preview-gd6yctj5a-2026-ast.vercel.app/`; Vercel Authentication is OFF and hands users to Clerk. Production was not changed.

@@ -40,7 +40,7 @@ Before implementation, all eight active practice banks were `70`. Monthly allowl
 - Disposable Browser regression: `45/45`.
 - `git diff --check`: PASS before commit.
 - Commit/push: `3321edd` pushed; branch ahead/behind `0/0`.
-- Preview deployment: `dpl_QR4Uxkc2rhvP3Vc6vWEyPHXD3f3N` is `READY` at `https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/`. Vercel Authentication is disabled; Preview routes proceed to Clerk. Production remains Deferred.
+- Sprint 39 question-bank acceptance is retained. The former Preview `https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/` is now Superseded / Do Not Use because a later Auth regression remediation established `https://2026ast-hosting-preview-gd6yctj5a-2026-ast.vercel.app/` as the protected family Preview. Production remains Deferred.
 
 ## Closeout
 

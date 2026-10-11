@@ -5,8 +5,9 @@
 - 40 fully original singleton questions completed, five per bank. Active Practice is `75` in each of eight banks (`600` total); total questions `573 → 613` and learning units `568 → 608`.
 - Monthly allowlist is `127 → 144`, with every bank at `18`; only confirmed first-month ranges were used. 妹妹自然 remains restricted to `認識植物` and `空氣和水`.
 - Human online / tablet acceptance PASS: 16 cross-subject samples, general practice, monthly practice, and yenmin／ariel／linda role authorization. Deferred `0`; Human Exception `0`.
-- Focused `4/4`, Node `225/225`, lint, TypeScript, build, Browser `45/45`, and diff-check pass. Learning Record／ReviewSession／Backup/Restore／retry／1/3/7／Auth／Production and schema remain unchanged.
-- Accepted Preview: `2026ast-hosting-preview`, `dpl_QR4Uxkc2rhvP3Vc6vWEyPHXD3f3N`, `READY`, `https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/`. Vercel Authentication is off; Preview routes proceed to Clerk. Production remains Deferred.
+- Focused `4/4`, Node `225/225`, lint, TypeScript, build, Browser `45/45`, and diff-check pass. Learning Record／ReviewSession／Backup/Restore／retry／1/3/7／Production and schema remain unchanged.
+- Post-Sprint 39 Auth Regression Remediation: a Preview branch missing `proxy.ts`, Clerk dependency, and role guards exposed the app without app-level authentication. Commit `f0efa4c` restored the Clerk middleware, fail-closed routes and role guards; focused auth `28/28`, Node `253/253`, lint, TypeScript, build and diff-check passed. Human Authentication Review passed for anonymous, yenmin, ariel and linda.
+- Current family Preview: `2026ast-hosting-preview`, `dpl_8eUJuT6BXxwP5jdx7f3771xTQRwh`, `READY`, `https://2026ast-hosting-preview-gd6yctj5a-2026-ast.vercel.app/`. Vercel Authentication is OFF; Clerk is the application boundary. The prior unprotected `qefelgp01` Preview is superseded and must not be used. Production remains Deferred.
 - Next Step: continue practice and first-month-exam expansion only within confirmed scope. Start the next round with a coverage audit, then size it by gaps. Do not start Sprint 40 automatically.
 
 # Sprint 38 — Practice and Monthly Question Bank Expansion — Completed

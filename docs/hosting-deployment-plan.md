@@ -14,7 +14,7 @@ This document tracks the Hosting/Auth closeout. It records configuration and ver
 2. Run focused auth tests, full Node tests, lint, TypeScript, and build.
 3. Deploy a Vercel Preview using Clerk Development keys. Never use `--prod` or `2026ast-production`.
 4. Create or invite the three test users in the Development instance. DONE: `yenmin`, `ariel`, and `linda` are present; Human login passed for all three.
-5. Verify signed-out redirects, sign-in, sign-out, reload/back, all student/parent routes, no public signup, and role authorization. Automated checks cover fail-closed route policy; credentialed acceptance remains a Human Authentication Review Gate.
+5. Verify signed-out redirects, sign-in, sign-out, reload/back, all student/parent routes, no public signup, and role authorization. Automated checks cover fail-closed route policy; credentialed acceptance remains a Human Authentication Review Gate. DONE: Human acceptance passed for anonymous, yenmin, ariel and linda.
 
 ## Phase 2 — Cloud smoke and tablet review
 
@@ -50,7 +50,11 @@ Keep local 3100 available as short-term fallback. A Vercel rollback should targe
   - `linda` is limited to 妹妹 home and related features; no 姐姐 entry and no Parent mode.
 - Keep this requirement separate from question-bank changes and protect it with regression tests.
 - Final Clerk state: username/password login retained; Google login OFF; Public signup OFF; Access mode Invite-only. No password, key, token, or bypass value is recorded.
-- Vercel Deployment Protection requires Vercel Authentication. One older Preview domain is listed as a Protection Exception and is a cleanup DELETE CANDIDATE. No Sharable Link was listed. One automation-bypass metadata entry exists and is a cleanup REVOKE CANDIDATE; its value is intentionally omitted.
+- Vercel Authentication is OFF. Clerk is the required application authentication boundary; do not use Vercel Deployment Protection to mask an application Auth regression.
 - Production placeholder and older Preview deployments remain for a separate cleanup review; no deletion or revoke was performed.
 - Learning Record has not been migrated to the cloud, and Vercel Production has not been formally launched.
 - Real Clerk Preview sign-in E2E has been exercised by Human for the three Development users, including one deliberate wrong-password rejection. No correct password is recorded or requested from Codex. Production deployment is not authorized by this document.
+
+## Post-Sprint 39 Auth Deployment Preflight
+
+Before every `2026ast-hosting-preview` deployment, including a question-bank-only deployment, verify Clerk dependency, root `proxy.ts`, both required Preview Clerk environment-variable names, anonymous root／姐姐／妹妹／爸爸 redirects to Clerk, role guard tests, and parent／jiejie／meimei authorization regression tests. Any failure blocks deployment. This rule exists because a branch missing proxy, dependency, and role guards produced an unprotected Preview despite a successful deployment.

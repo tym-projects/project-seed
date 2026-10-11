@@ -5,10 +5,10 @@
 - Human online / tablet acceptance: PASS（16 題跨八科抽驗、一般練習、第一次月考練習，以及 yenmin／ariel／linda 角色均通過）；Deferred `0`，Human Exception `0`。
 - 已完成 `40` 題 fully original singleton questions，每科各 5 題；八科 Active Practice 均為 `75`，Total Active Practice `600`。
 - Monthly allowlist `127 → 144`，每科 `18` 題；未加入未確認範圍，妹妹自然仍限於 `認識植物`／`空氣和水`。
-- Inventory：Total questions `613`，Learning units `608`。Learning Record、ReviewSession、Backup/Restore、retry、1/3/7 scheduling 與 Production 均未修改；本次另行恢復 Preview 應用層 Clerk authentication 與 parent／jiejie／meimei role authorization。
-- 驗證：focused auth `28/28`、完整 Node `253/253`、lint、TypeScript、build、diff-check 均通過；Preview 匿名 route smoke 通過。
-- Auth regression 修復 Preview：`2026ast-hosting-preview` deployment `dpl_GhcAom4X9RBuvgSmrtDS37YKatZJ`，URL `https://2026ast-hosting-preview-6sufxpbis-2026-ast.vercel.app/`，source `9e8f4e5`，status `READY`。匿名 `/`、姐姐、妹妹、爸爸與 direct routes 均 `307` 到 Clerk，`/sign-in` 為 `200`。Vercel Authentication 維持關閉；Production 未使用且維持 Deferred。
-- Credentialed `yenmin`／`ariel`／`linda` role acceptance 仍需 Human Authentication Review Gate；Codex 未取得或記錄任何密碼、驗證碼或 secret。
+- Inventory：Total questions `613`，Learning units `608`。Learning Record、ReviewSession、Backup/Restore、retry、1/3/7 scheduling 與 Production 均未修改；Post-Sprint 39 Auth Regression Remediation 恢復 Preview 應用層 Clerk authentication 與 parent／jiejie／meimei role authorization。
+- Auth regression root cause：Preview branch 缺少 `proxy.ts`、Clerk dependency 與 role guards，致使部署成功但未登入使用者可直接進入 Project Seed。Remediation commit `f0efa4c` 恢復 Clerk middleware／全 route protection／角色 guards，並補 regression tests；final auth baseline `097d86b`。
+- 驗證：focused auth `28/28`、完整 Node `253/253`、lint、TypeScript、build、diff-check 均通過；匿名與 direct route fail-closed smoke 通過。Human Authentication Review：匿名、`yenmin`、`ariel`、`linda` 均 PASS。
+- 目前家庭 Auth Preview：`2026ast-hosting-preview` deployment `dpl_8eUJuT6BXxwP5jdx7f3771xTQRwh`，URL `https://2026ast-hosting-preview-gd6yctj5a-2026-ast.vercel.app/`，status `READY`。Vercel Authentication 為 OFF；安全流程為 Preview → Clerk → parent／jiejie／meimei role authorization。舊未保護 Preview `https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/` 已 Superseded / Do Not Use；Production 未使用且維持 Deferred。
 - Sprint 39 implementation / accepted release HEAD：`6d2f35d49e0712d34d21e55154e5cd5dfda94a10`；auth regression 修復為獨立 commit／Preview deployment，不代表 Production 變更。
 - **Next Step:** 繼續擴增平時練習題庫及第一次月考題庫，仍限於已確認第一次月考範圍；下一輪先做 coverage audit，再依缺口決定題數。不自行開始 Sprint 40；Production 維持 Deferred。
 

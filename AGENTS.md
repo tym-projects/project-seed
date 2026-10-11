@@ -103,8 +103,21 @@ git rev-parse --show-toplevel
 7. Browser regression
 8. `git diff --check`
 9. working tree、commit 與 push 狀態正常
+10. Auth Deployment Preflight PASS（見下方永久規則）
 
 部署後必須確認 Preview deployment READY、HTTP／route smoke PASS，並回報 deployment URL、source commit、題庫 counts、Monthly allowlist 與任何未驗證項目。不得使用 `--prod`、不得部署 `2026ast-production`、不得建立新 project、不得修改或清除既有環境變數。Learning Record、ReviewSession、Backup/Restore、Auth／Clerk、role authorization、schema migration、Production hosting、重大 UI 或資料風險變更仍必須停在 Human Review Gate。
+
+## Auth Deployment Preflight Rule
+
+任何部署到 `2026ast-hosting-preview` 前，即使變更只涉及題庫，也必須先完成並記錄以下 preflight。題庫 QA 與 build 成功不能取代此檢查。
+
+1. `@clerk/nextjs` dependency 仍存在。
+2. 根目錄 `proxy.ts`／Clerk middleware 保護入口仍存在。
+3. Preview target 已有 `CLERK_SECRET_KEY` 與 `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`；只確認存在，不讀取、輸出或記錄其值。
+4. 匿名 `/`、姐姐 direct route、妹妹 direct route、爸爸 direct route 均導向 Clerk。
+5. parent／jiejie／meimei role guard tests，以及 route authorization regression tests 均通過。
+
+任一項失敗即禁止 Preview deployment。Vercel Authentication 必須維持 OFF，家庭使用流程的安全邊界是 `Internet → Vercel Preview → Clerk Authentication → role authorization`；不得以 Vercel Authentication 掩蓋 Clerk regression。
 
 ## 與使用者合作
 

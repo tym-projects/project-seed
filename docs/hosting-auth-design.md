@@ -56,9 +56,9 @@ Clerk Hobby's fixed seven-day session lifetime is an explicit family UX trade-of
 - Clerk Development instance and development keys: Preview only.
 - Clerk Production instance and production keys: Vercel production only.
 - Users and sessions are not assumed to transfer between instances.
-- The current Vercel Preview project is `2026ast-hosting-preview`; the latest verified Preview is READY at `https://2026ast-hosting-preview-k81jmt0k8-2026-ast.vercel.app`.
-- Vercel Deployment Protection currently requires Vercel Authentication. One Protection Exception lists the older Preview domain `2026ast-hosting-preview-3v4b7jef5-2026-ast.vercel.app`; it is a cleanup DELETE CANDIDATE. No Sharable Link was listed. One automation-bypass metadata entry exists and is a cleanup REVOKE CANDIDATE; its value is intentionally not recorded.
-- The Production placeholder and older Preview deployments remain and require a separate cleanup review. No deployment or bypass resource was deleted or revoked in this closeout.
+- The current family Vercel Preview project is `2026ast-hosting-preview`; the accepted Auth Preview is READY at `https://2026ast-hosting-preview-gd6yctj5a-2026-ast.vercel.app`.
+- Vercel Authentication is **OFF**. It is not an application security boundary and must not be used to hide a Clerk regression. The enforced path is Internet → Vercel Preview → Clerk Authentication → parent／jiejie／meimei role authorization.
+- The Production placeholder and older Preview deployments remain for history / rollback. The unprotected `qefelgp01` Preview is explicitly Superseded / Do Not Use. No Production deployment occurred.
 
 ## Open decisions
 

@@ -1,5 +1,15 @@
 # Deployment Log
 
+## Post-Sprint 39 Auth Regression Remediation — 2026-10-11
+
+- Project: `2026ast-hosting-preview` (Vercel Preview only); deployment `dpl_8eUJuT6BXxwP5jdx7f3771xTQRwh`; status `READY`.
+- Current family URL: `https://2026ast-hosting-preview-gd6yctj5a-2026-ast.vercel.app/`.
+- Root cause: a Preview branch omitted `proxy.ts`, `@clerk/nextjs`, and parent／jiejie／meimei role guards. The deployment therefore succeeded while the application was not protected.
+- Remediation: `f0efa4c` restored Clerk middleware / proxy, all protected route handling, and role guards; `097d86b` is the final verified auth baseline.
+- Verification: focused auth `28/28`, Node `253/253`, lint, TypeScript, build, diff-check, anonymous fail-closed routes, and Human Authentication Review for anonymous／yenmin／ariel／linda all PASS.
+- Vercel Authentication: `OFF`. The enforced family path is Internet → Vercel Preview → Clerk → role authorization. Production was not used and remains Deferred.
+- The earlier unprotected Preview `https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/` is retained only as historical evidence and is **Superseded / Do Not Use**.
+
 ## Sprint 37 Preview — 2026-10-04
 
 - Project: `2026ast-hosting-preview`
