@@ -1,5 +1,15 @@
 # Sprint Log
 
+# Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Implementation Verified
+
+- Branch continues from Sprint 38 feature branch; baseline HEAD `3ab84c411bf1ac2ca1b949aee0ef10a9c1171f92`.
+- Coverage audit found monthly counts `13/18/17/15/17/15/17/15`; added 40 original singleton questions, five per bank, and 17 monthly entries to bring every bank to 18.
+- Current inventory: `613` questions, `608` learning units, `600` active practice questions, and `144` monthly allowlist entries.
+- No Learning Record／ReviewSession／Backup/Restore／retry／1/3/7／Auth／Production or schema changes. 妹妹自然 additions remain only in `認識植物` and `空氣和水`.
+- Verification: focused `4/4`, Node `225/225`, lint, TypeScript, build, and Browser `45/45` passed. Human tablet／online acceptance remains pending; Production remains Deferred.
+- Audit and manifest: `docs/sprint39-practice-coverage-audit.md`, `docs/sprint39-candidate-manifest.json`.
+- Next Step: final diff/Git closeout, feature-branch push, existing Preview deployment, route smoke, then Human acceptance.
+
 # Sprint 38 — Practice and Monthly Question Bank Expansion — Completed
 
 - Branch: `codex/sprint38-practice-bank-expansion`; implementation baseline `ac2eb5ac769ecab7b433c310d315023dfce52f2b`.

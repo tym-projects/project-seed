@@ -1,5 +1,14 @@
 # Project Seed Roadmap
 
+# Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Implementation Verified
+
+- Coverage audit sized the batch from monthly counts `13/18/17/15/17/15/17/15`; eight Active Practice banks were all at `70`.
+- Added 40 fully original singleton questions, five per bank; Active Practice is now `75` per bank (`600` total), total questions `573 → 613`, learning units `568 → 608`.
+- Monthly allowlist is `127 → 144`, with every bank at `18`; only confirmed first-month ranges were used. 妹妹自然 remains restricted to `認識植物` and `空氣和水`.
+- Learning Record／ReviewSession／Backup/Restore／retry／1/3/7／Auth／Production and schema remain unchanged. Human acceptance is pending; Production remains Deferred.
+- Verification passed: focused `4/4`, Node `225/225`, lint, TypeScript, build, Browser `45/45`; final diff/Git closeout and Preview deployment are the next gates.
+- Audit: `docs/sprint39-practice-coverage-audit.md`; manifest: `docs/sprint39-candidate-manifest.json`.
+
 # Sprint 38 — Practice and Monthly Question Bank Expansion — Completed
 
 - Human tablet / online acceptance: PASS (16 題跨八科抽驗、一般練習、第一次月考練習，以及 yenmin／ariel／linda 角色); Deferred `0`，Human Exception `0`。

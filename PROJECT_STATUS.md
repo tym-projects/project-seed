@@ -1,5 +1,15 @@
 # Project Status
 
+# Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Implementation Verified
+
+- Coverage audit after Sprint 38 found eight Active Practice banks at `70`; monthly counts were `13/18/17/15/17/15/17/15`.
+- Added `40` fully original singleton questions, five per bank; Active Practice is now `75` per bank, `600` total.
+- Monthly allowlist is `127 → 144`, sized to `18` per bank; no unconfirmed range was added and 妹妹自然 remains limited to `認識植物`／`空氣和水`.
+- Inventory is now `613` questions and `608` learning units. Learning Record, ReviewSession, Backup/Restore, retry, 1/3/7 scheduling, Auth and Production were not modified.
+- Verification: focused QA `4/4`, Node `225/225`, lint, TypeScript, build, disposable Browser `45/45`; diff-check and final Git closeout remain to be recorded below.
+- Human tablet／online acceptance: pending; Production remains Deferred. Full audit and candidate disposition: `docs/sprint39-practice-coverage-audit.md` and `docs/sprint39-candidate-manifest.json`.
+- **Next Step:** complete final diff/Git closeout, push the feature branch, and deploy only the existing `2026ast-hosting-preview` after the final gates; then request/record Human acceptance. Do not deploy Production.
+
 # Sprint 38 — Practice and Monthly Question Bank Expansion — Completed
 
 - Human tablet / online acceptance: PASS (16 題跨八科抽驗、一般練習、第一次月考練習與 yenmin／ariel／linda 角色均通過); Deferred `0`，Human Exception `0`。

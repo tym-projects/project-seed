@@ -1,0 +1,22 @@
+{
+  "sprint": 39,
+  "status": "Implementation verified; Human acceptance pending",
+  "baselineHead": "3ab84c411bf1ac2ca1b949aee0ef10a9c1171f92",
+  "candidateCount": 40,
+  "practiceAdditionCount": 40,
+  "monthlyAllowlistBefore": 127,
+  "monthlyAllowlistAfter": 144,
+  "learningRecordSchema": "project-seed:learning-records:v1 unchanged",
+  "scopePolicy": "confirmed first-month exam ranges only",
+  "provenancePolicy": "fully original; public references may inform concepts but no unlicensed text is reproduced",
+  "entries": [
+    {"bank":"jiejie/chinese","questionIds":["jiejie-chinese-80","jiejie-chinese-81","jiejie-chinese-82","jiejie-chinese-83","jiejie-chinese-84"],"monthlyIds":["jiejie-chinese-80","jiejie-chinese-81","jiejie-chinese-82","jiejie-chinese-83","jiejie-chinese-84"]},
+    {"bank":"jiejie/mathematics","questionIds":["jiejie-mathematics-73","jiejie-mathematics-74","jiejie-mathematics-75","jiejie-mathematics-76","jiejie-mathematics-77"],"monthlyIds":[]},
+    {"bank":"jiejie/natural_science","questionIds":["jiejie-natural-science-71","jiejie-natural-science-72","jiejie-natural-science-73","jiejie-natural-science-74","jiejie-natural-science-75"],"monthlyIds":["jiejie-natural-science-71"]},
+    {"bank":"jiejie/social_studies","questionIds":["jiejie-social-studies-73","jiejie-social-studies-74","jiejie-social-studies-75","jiejie-social-studies-76","jiejie-social-studies-77"],"monthlyIds":["jiejie-social-studies-73","jiejie-social-studies-74","jiejie-social-studies-75"]},
+    {"bank":"meimei/chinese","questionIds":["meimei-chinese-71","meimei-chinese-72","meimei-chinese-73","meimei-chinese-74","meimei-chinese-75"],"monthlyIds":["meimei-chinese-71"]},
+    {"bank":"meimei/mathematics","questionIds":["meimei-mathematics-71","meimei-mathematics-72","meimei-mathematics-73","meimei-mathematics-74","meimei-mathematics-75"],"monthlyIds":["meimei-mathematics-71","meimei-mathematics-72","meimei-mathematics-73"]},
+    {"bank":"meimei/natural_science","questionIds":["meimei-natural-science-71","meimei-natural-science-72","meimei-natural-science-73","meimei-natural-science-74","meimei-natural-science-75"],"monthlyIds":["meimei-natural-science-71"]},
+    {"bank":"meimei/social_studies","questionIds":["meimei-social-studies-71","meimei-social-studies-72","meimei-social-studies-73","meimei-social-studies-74","meimei-social-studies-75"],"monthlyIds":["meimei-social-studies-71","meimei-social-studies-72","meimei-social-studies-73"]}
+  ]
+}

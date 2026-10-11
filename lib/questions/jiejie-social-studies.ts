@@ -121,6 +121,10 @@ questions.push(...sprint37Questions);
 const sprint38QuestionModule = typeof require === 'function' ? require('./sprint38-question-additions') : undefined;
 const sprint38QuestionsByBank = (sprint38QuestionModule?.sprint38QuestionsByBank ?? {}) as Record<string, Question[]>;
 questions.push(...(sprint38QuestionsByBank['jiejie/social_studies'] ?? []));
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sprint39QuestionModule = typeof require === 'function' ? require('./sprint39-question-additions') : undefined;
+const sprint39QuestionsByBank = (sprint39QuestionModule?.sprint39QuestionsByBank ?? {}) as Record<string, Question[]>;
+questions.push(...(sprint39QuestionsByBank['jiejie/social_studies'] ?? []));
 
 // Keep the two out-of-scope democracy questions for history lookup,
 // but exclude them from current practice, review, and reinforcement flows.
