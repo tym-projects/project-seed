@@ -1,4 +1,22 @@
-export default function HomePage() {
+import { auth } from '@clerk/nextjs/server';
+import { redirect } from 'next/navigation';
+import { getRoleHome, parseAppRole } from '../lib/role-authorization-policy';
+
+export default async function HomePage() {
+  const { isAuthenticated, redirectToSignIn, sessionClaims } = await auth();
+
+  if (!isAuthenticated) {
+    redirectToSignIn();
+  }
+
+  const role = parseAppRole(sessionClaims?.metadata?.role);
+  if (role === null) {
+    redirect('/access-denied');
+  }
+  if (role !== 'parent') {
+    redirect(getRoleHome(role));
+  }
+
   return (
     <main className="min-h-screen bg-emerald-50 px-6 py-16 flex flex-col items-center justify-center text-center">
       <div className="w-full max-w-xl rounded-3xl bg-white p-10 shadow-lg sm:p-14">

@@ -5,10 +5,10 @@
 - Human online / tablet acceptance: PASS（16 題跨八科抽驗、一般練習、第一次月考練習，以及 yenmin／ariel／linda 角色均通過）；Deferred `0`，Human Exception `0`。
 - 已完成 `40` 題 fully original singleton questions，每科各 5 題；八科 Active Practice 均為 `75`，Total Active Practice `600`。
 - Monthly allowlist `127 → 144`，每科 `18` 題；未加入未確認範圍，妹妹自然仍限於 `認識植物`／`空氣和水`。
-- Inventory：Total questions `613`，Learning units `608`。Learning Record、ReviewSession、Backup/Restore、retry、1/3/7 scheduling、Auth 與 Production 均未修改。
+- Inventory：Total questions `613`，Learning units `608`。Learning Record、ReviewSession、Backup/Restore、retry、1/3/7 scheduling 與 Production 均未修改；本次另行恢復 Preview 應用層 Clerk authentication 與 parent／jiejie／meimei role authorization。
 - 驗證：focused QA `4/4`、Node `225/225`、lint、TypeScript、build、Browser regression `45/45` 與 diff-check 均通過。
 - 已接受的家庭 Preview：`2026ast-hosting-preview` deployment `dpl_QR4Uxkc2rhvP3Vc6vWEyPHXD3f3N`，URL `https://2026ast-hosting-preview-qefelgp01-2026-ast.vercel.app/`，status `READY`。Vercel Authentication 已關閉；家庭登入流程為 Preview → Clerk → parent／jiejie／meimei role authorization。Production 未使用且維持 Deferred。
-- Sprint 39 implementation / accepted release HEAD：`6d2f35d49e0712d34d21e55154e5cd5dfda94a10`；後續純治理 closeout commit 不代表重新部署。
+- Sprint 39 implementation / accepted release HEAD：`6d2f35d49e0712d34d21e55154e5cd5dfda94a10`；後續 auth regression 修復會以獨立 commit／Preview deployment 記錄，不代表 Production 變更。
 - **Next Step:** 繼續擴增平時練習題庫及第一次月考題庫，仍限於已確認第一次月考範圍；下一輪先做 coverage audit，再依缺口決定題數。不自行開始 Sprint 40；Production 維持 Deferred。
 
 # Sprint 38 — Practice and Monthly Question Bank Expansion — Completed

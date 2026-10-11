@@ -1,5 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const testPort = process.env.AUTH_TEST_PORT ?? '3102';
+const testBaseURL = `http://127.0.0.1:${testPort}`;
+
 export default defineConfig({
   testDir: './tests/browser',
   fullyParallel: false,
@@ -9,17 +12,19 @@ export default defineConfig({
   outputDir: 'test-results/artifacts',
   reporter: [['list'], ['html', { outputFolder: 'test-results/report', open: 'never' }]],
   use: {
-    baseURL: 'http://127.0.0.1:3100',
+    baseURL: testBaseURL,
     ...devices['Desktop Chrome'],
     headless: true,
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
-  webServer: {
-    command: 'npm run start -- --hostname 127.0.0.1 --port 3100',
-    url: 'http://127.0.0.1:3100',
-    reuseExistingServer: false,
-    timeout: 120_000,
-  },
+  webServer: process.env.REUSE_AUTH_SERVER === '1'
+    ? undefined
+    : {
+        command: `npm run start -- --hostname 0.0.0.0 --port ${testPort}`,
+        url: testBaseURL,
+        reuseExistingServer: false,
+        timeout: 120_000,
+      },
 });
