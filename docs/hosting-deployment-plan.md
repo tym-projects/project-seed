@@ -10,11 +10,11 @@ This document tracks the Hosting/Auth closeout. It records configuration and ver
 
 ## Phase 1 — Preview
 
-1. Use the isolated auth branch/worktree.
+1. Use the canonical Preview feature branch with the auth changes integrated.
 2. Run focused auth tests, full Node tests, lint, TypeScript, and build.
-3. Deploy a Vercel Preview using Clerk Development keys. DONE: latest verified deployment is READY at `https://2026ast-hosting-preview-k81jmt0k8-2026-ast.vercel.app`.
+3. Deploy a Vercel Preview using Clerk Development keys. Never use `--prod` or `2026ast-production`.
 4. Create or invite the three test users in the Development instance. DONE: `yenmin`, `ariel`, and `linda` are present; Human login passed for all three.
-5. Verify signed-out redirects, sign-in, sign-out, reload/back, all student/parent routes, and no public signup. DONE: signed-out `/`, `/parent`, `/jiejie`, and `/meimei` redirect to Clerk; Human confirmed logout protection and one wrong-password rejection. Final Clerk state is Google OFF, Public signup OFF, and Access mode Invite-only.
+5. Verify signed-out redirects, sign-in, sign-out, reload/back, all student/parent routes, no public signup, and role authorization. Automated checks cover fail-closed route policy; credentialed acceptance remains a Human Authentication Review Gate.
 
 ## Phase 2 — Cloud smoke and tablet review
 
@@ -44,12 +44,11 @@ Keep local 3100 available as short-term fallback. A Vercel rollback should targe
 - Human login for `yenmin`, `ariel`, and `linda`: PASS.
 - One deliberate wrong-password rejection: PASS.
 - Google login: OFF; Public signup: OFF; Access mode: Invite-only.
-- V1 currently has Authentication only. Role Authorization is not implemented.
-- The formal next phase is independent Role Authorization design and TDD after this Hosting/Auth closeout:
+- Current application role authorization contract:
   - `yenmin` can see all content and Parent mode.
   - `ariel` is limited to 姐姐 home and related features; no 妹妹 entry and no Parent mode.
   - `linda` is limited to 妹妹 home and related features; no 姐姐 entry and no Parent mode.
-- Do not fold this requirement into Sprint 36 or lose it in a later Sprint.
+- Keep this requirement separate from question-bank changes and protect it with regression tests.
 - Final Clerk state: username/password login retained; Google login OFF; Public signup OFF; Access mode Invite-only. No password, key, token, or bypass value is recorded.
 - Vercel Deployment Protection requires Vercel Authentication. One older Preview domain is listed as a Protection Exception and is a cleanup DELETE CANDIDATE. No Sharable Link was listed. One automation-bypass metadata entry exists and is a cleanup REVOKE CANDIDATE; its value is intentionally omitted.
 - Production placeholder and older Preview deployments remain for a separate cleanup review; no deletion or revoke was performed.

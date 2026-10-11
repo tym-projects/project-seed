@@ -2,7 +2,7 @@
 
 ## Scope
 
-This isolated branch adds the Clerk integration boundary only. The Clerk Development instance, Vercel Preview project, and three Development test users now exist outside the repository. This branch does not configure Clerk Production, launch Production, migrate Learning Record data, or implement Role Authorization.
+This Preview integration restores the Clerk application boundary and role authorization. The Clerk Development instance, Vercel Preview project, and three Development test users exist outside the repository. It does not configure Clerk Production, launch Production, or migrate Learning Record data.
 
 ## Architecture
 
@@ -33,7 +33,7 @@ V1 has authentication only, not authorization. The original design names were `p
 
 The final Clerk Development dashboard state is: username/password login retained, Google login off, public sign-up off, and Access mode Invite-only. The Development users `yenmin`, `ariel`, and `linda` are retained. This is an Authentication-only V1; the code does not pretend to configure Dashboard state.
 
-The current Development test-user inventory contains the three Human-tested accounts: `yenmin`, `ariel`, and `linda`. Human Preview login has passed for all three. V1 currently provides Authentication only: all authenticated users share whole-site access until a later authorization phase.
+The current Development test-user inventory contains the three accounts: `yenmin`, `ariel`, and `linda`. Application role authorization uses session metadata `metadata.role`: `yenmin`→`parent`, `ariel`→`jiejie`, and `linda`→`meimei`; missing or invalid roles fail closed.
 
 Final Human Authentication Gate status: correct login for all three accounts, `yenmin` Parent mode access, logout protection on `/parent`, and one wrong-password rejection all passed. Google login is off, public sign-up is off, and Clerk Access mode is Invite-only.
 
@@ -65,8 +65,8 @@ Clerk Hobby's fixed seven-day session lifetime is an explicit family UX trade-of
 1. Keep the documented Development recovery policy aligned with the Clerk Dashboard.
 2. Decide whether the seven-day Hobby session is acceptable.
 3. Add real-key Preview E2E before production deployment.
-4. Complete the independent Role Authorization phase after Hosting/Auth closeout, using TDD:
+4. Complete credentialed Preview acceptance for the role matrix using Human-managed credentials:
    - `yenmin`: all content and Parent mode.
    - `ariel`: 姐姐 home and related features only; no 妹妹 entry and no Parent mode.
    - `linda`: 妹妹 home and related features only; no 姐姐 entry and no Parent mode.
-   This backlog item is intentionally not implemented in the Hosting/Auth branch.
+   Do not record credentials or verification codes.
