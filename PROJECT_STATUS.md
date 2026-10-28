@@ -2,6 +2,14 @@
 
 # Sprint 40 — 妹妹第一次月考題型校準 — Implementation Complete / Validation Blocked
 
+## Sprint 40 Validation Recovery Update — 2026-10-28
+
+- Fresh verification: focused QA `3/3`、完整 Node `256/256`、Auth focused `28/28`、lint、TypeScript、Webpack production build `40/40` static pages、diff-check PASS。
+- Default Turbopack remains FAIL with the known `app/globals.css` child-process panic；未修改 build script、CSS、tooling 或 dependencies。
+- Preview env pull used the supported branch-filter syntax. `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` present；current branch `CLERK_SECRET_KEY` empty，故 Preview Env Gate FAIL。Browser regression、deployment and Human Acceptance Gate are blocked；不得開始下一 Sprint。
+- Production smoke with the empty Clerk secret returned HTTP `500` for `/`、`/jiejie`、`/meimei`、`/parent`；未宣稱 Browser PASS。Production 未動。
+- Next Step: Human 修正目前 branch 的 Preview `CLERK_SECRET_KEY` 空值後，重新執行 production Browser regression 與所有 final gates。
+
 - 已完成妹妹國語／數學／自然 monthly coverage audit，依 Owner 提供的近期實際考卷題型建立並實作 `26` 題原創 singleton：國語 `8`、數學 `8`、自然 `10`。
 - 妹妹國語新增字音／字形、國字／注音對應、詞語理解、選詞、句型、句序、短文理解、文意／人物行為／原因判斷；妹妹數學新增四位數生活應用加減、一共／剩下、多寡／數量差／價格差／月份差與加減判斷；妹妹自然新增植物構造、功能、葉序、莖根分類、觀察、特徵、生活應用與是非／選擇。
 - 妹妹自然仍只使用 `認識植物`／`空氣和水`，未加入動物或磁鐵；未修改 Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth、role authorization 或 UI 架構。

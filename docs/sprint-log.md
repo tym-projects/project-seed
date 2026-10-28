@@ -2,6 +2,11 @@
 
 # Sprint 40 — Validation Recovery — Implementation Complete / Validation Blocked
 
+- Validation recovery update 2026-10-28: focused QA `3/3`、Node `256/256`、Auth focused `28/28`、lint、TypeScript、Webpack production build `40/40` static pages、diff-check PASS。
+- Turbopack remains FAIL with the known `app/globals.css` child-process panic；未修改 build script、CSS、tooling 或 dependencies。
+- Preview env pull with supported branch filter found publishable key present but current branch `CLERK_SECRET_KEY` empty. Preview Env Gate FAIL；Browser regression and deployment are blocked. Production smoke returned HTTP `500` for `/`、`/jiejie`、`/meimei`、`/parent`；未宣稱 Browser PASS。
+- Next Step: Human 修正 Preview `CLERK_SECRET_KEY` 空值後，重跑 production Browser regression 與 final gates；不得開始下一 Sprint。
+
 - Sprint 40 question-bank implementation remains unchanged: 26 new original singleton questions; monthly allowlist `170`; 妹妹國語／數學／自然 monthly counts `26/26/28`。
 - Sprint 40 did not modify `globals.css`, PostCSS, Tailwind, Next config, build tooling, dependencies, Learning Record, or Production.
 - Default `npm run build` reproduced the Next.js `16.3.5` Turbopack `app/globals.css` child-process panic. `npx next build --help` confirmed `--webpack`; `npx next build --webpack` passed in the complete-permission/network environment with 40/40 static pages. Build script was not changed.
