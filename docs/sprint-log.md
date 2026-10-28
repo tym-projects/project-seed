@@ -1,19 +1,27 @@
 # Sprint Log
 
-# Sprint 40 — Validation Recovery — Implementation Complete / Validation Blocked
+# Sprint 40 — Final Validation and Preview Auth Recovery
+
+- Owner-approved new Clerk Development Secret created for `2026AST`; prefix `sk_test_`, matched to the existing `pk_test_` Development publishable key. Existing key was retained and not revoked.
+- `2026ast-hosting-preview` Preview `CLERK_SECRET_KEY` updated as a Secret for all Preview branches; Production and `2026ast-production` untouched.
+- Preview deployment `dpl_S1VAGDDQeQd2B8KcUUwYdxXiVcdB` is `READY` at `https://2026ast-hosting-preview-kyvpdjf0m-2026-ast.vercel.app`.
+- Anonymous Preview runtime smoke passed for `/`, `/jiejie`, `/meimei`, and `/parent`: HTTP `307` to Clerk Development sign-in, no `500`; Vercel Authentication remained OFF.
+- Final static validation passed: focused `3/3`, Auth focused `28/28`, Node `256/256`, lint, TypeScript, Webpack build `40/40`, and diff-check. Turbopack remains the known `globals.css` tooling/environment failure.
+- Authenticated child-question interaction remains Human Acceptance only because no child credentials were supplied to automated Browser regression.
+
+# Sprint 40 — Pre-rotation Validation Snapshot — Superseded
 
 - Validation recovery update 2026-10-28: focused QA `3/3`、Node `256/256`、Auth focused `28/28`、lint、TypeScript、Webpack production build `40/40` static pages、diff-check PASS。
 - Turbopack remains FAIL with the known `app/globals.css` child-process panic；未修改 build script、CSS、tooling 或 dependencies。
-- Preview env pull with supported branch filter found publishable key present but current branch `CLERK_SECRET_KEY` empty. Preview Env Gate FAIL；Browser regression and deployment are blocked. Production smoke returned HTTP `500` for `/`、`/jiejie`、`/meimei`、`/parent`；未宣稱 Browser PASS。
-- Next Step: Human 修正 Preview `CLERK_SECRET_KEY` 空值後，重跑 production Browser regression 與 final gates；不得開始下一 Sprint。
+- Preview env pull before rotation found publishable key present but current branch `CLERK_SECRET_KEY` empty. This was superseded by the Owner-approved Development Secret rotation and Preview deployment recorded above.
+- The earlier local production smoke returned HTTP `500` with the empty Secret; it is historical pre-rotation evidence, not the current Preview runtime result.
 
 - Sprint 40 question-bank implementation remains unchanged: 26 new original singleton questions; monthly allowlist `170`; 妹妹國語／數學／自然 monthly counts `26/26/28`。
 - Sprint 40 did not modify `globals.css`, PostCSS, Tailwind, Next config, build tooling, dependencies, Learning Record, or Production.
 - Default `npm run build` reproduced the Next.js `16.3.5` Turbopack `app/globals.css` child-process panic. `npx next build --help` confirmed `--webpack`; `npx next build --webpack` passed in the complete-permission/network environment with 40/40 static pages. Build script was not changed.
 - Production Browser recovery used the webpack build and server port `3103`. Latest Browser suite: `53` total, `1` passed, `4` skipped, `48` failed. Root cause was missing local Clerk keys, producing HTTP 500; Browser is not PASS.
 - Fresh full Node `256/256`, lint, TypeScript, and diff-check passed. Auth source/role regression tests are included in the passing Node suite. Preview Clerk env existence was not confirmed because Vercel CLI installation/query did not complete; no secret value was read.
-- Deployment was not performed; `--prod` and `2026ast-production` were not used. Status remains `Implementation Complete / Validation Blocked`.
-- Next Step: provide a valid Preview-linked Auth environment or complete the Preview env existence check, then rerun production Browser regression and all final gates. Do not start the next Sprint.
+- Deployment had not yet been performed at this snapshot; `--prod` and `2026ast-production` were not used. The current deployment and status are recorded in the Final Validation section above.
 
 # Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Completed
 

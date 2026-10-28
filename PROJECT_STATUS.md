@@ -1,14 +1,26 @@
 # Project Status
 
-# Sprint 40 — 妹妹第一次月考題型校準 — Implementation Complete / Validation Blocked
+# Sprint 40 — 妹妹第一次月考題型校準 — Implementation Complete / Awaiting Human Acceptance
+
+## Sprint 40 Final Validation — Clerk Development / Vercel Preview Recovery — 2026-10-28
+
+- Owner-approved Clerk Development rotation completed for application `2026AST`; new Secret prefix `sk_test_` matches the existing Development publishable prefix `pk_test_`. Existing Secret was not revoked.
+- Vercel project `2026ast-hosting-preview` Preview `CLERK_SECRET_KEY` was updated as a Secret for all Preview branches. `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` remained unchanged. Production environment and `2026ast-production` were not modified.
+- Preview deployment `dpl_S1VAGDDQeQd2B8KcUUwYdxXiVcdB` is `READY` at `https://2026ast-hosting-preview-kyvpdjf0m-2026-ast.vercel.app`; deployment target was Preview and no Production deployment was created.
+- Runtime anonymous auth smoke PASS: `/`, `/jiejie`, `/meimei`, and `/parent` all returned HTTP `307` to the same Clerk Development sign-in flow; no HTTP `500`. Vercel Authentication `Require Log In` remains OFF.
+- Static and local validation PASS: Sprint 40 focused `3/3`, full Node `256/256`, Auth focused `28/28`, lint, TypeScript, Webpack production build `40/40` static pages, and `git diff --check`.
+- Turbopack remains FAIL with the known `app/globals.css` child-process panic; build script, CSS, tooling, and dependencies were not changed. Webpack build PASS was used for Preview deployment.
+- Authenticated question interaction was not independently automated because no child credentials were supplied; the Preview sign-in and anonymous fail-closed contract passed. Display／answer／explanation／hint／next-question checks remain in the Human Acceptance list below.
+- Question inventory unchanged from Sprint 40 implementation:妹妹國語／數學／自然 monthly `26/26/28`, Monthly allowlist `170`; Learning Record、ReviewSession、Backup/Restore、retry、1/3/7 and Production remain unchanged.
+- Next Step: Owner performs the Human Acceptance抽驗；不得開始下一 Sprint。
 
 ## Sprint 40 Validation Recovery Update — 2026-10-28
 
 - Fresh verification: focused QA `3/3`、完整 Node `256/256`、Auth focused `28/28`、lint、TypeScript、Webpack production build `40/40` static pages、diff-check PASS。
 - Default Turbopack remains FAIL with the known `app/globals.css` child-process panic；未修改 build script、CSS、tooling 或 dependencies。
-- Preview env pull used the supported branch-filter syntax. `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` present；current branch `CLERK_SECRET_KEY` empty，故 Preview Env Gate FAIL。Browser regression、deployment and Human Acceptance Gate are blocked；不得開始下一 Sprint。
+- Pre-rotation Preview env pull found the branch `CLERK_SECRET_KEY` empty; this was repaired after Owner-approved Development Secret rotation. Post-rotation metadata shows both required Preview variables present and configured.
 - Production smoke with the empty Clerk secret returned HTTP `500` for `/`、`/jiejie`、`/meimei`、`/parent`；未宣稱 Browser PASS。Production 未動。
-- Next Step: Human 修正目前 branch 的 Preview `CLERK_SECRET_KEY` 空值後，重新執行 production Browser regression 與所有 final gates。
+- Next Step: Owner performs the Sprint 40 Human Acceptance抽驗；不得開始下一 Sprint。
 
 - 已完成妹妹國語／數學／自然 monthly coverage audit，依 Owner 提供的近期實際考卷題型建立並實作 `26` 題原創 singleton：國語 `8`、數學 `8`、自然 `10`。
 - 妹妹國語新增字音／字形、國字／注音對應、詞語理解、選詞、句型、句序、短文理解、文意／人物行為／原因判斷；妹妹數學新增四位數生活應用加減、一共／剩下、多寡／數量差／價格差／月份差與加減判斷；妹妹自然新增植物構造、功能、葉序、莖根分類、觀察、特徵、生活應用與是非／選擇。
@@ -17,10 +29,10 @@
 - Candidate manifest 與 coverage audit：`docs/sprint40-candidate-manifest.json`、`docs/sprint40-practice-coverage-audit.md`。
 - QA：focused `3/3`、完整 Node `256/256`、lint PASS、TypeScript PASS、`git diff --check` PASS。
 - Build evidence：預設 `npm run build` 在 Next.js `16.3.5` Turbopack 處理 `app/globals.css` 時發生 child-process panic；Sprint 40 未修改 CSS、PostCSS、Tailwind、Next config、build tooling 或 dependencies。依 CLI 明確支援的 `--webpack` 執行 production build，在完整權限／可連線環境 `PASS`，40/40 靜態頁生成完成。記錄為 `Turbopack FAIL（known tooling/environment panic）`、`Webpack production build PASS`，未修改正式 build script。
-- Browser regression：以 webpack build 後的 production server 嘗試隔離 port `3103`，server ready 但因本機未注入 Clerk keys 對所有 route 回 `500`；最新 suite 實際為 `53` tests：`1 passed`、`4 skipped`、`48 failed`。首要錯誤為 `@clerk/nextjs: Clerk keys are missing from your environment.`，故仍未宣稱 Browser PASS。
-- Auth Deployment Preflight：dependency、根目錄 `proxy.ts`／Clerk middleware、parent／jiejie／meimei role guard 與 route authorization Node tests PASS；Preview env existence 本輪因 Vercel CLI 未預裝且 `npx vercel@latest env ls preview` 未完成而未確認。未讀取或記錄任何 secret value。
-- Deployment：未部署至 `2026ast-hosting-preview`，未使用 `--prod`，未觸碰 `2026ast-production`。
-- **Next Step:** 先取得可用的 Preview／Browser 驗證環境，完成 Preview Clerk env existence、production Browser regression 與所有 final gates；全部 PASS 後才可進入 Sprint 40 Human Acceptance Gate，再依 Auto-Deploy Rule 部署。不得開始下一 Sprint。
+- Browser regression limitation：authenticated child-question interaction was not automated because no child credentials were supplied; anonymous Preview route and Clerk sign-in smoke passed. This is a Human Acceptance item, not an authorization bypass.
+- Auth Deployment Preflight：dependency、根目錄 `proxy.ts`／Clerk middleware、parent／jiejie／meimei role guard 與 route authorization tests `28/28` PASS；Preview env metadata present/configured；Development key pairing matched；Vercel Authentication OFF。未讀取或記錄任何完整 Secret value。
+- Deployment：Preview `dpl_S1VAGDDQeQd2B8KcUUwYdxXiVcdB` READY；未使用 `--prod`，未觸碰 `2026ast-production`。
+- **Next Step:** Owner 完成 Human Acceptance Gate 後再結束 Sprint 40；不得開始下一 Sprint。
 
 # Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Completed
 
