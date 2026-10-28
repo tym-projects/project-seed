@@ -38,6 +38,8 @@ const FIRST_EXAM_QUESTION_IDS: Readonly<Record<StudentId, Readonly<Partial<Recor
       'meimei-chinese-11', 'meimei-chinese-action-word-identification-3',
       'meimei-chinese-61', 'meimei-chinese-62', 'meimei-chinese-63', 'meimei-chinese-64', 'meimei-chinese-65',
       'meimei-chinese-71',
+      'meimei-chinese-76', 'meimei-chinese-77', 'meimei-chinese-78', 'meimei-chinese-79',
+      'meimei-chinese-80', 'meimei-chinese-81', 'meimei-chinese-82', 'meimei-chinese-83',
     ],
     mathematics: [
       'meimei-mathematics-1', 'meimei-mathematics-2', 'meimei-mathematics-3', 'meimei-mathematics-4',
@@ -45,6 +47,8 @@ const FIRST_EXAM_QUESTION_IDS: Readonly<Record<StudentId, Readonly<Partial<Recor
       'meimei-mathematics-11', 'meimei-mathematics-12',
       'meimei-mathematics-61', 'meimei-mathematics-62', 'meimei-mathematics-63', 'meimei-mathematics-64', 'meimei-mathematics-65',
       'meimei-mathematics-71', 'meimei-mathematics-72', 'meimei-mathematics-73',
+      'meimei-mathematics-76', 'meimei-mathematics-77', 'meimei-mathematics-78', 'meimei-mathematics-79',
+      'meimei-mathematics-80', 'meimei-mathematics-81', 'meimei-mathematics-82', 'meimei-mathematics-83',
     ],
     natural_science: [
       'meimei-natural-science-1', 'meimei-natural-science-2', 'meimei-natural-science-3', 'meimei-natural-science-4',
@@ -52,6 +56,9 @@ const FIRST_EXAM_QUESTION_IDS: Readonly<Record<StudentId, Readonly<Partial<Recor
       'meimei-natural-science-9', 'meimei-natural-science-10', 'meimei-natural-science-11', 'meimei-natural-science-12',
       'meimei-natural-science-61', 'meimei-natural-science-62', 'meimei-natural-science-63', 'meimei-natural-science-64', 'meimei-natural-science-65',
       'meimei-natural-science-71',
+      'meimei-natural-science-76', 'meimei-natural-science-77', 'meimei-natural-science-78', 'meimei-natural-science-79',
+      'meimei-natural-science-80', 'meimei-natural-science-81', 'meimei-natural-science-82', 'meimei-natural-science-83',
+      'meimei-natural-science-84', 'meimei-natural-science-85',
     ],
     social_studies: [
       'meimei-social-studies-1', 'meimei-social-studies-2', 'meimei-social-studies-3', 'meimei-social-studies-4',

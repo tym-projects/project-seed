@@ -1,5 +1,19 @@
 # Project Status
 
+# Sprint 40 — 妹妹第一次月考題型校準 — Implementation Complete / Awaiting Human Acceptance
+
+- 已完成妹妹國語／數學／自然 monthly coverage audit，依 Owner 提供的近期實際考卷題型建立並實作 `26` 題原創 singleton：國語 `8`、數學 `8`、自然 `10`。
+- 妹妹國語新增字音／字形、國字／注音對應、詞語理解、選詞、句型、句序、短文理解、文意／人物行為／原因判斷；妹妹數學新增四位數生活應用加減、一共／剩下、多寡／數量差／價格差／月份差與加減判斷；妹妹自然新增植物構造、功能、葉序、莖根分類、觀察、特徵、生活應用與是非／選擇。
+- 妹妹自然仍只使用 `認識植物`／`空氣和水`，未加入動物或磁鐵；未修改 Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth、role authorization 或 UI 架構。
+- 題庫 inventory：Total questions `613 → 639`、Learning units `608 → 634`、Active Practice `600 → 626`；monthly allowlist `144 → 170`，妹妹國語／數學／自然為 `26/26/28`。
+- Candidate manifest 與 coverage audit：`docs/sprint40-candidate-manifest.json`、`docs/sprint40-practice-coverage-audit.md`。
+- QA：focused `3/3`、完整 Node `256/256`、lint PASS、TypeScript PASS、`git diff --check` PASS。
+- Build 未通過：`npm run build` 連續三次在既有 Turbopack／`app/globals.css` 子程序啟動時 panic；未修改 build 架構。
+- Browser regression 未通過：Playwright runtime 已補裝，但 dev server 在測試期間退出，`49` 個實際測試均為 `127.0.0.1:3102` connection timeout；另有 `4` 個 Human credential injection skip。故未宣稱 Browser PASS。
+- Auth Deployment Preflight：dependency、根目錄 `proxy.ts`／Clerk middleware、parent／jiejie／meimei role guard 與 route authorization Node tests PASS；尚未部署，因此未讀取或記錄 Preview secret values，Preview target env existence 待可用部署環境重新確認。
+- Deployment：未部署至 `2026ast-hosting-preview`，未使用 `--prod`，未觸碰 `2026ast-production`。
+- **Next Step:** 先由 Human 接受題型與內容，並在可用的 Preview／Browser 驗證環境重跑 build、Browser regression 與 Preview Auth env preflight；全部 PASS 後才可依 Auto-Deploy Rule 部署。
+
 # Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Completed
 
 - Human online / tablet acceptance: PASS（16 題跨八科抽驗、一般練習、第一次月考練習，以及 yenmin／ariel／linda 角色均通過）；Deferred `0`，Human Exception `0`。

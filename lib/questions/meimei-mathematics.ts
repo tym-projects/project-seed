@@ -201,3 +201,7 @@ questions.push(...(sprint38QuestionsByBank['meimei/mathematics'] ?? []));
 const sprint39QuestionModule = typeof require === 'function' ? require('./sprint39-question-additions') : undefined;
 const sprint39QuestionsByBank = (sprint39QuestionModule?.sprint39QuestionsByBank ?? {}) as Record<string, QuestionCardQuestion[]>;
 questions.push(...(sprint39QuestionsByBank['meimei/mathematics'] ?? []));
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sprint40QuestionModule = typeof require === 'function' ? require('./sprint40-question-additions') : undefined;
+const sprint40QuestionsByBank = (sprint40QuestionModule?.sprint40QuestionsByBank ?? {}) as Record<string, QuestionCardQuestion[]>;
+questions.push(...(sprint40QuestionsByBank['meimei/mathematics'] ?? []));

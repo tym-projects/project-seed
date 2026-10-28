@@ -462,3 +462,12 @@
 - Final verification: Node 183/183, disposable Browser 39/39, lint, TypeScript `--incremental false`, production build, and `git diff --check` passed. No schema, storage-key, Learning Record／ReviewSession, or learning-rule changes.
 - Six-subject tablet acceptance passed. Family-LAN use must use the currently verified canonical build and a freshly verified LAN URL; this is not a public deployment.
 - Pending backlog: complete 姐姐國語／妹妹自然 first-exam content, continue textbook calibration, and improve cross-device record backup without changing current learning semantics.
+# Sprint 40 — 妹妹第一次月考題型校準 — Implementation Complete / Awaiting Human Acceptance
+
+- 完成妹妹國語／數學／自然 monthly coverage audit，新增 26 題 fully original singleton：國語 8、數學 8、自然 10。
+- 國語補齊字音／字形、國字／注音、詞語理解、選詞、句型、句序、短文理解、人物行為／原因；數學補齊四位數生活應用加減、總量／剩餘／數量差／價格差／月份差與運算判斷；自然補齊植物構造、功能、葉序、木本／草本、軸根／鬚根、觀察、特徵、生活應用與是非／選擇。
+- 妹妹自然 scope 僅 `認識植物`／`空氣和水`，未加入動物或磁鐵。Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth、role authorization 與 UI 架構未修改。
+- Inventory：Total questions `613 → 639`、Learning units `608 → 634`、Active Practice `600 → 626`、monthly allowlist `144 → 170`；妹妹三科 monthly `26/26/28`。
+- Candidate manifest／coverage audit：`docs/sprint40-candidate-manifest.json`、`docs/sprint40-practice-coverage-audit.md`。
+- Verification：focused `3/3`、Node `256/256`、lint、TypeScript、diff-check PASS；build 因既有 Turbopack `globals.css` 子程序 panic 未通過；Browser 因 dev server 在測試期間退出導致 `49` 個 timeout，未通過。
+- Auth preflight static checks PASS；Preview target env 尚未重新確認，未部署至 Preview／Production。

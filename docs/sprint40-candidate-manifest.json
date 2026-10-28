@@ -1,0 +1,34 @@
+{
+  "sprint": 40,
+  "status": "Implementation Complete / Awaiting Human Acceptance",
+  "scope": "妹妹第一次月考複習題庫：依 Owner 提供的近期實際考卷題型補齊國語、數學、自然",
+  "provenance": "fully_original_self_authored",
+  "candidateCount": 26,
+  "monthlyAllowlistBefore": 144,
+  "monthlyAllowlistAfter": 170,
+  "learningRecordSchema": "unchanged",
+  "reviewSession": "unchanged",
+  "auth": "unchanged",
+  "production": "not_used",
+  "entries": [
+    {
+      "bank": "meimei/chinese",
+      "questionIds": ["meimei-chinese-76", "meimei-chinese-77", "meimei-chinese-78", "meimei-chinese-79", "meimei-chinese-80", "meimei-chinese-81", "meimei-chinese-82", "meimei-chinese-83"],
+      "monthlyIds": ["meimei-chinese-76", "meimei-chinese-77", "meimei-chinese-78", "meimei-chinese-79", "meimei-chinese-80", "meimei-chinese-81", "meimei-chinese-82", "meimei-chinese-83"],
+      "coverage": ["字音／字形", "國字／注音對應", "詞語理解", "選詞", "句型", "句序", "短文理解", "文意／人物行為／原因判斷"]
+    },
+    {
+      "bank": "meimei/mathematics",
+      "questionIds": ["meimei-mathematics-76", "meimei-mathematics-77", "meimei-mathematics-78", "meimei-mathematics-79", "meimei-mathematics-80", "meimei-mathematics-81", "meimei-mathematics-82", "meimei-mathematics-83"],
+      "monthlyIds": ["meimei-mathematics-76", "meimei-mathematics-77", "meimei-mathematics-78", "meimei-mathematics-79", "meimei-mathematics-80", "meimei-mathematics-81", "meimei-mathematics-82", "meimei-mathematics-83"],
+      "coverage": ["四位數加法生活應用", "四位數減法生活應用", "一共多少", "剩下多少", "多多少／少多少", "數量差", "價格差", "前後月份差", "依情境判斷加法或減法"]
+    },
+    {
+      "bank": "meimei/natural_science",
+      "questionIds": ["meimei-natural-science-76", "meimei-natural-science-77", "meimei-natural-science-78", "meimei-natural-science-79", "meimei-natural-science-80", "meimei-natural-science-81", "meimei-natural-science-82", "meimei-natural-science-83", "meimei-natural-science-84", "meimei-natural-science-85"],
+      "monthlyIds": ["meimei-natural-science-76", "meimei-natural-science-77", "meimei-natural-science-78", "meimei-natural-science-79", "meimei-natural-science-80", "meimei-natural-science-81", "meimei-natural-science-82", "meimei-natural-science-83", "meimei-natural-science-84", "meimei-natural-science-85"],
+      "coverage": ["根／莖／葉／花／果實辨識", "植物構造功能", "葉序：互生／對生／輪生", "莖分類：木本莖／草本莖", "根分類：軸根／鬚根", "植物觀察方法", "植物特徵判斷", "植物與生活應用", "圖片／特徵辨識", "是非／選擇判斷"],
+      "scopeGuard": "僅認識植物／空氣和水；不含動物或磁鐵"
+    }
+  ]
+}
