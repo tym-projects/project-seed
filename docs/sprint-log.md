@@ -1,5 +1,15 @@
 # Sprint Log
 
+# Sprint 40 — Validation Recovery — Implementation Complete / Validation Blocked
+
+- Sprint 40 question-bank implementation remains unchanged: 26 new original singleton questions; monthly allowlist `170`; 妹妹國語／數學／自然 monthly counts `26/26/28`。
+- Sprint 40 did not modify `globals.css`, PostCSS, Tailwind, Next config, build tooling, dependencies, Learning Record, or Production.
+- Default `npm run build` reproduced the Next.js `16.3.5` Turbopack `app/globals.css` child-process panic. `npx next build --help` confirmed `--webpack`; `npx next build --webpack` passed in the complete-permission/network environment with 40/40 static pages. Build script was not changed.
+- Production Browser recovery used the webpack build and server port `3103`. Latest Browser suite: `53` total, `1` passed, `4` skipped, `48` failed. Root cause was missing local Clerk keys, producing HTTP 500; Browser is not PASS.
+- Fresh full Node `256/256`, lint, TypeScript, and diff-check passed. Auth source/role regression tests are included in the passing Node suite. Preview Clerk env existence was not confirmed because Vercel CLI installation/query did not complete; no secret value was read.
+- Deployment was not performed; `--prod` and `2026ast-production` were not used. Status remains `Implementation Complete / Validation Blocked`.
+- Next Step: provide a valid Preview-linked Auth environment or complete the Preview env existence check, then rerun production Browser regression and all final gates. Do not start the next Sprint.
+
 # Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Completed
 
 - Branch continues from Sprint 38 feature branch; implementation / accepted release HEAD `6d2f35d49e0712d34d21e55154e5cd5dfda94a10`.

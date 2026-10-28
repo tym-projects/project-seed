@@ -1,6 +1,6 @@
 # Project Status
 
-# Sprint 40 — 妹妹第一次月考題型校準 — Implementation Complete / Awaiting Human Acceptance
+# Sprint 40 — 妹妹第一次月考題型校準 — Implementation Complete / Validation Blocked
 
 - 已完成妹妹國語／數學／自然 monthly coverage audit，依 Owner 提供的近期實際考卷題型建立並實作 `26` 題原創 singleton：國語 `8`、數學 `8`、自然 `10`。
 - 妹妹國語新增字音／字形、國字／注音對應、詞語理解、選詞、句型、句序、短文理解、文意／人物行為／原因判斷；妹妹數學新增四位數生活應用加減、一共／剩下、多寡／數量差／價格差／月份差與加減判斷；妹妹自然新增植物構造、功能、葉序、莖根分類、觀察、特徵、生活應用與是非／選擇。
@@ -8,11 +8,11 @@
 - 題庫 inventory：Total questions `613 → 639`、Learning units `608 → 634`、Active Practice `600 → 626`；monthly allowlist `144 → 170`，妹妹國語／數學／自然為 `26/26/28`。
 - Candidate manifest 與 coverage audit：`docs/sprint40-candidate-manifest.json`、`docs/sprint40-practice-coverage-audit.md`。
 - QA：focused `3/3`、完整 Node `256/256`、lint PASS、TypeScript PASS、`git diff --check` PASS。
-- Build 未通過：`npm run build` 連續三次在既有 Turbopack／`app/globals.css` 子程序啟動時 panic；未修改 build 架構。
-- Browser regression 未通過：Playwright runtime 已補裝，但 dev server 在測試期間退出，`49` 個實際測試均為 `127.0.0.1:3102` connection timeout；另有 `4` 個 Human credential injection skip。故未宣稱 Browser PASS。
-- Auth Deployment Preflight：dependency、根目錄 `proxy.ts`／Clerk middleware、parent／jiejie／meimei role guard 與 route authorization Node tests PASS；尚未部署，因此未讀取或記錄 Preview secret values，Preview target env existence 待可用部署環境重新確認。
+- Build evidence：預設 `npm run build` 在 Next.js `16.3.5` Turbopack 處理 `app/globals.css` 時發生 child-process panic；Sprint 40 未修改 CSS、PostCSS、Tailwind、Next config、build tooling 或 dependencies。依 CLI 明確支援的 `--webpack` 執行 production build，在完整權限／可連線環境 `PASS`，40/40 靜態頁生成完成。記錄為 `Turbopack FAIL（known tooling/environment panic）`、`Webpack production build PASS`，未修改正式 build script。
+- Browser regression：以 webpack build 後的 production server 嘗試隔離 port `3103`，server ready 但因本機未注入 Clerk keys 對所有 route 回 `500`；最新 suite 實際為 `53` tests：`1 passed`、`4 skipped`、`48 failed`。首要錯誤為 `@clerk/nextjs: Clerk keys are missing from your environment.`，故仍未宣稱 Browser PASS。
+- Auth Deployment Preflight：dependency、根目錄 `proxy.ts`／Clerk middleware、parent／jiejie／meimei role guard 與 route authorization Node tests PASS；Preview env existence 本輪因 Vercel CLI 未預裝且 `npx vercel@latest env ls preview` 未完成而未確認。未讀取或記錄任何 secret value。
 - Deployment：未部署至 `2026ast-hosting-preview`，未使用 `--prod`，未觸碰 `2026ast-production`。
-- **Next Step:** 先由 Human 接受題型與內容，並在可用的 Preview／Browser 驗證環境重跑 build、Browser regression 與 Preview Auth env preflight；全部 PASS 後才可依 Auto-Deploy Rule 部署。
+- **Next Step:** 先取得可用的 Preview／Browser 驗證環境，完成 Preview Clerk env existence、production Browser regression 與所有 final gates；全部 PASS 後才可進入 Sprint 40 Human Acceptance Gate，再依 Auto-Deploy Rule 部署。不得開始下一 Sprint。
 
 # Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Completed
 
