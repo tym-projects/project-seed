@@ -2,12 +2,19 @@
 
 # Sprint 40 — Final Validation and Preview Auth Recovery
 
+## Final Closeout — Completed after Human Acceptance
+
+- Owner Human Acceptance 全部 PASS：Sprint 40 新增妹妹月考題、10 題抽驗、妹妹第一次月考練習、linda role authorization、anonymous → Clerk、Preview runtime；無 Human Exception。
+- 題數與範圍未變：國語 `8`、數學 `8`、自然 `10`；妹妹 monthly `26/26/28`；Monthly allowlist `170`；自然僅「認識植物」與「空氣和水」。
+- Learning Record 未修改；Production 未修改；Clerk pairing 為同一 Development instance 的 `pk_test_`／`sk_test_`；舊 Secret 未撤銷；Vercel Authentication OFF。
+- Next Step：等待 Owner 指定下一階段；不得自行開始下一 Sprint。
+
 - Owner-approved new Clerk Development Secret created for `2026AST`; prefix `sk_test_`, matched to the existing `pk_test_` Development publishable key. Existing key was retained and not revoked.
 - `2026ast-hosting-preview` Preview `CLERK_SECRET_KEY` updated as a Secret for all Preview branches; Production and `2026ast-production` untouched.
 - Preview deployment `dpl_S1VAGDDQeQd2B8KcUUwYdxXiVcdB` is `READY` at `https://2026ast-hosting-preview-kyvpdjf0m-2026-ast.vercel.app`.
 - Anonymous Preview runtime smoke passed for `/`, `/jiejie`, `/meimei`, and `/parent`: HTTP `307` to Clerk Development sign-in, no `500`; Vercel Authentication remained OFF.
 - Final static validation passed: focused `3/3`, Auth focused `28/28`, Node `256/256`, lint, TypeScript, Webpack build `40/40`, and diff-check. Turbopack remains the known `globals.css` tooling/environment failure.
-- Authenticated child-question interaction remains Human Acceptance only because no child credentials were supplied to automated Browser regression.
+- Authenticated child-question interaction was not automated because no child credentials were supplied, but Owner Human Acceptance passed for the authenticated flow and related checks.
 
 # Sprint 40 — Pre-rotation Validation Snapshot — Superseded
 

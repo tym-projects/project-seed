@@ -7,6 +7,11 @@
 - Anonymous runtime smoke passed for `/`, `/jiejie`, `/meimei`, and `/parent` with HTTP `307` Clerk redirects and no `500`. Vercel Authentication remained OFF.
 - Authenticated question interaction was not claimed as automated Browser PASS; it is explicitly reserved for Human Acceptance because child credentials were not supplied.
 
+## Human Acceptance — PASS
+
+- Owner acceptance passed for Sprint 40 questions, 10-question spot check, 妹妹第一次月考練習, linda role authorization, anonymous → Clerk, and Preview runtime.
+- Human Exception: `0`.
+
 ## Passed
 
 - Focused Sprint 40 QA: `3/3`。
@@ -26,4 +31,4 @@
 
 ## Deployment decision
 
-Deployment to `2026ast-hosting-preview` completed as Preview `dpl_S1VAGDDQeQd2B8KcUUwYdxXiVcdB`; `--prod` and `2026ast-production` were not used. Human Acceptance remains the next gate for authenticated question interaction.
+Deployment to `2026ast-hosting-preview` completed as Preview `dpl_S1VAGDDQeQd2B8KcUUwYdxXiVcdB`; `--prod` and `2026ast-production` were not used. Human Acceptance is complete; next step is waiting for Owner direction and no new Sprint starts automatically.

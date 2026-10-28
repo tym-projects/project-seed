@@ -1,5 +1,15 @@
 # Project Seed Roadmap
 
+# Sprint 40 — 妹妹第一次月考題型校準 — Completed
+
+- 新增 26 題原創 singleton：妹妹國語 8、數學 8、自然 10；Monthly allowlist `144 → 170`。
+- 妹妹 monthly counts：國語／數學／自然 `26/26/28`；自然範圍仍只包含「認識植物」與「空氣和水」，不含動物或磁鐵。
+- Human Acceptance 全部 PASS：10 題抽驗、妹妹第一次月考練習、linda role authorization、anonymous → Clerk 與 Preview runtime；Human Exception `0`。
+- Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Production 與重大 UI／架構均未修改。Clerk pairing 為同一 Development instance 的 `pk_test_`／`sk_test_`；Vercel Authentication 維持 OFF。
+- Validation：focused `3/3`、Node `256/256`、Auth focused `28/28`、lint、TypeScript、Webpack production build `40/40`、`git diff --check` PASS。Turbopack 的既有 `globals.css` tooling/environment panic 保留記錄，未修改 build script、CSS、Next 或 dependencies。
+- Preview：`dpl_S1VAGDDQeQd2B8KcUUwYdxXiVcdB` READY，`https://2026ast-hosting-preview-kyvpdjf0m-2026-ast.vercel.app`；Production 未動。
+- Next Step：等待 Owner 指定下一階段；不自行開始下一 Sprint。
+
 # Sprint 39 — Coverage-sized Practice and Monthly Question Bank Expansion — Completed
 
 - 40 fully original singleton questions completed, five per bank. Active Practice is `75` in each of eight banks (`600` total); total questions `573 → 613` and learning units `568 → 608`.
