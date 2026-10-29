@@ -1,6 +1,6 @@
 # Sprint 41 Source / Provenance Record
 
-Status: **Implementation Complete / Awaiting Human Acceptance**. Sprint 41 additions are recorded as original authored content under the policy below.
+Status: **Completed after Human Acceptance**. Sprint 41 additions are recorded as original authored content under the policy below.
 
 ## Repository and scope basis
 

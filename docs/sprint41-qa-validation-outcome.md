@@ -1,6 +1,12 @@
 # Sprint 41 QA Validation Outcome
 
-Status: **Implementation Complete / Awaiting Human Acceptance**. Not Completed.
+Status: **Completed after Human Acceptance**.
+
+## Closeout
+
+- Owner confirmed all requested Human Acceptance checks PASS on 2026-10-29.
+- The 16-question spot check covered both students and all four subjects; role boundaries and anonymous Clerk protection also passed.
+- No Human Exception remains. Sprint 41 is closed; the technical evidence below remains the implementation record.
 
 ## Counts
 

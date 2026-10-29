@@ -1,5 +1,12 @@
 # Deployment Log
 
+## Sprint 41 Preview closeout — 2026-10-29
+
+- Sprint 41 Human Acceptance is complete; the existing Preview deployment `dpl_9bQLWRDDy79t2Nk2PGkeHmRYbBqh` remains the accepted runtime evidence.
+- URL: `https://2026ast-hosting-preview-qqqp4i6uu-2026-ast.vercel.app/`; status `READY`; Vercel Authentication remains OFF.
+- Anonymous `/`, `/jiejie`, `/meimei`, and `/parent` smoke returned Clerk HTTP `307`; no HTTP `500` was observed.
+- No Production deployment was created and `2026ast-production` was not modified.
+
 ## Post-Sprint 39 Auth Regression Remediation — 2026-10-11
 
 - Project: `2026ast-hosting-preview` (Vercel Preview only); deployment `dpl_8eUJuT6BXxwP5jdx7f3771xTQRwh`; status `READY`.

@@ -1,8 +1,17 @@
 # Project Status
 
-# Sprint 41 — Eight-bank Active Practice expansion — Implementation Complete / Awaiting Human Acceptance
+# Sprint 42 — Eight-bank flexible application practice expansion — Implementation In Progress
 
-## Sprint 41 implementation outcome — 2026-10-29
+## Sprint 41 final closeout — 2026-10-29
+
+- Owner Human Acceptance completed with all requested checks PASS: 16 authenticated spot checks across 姐姐／妹妹 × 國語／數學／自然／社會, role boundaries, and anonymous Clerk protection.
+- Sprint 41 is now **Completed after Human Acceptance**. Implementation commit `7216873` and governance commit `7c83207` remain pushed to `origin/codex/sprint38-practice-bank-expansion`.
+- Sprint 41 final inventory: Active Practice `800` (`100` in each of eight banks), total questions `813`, learning units `808`, Monthly allowlist `170`.
+- Preview deployment `dpl_9bQLWRDDy79t2Nk2PGkeHmRYbBqh` remains READY at `https://2026ast-hosting-preview-qqqp4i6uu-2026-ast.vercel.app`; Production and `2026ast-production` were not modified.
+- Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth／Clerk source and Production remain unchanged.
+- Next Step: Sprint 42 adds 50 Active Practice questions to each of the eight existing banks; all new questions are deferred from Monthly allowlist pending separate coverage approval.
+
+## Sprint 42 implementation outcome — pending final verification
 
 - Canonical repo: `C:\Users\admin\Documents\2026AST-dev`; branch remains `codex/sprint38-practice-bank-expansion`.
 - Active Practice count gate passed programmatically: 姐姐國語／數學／自然／社會 `100/100/100/100`; 妹妹國語／數學／自然／社會 `100/100/100/100`; total `800`.

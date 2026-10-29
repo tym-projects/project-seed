@@ -1,5 +1,14 @@
 # Sprint Log
 
+# Sprint 41 — Eight-bank Active Practice expansion — Completed after Human Acceptance
+
+- Owner Human Acceptance completed: all 16 requested cross-student／cross-subject spot checks passed, both student role boundaries passed, and anonymous Clerk protection passed.
+- Final inventory: eight banks at `100` Active Practice each (`800` total), total questions `813`, learning units `808`, Monthly allowlist `170`.
+- Existing implementation and governance commits `7216873` and `7c83207` are pushed and the working tree was clean at closeout.
+- Preview `dpl_9bQLWRDDy79t2Nk2PGkeHmRYbBqh` is READY; Production and `2026ast-production` were untouched.
+- Learning Record、ReviewSession、Backup/Restore、retry、1/3/7 與 Auth source 未修改。
+- Next Step: Sprint 42 flexible application practice expansion, eight banks × 50 new singleton questions; Monthly allowlist remains unchanged by default.
+
 # Sprint 40 — Final Validation and Preview Auth Recovery
 
 ## Final Closeout — Completed after Human Acceptance
