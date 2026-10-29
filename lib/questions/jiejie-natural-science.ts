@@ -139,5 +139,9 @@ questions.push(...(sprint39QuestionsByBank['jiejie/natural_science'] ?? []));
 const sprint41QuestionModule = typeof require === 'function' ? require('./sprint41-question-additions') : undefined;
 const sprint41QuestionsByBank = (sprint41QuestionModule?.sprint41QuestionsByBank ?? {}) as Record<string, Question[]>;
 questions.push(...(sprint41QuestionsByBank['jiejie/natural_science'] ?? []));
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sprint42QuestionModule = typeof require === 'function' ? require('./sprint42-question-additions') : undefined;
+const sprint42QuestionsByBank = (sprint42QuestionModule?.sprint42QuestionsByBank ?? {}) as Record<string, Question[]>;
+questions.push(...(sprint42QuestionsByBank['jiejie/natural_science'] ?? []));
 
 export const practiceQuestions: Question[] = questions;

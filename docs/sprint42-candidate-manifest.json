@@ -1,0 +1,20 @@
+{
+  "sprint": 42,
+  "status": "implementation-complete",
+  "purpose": "400 original singleton questions expanding all eight Active Practice banks from 100 to 150.",
+  "currentActivePracticeTotal": 800,
+  "targetActivePracticeTotal": 1200,
+  "requiredAdditionsTotal": 400,
+  "monthlyAllowlistBaseline": 170,
+  "monthlyPolicy": "explicit-disposition-only",
+  "banks": [
+    { "student": "jiejie", "subject": "chinese", "currentActive": 100, "targetActive": 150, "plannedAdditions": 50, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "jiejie-chinese-110..159" },
+    { "student": "jiejie", "subject": "mathematics", "currentActive": 100, "targetActive": 150, "plannedAdditions": 50, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "jiejie-mathematics-103..152" },
+    { "student": "jiejie", "subject": "natural_science", "currentActive": 100, "targetActive": 150, "plannedAdditions": 50, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "jiejie-natural-science-101..150" },
+    { "student": "jiejie", "subject": "social_studies", "currentActive": 100, "targetActive": 150, "plannedAdditions": 50, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "jiejie-social-studies-103..152" },
+    { "student": "meimei", "subject": "chinese", "currentActive": 100, "targetActive": 150, "plannedAdditions": 50, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "meimei-chinese-101..150" },
+    { "student": "meimei", "subject": "mathematics", "currentActive": 100, "targetActive": 150, "plannedAdditions": 50, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "meimei-mathematics-101..150" },
+    { "student": "meimei", "subject": "natural_science", "currentActive": 100, "targetActive": 150, "plannedAdditions": 50, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "meimei-natural-science-101..150" },
+    { "student": "meimei", "subject": "social_studies", "currentActive": 100, "targetActive": 150, "plannedAdditions": 50, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "meimei-social-studies-101..150" }
+  ]
+}

@@ -11,7 +11,19 @@
 - Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth／Clerk source and Production remain unchanged.
 - Next Step: Sprint 42 adds 50 Active Practice questions to each of the eight existing banks; all new questions are deferred from Monthly allowlist pending separate coverage approval.
 
-## Sprint 42 implementation outcome — pending final verification
+## Sprint 42 implementation outcome — Implementation Complete / Awaiting Human Acceptance
+
+- Added `400` original singleton questions: 姐姐／妹妹 × 國語／數學／自然／社會 each `50`; Active Practice is now `150` in every bank and `1200` total.
+- Actual inventory from repo exports: total questions `1213`, learning units `1208`; Monthly allowlist remains `170`.
+- Active Practice type distribution: `basic/application = 275/925`; answer index distribution `0/1/2/3 = 308/312/300/280`.
+- Focused Sprint 42 QA `5/5`, full Node `267/267`, lint, TypeScript, Webpack production build `40/40`, Auth source/role regression and `git diff --check` passed.
+- Full Browser regression: `4 passed / 4 skipped / 45 failed` of 53. Failures are existing authenticated UI flows blocked by local Clerk credentials; no child credentials were supplied. This is a Human Acceptance blocker, not a Browser PASS claim.
+- Auth Deployment Preflight source checks passed: `@clerk/nextjs` present, root `proxy.ts` present, role authorization tests `267/267`; Vercel CLI is unavailable locally, so Preview env-variable metadata was not independently queried in this run.
+- Existing Preview anonymous smoke remains `307` for `/`, `/jiejie`, `/meimei`, `/parent`; no new deployment was created because the Browser gate did not pass. Production and `2026ast-production` remain untouched.
+- Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth／Clerk source and schema were not modified. New questions remain deferred from Monthly allowlist.
+- Next Step: Owner supplies authenticated browser credentials, then rerun Browser regression, deploy Preview-only, verify READY/new-question loads, and perform 16-question Human Acceptance.
+
+## Sprint 41 implementation record
 
 - Canonical repo: `C:\Users\admin\Documents\2026AST-dev`; branch remains `codex/sprint38-practice-bank-expansion`.
 - Active Practice count gate passed programmatically: 姐姐國語／數學／自然／社會 `100/100/100/100`; 妹妹國語／數學／自然／社會 `100/100/100/100`; total `800`.

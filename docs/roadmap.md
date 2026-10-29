@@ -1,5 +1,13 @@
 # Project Seed Roadmap
 
+# Sprint 42 — Eight-bank flexible application practice expansion — Implementation Complete / Awaiting Human Acceptance
+
+- Added 400 original singleton Active Practice questions: 50 per bank across 姐姐／妹妹 × 國語／數學／自然／社會. Each bank is now 150; total Active Practice is 1200.
+- Actual inventory: total questions 1213; learning units 1208; Monthly allowlist remains 170 and all Sprint 42 additions are deferred.
+- Content emphasizes application, multi-step reasoning-like construction, information transformation, error identification, comparison, causality, and short-text/data interpretation while retaining only `basic/application` schema types. 妹妹自然 remains limited to plants and air/water.
+- Focused QA 5/5, Node 267/267, lint, TypeScript, Webpack build 40/40, Auth source/role checks and diff-check passed. Full Browser is not PASS (`4 passed / 4 skipped / 45 failed`) because local Clerk credentials were unavailable.
+- No Preview deployment was created after the Browser gate failed; Production remains untouched. Next step is credentialed Browser regression, Preview-only deployment, and Owner Human Acceptance.
+
 # Sprint 40 — 妹妹第一次月考題型校準 — Completed
 
 - 新增 26 題原創 singleton：妹妹國語 8、數學 8、自然 10；Monthly allowlist `144 → 170`。

@@ -1,5 +1,12 @@
 # Deployment Log
 
+## Sprint 42 deployment gate — 2026-10-29
+
+- No new deployment created. The required Browser gate returned `4 passed / 4 skipped / 45 failed` because local authenticated Browser flows had no Clerk credentials.
+- Existing Preview anonymous smoke still returns HTTP `307` for `/`, `/jiejie`, `/meimei`, and `/parent`; no HTTP `500` observed.
+- Auth source preflight passed (`@clerk/nextjs`, `proxy.ts`, role tests); Vercel CLI is unavailable locally, so Preview env metadata was not independently queried.
+- Production and `2026ast-production` were not used or modified. Next step is credentialed Browser regression followed by Preview-only deployment.
+
 ## Sprint 41 Preview closeout — 2026-10-29
 
 - Sprint 41 Human Acceptance is complete; the existing Preview deployment `dpl_9bQLWRDDy79t2Nk2PGkeHmRYbBqh` remains the accepted runtime evidence.

@@ -248,6 +248,10 @@ questions.push(...(sprint39QuestionsByBank['jiejie/chinese'] ?? []));
 const sprint41QuestionModule = typeof require === 'function' ? require('./sprint41-question-additions') : undefined;
 const sprint41QuestionsByBank = (sprint41QuestionModule?.sprint41QuestionsByBank ?? {}) as Record<string, Question[]>;
 questions.push(...(sprint41QuestionsByBank['jiejie/chinese'] ?? []));
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sprint42QuestionModule = typeof require === 'function' ? require('./sprint42-question-additions') : undefined;
+const sprint42QuestionsByBank = (sprint42QuestionModule?.sprint42QuestionsByBank ?? {}) as Record<string, Question[]>;
+questions.push(...(sprint42QuestionsByBank['jiejie/chinese'] ?? []));
 
 // Keep retired early test questions available for historical Learning Records,
 // but exclude them from current formal practice and review flows.

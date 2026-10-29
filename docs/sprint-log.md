@@ -1,5 +1,14 @@
 # Sprint Log
 
+# Sprint 42 — Eight-bank flexible application practice expansion — Implementation Complete / Awaiting Human Acceptance
+
+- Added 400 original singleton questions, 50 per bank; eight Active Practice banks are now `150` each (`1200` total).
+- Actual inventory: total questions `1213`, learning units `1208`; Monthly allowlist remains `170`, with all Sprint 42 additions deferred.
+- Focused QA `5/5`, Node `267/267`, lint, TypeScript, Webpack build `40/40`, Auth source/role regression and diff-check passed.
+- Full Browser regression is not PASS: `4 passed / 4 skipped / 45 failed`; local Clerk credentials were unavailable for authenticated flows. No Preview deployment was created after the Browser gate failed; Production untouched.
+- Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth／Clerk source and schema were not modified.
+- Next Step: credentialed Browser regression, existing Preview-only deployment, anonymous/new-question smoke, and 16-question Owner Human Acceptance.
+
 # Sprint 41 — Eight-bank Active Practice expansion — Completed after Human Acceptance
 
 - Owner Human Acceptance completed: all 16 requested cross-student／cross-subject spot checks passed, both student role boundaries passed, and anonymous Clerk protection passed.
