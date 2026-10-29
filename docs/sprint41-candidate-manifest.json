@@ -1,0 +1,32 @@
+{
+  "sprint": 41,
+  "status": "implementation-complete",
+  "purpose": "174 original singleton questions implemented and covered by Sprint 41 focused QA.",
+  "currentActivePracticeTotal": 626,
+  "targetActivePracticeTotal": 800,
+  "requiredAdditionsTotal": 174,
+  "monthlyAllowlistBaseline": 170,
+  "monthlyPolicy": "explicit-disposition-only",
+  "banks": [
+    { "student": "jiejie", "subject": "chinese", "currentActive": 75, "targetActive": 100, "plannedAdditions": 25, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "jiejie-chinese-85..109" },
+    { "student": "jiejie", "subject": "mathematics", "currentActive": 75, "targetActive": 100, "plannedAdditions": 25, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "jiejie-mathematics-78..102" },
+    { "student": "jiejie", "subject": "natural_science", "currentActive": 75, "targetActive": 100, "plannedAdditions": 25, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "jiejie-natural-science-76..100" },
+    { "student": "jiejie", "subject": "social_studies", "currentActive": 75, "targetActive": 100, "plannedAdditions": 25, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "jiejie-social-studies-78..102" },
+    { "student": "meimei", "subject": "chinese", "currentActive": 83, "targetActive": 100, "plannedAdditions": 17, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "meimei-chinese-84..100" },
+    { "student": "meimei", "subject": "mathematics", "currentActive": 83, "targetActive": 100, "plannedAdditions": 17, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "meimei-mathematics-84..100" },
+    { "student": "meimei", "subject": "natural_science", "currentActive": 85, "targetActive": 100, "plannedAdditions": 15, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "meimei-natural-science-86..100" },
+    { "student": "meimei", "subject": "social_studies", "currentActive": 75, "targetActive": 100, "plannedAdditions": 25, "qaDisposition": "ready", "monthlyDisposition": "defer", "idRange": "meimei-social-studies-76..100" }
+  ],
+  "slotSchema": {
+    "candidateId": "string",
+    "topic": "string",
+    "type": "basic|application",
+    "cognitiveOperation": "string",
+    "scopeBasis": "string",
+    "originality": "fully_original|web_inspired_original|direct_reuse_licensed",
+    "learningUnit": "singleton|approved_review_group",
+    "monthlyDisposition": "defer|eligible-review|approved",
+    "qaDisposition": "pending|ready|revised|rejected",
+    "sourceNotes": "string"
+  }
+}

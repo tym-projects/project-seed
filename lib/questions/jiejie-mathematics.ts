@@ -231,6 +231,10 @@ questions.push(...(sprint38QuestionsByBank['jiejie/mathematics'] ?? []));
 const sprint39QuestionModule = typeof require === 'function' ? require('./sprint39-question-additions') : undefined;
 const sprint39QuestionsByBank = (sprint39QuestionModule?.sprint39QuestionsByBank ?? {}) as Record<string, Question[]>;
 questions.push(...(sprint39QuestionsByBank['jiejie/mathematics'] ?? []));
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sprint41QuestionModule = typeof require === 'function' ? require('./sprint41-question-additions') : undefined;
+const sprint41QuestionsByBank = (sprint41QuestionModule?.sprint41QuestionsByBank ?? {}) as Record<string, Question[]>;
+questions.push(...(sprint41QuestionsByBank['jiejie/mathematics'] ?? []));
 
 // Keep out-of-scope questions available for historical Learning Records,
 // but exclude them from current practice, review, and reinforcement flows.

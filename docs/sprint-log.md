@@ -501,3 +501,12 @@
 - Candidate manifest／coverage audit：`docs/sprint40-candidate-manifest.json`、`docs/sprint40-practice-coverage-audit.md`。
 - Verification：focused `3/3`、Node `256/256`、lint、TypeScript、diff-check PASS；build 因既有 Turbopack `globals.css` 子程序 panic 未通過；Browser 因 dev server 在測試期間退出導致 `49` 個 timeout，未通過。
 - Auth preflight static checks PASS；Preview target env 尚未重新確認，未部署至 Preview／Production。
+# Sprint 41 — Eight-bank Active Practice expansion — Implementation Complete / Awaiting Human Acceptance
+
+- Added `174` original singleton questions to bring all eight Active Practice banks from `626` total to exactly `800` (`100` each).
+- Per-bank additions: 姐姐國語／數學／自然／社會 `25/25/25/25`; 妹妹國語／數學／自然／社會 `17/17/15/25`.
+- Inventory: total questions `639 → 813`; learning units `634 → 808`; monthly allowlist unchanged at `170` with all Sprint 41 candidates deferred.
+- QA: focused `6/6`, full Node `262/262`, lint, TypeScript and Webpack build `40/40` PASS; Browser regression blocked by local Clerk `Missing secretKey` caused by a two-character local `CLERK_SECRET_KEY`.
+- Auth source tests and local structure preflight PASS; Preview env metadata and anonymous route smoke not re-verified; no deployment made.
+- Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth source、schema and Production were not intentionally modified.
+- Human Acceptance remains pending; request 16 spot checks after Browser/Auth gates and Preview deployment are restored.

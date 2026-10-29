@@ -1,5 +1,20 @@
 # Project Status
 
+# Sprint 41 — Eight-bank Active Practice expansion — Implementation Complete / Awaiting Human Acceptance
+
+## Sprint 41 implementation outcome — 2026-10-29
+
+- Canonical repo: `C:\Users\admin\Documents\2026AST-dev`; branch remains `codex/sprint38-practice-bank-expansion`.
+- Active Practice count gate passed programmatically: 姐姐國語／數學／自然／社會 `100/100/100/100`; 妹妹國語／數學／自然／社會 `100/100/100/100`; total `800`.
+- Added `174` original singleton questions: 姐姐 `25/25/25/25`; 妹妹 `17/17/15/25`.
+- Inventory: total questions `639 → 813`; learning units `634 → 808`.
+- Monthly allowlist remains `170`; all Sprint 41 additions are explicitly deferred from monthly until separate coverage approval. Monthly counts are `18/18/18/18/26/26/28/18` in the bank order above.
+- Sprint 41 focused QA `6/6`, full Node `262/262`, lint, TypeScript, and Webpack production build `40/40` passed. Answer type distribution `basic/application = 44/130`; answerIndex `0/1/2/3 = 46/42/44/42`.
+- Browser regression is blocked by local Clerk runtime configuration: `.env.local` has a two-character `CLERK_SECRET_KEY`, causing Playwright WebServer `Missing secretKey`. No secret value was recorded.
+- Auth source preflight passed locally: Clerk dependency, `proxy.ts`/middleware, role guards, and focused auth tests. Preview env metadata and anonymous Preview smoke were not re-verified in this session.
+- Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Production 未修改；未部署 Preview。
+- Next Step: repair/verify Clerk Preview environment, rerun Browser/Auth gates, then deploy existing `2026ast-hosting-preview`; remain at Human Acceptance, do not mark Completed.
+
 # Sprint 40 — 妹妹第一次月考題型校準 — Completed
 
 ## Sprint 40 Final Validation — Clerk Development / Vercel Preview Recovery — 2026-10-28
