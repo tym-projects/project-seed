@@ -5,9 +5,9 @@
 - Added 400 original singleton questions, 50 per bank; eight Active Practice banks are now `150` each (`1200` total).
 - Actual inventory: total questions `1213`, learning units `1208`; Monthly allowlist remains `170`, with all Sprint 42 additions deferred.
 - Focused QA `5/5`, Node `267/267`, lint, TypeScript, Webpack build `40/40`, Auth source/role regression and diff-check passed.
-- Full Browser regression is not PASS: `4 passed / 4 skipped / 45 failed`; local Clerk credentials were unavailable for authenticated flows. Fresh smoke on the existing protected Preview remains `307` for all four anonymous routes, but no new Sprint 42 deployment was created: Dashboard Redeploy is fixed to old source `7216873`, and branch push at `9e17435` did not trigger an authorized workflow. Production untouched.
+- Full Browser regression is not PASS: `4 passed / 4 skipped / 45 failed`; local Clerk credentials were unavailable for authenticated flows. One-time Vercel CLI `57.0.0` linked the existing `2026ast-hosting-preview` project and created Preview deployment `dpl_8izpHbQ5thwzcNBwn6AhpcFpb7CB`, READY at `https://2026ast-hosting-preview-avp3b396b-2026-ast.vercel.app`. Anonymous `/`, `/jiejie`, `/meimei`, and `/parent` each returned Clerk `307` with no `500`; Production untouched.
 - Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth／Clerk source and schema were not modified.
-- Next Step: obtain an authorized Preview deployment path for `9e17435` or later, then verify runtime question counts/new-question loads and perform the listed 16-question Owner Human Acceptance. Do not use old source `7216873`.
+- Next Step: perform the listed 16-question Owner Human Acceptance on the new READY Preview. Authenticated Browser remains Human-only; do not mark Sprint 42 Completed.
 
 # Sprint 41 — Eight-bank Active Practice expansion — Completed after Human Acceptance
 

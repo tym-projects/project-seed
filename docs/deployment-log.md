@@ -1,13 +1,13 @@
 # Deployment Log
 
-## Sprint 42 deployment gate — 2026-10-29
+## Sprint 42 Preview deployment — 2026-10-29
 
-- Deployment request prepared from source branch `codex/sprint38-practice-bank-expansion` at implementation commit `fc1c971`; the next Preview deployment must be created by the existing branch-connected Vercel workflow and must not redeploy the older `7216873` Preview.
-- Governance trigger commit `9e17435` was pushed successfully, but no new Vercel deployment appeared. Dashboard Redeploy was inspected and cancelled because it is fixed to the old `7216873` source; no old-source redeploy was performed.
-- The required Browser gate returned `4 passed / 4 skipped / 45 failed` because local authenticated Browser flows had no Clerk credentials. This remains Human-only acceptance evidence, not a full Browser PASS claim.
-- Existing Preview anonymous smoke still returns HTTP `307` for `/`, `/jiejie`, `/meimei`, and `/parent`; no HTTP `500` observed.
-- Auth source preflight passed (`@clerk/nextjs`, `proxy.ts`, role tests); Vercel CLI is unavailable locally, so Preview env metadata was not independently queried.
-- Production and `2026ast-production` were not used or modified. Deployment runtime verification and the 16-question Human Acceptance gate remain pending.
+- Source branch: `codex/sprint38-practice-bank-expansion`; source HEAD: `f2bd949aa8b9846682bd4afc23188b6cef12e890`.
+- One-time Vercel CLI `57.0.0` account: `tsengym2026-4854`; team: `2026-ast`; linked existing project: `2026ast-hosting-preview`; no new project and no Git Integration changes.
+- Deployment ID: `dpl_8izpHbQ5thwzcNBwn6AhpcFpb7CB`; target: Preview; status: READY; URL: `https://2026ast-hosting-preview-avp3b396b-2026-ast.vercel.app`.
+- Anonymous runtime smoke: `/`, `/jiejie`, `/meimei`, `/parent` all returned Clerk HTTP `307`; no HTTP `500`. Vercel Authentication remains OFF; authenticated Browser remains Human-only.
+- Sprint 42 source/content evidence: eight banks `150` each, Active Practice `1200`, total questions `1213`, learning units `1208`, Monthly allowlist `170`; focused QA `5/5` passed. Full Browser remains `4 passed / 4 skipped / 45 failed` because child credentials were not supplied.
+- Production and `2026ast-production` were not used or modified. Next gate is the listed 16-question Owner Human Acceptance; Sprint 42 is not marked Completed.
 
 ## Sprint 41 Preview closeout — 2026-10-29
 

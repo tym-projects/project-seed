@@ -6,7 +6,7 @@
 - Actual inventory: total questions 1213; learning units 1208; Monthly allowlist remains 170 and all Sprint 42 additions are deferred.
 - Content emphasizes application, multi-step reasoning-like construction, information transformation, error identification, comparison, causality, and short-text/data interpretation while retaining only `basic/application` schema types. 妹妹自然 remains limited to plants and air/water.
 - Focused QA 5/5, Node 267/267, lint, TypeScript, Webpack build 40/40, Auth source/role checks and diff-check passed. Full Browser is not PASS (`4 passed / 4 skipped / 45 failed`) because local Clerk credentials were unavailable.
-- Fresh anonymous smoke on the existing protected Preview returned `307` for `/`, `/jiejie`, `/meimei`, and `/parent`; no new Sprint 42 Preview exists. Dashboard Redeploy is fixed to old source `7216873`, and branch push at `9e17435` did not trigger an authorized workflow. Production remains untouched. Next step is an authorized Preview-only deployment from `9e17435` or later, then runtime/new-question verification and Owner Human Acceptance.
+- One-time Vercel CLI `57.0.0` linked the existing `2026ast-hosting-preview` project and created READY Preview `dpl_8izpHbQ5thwzcNBwn6AhpcFpb7CB` at `https://2026ast-hosting-preview-avp3b396b-2026-ast.vercel.app`. Anonymous `/`, `/jiejie`, `/meimei`, and `/parent` each returned Clerk `307` with no `500`; Production remains untouched. Next step is Owner Human Acceptance; authenticated Browser remains Human-only.
 
 # Sprint 40 — 妹妹第一次月考題型校準 — Completed
 

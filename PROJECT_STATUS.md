@@ -18,12 +18,12 @@
 - Active Practice type distribution: `basic/application = 275/925`; answer index distribution `0/1/2/3 = 308/312/300/280`.
 - Focused Sprint 42 QA `5/5`, full Node `267/267`, lint, TypeScript, Webpack production build `40/40`, Auth source/role regression and `git diff --check` passed.
 - Full Browser regression: `4 passed / 4 skipped / 45 failed` of 53. Failures are existing authenticated UI flows blocked by local Clerk credentials; no child credentials were supplied. This is a Human Acceptance blocker, not a Browser PASS claim.
-- Auth Deployment Preflight source checks passed: `@clerk/nextjs` present, root `proxy.ts` present, role authorization tests `267/267`; Vercel CLI is unavailable locally, so Preview env-variable metadata was not independently queried in this run.
-- Fresh anonymous smoke against the existing protected Preview remains `307` for `/`, `/jiejie`, `/meimei`, and `/parent`; no new Sprint 42 deployment was created. Vercel Dashboard Redeploy was not used because it is fixed to old source `7216873`, and the branch push did not trigger a deployment workflow. Production and `2026ast-production` remain untouched.
+- Auth Deployment Preflight source checks passed: `@clerk/nextjs` present, root `proxy.ts` present, and role authorization tests passed. The one-time Vercel CLI `57.0.0` confirmed account `tsengym2026-4854` in team `2026-ast`; Preview deployment used the existing `2026ast-hosting-preview` project and did not create a new project.
+- New Preview deployment `dpl_8izpHbQ5thwzcNBwn6AhpcFpb7CB` is READY at `https://2026ast-hosting-preview-avp3b396b-2026-ast.vercel.app`; target is Preview. Anonymous `/`, `/jiejie`, `/meimei`, and `/parent` each returned Clerk HTTP `307` with no `500`. Production and `2026ast-production` remain untouched.
 - Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth／Clerk source and schema were not modified. New questions remain deferred from Monthly allowlist.
-- Next Step: Owner/Vercel administrator must provide an authorized Preview deployment path for branch `codex/sprint38-practice-bank-expansion` at `9e17435` or later; then verify READY/new-question loads and perform the 16-question Human Acceptance. Do not use old source `7216873`.
+- Next Step: perform the listed 16-question Owner Human Acceptance against the new READY Preview. Authenticated Browser remains Human-only; do not mark Sprint 42 Completed or start Sprint 43.
 
-## Sprint 42 Human Acceptance candidate list — pending deployment
+## Sprint 42 Human Acceptance candidate list — pending owner review
 
 The following 16 Sprint 42 IDs are representative application/reasoning or comprehension samples; they are not acceptance results:
 
