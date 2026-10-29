@@ -1,6 +1,6 @@
 # Project Status
 
-# Sprint 42 — Eight-bank flexible application practice expansion — Implementation In Progress
+# Sprint 42 — Eight-bank flexible application practice expansion — Implementation Complete / Awaiting Human Acceptance
 
 ## Sprint 41 final closeout — 2026-10-29
 
@@ -19,9 +19,22 @@
 - Focused Sprint 42 QA `5/5`, full Node `267/267`, lint, TypeScript, Webpack production build `40/40`, Auth source/role regression and `git diff --check` passed.
 - Full Browser regression: `4 passed / 4 skipped / 45 failed` of 53. Failures are existing authenticated UI flows blocked by local Clerk credentials; no child credentials were supplied. This is a Human Acceptance blocker, not a Browser PASS claim.
 - Auth Deployment Preflight source checks passed: `@clerk/nextjs` present, root `proxy.ts` present, role authorization tests `267/267`; Vercel CLI is unavailable locally, so Preview env-variable metadata was not independently queried in this run.
-- Existing Preview anonymous smoke remains `307` for `/`, `/jiejie`, `/meimei`, `/parent`; no new deployment was created because the Browser gate did not pass. Production and `2026ast-production` remain untouched.
+- Fresh anonymous smoke against the existing protected Preview remains `307` for `/`, `/jiejie`, `/meimei`, and `/parent`; no new Sprint 42 deployment was created. Vercel Dashboard Redeploy was not used because it is fixed to old source `7216873`, and the branch push did not trigger a deployment workflow. Production and `2026ast-production` remain untouched.
 - Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth／Clerk source and schema were not modified. New questions remain deferred from Monthly allowlist.
-- Next Step: Owner supplies authenticated browser credentials, then rerun Browser regression, deploy Preview-only, verify READY/new-question loads, and perform 16-question Human Acceptance.
+- Next Step: Owner/Vercel administrator must provide an authorized Preview deployment path for branch `codex/sprint38-practice-bank-expansion` at `9e17435` or later; then verify READY/new-question loads and perform the 16-question Human Acceptance. Do not use old source `7216873`.
+
+## Sprint 42 Human Acceptance candidate list — pending deployment
+
+The following 16 Sprint 42 IDs are representative application/reasoning or comprehension samples; they are not acceptance results:
+
+- 姐姐國語：`jiejie-chinese-110`（閱讀判讀／application，公平比較的方法）、`jiejie-chinese-159`（資訊整理／application，四筆資料的單位相同）。
+- 姐姐數學：`jiejie-mathematics-103`（小數／application，2.05 公升）、`jiejie-mathematics-110`（面積周長／application，面積 60 平方公分、周長 34 公分）。
+- 姐姐自然：`jiejie-natural-science-101`（溶解／application，攪拌對溶解速度的影響）、`jiejie-natural-science-104`（實驗判讀／application，固定紙片大小和投放高度）。
+- 姐姐社會：`jiejie-social-studies-103`（文化交流／application，先找相同與不同，再詢問原因）、`jiejie-social-studies-105`（社區變遷／application，居民有更多閱讀與活動場所）。
+- 妹妹國語：`meimei-chinese-101`（閱讀判讀／application，把問題和文章線索對應）、`meimei-chinese-105`（資訊整理／application，第二天）。
+- 妹妹數學：`meimei-mathematics-101`（運算／application，111 張）、`meimei-mathematics-103`（單位／application，50 公分）。
+- 妹妹自然：`meimei-natural-science-101`（植物觀察／application，用同一把尺量並記錄）、`meimei-natural-science-104`（實驗判讀／application，固定光照和植物種類）。
+- 妹妹社會：`meimei-social-studies-101`（學習方法／application，較容易安排和檢查）、`meimei-social-studies-105`（原因／影響／application，中途找東西的時間）。
 
 ## Sprint 41 implementation record
 

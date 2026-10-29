@@ -3,6 +3,7 @@
 ## Sprint 42 deployment gate — 2026-10-29
 
 - Deployment request prepared from source branch `codex/sprint38-practice-bank-expansion` at implementation commit `fc1c971`; the next Preview deployment must be created by the existing branch-connected Vercel workflow and must not redeploy the older `7216873` Preview.
+- Governance trigger commit `9e17435` was pushed successfully, but no new Vercel deployment appeared. Dashboard Redeploy was inspected and cancelled because it is fixed to the old `7216873` source; no old-source redeploy was performed.
 - The required Browser gate returned `4 passed / 4 skipped / 45 failed` because local authenticated Browser flows had no Clerk credentials. This remains Human-only acceptance evidence, not a full Browser PASS claim.
 - Existing Preview anonymous smoke still returns HTTP `307` for `/`, `/jiejie`, `/meimei`, and `/parent`; no HTTP `500` observed.
 - Auth source preflight passed (`@clerk/nextjs`, `proxy.ts`, role tests); Vercel CLI is unavailable locally, so Preview env metadata was not independently queried.
