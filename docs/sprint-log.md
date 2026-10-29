@@ -506,7 +506,11 @@
 - Added `174` original singleton questions to bring all eight Active Practice banks from `626` total to exactly `800` (`100` each).
 - Per-bank additions: 姐姐國語／數學／自然／社會 `25/25/25/25`; 妹妹國語／數學／自然／社會 `17/17/15/25`.
 - Inventory: total questions `639 → 813`; learning units `634 → 808`; monthly allowlist unchanged at `170` with all Sprint 41 candidates deferred.
-- QA: focused `6/6`, full Node `262/262`, lint, TypeScript and Webpack build `40/40` PASS; Browser regression blocked by local Clerk `Missing secretKey` caused by a two-character local `CLERK_SECRET_KEY`.
-- Auth source tests and local structure preflight PASS; Preview env metadata and anonymous route smoke not re-verified; no deployment made.
+- QA: focused `6/6`, full Node `262/262`, lint, TypeScript and Webpack build `40/40` PASS.
+- Clerk Development secret recovery completed with `pk_test_` / `sk_test_` pairing; `.env.local` remains ignored/untracked and the prior key was not revoked. No complete secret was recorded.
+- Auth-focused Browser gate: `4 passed / 4 skipped`; anonymous route protection and Clerk sign-in smoke PASS. Credential-dependent cases remain Human-only.
+- Preview anonymous smoke: `/`, `/jiejie`, `/meimei`, `/parent` returned HTTP `307` to Clerk with no `500`; Vercel Authentication remains OFF.
+- Existing implementation commit `7216873` pushed to `origin/codex/sprint38-practice-bank-expansion`. Preview deployment `dpl_9bQLWRDDy79t2Nk2PGkeHmRYbBqh` is READY at `https://2026ast-hosting-preview-qqqp4i6uu-2026-ast.vercel.app`; no `--prod`, no Production change.
+- Full Browser suite was attempted; authenticated/isolated cases timed out without child credentials and are not claimed as passed.
 - Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth source、schema and Production were not intentionally modified.
 - Human Acceptance remains pending; request 16 spot checks after Browser/Auth gates and Preview deployment are restored.

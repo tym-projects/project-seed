@@ -10,10 +10,14 @@
 - Inventory: total questions `639 → 813`; learning units `634 → 808`.
 - Monthly allowlist remains `170`; all Sprint 41 additions are explicitly deferred from monthly until separate coverage approval. Monthly counts are `18/18/18/18/26/26/28/18` in the bank order above.
 - Sprint 41 focused QA `6/6`, full Node `262/262`, lint, TypeScript, and Webpack production build `40/40` passed. Answer type distribution `basic/application = 44/130`; answerIndex `0/1/2/3 = 46/42/44/42`.
-- Browser regression is blocked by local Clerk runtime configuration: `.env.local` has a two-character `CLERK_SECRET_KEY`, causing Playwright WebServer `Missing secretKey`. No secret value was recorded.
-- Auth source preflight passed locally: Clerk dependency, `proxy.ts`/middleware, role guards, and focused auth tests. Preview env metadata and anonymous Preview smoke were not re-verified in this session.
-- Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Production 未修改；未部署 Preview。
-- Next Step: repair/verify Clerk Preview environment, rerun Browser/Auth gates, then deploy existing `2026ast-hosting-preview`; remain at Human Acceptance, do not mark Completed.
+- Clerk Development recovery completed with a new `sk_test_` key paired to the existing `pk_test_` instance; the prior key was not revoked. `.env.local` remains ignored/untracked and no complete secret is recorded in the repository.
+- Auth-focused Browser gate: `4 passed / 4 skipped`; anonymous protection, sign-in public access, reload/back fail-closed behavior, and Learning Record namespace isolation passed. The four skipped cases require Human credentials.
+- Preview anonymous route smoke passed: `/`, `/jiejie`, `/meimei`, `/parent` all returned HTTP `307` to the same Clerk Development sign-in host, with no HTTP `500`. Vercel Authentication remains OFF.
+- Existing commit `7216873` was pushed to `origin/codex/sprint38-practice-bank-expansion`; working tree is clean and branch is synchronized.
+- Preview deployment `dpl_9bQLWRDDy79t2Nk2PGkeHmRYbBqh` is `READY` at `https://2026ast-hosting-preview-qqqp4i6uu-2026-ast.vercel.app`. Deployment used the existing `2026ast-hosting-preview` project, without `--prod`; `2026ast-production` was not modified.
+- Full Browser suite was started; the anonymous Auth tests passed, while credential-dependent isolated/authenticated cases timed out or were skipped because no child credentials were supplied. This remains Human Acceptance, not a Browser PASS claim.
+- Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、題庫 schema、Production 未修改。
+- Next Step: Owner Human Acceptance of 16 authenticated spot checks; remain at Human Acceptance, do not mark Completed or start the next Sprint.
 
 # Sprint 40 — 妹妹第一次月考題型校準 — Completed
 
