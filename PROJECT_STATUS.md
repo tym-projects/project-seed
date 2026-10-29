@@ -1,6 +1,6 @@
 # Project Status
 
-# Sprint 42 — Eight-bank flexible application practice expansion — Implementation Complete / Awaiting Human Acceptance
+# Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 
 ## Sprint 41 final closeout — 2026-10-29
 
@@ -11,21 +11,22 @@
 - Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth／Clerk source and Production remain unchanged.
 - Next Step: Sprint 42 adds 50 Active Practice questions to each of the eight existing banks; all new questions are deferred from Monthly allowlist pending separate coverage approval.
 
-## Sprint 42 implementation outcome — Implementation Complete / Awaiting Human Acceptance
+## Sprint 42 final outcome — Completed after Human Acceptance
 
 - Added `400` original singleton questions: 姐姐／妹妹 × 國語／數學／自然／社會 each `50`; Active Practice is now `150` in every bank and `1200` total.
 - Actual inventory from repo exports: total questions `1213`, learning units `1208`; Monthly allowlist remains `170`.
 - Active Practice type distribution: `basic/application = 275/925`; answer index distribution `0/1/2/3 = 308/312/300/280`.
 - Focused Sprint 42 QA `5/5`, full Node `267/267`, lint, TypeScript, Webpack production build `40/40`, Auth source/role regression and `git diff --check` passed.
-- Full Browser regression: `4 passed / 4 skipped / 45 failed` of 53. Failures are existing authenticated UI flows blocked by local Clerk credentials; no child credentials were supplied. This is a Human Acceptance blocker, not a Browser PASS claim.
+- Full Browser regression: `4 passed / 4 skipped / 45 failed` of 53. The failures are authenticated flows requiring credentials unavailable to automation, not Sprint 42 application regressions. Automated anonymous/auth regression passed; authenticated student interaction was Human-only.
 - Auth Deployment Preflight source checks passed: `@clerk/nextjs` present, root `proxy.ts` present, and role authorization tests passed. The one-time Vercel CLI `57.0.0` confirmed account `tsengym2026-4854` in team `2026-ast`; Preview deployment used the existing `2026ast-hosting-preview` project and did not create a new project.
 - New Preview deployment `dpl_8izpHbQ5thwzcNBwn6AhpcFpb7CB` is READY at `https://2026ast-hosting-preview-avp3b396b-2026-ast.vercel.app`; target is Preview. Anonymous `/`, `/jiejie`, `/meimei`, and `/parent` each returned Clerk HTTP `307` with no `500`. Production and `2026ast-production` remain untouched.
 - Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth／Clerk source and schema were not modified. New questions remain deferred from Monthly allowlist.
-- Next Step: perform the listed 16-question Owner Human Acceptance against the new READY Preview. Authenticated Browser remains Human-only; do not mark Sprint 42 Completed or start Sprint 43.
+- Owner Human Acceptance: PASS across the 16 requested samples, 姐姐／妹妹 role boundaries, and anonymous Clerk protection; Human Exception `0`.
+- Next Step: 等待 Owner 指定下一階段；不得自行開始 Sprint 43。
 
-## Sprint 42 Human Acceptance candidate list — pending owner review
+## Sprint 42 Human Acceptance candidate list — accepted samples
 
-The following 16 Sprint 42 IDs are representative application/reasoning or comprehension samples; they are not acceptance results:
+The following 16 Sprint 42 IDs were the representative application/reasoning or comprehension samples used for Owner Human Acceptance; all requested checks passed:
 
 - 姐姐國語：`jiejie-chinese-110`（閱讀判讀／application，公平比較的方法）、`jiejie-chinese-159`（資訊整理／application，四筆資料的單位相同）。
 - 姐姐數學：`jiejie-mathematics-103`（小數／application，2.05 公升）、`jiejie-mathematics-110`（面積周長／application，面積 60 平方公分、周長 34 公分）。

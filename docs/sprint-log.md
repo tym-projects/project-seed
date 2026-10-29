@@ -1,13 +1,13 @@
 # Sprint Log
 
-# Sprint 42 — Eight-bank flexible application practice expansion — Implementation Complete / Awaiting Human Acceptance
+# Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 
 - Added 400 original singleton questions, 50 per bank; eight Active Practice banks are now `150` each (`1200` total).
 - Actual inventory: total questions `1213`, learning units `1208`; Monthly allowlist remains `170`, with all Sprint 42 additions deferred.
 - Focused QA `5/5`, Node `267/267`, lint, TypeScript, Webpack build `40/40`, Auth source/role regression and diff-check passed.
-- Full Browser regression is not PASS: `4 passed / 4 skipped / 45 failed`; local Clerk credentials were unavailable for authenticated flows. One-time Vercel CLI `57.0.0` linked the existing `2026ast-hosting-preview` project and created Preview deployment `dpl_8izpHbQ5thwzcNBwn6AhpcFpb7CB`, READY at `https://2026ast-hosting-preview-avp3b396b-2026-ast.vercel.app`. Anonymous `/`, `/jiejie`, `/meimei`, and `/parent` each returned Clerk `307` with no `500`; Production untouched.
+- Full Browser regression remains classified as `4 passed / 4 skipped / 45 failed`; local Clerk credentials were unavailable to automation for authenticated flows. The automated anonymous/auth regression passed, and Owner Human Acceptance passed the 16 requested samples, both student role boundaries, and anonymous Clerk protection; Human Exception `0`. One-time Vercel CLI `57.0.0` linked the existing `2026ast-hosting-preview` project and created Preview deployment `dpl_8izpHbQ5thwzcNBwn6AhpcFpb7CB`, READY at `https://2026ast-hosting-preview-avp3b396b-2026-ast.vercel.app`. Production untouched.
 - Learning Record、ReviewSession、Backup/Restore、retry、1/3/7、Auth／Clerk source and schema were not modified.
-- Next Step: perform the listed 16-question Owner Human Acceptance on the new READY Preview. Authenticated Browser remains Human-only; do not mark Sprint 42 Completed.
+- Next Step: 等待 Owner 指定下一階段；不得自行開始 Sprint 43。
 
 # Sprint 41 — Eight-bank Active Practice expansion — Completed after Human Acceptance
 

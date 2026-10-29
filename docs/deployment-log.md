@@ -7,7 +7,7 @@
 - Deployment ID: `dpl_8izpHbQ5thwzcNBwn6AhpcFpb7CB`; target: Preview; status: READY; URL: `https://2026ast-hosting-preview-avp3b396b-2026-ast.vercel.app`.
 - Anonymous runtime smoke: `/`, `/jiejie`, `/meimei`, `/parent` all returned Clerk HTTP `307`; no HTTP `500`. Vercel Authentication remains OFF; authenticated Browser remains Human-only.
 - Sprint 42 source/content evidence: eight banks `150` each, Active Practice `1200`, total questions `1213`, learning units `1208`, Monthly allowlist `170`; focused QA `5/5` passed. Full Browser remains `4 passed / 4 skipped / 45 failed` because child credentials were not supplied.
-- Production and `2026ast-production` were not used or modified. Next gate is the listed 16-question Owner Human Acceptance; Sprint 42 is not marked Completed.
+- Owner Human Acceptance passed the 16 requested samples, 姐姐／妹妹 role boundaries, and anonymous Clerk protection; Human Exception `0`. The Sprint 42 closeout is now complete. Production and `2026ast-production` were not used or modified.
 
 ## Sprint 41 Preview closeout — 2026-10-29
 
