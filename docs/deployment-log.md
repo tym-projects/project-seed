@@ -2,10 +2,11 @@
 
 ## Sprint 42 deployment gate — 2026-10-29
 
-- No new deployment created. The required Browser gate returned `4 passed / 4 skipped / 45 failed` because local authenticated Browser flows had no Clerk credentials.
+- Deployment request prepared from source branch `codex/sprint38-practice-bank-expansion` at implementation commit `fc1c971`; the next Preview deployment must be created by the existing branch-connected Vercel workflow and must not redeploy the older `7216873` Preview.
+- The required Browser gate returned `4 passed / 4 skipped / 45 failed` because local authenticated Browser flows had no Clerk credentials. This remains Human-only acceptance evidence, not a full Browser PASS claim.
 - Existing Preview anonymous smoke still returns HTTP `307` for `/`, `/jiejie`, `/meimei`, and `/parent`; no HTTP `500` observed.
 - Auth source preflight passed (`@clerk/nextjs`, `proxy.ts`, role tests); Vercel CLI is unavailable locally, so Preview env metadata was not independently queried.
-- Production and `2026ast-production` were not used or modified. Next step is credentialed Browser regression followed by Preview-only deployment.
+- Production and `2026ast-production` were not used or modified. Deployment runtime verification and the 16-question Human Acceptance gate remain pending.
 
 ## Sprint 41 Preview closeout — 2026-10-29
 
