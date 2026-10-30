@@ -38,13 +38,27 @@ These are design targets for the 300-question audit, not implementation counts:
 | `CIRCLE_RADIUS_DIAMETER` | 12 | 0 | 12 |
 | `RECTANGLE_DIMENSIONS` | 10 | 0 | 10 |
 | `RATIO_PARTS` | 8 | 0 | 8 |
-| `GROUPING_ARRAY` | 8 | 18 | 26 |
+| `GROUPING_ARRAY` | 8 | 10 | 18 |
 | `PLACE_VALUE_COLUMNS` | 0 | 18 | 18 |
-| `UNIT_RULER` | 0 | 12 | 12 |
+| `MEASUREMENT_RELATION` | 0 | 12 | 12 |
+| `BAR_MODEL` | 0 | 8 | 8 |
 | `TEXT_ONLY` / no visual | 90 | 102 | 192 |
 | **Total** | **150** | **150** | **300** |
 
 The counts are planned audit buckets. A question may move to `TEXT_ONLY_PREFERRED` after fidelity or leakage review; the final classification must follow the row-level audit, not the target table.
+
+## Closed delivery arithmetic
+
+The recommendation buckets remain `56 + 78 + 40 + 126 = 300`.
+
+| Delivery bucket | Count | Meaning |
+|---|---:|---|
+| Planned implementation-capable visual | 108 | Supported by the minimal renderer catalog, including the 16-question pilot |
+| Deferred visual / unsupported in this phase | 26 | Category A: visually valuable but requiring a renderer type not implemented in this phase |
+| Optional or text-only/no visual | 166 | `OPTIONAL 40 + TEXT_ONLY_PREFERRED 126` |
+| **Total** | **300** | `108 + 26 + 166` |
+
+There is no `UNDECIDED` bucket. The 26 deferred rows are explicitly deferred, not silently omitted.
 
 ## Monthly treatment
 

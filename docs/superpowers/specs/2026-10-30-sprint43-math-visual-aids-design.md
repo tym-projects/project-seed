@@ -64,7 +64,8 @@ Use the complete question audit and representative mappings as the decision sour
 | `RATIO_PARTS` | Known ratio parts and given quantity | the unknown counterpart |
 | `GROUPING_ARRAY` | Equal groups, rows, and countable objects | a remainder or target total not stated |
 | `PLACE_VALUE_COLUMNS` | Thousands/hundreds/tens/ones decomposition | a missing digit or final answer |
-| `UNIT_RULER` | mm/cm conversion with explicit tick labels | measurement precision beyond the stem |
+| `MEASUREMENT_RELATION` | cm/mm conversion relation without a read-off ruler | measurement precision or answer endpoint beyond the stem |
+| `BAR_MODEL` | known quantity relation with an unknown total | operation choice, computed total, or inferred scale |
 | `TEXT_ONLY` | Text is already the clearest or safest representation | any decorative substitute |
 
 ## Optional backward-compatible schema proposal

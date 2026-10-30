@@ -20,19 +20,24 @@ Every candidate is reviewed in this order:
 |---|---|---|
 | 姐姐分數 2 | PASS with a partition-only bar; quotient remains unknown | PASS if no half-unit count is prefilled |
 | 姐姐圓 4 | PASS with radius marker and no scale claim | PASS if area is not shaded or labelled |
-| 姐姐比 5 | PASS with 2:3 part strips and known red quantity only | PASS if blue quantity is blank |
+| 姐姐分數 11 | PASS with a partition-only bar; per-segment length remains unknown | PASS if 1/4 is not prefilled |
 | 姐姐圓 13 | PASS with diameter through centre | PASS if circumference is not written on the arc |
-| 姐姐多步驟 63 | PASS with unresolved equal-group rows | PASS if neither 12 groups nor 12 per group is drawn |
+| 姐姐多步驟 63 | CONDITIONAL PASS only with neutral unpartitioned quantities; otherwise TEXT_ONLY_PREFERRED | PASS only if no group boundary, common factor, or per-group value is shown |
 | 姐姐小數 67 | PASS with repeated-length template and blank remainder | PASS if segment count and remainder stay unknown |
 | 姐姐圓 72 | PASS with two radius markers and no filled area comparison | PASS if 4 is not encoded by four sectors or labels |
-| 姐姐面積周長 110 | PASS with dimension labels and boundary/interior distinction | PASS if no answer values are placed in the shape |
+| 姐姐面積周長 110 | PASS with neutral rectangle and dimension labels only | PASS if no area/perimeter cue or answer value is placed in the shape |
 | 妹妹位值 1 | PASS with four columns including zero tens | PASS if decomposition row is empty |
 | 妹妹四位數加法 2 | PASS with aligned place columns and blank carry cells | PASS if carries and result are empty |
 | 妹妹乘法 3 | PASS with equal-group template | PASS if total is not represented by 72 marks |
-| 妹妹 mm 4 | PASS with labelled conversion scaffold | PASS if 37 mm endpoint is not marked |
-| 妹妹 mm 10 | PASS with two source lengths and regrouping cue | PASS if 9cm3mm is not displayed |
-| 妹妹估算 12 | TEXT_ONLY_PREFERRED; visual adds rounding assumptions | N/A; reject visual |
-| 妹妹四位數 61/百位 62 | PASS with empty answer slot / neutral columns | PASS if result or target column is not pre-highlighted |
+| 妹妹 mm 4 | PASS with `MEASUREMENT_RELATION`, not a read-off ruler | PASS if 37 mm endpoint is not marked |
+| 妹妹乘法 9 | PASS with equal-group containers | PASS if 1224 is not represented |
+| 妹妹 mm 10 | PASS with `MEASUREMENT_RELATION`, not a read-off ruler | PASS if 9cm3mm is not displayed |
+| 妹妹四位數 61 | PASS with neutral `BAR_MODEL`; operation remains for the learner | PASS if no plus sign, vertical addition, carry, or answer is shown |
+| 妹妹百位 62 | PASS with neutral columns | PASS if result or target column is not pre-highlighted |
+
+## Scope anomaly
+
+姐姐 5 uses the word「比」and must not be treated as authorization to add a new ratio/proportion curriculum topic. The question remains a documented scope anomaly until its intended Unit 2 / fraction relation is confirmed. Sprint 43 does not modify the question and does not implement its visual before that confirmation.
 
 ## Answer leakage tests for a future implementation
 

@@ -1,14 +1,15 @@
 # Project Status
 
-# Sprint 43 — Mathematics Visual Aids — Design / Visual Fidelity Review Gate
+# Sprint 43 — Mathematics Visual Aids — Representative Implementation / Awaiting Rendered Visual Fidelity Review
 
 - Branch: `codex/sprint43-math-visual-aids`; baseline HEAD before this phase: `c4632889b87d4f11a8016a72253532b62ef3ca19`; Sprint 42 baseline was clean and synchronized `0/0`.
-- Phase 1 is documentation-only: 姐姐／妹妹數學題庫 audit, visual type design, optional backward-compatible schema proposal, mapping, fidelity/leakage audit, representative planning, and QA governance.
+- Mapping remediation closed the delivery arithmetic: recommendations `56/78/40/126`; planned implementation-capable visual `108`; deferred visual / unsupported in this phase `26`; optional or text-only/no visual `166`; total `300`, with no `UNDECIDED` bucket.
 - Current inventory verified from the formal repo: 姐姐數學 `150` active / `18` monthly; 妹妹數學 `150` active / `26` monthly; total `300` / `44`.
-- Planned audit disposition targets: `HIGHLY_RECOMMENDED 56`, `USEFUL 78`, `OPTIONAL 40`, `TEXT_ONLY_PREFERRED 126`; these are review targets and not production annotations.
-- No question bank, renderer, visual asset, Learning Record, ReviewSession, retry, 1/3/7, Backup/Restore, Auth, role authorization, monthly allowlist, deployment, or Production change is authorized in this phase.
+- Representative implementation is limited to 16 questions and the actual needed types: `FRACTION_PART_BAR`, `DECIMAL_MEASURE_SEGMENTS`, `CIRCLE_RADIUS_DIAMETER`, `RECTANGLE_DIMENSIONS`, `GROUPING_ARRAY`, `PLACE_VALUE_COLUMNS`, `MEASUREMENT_RELATION`, and `BAR_MODEL`. `RATIO_PARTS` remains catalog-only because 姐姐 5 is a scope anomaly.
+- Question schema extension is optional and backward compatible; no raw SVG, raw HTML, JSX, computed answer, `answerIndex`, or option coupling is stored in visual data.
+- No full-bank annotation, Learning Record, ReviewSession, retry, 1/3/7, Backup/Restore, Auth, role authorization, monthly allowlist, deployment, or Production change is authorized in this phase.
 - Design documents: `docs/superpowers/specs/2026-10-30-sprint43-math-visual-aids-design.md`, `docs/superpowers/plans/2026-10-30-sprint43-math-visual-aids-design-phase.md`, `docs/sprint43-math-visual-audit.md`, `docs/sprint43-math-visual-mapping.md`, `docs/sprint43-visual-fidelity-audit.md`, `docs/sprint43-qa-governance.md`.
-- Next Step: Owner Visual Fidelity Review. Do not start renderer implementation or bulk visual annotation before approval.
+- Next Step: complete focused tests, full repository verification, rendered screenshots/markup evidence, and stop at the second Rendered Visual Fidelity Review. Do not annotate all 300 questions or deploy.
 
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 
