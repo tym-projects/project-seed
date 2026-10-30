@@ -1,6 +1,15 @@
 # Project Status
 
-# Sprint 43 — Mathematics Visual Aids — Representative Implementation / Awaiting Rendered Visual Fidelity Review
+# Sprint 43 — Mathematics Visual Aids — Full Mapping Fidelity Review Gate — Round 2
+
+- Round 2 remediation is implemented locally and remains stopped before production annotation, batch visual application, Preview deployment, and Human Acceptance.
+- Formal repo: `C:\Users\admin\Documents\2026AST-dev`; branch: `codex/sprint43-math-visual-aids`.
+- Decision closure: IMPLEMENT `81`; DEFERRED `26`; TEXT_ONLY_PREFERRED `193`; baseline `16`; retained remediation `65`; additional downgrade: `meimei-mathematics-11`.
+- Typed contract migration covers fraction, decimal segments, circle, rectangle, grouping, place value, measurement, and simple combine bar visuals. Renderer fallbacks for radius `1`, hard-coded `36/48`, empty place-value data, and generic undefined fields were removed; missing required data safe-fails.
+- Comma-safe numeric parsing and circle ordinal exclusion are covered by focused tests. `jiejie-mathematics-19` is TEXT_ONLY_PREFERRED; the specified 26 downgrade IDs remain excluded from Round 2 visual scope.
+- Current verification: focused Sprint 43 visual tests `17/17`; full Node `284/284`; lint PASS; TypeScript PASS; Webpack production build PASS; `git diff --check` PASS with expected CRLF normalization warnings.
+- Browser representative render smoke was not run because no Sprint 43-specific harness exists in the formal repo; existing browser suites were not used as authenticated visual evidence.
+- Next Step: Owner / ChatGPT Full Mapping Fidelity Review — Round 2. Do not annotate, deploy, or mark Sprint 43 Completed.
 
 - Branch: `codex/sprint43-math-visual-aids`; baseline HEAD before this phase: `c4632889b87d4f11a8016a72253532b62ef3ca19`; Sprint 42 baseline was clean and synchronized `0/0`.
 - Mapping remediation closed the delivery arithmetic: recommendations `56/78/40/126`; planned implementation-capable visual `108`; deferred visual / unsupported in this phase `26`; optional or text-only/no visual `166`; total `300`, with no `UNDECIDED` bucket.

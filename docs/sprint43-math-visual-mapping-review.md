@@ -1,59 +1,56 @@
 # Sprint 43 Visual Mapping Review Summary
 
-Status: **Full Mapping Fidelity Review Gate**
+Status: **Full Mapping Fidelity Review Gate — Round 2**
 
-- Implementation target: 108
-- IMPLEMENT: 108
+- IMPLEMENT: 81
 - DEFERRED: 26
-- TEXT_ONLY_PREFERRED: 166
+- TEXT_ONLY_PREFERRED: 193
+- Baseline: 16
+- Remediation retained: 65
+- Additional downgrade: meimei-mathematics-11
 - Closure: 300 / 300
-- Students: 姐姐 52; 妹妹 56
-- IMPLEMENT source: practice 81; monthly-only 0; both 27
 
 ## Visual type distribution
 
-- BAR_MODEL: 10
+- BAR_MODEL: 3
 - CIRCLE_RADIUS_DIAMETER: 14
 - DECIMAL_MEASURE_SEGMENTS: 12
-- FRACTION_PART_BAR: 12
-- GROUPING_ARRAY: 26
+- FRACTION_PART_BAR: 4
+- GROUPING_ARRAY: 20
 - MEASUREMENT_RELATION: 12
-- PLACE_VALUE_COLUMNS: 16
-- RECTANGLE_DIMENSIONS: 6
+- PLACE_VALUE_COLUMNS: 13
+- RECTANGLE_DIMENSIONS: 3
 
-## Approved baseline
+## Downgraded IDs
 
-All 16 existing representative mappings are retained byte-for-byte in structuredVisualData, purpose, unknowns, fidelity notes, and leakage notes.
-
-## Deferred IDs
-
-- jiejie-mathematics-5
-- jiejie-mathematics-6
-- jiejie-mathematics-7
-- jiejie-mathematics-14
-- jiejie-mathematics-15
-- jiejie-mathematics-18
-- jiejie-mathematics-21
-- jiejie-mathematics-25
-- jiejie-mathematics-29
-- jiejie-mathematics-33
-- jiejie-mathematics-37
-- jiejie-mathematics-41
-- jiejie-mathematics-45
-- jiejie-mathematics-49
-- jiejie-mathematics-53
-- jiejie-mathematics-57
-- jiejie-mathematics-61
-- jiejie-mathematics-64
-- jiejie-mathematics-73
-- jiejie-mathematics-78
-- jiejie-mathematics-79
-- jiejie-mathematics-80
-- meimei-mathematics-6
-- meimei-mathematics-8
-- meimei-mathematics-12
-- meimei-mathematics-16
+- jiejie-mathematics-106
+- jiejie-mathematics-111
+- jiejie-mathematics-126
+- jiejie-mathematics-134
+- jiejie-mathematics-144
+- jiejie-mathematics-19
+- jiejie-mathematics-22
+- jiejie-mathematics-26
+- jiejie-mathematics-30
+- jiejie-mathematics-34
+- jiejie-mathematics-38
+- jiejie-mathematics-58
+- jiejie-mathematics-62
+- jiejie-mathematics-82
+- jiejie-mathematics-89
+- jiejie-mathematics-91
+- meimei-mathematics-11
+- meimei-mathematics-13
+- meimei-mathematics-17
+- meimei-mathematics-64
+- meimei-mathematics-69
+- meimei-mathematics-7
+- meimei-mathematics-81
+- meimei-mathematics-82
+- meimei-mathematics-83
+- meimei-mathematics-87
+- meimei-mathematics-95
 
 ## Review rules
 
-The manifest records only known question conditions. It stores no answer, answerIndex, options, explanation, solution, computed result, inferred operation, or production annotation. Mapping completion stops here for Owner / ChatGPT Full Mapping Fidelity Review; no renderer or question-bank changes are authorized by this artifact.
+Only typed semantic fields are emitted for implementation rows. No answer, answerIndex, options, explanation, solution, computed result, inferred operation, intermediate conversion, or production annotation is stored.
