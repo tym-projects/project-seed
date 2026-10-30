@@ -3,6 +3,9 @@
 import { useRef, useState } from 'react';
 import { QuestionOptions } from '@/components/question/QuestionOptions';
 import { QuestionResult } from '@/components/question/QuestionResult';
+import { MathVisual } from '@/components/question/MathVisual';
+import { mathVisualSpecs } from '@/lib/math-visuals';
+import type { MathVisualSpec } from '@/lib/math-visuals';
 
 export type QuestionCardQuestion = {
   id: string;
@@ -17,6 +20,7 @@ export type QuestionCardQuestion = {
   hint?: string;
   explanation: string;
   encouragement: string;
+  visual?: MathVisualSpec;
 };
 
 export type QuestionCompletion = {
@@ -112,6 +116,10 @@ export function QuestionCard({
         <p className={`text-lg font-bold ${classes.title}`}>{question.title}</p>
         <p className="mt-5 text-lg">{question.instruction}</p>
         <p className="mt-4 text-xl font-bold">{question.question}</p>
+        {(() => {
+          const visual = question.visual ?? mathVisualSpecs[question.id];
+          return visual ? <MathVisual spec={visual} /> : null;
+        })()}
 
         <QuestionOptions
           options={question.options}

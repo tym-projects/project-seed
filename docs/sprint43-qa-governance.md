@@ -47,3 +47,11 @@ The following remain explicitly out of scope: `Learning Record`, `ReviewSession`
 - `HOLD_FOR_OWNER`
 
 No implementation work may begin from a row marked `REVISE_MAPPING` or `HOLD_FOR_OWNER`.
+
+## Representative implementation evidence
+
+- Representative IDs are exactly 16: 姐姐 `2, 4, 11, 13, 63, 67, 72, 110`; 妹妹 `1, 2, 3, 4, 9, 10, 61, 62`.
+- Implemented renderer types are exactly eight: `FRACTION_PART_BAR`, `DECIMAL_MEASURE_SEGMENTS`, `CIRCLE_RADIUS_DIAMETER`, `RECTANGLE_DIMENSIONS`, `GROUPING_ARRAY`, `PLACE_VALUE_COLUMNS`, `MEASUREMENT_RELATION`, and `BAR_MODEL`.
+- Focused tests cover schema parse, type/data presence, units and labels, explicit unknowns, no answer/options coupling, optional attachment, backward compatibility, safe failure, bank non-mutation, and accessible deterministic SVG branches.
+- Render evidence for this gate is deterministic source/markup evidence: each renderer branch emits an accessible `<svg role="img">` with a question-specific label and leaves the requested result blank. Authenticated browser screenshots were not run because no student credentials were supplied; no production localStorage or Learning Record fixture was used.
+- The remaining review is a human rendered-fidelity check of the actual visual appearance and tablet layout. This phase stops there and does not annotate the other 284 questions.
