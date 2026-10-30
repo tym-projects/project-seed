@@ -29,6 +29,7 @@ function CircleRadiusDiameter({ spec }: MathVisualProps) {
   const radius = Number(spec.data.radius ?? spec.data.firstRadius ?? 1);
   const diameter = Number(spec.data.diameter ?? spec.data.secondRadius ?? 0);
   const showTwo = spec.data.firstRadius !== undefined;
+  const unit = String(spec.data.radiusUnit ?? spec.data.diameterUnit ?? '公分');
   const circles = showTwo ? [Number(spec.data.firstRadius), Number(spec.data.secondRadius)] : [radius];
   return (
     <svg viewBox="0 0 420 150" role="img" aria-label={spec.accessibilityLabel} className="mt-5 h-auto w-full rounded-xl border border-gray-200 bg-white p-2">
@@ -39,8 +40,8 @@ function CircleRadiusDiameter({ spec }: MathVisualProps) {
         return <g key={value}>
           <circle cx={cx} cy="78" r={r} fill="white" stroke={stroke} strokeWidth="2" />
           <circle cx={cx} cy="78" r="3" fill={stroke} />
-          <line x1={cx} y1="78" x2={cx + r} y2="78" stroke={stroke} strokeWidth="2" />
-          <Label x={cx + r / 2} y={68}>{isDiameter ? `直徑 ${diameter} 公分` : `半徑 ${value} 公分`}</Label>
+          <line x1={isDiameter ? cx - r : cx} y1="78" x2={cx + r} y2="78" stroke={stroke} strokeWidth="2" />
+          <Label x={isDiameter ? cx : cx + r / 2} y={68}>{isDiameter ? `直徑 ${diameter} ${unit}` : `半徑 ${value} ${unit}`}</Label>
         </g>;
       })}
     </svg>
@@ -76,14 +77,20 @@ function GroupingArray({ spec }: MathVisualProps) {
 
 function PlaceValueColumns({ spec }: MathVisualProps) {
   const digits = (spec.data.digits as readonly number[]) ?? [];
+  const addends = (spec.data.addends as readonly number[]) ?? [];
+  const rows = addends.length > 0
+    ? addends.map((value) => String(value).padStart(4, '0').split('').map(Number))
+    : [digits];
   return (
-    <svg viewBox="0 0 420 150" role="img" aria-label={spec.accessibilityLabel} className="mt-5 h-auto w-full rounded-xl border border-gray-200 bg-white p-2">
+    <svg viewBox="0 0 420 190" role="img" aria-label={spec.accessibilityLabel} className="mt-5 h-auto w-full rounded-xl border border-gray-200 bg-white p-2">
       {String(spec.data.places).split('').map((place, index) => <g key={place}>
-        <rect x={38 + index * 86} y="38" width="72" height="46" fill="white" stroke={stroke} strokeWidth="2" />
         <Label x={74 + index * 86} y={28}>{place}</Label>
-        {digits[index] !== undefined && <Label x={74 + index * 86} y={68}>{digits[index]}</Label>}
+        {rows.map((row, rowIndex) => <g key={rowIndex}>
+          <rect x={38 + index * 86} y={38 + rowIndex * 48} width="72" height="40" fill="white" stroke={stroke} strokeWidth="2" />
+          {row[index] !== undefined && <Label x={74 + index * 86} y={64 + rowIndex * 48}>{row[index]}</Label>}
+        </g>)}
       </g>)}
-      <Label x={210} y={125} mutedText>答案欄留白</Label>
+      <Label x={210} y={rows.length > 1 ? 165 : 125} mutedText>進位與答案留白</Label>
     </svg>
   );
 }
