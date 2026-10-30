@@ -1,5 +1,15 @@
 # Project Status
 
+# Sprint 43 — Mathematics Visual Aids — Design / Visual Fidelity Review Gate
+
+- Branch: `codex/sprint43-math-visual-aids`; baseline HEAD before this phase: `c4632889b87d4f11a8016a72253532b62ef3ca19`; Sprint 42 baseline was clean and synchronized `0/0`.
+- Phase 1 is documentation-only: 姐姐／妹妹數學題庫 audit, visual type design, optional backward-compatible schema proposal, mapping, fidelity/leakage audit, representative planning, and QA governance.
+- Current inventory verified from the formal repo: 姐姐數學 `150` active / `18` monthly; 妹妹數學 `150` active / `26` monthly; total `300` / `44`.
+- Planned audit disposition targets: `HIGHLY_RECOMMENDED 56`, `USEFUL 78`, `OPTIONAL 40`, `TEXT_ONLY_PREFERRED 126`; these are review targets and not production annotations.
+- No question bank, renderer, visual asset, Learning Record, ReviewSession, retry, 1/3/7, Backup/Restore, Auth, role authorization, monthly allowlist, deployment, or Production change is authorized in this phase.
+- Design documents: `docs/superpowers/specs/2026-10-30-sprint43-math-visual-aids-design.md`, `docs/superpowers/plans/2026-10-30-sprint43-math-visual-aids-design-phase.md`, `docs/sprint43-math-visual-audit.md`, `docs/sprint43-math-visual-mapping.md`, `docs/sprint43-visual-fidelity-audit.md`, `docs/sprint43-qa-governance.md`.
+- Next Step: Owner Visual Fidelity Review. Do not start renderer implementation or bulk visual annotation before approval.
+
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 
 ## Sprint 41 final closeout — 2026-10-29
