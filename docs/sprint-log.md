@@ -11,6 +11,13 @@
 - Production Human Review: **ALL PASS**; Clerk boundary and canonical route smoke passed without 404/500.
 - Next Step: **等待 Owner / ChatGPT 規劃下一階段；不得自行啟動下一個 Sprint。**
 
+## Sprint 43 + Sprint 44 — Lessons Learned
+
+- Production closeout confirmed that Build PASS／READY is insufficient: Framework Preset、非空 routes／middleware、Production Clerk env 與 canonical smoke must all pass before Human Review。
+- Production incident chain：Other Framework／null → canonical routes 404 → Next.js framework correction → missing Clerk env → HTTP 500 → env repair → canonical Production smoke PASS。
+- Formal release evidence is the Human-reviewed deployment `dpl_J3PF2nXL39KEGN5NQvx7FrpDPpyU`; `dpl_6PVMjuJUVRD2yQNexyfcHqzwVpow` is FAILED PRODUCTION SMOKE / SUPERSEDED。
+- Future mathematics question work must evaluate visual aid in the same stage; suitable mappings must pass leakage, renderer, parity and layout checks, while unsuitable questions remain text-only。
+
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 
 - Added 400 original singleton questions, 50 per bank; eight Active Practice banks are now `150` each (`1200` total).

@@ -13,6 +13,13 @@
 - Current Stage: **Sprint 43 + Sprint 44 final closeout complete**.
 - Next Step: **等待 Owner / ChatGPT 規劃下一階段；不得自行啟動下一個 Sprint。**
 
+## Lessons Learned / Prevention Summary
+
+- Production deployment gate 必須確認 project identity、Framework Preset = Next.js、Root／Build／Output 設定、非空 routes／middleware，以及 Production Clerk env 名稱與 scope；不得只看 Build PASS 或 READY。
+- Canonical smoke 以 `https://2026ast-production.vercel.app/` 為準，檢查主要 routes、static asset 與 Clerk boundary；runtime 500 先查 Runtime Logs。
+- 正式 release evidence 僅採用實際通過 Production Human Review 的 deployment：`dpl_J3PF2nXL39KEGN5NQvx7FrpDPpyU`；`dpl_6PVMjuJUVRD2yQNexyfcHqzwVpow` 為 **FAILED PRODUCTION SMOKE / SUPERSEDED**，不可作為正式 release。
+- Git synchronization != Product baseline correctness；新 Sprint 前仍須核對 completed baseline、關鍵資料、schema 與核心產品狀態。Git／Codex write permission 問題不得以刪 lock、改 ACL／ownership／safe.directory 或 force repair 繞過。
+
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 
 ## Sprint 41 final closeout — 2026-10-29

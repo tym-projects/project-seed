@@ -9,6 +9,10 @@
 - Production: `2026ast-production`, deployment `dpl_J3PF2nXL39KEGN5NQvx7FrpDPpyU`, **READY**, framework **Next.js**, URL `https://2026ast-production.vercel.app/`; Clerk boundary and canonical route smoke **PASS**.
 - Next Step: **等待 Owner / ChatGPT 規劃下一階段；不得自行啟動下一個 Sprint。**
 
+## 常駐品質規則
+
+- 未來新增姐姐／妹妹數學題時，同步評估是否需要視覺輔助；適合者應與題目同一工作階段完成，沒有實際教學價值者維持 text-only。視覺不得洩漏答案，並須通過 renderer、manifest/runtime parity 與 mobile／tablet layout 檢查。
+
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 
 - Added 400 original singleton Active Practice questions: 50 per bank across 姐姐／妹妹 × 國語／數學／自然／社會. Each bank is now 150; total Active Practice is 1200.

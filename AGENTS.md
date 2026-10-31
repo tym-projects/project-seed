@@ -37,6 +37,37 @@ Project Seed 的目標：
 
 ## 工作流程
 
+## Baseline Correctness Rule
+
+- Git synchronization != Product baseline correctness。
+- 即使 `main = origin/main` 且 `origin/main...HEAD = 0/0`，也不得直接假設產品 baseline 正確。
+- 建立新 Sprint branch 前，必須另外核對 expected completed baseline、重要資料數量、schema 與關鍵功能狀態。
+
+## Math Visual Aid Rule
+
+- 未來新增姐姐／妹妹數學題時，若簡單視覺能實質提升題意理解，應與題目在同一工作階段同步設計；若沒有實際教學價值，維持 text-only，不強制每題有圖。
+- 適合視覺化的題型包括分數部分／全量、小數量測、圓半徑／直徑、長方形長寬、分組／陣列、位值、量測關係、bar model 與簡單幾何關係。
+- 視覺只能呈現題目已知條件與未知標記；禁止洩漏答案、顯示計算結果、補題目未提供的公式或單位，或從 answer／options／explanation 推導圖形。
+- 延續 `question.id → mathVisualSpecs → typed visual data → MathVisual → QuestionCard optional rendering` 架構。Question schema 不因視覺需求污染；renderer 不得知道 question ID；不得加入 per-question special case；無 mapping 維持 text-only fallback。
+- 新增數學題的 Content／QA Gate 必須檢查是否適合視覺化。適合時同步新增 mapping、manifest、runtime parity validation 與 renderer validation；不適合時明確維持 text-only。
+- 新增或修改 visual 必須檢查 answer leakage、renderer-valid、manifest/runtime parity、mobile／tablet layout、不裁切、不遮擋，以及不產生 NaN／null／undefined。
+
+## Production Deployment Prevention Rule
+
+- 首次建立、重建或重新設定 `2026ast-production` 時，deploy 前必須確認 project identity、Framework Preset = `Next.js`／`nextjs`、Root Directory、Build／Output settings、Build／Install／Node 設定。
+- Deploy 後必須確認 Next.js routes 與 middleware／output 非空；不得只以 Build PASS 或 Deployment READY 判定成功。
+- Deploy 前必須確認 `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` 與 `CLERK_SECRET_KEY` 的名稱存在且 scope 正確，不得記錄 secret value；env 變更後必須重新 deployment。
+- Runtime 500 時先查 Runtime Logs，不先改 source、DNS、alias 或反覆 redeploy。
+- Production smoke 使用 `https://2026ast-production.vercel.app/`，至少檢查 `/`、`/jiejie`、`/meimei`、`/parent`、static asset 與 Clerk authentication boundary。Generated deployment URL 的 Vercel SSO 302 不得單獨視為 failure。
+- 正式 release evidence 必須使用實際通過 Production Human Review 的 deployment ID；failed、superseded 或僅 READY 但 smoke failure 的 deployment 不得標為正式 release。
+
+## Git / Codex Write Prevention Rule
+
+- 遇到 `.git/index.lock`、`.git/ORIG_HEAD.lock` permission denied 或 Codex checkpoint ref filename too long 時，禁止刪 lock、修改 ACL、ownership、safe.directory 或 force repair。
+- 若 Owner 一般 PowerShell 可完成正式 Git 操作，允許 Owner 執行最小指令。
+- 正式 main synchronization evidence 以正確 HEAD、working tree clean 與 `origin/main...HEAD = 0/0` 為準。
+- Codex checkpoint ref 建立失敗，不得直接等同正式 commit／push failure；兩者必須分開判斷。
+
 ## 正式開發與備份位置
 
 - 唯一正式開發 repository：`C:\Users\admin\Documents\2026AST-dev`。

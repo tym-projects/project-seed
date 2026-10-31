@@ -13,6 +13,14 @@
 - Next Step: **等待 Owner / ChatGPT 規劃下一階段；不得自行啟動下一個 Sprint。**
 - No Clerk secret, publishable key value, or other environment value is recorded here.
 
+### Production Lessons Learned — Sprint 43 + Sprint 44
+
+- Incident chain: **Other Framework / null → output empty and canonical routes 404 → Framework Preset corrected to Next.js → Production Clerk env missing → canonical routes HTTP 500 → env repaired and redeployed → Production smoke PASS**.
+- Production Deployment Gate must verify project identity, Framework Preset, Root Directory, Build／Output settings, non-empty routes／middleware, and required Clerk env names／scope before release. Secret values must never be recorded.
+- Canonical smoke uses `https://2026ast-production.vercel.app/` and checks `/`, `/jiejie`, `/meimei`, `/parent`, static assets and Clerk authentication boundary. Generated deployment URL SSO 302 is not alone a failure.
+- Formal Production release evidence: `dpl_J3PF2nXL39KEGN5NQvx7FrpDPpyU`; Owner Production Human Review: **ALL PASS**.
+- Historical deployment `dpl_6PVMjuJUVRD2yQNexyfcHqzwVpow`: **FAILED PRODUCTION SMOKE / SUPERSEDED**，因 missing Clerk env and HTTP 500；not a formal release。
+
 ## Sprint 42 Preview deployment — 2026-10-29
 
 - Source branch: `codex/sprint38-practice-bank-expansion`; source HEAD: `f2bd949aa8b9846682bd4afc23188b6cef12e890`.
