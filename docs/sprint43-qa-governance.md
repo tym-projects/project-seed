@@ -1,8 +1,22 @@
 # Sprint 43 Visual Aid QA and Governance
 
+## Production Annotation Review — APPROVED
+
+Production annotation implementation is locally complete for the approved manifest scope. Production Annotation Review is **APPROVED**. Sprint 43 is **not Completed**.
+
+- Manifest `IMPLEMENT`: `81`; typed `mathVisualSpecs`: `81`; unique IDs: `81`; exact ID parity: PASS.
+- Visual-type parity: `81/81`; renderer-valid: `81/81`; approved type distribution: `BAR_MODEL 3`, `CIRCLE_RADIUS_DIAMETER 14`, `DECIMAL_MEASURE_SEGMENTS 12`, `FRACTION_PART_BAR 4`, `GROUPING_ARRAY 20`, `MEASUREMENT_RELATION 12`, `PLACE_VALUE_COLUMNS 13`, `RECTANGLE_DIMENSIONS 3`.
+- The original representative `16` remain a subset. All downgraded `27`, `TEXT_ONLY_PREFERRED`, optional-only, and extra IDs are absent.
+- Fidelity evidence: typed data was copied from manifest IMPLEMENT rows only; no answer/options/explanation leakage, invented units, formulas, intermediate results, inferred geometry, NaN, null display, or undefined display is present. `jiejie-mathematics-151` remains `長 7`／`寬 2` with no unit or perimeter answer in its visual data.
+- Rendering evidence: static renderer/SSR evidence covers new samples `jiejie-mathematics-8`, `-9`, `-12`, `-77`, `-88`, `meimei-mathematics-15`, `-18`, and `-72`, one for each actual visual type. Browser evidence is **NOT RUN / environment waiver**; no Browser PASS is claimed.
+- Validation: focused mapping `13/13`; full Node `290/290`; lint PASS; TypeScript PASS; Webpack `npx next build --webpack` PASS (`40/40` static pages) after generated-cache/environment retry; `git diff --check` PASS.
+- Original 16 semantic regression: `16/16 PASS`; 8-type SSR representative review: `8/8 PASS`; Browser/E2E: **NOT RUN — environment waiver**.
+- Sprint 42 canonical question regression and Sprint 44 isolation PASS. QuestionCard continues ID lookup plus optional render; missing mappings remain text-only.
+- Governance status: `Implemented / Production Annotation Approved / Awaiting Commit & Push`. Production implementation commit: **PENDING**; push: **PENDING**; deploy: **NO**; merge: **NO**.
+
 ## Current phase boundary
 
-This amendment defines the proposed Production Annotation integration path and ends at the Production Annotation Design Review Gate. It does not authorize 81-question annotation, production question-bank edits, renderer changes, deployment, merge, or Sprint 44 integration.
+This amendment defines the Production Annotation integration path and records the approved local 81-question typed mapping implementation. It authorizes the production annotation commit and feature-branch push, but not deployment, merge, or Sprint 44 integration.
 
 ## Production Annotation Integration Design — Proposed
 
