@@ -1,5 +1,30 @@
 # Project Status
 
+# Sprint 44 — Implemented / Content Review Approved / Awaiting Commit & Push
+
+## Current Stage — 2026-10-31
+
+- Human Gate 2 APPROVED; Final Content Review APPROVED; implementation and validation performed; **awaiting commit and push**, not Sprint Completed.
+- Formal repo: `C:\Users\admin\Documents\2026AST-dev`; branch `codex/sprint44-meimei-natural-recent-quiz-v2`; baseline / current HEAD `c4632889b87d4f11a8016a72253532b62ef3ca19`.
+- Correct baseline: eight banks Active `150` each; 妹妹自然 max numeric ID `150`, Monthly `28`, canonical exported bank `150`.
+- Design and plan restored byte-for-byte from approved salvage at their original paths. Prior branch cleanup / Human Gates 1–2 are already approved and are not repeated.
+- Added 36 questions in dedicated Sprint44 module, appended by five lines only. New numeric IDs `meimei-natural-science-151`–`186` contiguous, unique, no reuse `1–150`. Plant/Air-Water `18/18`, basic/application `12/24`, answers `9/9/9/9`.
+- 妹妹自然 Active `150 → 186`; other seven banks remain `150`; total Active `1200 → 1236`. Monthly `28 → 28`, exact allowlist unchanged, new membership `0/36`.
+- Original canonical 150 questions: all 11 semantic fields `150/150` deep-equal PASS; SHA-256 `a47ade82661d8912f11cbf6edda99437cd6a358b16aa50a5387bf589d927e00e` matches Gate2. Other seven bank exports deep-equal canonical.
+- TDD: valid RED before production additions existed (`3 PASS / 4 missing-content FAIL` of 7); GREEN `7/7`. Canonical regression is included in the same focused file to share one loader and avoid duplicated Git/VM test setup.
+- Content QA corrected three salvaged option-order / answer mismatches (166,169,182), then completed final remediation for 173, 174 and distractors in 153,154,156,162,168,169,176,177,179,180,185,186; all answer indexes and correct concepts remained unchanged.
+- Final Content Review: **APPROVED**; High `0`, Medium `0`, Minor `0`.
+- Full `npm test` `274/274 PASS`; lint PASS; `npx tsc --noEmit --incremental false` PASS; `npx next build --webpack` PASS `40/40`; `git diff --check` PASS.
+- First Webpack attempt encountered `fonts.googleapis.com ENOTFOUND` and output-directory `EPERM`; retry with required filesystem/network access passed. No font architecture, Next configuration, globals.css or dependency changes.
+- Four initial full-test failures were stale historical assumptions: Sprint41 active count, Sprint42 active count, Sprint42 answer checks accidentally consuming new Sprint44 content, and Sprint42 additions total. Only test expectations/range were corrected; Sprint38–42 production additions remain unchanged.
+- Browser / E2E: **NOT RUN**. Reason: No UI / interaction architecture change; content-bank focused validation used. Node tests and build are not Browser acceptance.
+- Content review: `docs/sprint44-meimei-natural-recent-quiz-content-review.md`, all 36 question IDs, unit, type, intent and correct concept included; no student identity/class/seat/score saved. Original exam not present for independent verbatim comparison.
+- Historical prevented incident only: stale branch Active12 / Monthly12 baseline was discovered before commit, isolated in external salvage, and not carried into current product state or Git history.
+- Prevention rule: **Git synchronization ≠ Product baseline correctness**. Check completed milestone exports, numeric max ID, exact Monthly allowlist and canonical semantics before new Sprint work.
+- Working tree: intentionally uncommitted Sprint44 changes pending the approved commit. `git add` NO; commit NO; push NO; merge/deploy/tag/release/rebase/force push NO.
+- Current status: **IMPLEMENTED / COMMITTED PENDING / CONTENT REVIEW APPROVED**.
+- Next Gate: **Deployment / Integration Decision** after commit and push. This Sprint is not Completed because it has not been deployed, merged, or received final acceptance.
+
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 
 ## Sprint 41 final closeout — 2026-10-29
