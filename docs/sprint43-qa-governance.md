@@ -2,7 +2,31 @@
 
 ## Current phase boundary
 
-This phase is documentation-only and ends at Visual Fidelity Review. There is no production visual schema, renderer, asset, deployment, or question-bank annotation.
+This amendment defines the proposed Production Annotation integration path and ends at the Production Annotation Design Review Gate. It does not authorize 81-question annotation, production question-bank edits, renderer changes, deployment, merge, or Sprint 44 integration.
+
+## Production Annotation Integration Design — Proposed
+
+The later production path is:
+
+```text
+question.id -> mathVisualSpecs -> typed visual data -> MathVisual -> QuestionCard optional rendering
+```
+
+The mapping is external, typed, and keyed by formal question ID. It does not change the Question schema or add visual metadata to question objects. `QuestionCard` may perform only `mathVisualSpecs[question.id]`: a present mapping renders `MathVisual`; an absent or invalid mapping safe-fails to the original text-only question. `QuestionCard` must not hard-code IDs, parse question text, infer geometry, derive data from answers/options, or invent fallback values. `MathVisual` must remain question-ID agnostic and must not contain single-question special cases.
+
+Runtime source of truth is the typed `mathVisualSpecs` module. `docs/sprint43-math-visual-manifest.json` is the governance／QA source of truth and must not be imported or dynamically interpreted by React runtime. The existing manifest builder remains the deterministic, no-network validation/generation entry point; a later implementation may add only the smallest controlled conversion or parity step needed to keep the typed runtime mapping aligned with the manifest.
+
+The implementation gate requires exact set equality:
+
+- manifest `IMPLEMENT` count = `81`;
+- production mapping count = `81`;
+- mapping IDs equal manifest `IMPLEMENT` IDs exactly;
+- all 16 representative IDs are a subset;
+- all 27 downgraded IDs, all `TEXT_ONLY_PREFERRED`, optional-only, and extra IDs are absent.
+
+All 81 records must use the existing eight renderer-valid typed contracts only. No generic numeric fields, answer／option／explanation-derived values, inferred geometry, invented units, NaN, null display, or undefined display are allowed. An unsafe record returns to Human Review; it is not silently downgraded during implementation.
+
+The required test contract covers coverage/parity, type validity, fidelity and leakage, mapped versus unmapped rendering, safe failure, unchanged answers and question content, unchanged Learning Record／Review logic／Monthly allowlist, and Sprint 44 isolation. Sprint 44 is not a dependency and must not be merged or cherry-picked into Sprint 43.
 
 ## Required row fields
 
@@ -10,13 +34,14 @@ Every future visual mapping must contain: `questionId`, original question, inten
 
 ## Future implementation gates
 
-1. **Schema gate** — optional field preserves all legacy questions and has runtime validation.
-2. **Data gate** — visual data is derived only from known conditions; no answer or inferred fact is stored.
-3. **Renderer gate** — SVG + React output is deterministic, black-and-white, keyboard/read-aloud friendly, and has a text fallback.
-4. **Fidelity gate** — representative human review confirms number/unit/quantity/relation/condition/completeness/unknown/skill/grade fidelity.
-5. **Leakage gate** — visual-only, alt-text, DOM, and screenshot review show no answer leakage.
-6. **Regression gate** — existing question, Learning Record, ReviewSession, retry, 1/3/7, auth, and role tests remain unchanged and pass.
-7. **Scope gate** — no bulk rollout until the first small approved set passes the Visual Fidelity Review.
+1. **Mapping parity gate** — exactly 81 typed mappings equal the manifest `IMPLEMENT` ID set.
+2. **Schema gate** — the existing Question shape remains valid without visual metadata and typed mapping validation is explicit.
+3. **Data gate** — visual data is derived only from known conditions; no answer or inferred fact is stored.
+4. **Renderer gate** — SVG + React output is deterministic, black-and-white, keyboard/read-aloud friendly, and has a text fallback.
+5. **Fidelity gate** — representative human review confirms number/unit/quantity/relation/condition/completeness/unknown/skill/grade fidelity.
+6. **Leakage gate** — visual-only, alt-text, DOM, and screenshot review show no answer leakage.
+7. **Regression gate** — existing question, Learning Record, ReviewSession, retry, 1/3/7, auth, and role tests remain unchanged and pass.
+8. **Scope gate** — no bulk rollout until the first small approved set passes the Visual Fidelity Review.
 
 ## Accessibility requirements
 

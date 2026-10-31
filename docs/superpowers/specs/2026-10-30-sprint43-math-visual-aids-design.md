@@ -2,7 +2,33 @@
 
 ## Status and gate
 
-Status: **Design / Visual Fidelity Review Gate**. This document authorizes no renderer implementation, question-bank edits, visual batch, deployment, or Learning Record change.
+Status: **Production Annotation Integration Design — Proposed**. This amendment defines the later integration path but authorizes no 81-question annotation implementation, question-bank edit, production-code commit, deployment, or Learning Record change. Sprint 43 remains at the Production Annotation Design Review Gate.
+
+## Production annotation integration amendment
+
+The approved integration shape is data-driven and reuses the existing representative path:
+
+```text
+question.id
+  -> mathVisualSpecs
+  -> typed visual data
+  -> MathVisual
+  -> QuestionCard optional rendering
+```
+
+The production annotation layer is an independent typed mapping keyed by the formal question ID. It does not modify the Question schema or add `visual` metadata to the 81 question objects. `QuestionCard` performs only an ID lookup: when a mapping exists it renders `MathVisual`; when it does not exist, the question remains text-only. A missing or invalid lookup must safe-fail to text-only.
+
+`QuestionCard` must not switch on question IDs, parse question text, infer geometry, derive visuals from answers or options, or create invented fallback data. `MathVisual` must not know question IDs and must not contain question-specific renderer branches. Rendering must not affect answer selection, submit, retry, result state, hint, explanation, Learning Record, or spaced review.
+
+The runtime source of truth is the typed `mathVisualSpecs` module (or a repository module with the same typed role). `docs/sprint43-math-visual-manifest.json` is the governance and QA source of truth; production runtime must not import or dynamically interpret the unvalidated JSON manifest. The manifest is converted or validated against the typed mapping before release.
+
+The 81 `IMPLEMENT` records must have exact set equality with the production mapping: 81 mappings, 81 unique IDs, no `TEXT_ONLY_PREFERRED`, downgraded, optional-only, or extra IDs. The 16 representative mappings are the architecture prototype and must remain a subset of the same 81-item mapping; no second annotation mechanism or renderer contract is introduced.
+
+All mappings use only the eight approved renderer types and their existing renderer-valid typed fields. Generic numeric arrays, renderer inference, undefined fallbacks, invented units, answer-derived fields, option-derived fields, explanation-derived fields, NaN, null display, and undefined display are prohibited. If a value cannot be represented safely, implementation must stop for that record and return to Human Review; implementation must not silently downgrade it.
+
+The selected mapping strategy is **manifest validation plus a controlled typed mapping source**. The existing `scripts/sprint43-build-visual-manifest.mjs` remains the deterministic, no-network manifest generation and validation entry point. A later implementation may add the smallest deterministic conversion/generation step needed to produce or verify the typed mapping, but runtime truth remains `mathVisualSpecs`, not JSON. Generation must be repeatable, reviewable, TypeScript-compilable, and free of network, AI runtime, and randomness. Automated parity tests prevent drift between the two sources.
+
+The later implementation gate must cover: exact 81-item coverage and ID parity; allowed types and renderer validity; representative-subset and downgraded-absence checks; no answer/options leakage or invented values; mapped visual versus unmapped text-only behavior; safe failure; unchanged question content, answers, Learning Record, Review logic, and Monthly allowlist. Sprint 43 must remain independent of Sprint 44 and must not merge or cherry-pick Sprint 44 before its own completion.
 
 ## Intent
 
@@ -23,7 +49,7 @@ The current baseline is 150 active questions in each bank, with monthly allowlis
 
 ## Non-goals and anti-goals
 
-- No renderer, component, SVG batch, or visual asset implementation in Sprint 43 Phase 1.
+- No 81-question annotation, renderer expansion, component behavior change, SVG batch, or visual asset implementation in this design amendment.
 - No question text, options, answer, explanation, hint, ID, monthly allowlist, or existing schema changes.
 - No Learning Record, ReviewSession, retry, 1/3/7, Backup/Restore, Auth, role authorization, Production, or deployment work.
 - Do not infer missing dimensions, scale, grouping, ordering, or answer values.
@@ -90,7 +116,7 @@ type QuestionWithOptionalVisual = QuestionCardQuestion & {
 };
 ```
 
-The proposal is documentation-only. It does not become production schema until a later approved implementation plan defines validation, renderer behaviour, snapshots, accessibility, and fallback behaviour.
+The proposal remains documentation-only and is not selected as the production annotation mechanism. The production path uses the external typed mapping described above, so no Question schema change is required. Any later implementation still requires an approved plan defining validation, renderer behaviour, snapshots, accessibility, and fallback behaviour.
 
 ## Review gate
 
