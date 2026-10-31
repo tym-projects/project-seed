@@ -1,12 +1,13 @@
 # Project Seed Roadmap
 
-# Sprint 43 + Sprint 44 — Preview Human Review Approved / Main Integration Gate
+# Sprint 43 + Sprint 44 — Final Closeout
 
-- Preview deployment `2026ast-hosting-preview` is READY.
-- Owner tablet Human Review: **ALL PASS**; Sprint 43 Math Visual and Sprint 44 妹妹自然 are **PASS**.
-- Preview Human Review Gate: **APPROVED**. Integration HEAD: `b1027026931b7066e51cde25bf76e21994042ff7`.
-- Production deploy remains **NO**; main merge is pending the specified fast-forward integration gate.
-- Next step: complete Main Integration Review Gate only; wait for Owner / ChatGPT approval before any Production deployment.
+- Status: **COMPLETED / CLOSED**.
+- Sprint 43 Math Visual Aids: 81 mappings, unique `81`, renderer-valid `81/81`, representative set preserved `16/16`; Preview and Production Human Review **PASS**.
+- Sprint 44 Younger Natural Recent Quiz Expansion: 妹妹自然 Active `186`, original `150` preserved, new `36`, Plants / Air-Water `18 / 18`, basic / application `12 / 24`, answer distribution `9 / 9 / 9 / 9`, Monthly `28`, new Monthly membership `0/36`; Preview and Production Human Review **PASS**.
+- Final regression: `297/297 PASS`; lint, TypeScript, Webpack, and `git diff --check` **PASS**.
+- Production: `2026ast-production`, deployment `dpl_J3PF2nXL39KEGN5NQvx7FrpDPpyU`, **READY**, framework **Next.js**, URL `https://2026ast-production.vercel.app/`; Clerk boundary and canonical route smoke **PASS**.
+- Next Step: **等待 Owner / ChatGPT 規劃下一階段；不得自行啟動下一個 Sprint。**
 
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 

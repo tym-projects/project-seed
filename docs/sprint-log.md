@@ -1,13 +1,15 @@
 # Sprint Log
 
-# Sprint 43 + Sprint 44 — Preview Human Review Approved / Main Integration Gate
+# Sprint 43 + Sprint 44 — Final Closeout
 
-- Preview deployment `2026ast-hosting-preview` is READY.
-- Owner tablet Human Review: **ALL PASS**; Preview Human Review Gate: **APPROVED**.
-- Sprint 43 Math Visual: **PASS**; Sprint 44 妹妹自然：**PASS**.
-- Integration HEAD: `b1027026931b7066e51cde25bf76e21994042ff7`.
-- Production deploy: **NO**; main merge: **尚未執行**.
-- Status: **Ready for Main Integration**; stop after main push at the Main Integration Review Gate.
+- Status: **COMPLETED / CLOSED**.
+- Sprint 43 Math Visual Aids: 81 mappings, unique `81`, renderer-valid `81/81`, representative set preserved `16/16`; Preview and Production Human Review **PASS**.
+- Sprint 44 Younger Natural Recent Quiz Expansion: 妹妹自然 Active `186`, original `150` preserved, new `36`, Plants / Air-Water `18 / 18`, basic / application `12 / 24`, answer distribution `9 / 9 / 9 / 9`, Monthly `28`, new Monthly membership `0/36`; Preview and Production Human Review **PASS**.
+- Integration: Sprint 43 and Sprint 44 are integrated on `main`; `main` and `origin/main` are synchronized.
+- Final regression: `297/297 PASS`; lint, TypeScript, Webpack, and `git diff --check` **PASS**.
+- Production: project `2026ast-production`, deployment `dpl_J3PF2nXL39KEGN5NQvx7FrpDPpyU`, status **READY**, framework **Next.js**, URL `https://2026ast-production.vercel.app/`.
+- Production Human Review: **ALL PASS**; Clerk boundary and canonical route smoke passed without 404/500.
+- Next Step: **等待 Owner / ChatGPT 規劃下一階段；不得自行啟動下一個 Sprint。**
 
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 

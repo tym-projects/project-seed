@@ -1,46 +1,17 @@
 # Project Status
 
-# Sprint 43 + Sprint 44 — Main Integration Review Gate
+# Sprint 43 + Sprint 44 — Final Closeout
 
-## Preview Human Review Acceptance
-
-- Preview deployment `2026ast-hosting-preview`: **READY**.
-- Owner tablet Human Review: **ALL PASS**.
-- Sprint 43 Math Visual: **PASS**.
-- Sprint 44 妹妹自然：**PASS**.
-- Preview Human Review Gate: **APPROVED**.
-- Integration HEAD: `b1027026931b7066e51cde25bf76e21994042ff7`.
-- Production deploy: **NO**; main merge: **尚未執行**.
-- Status: **Ready for Main Integration**.
-
-## Sprint 43 — Mathematics Visual Production Annotation
-
-- Production Annotation Review: **APPROVED**; Sprint 43 is not Production deployed.
-- Final commit: `07c60daa6be8d405d40c3e6f6380af991f8335fb`.
-- Production mappings `81`; unique mappings `81`; renderer-valid `81/81`.
-- Exact manifest ID parity `81/81 PASS`; visual-type parity `81/81 PASS`.
-- Original representative set `16/16` unchanged; 8 visual types SSR evidence `8/8 PASS`.
-- Full Node `290/290 PASS`; lint PASS; TypeScript PASS; Webpack PASS.
-- Browser/E2E: **NOT RUN — environment waiver**.
-- `jiejie-mathematics-151` remains `長 7`／`寬 2`, with no unit, answer, or perimeter formula.
-
-## Sprint 44 — 妹妹自然題庫擴增
-
-- Final Content Review: **APPROVED**; High / Medium / Minor = `0 / 0 / 0`.
-- Final commit: `ebaaeb7b544484c43fffb1fe77c321dad2617ae2`.
-- 妹妹自然 Active `150 → 186`; new IDs `meimei-natural-science-151`–`186`.
-- Plant / Air-Water = `18 / 18`; basic / application = `12 / 24`; answer distribution = `9 / 9 / 9 / 9`.
-- Original 150 semantic regression `150/150 PASS`.
-- Monthly `28 → 28`; new Monthly membership `0/36`; exact existing allowlist unchanged.
-- Browser/E2E: **NOT RUN**; Node tests and build are not Browser acceptance.
-
-## Integration Governance
-
-- Prevention rule: **Git synchronization ≠ Product baseline correctness**. Validate completed milestone exports, numeric maximum IDs, exact Monthly allowlist, and canonical semantics before new Sprint work.
-- Current Stage: **Sprint 43 + Sprint 44 Integration Validation**.
-- Status: **Ready for Main Integration**. Preview Human Review is approved; this document does not mark Production deployed or main updated.
-- Sprint 43 did not modify Sprint 44 question content. Sprint 44 did not modify the MathVisual renderer, `mathVisualSpecs`, QuestionCard visual integration, or Sprint 43 mappings.
-- Browser / E2E automated coverage remains subject to the recorded environment limitations; Owner tablet Human Review is **ALL PASS**.
+- Status: **COMPLETED / CLOSED**.
+- Sprint 43 — Math Visual Aids: 81 mappings, unique `81`, renderer-valid `81/81`, representative set preserved `16/16`; Preview and Production Human Review **PASS**.
+- Sprint 44 — Younger Natural Recent Quiz Expansion: 妹妹自然 Active `186`, original `150` preserved, new `36`, Plants / Air-Water `18 / 18`, basic / application `12 / 24`, answer distribution `9 / 9 / 9 / 9`, Monthly `28`, new Monthly membership `0/36`; Preview and Production Human Review **PASS**.
+- Final regression: `297/297 PASS`; lint, TypeScript, Webpack, and `git diff --check` **PASS**.
+- Integration: Sprint 43 and Sprint 44 are integrated on `main`; `main` and `origin/main` are synchronized.
+- Production project: `2026ast-production`; deployment `dpl_J3PF2nXL39KEGN5NQvx7FrpDPpyU`; status **READY**; framework **Next.js**; URL `https://2026ast-production.vercel.app/`.
+- Production Clerk boundary: **PASS**; canonical `/`, `/jiejie`, `/meimei`, and `/parent` routes enter Clerk authentication without 404/500; static asset smoke **PASS**.
+- Prevention rule: before any new or rebuilt Production project deployment, verify project identity, Framework Preset `Next.js`, Root Directory, required Production env names, non-empty Next.js routes/middleware, and canonical Production smoke before Human Review. Never record secret values.
+- Current Stage: **Sprint 43 + Sprint 44 final closeout complete**.
+- Next Step: **等待 Owner / ChatGPT 規劃下一階段；不得自行啟動下一個 Sprint。**
 
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 
@@ -527,16 +498,14 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 ## Current Baseline
 
 - **Repository:** `C:\Users\admin\Documents\2026AST-dev`
-- **Current Sprint:** Sprint 21
-- **Sprint Status:** Completed
+- **Current Stage:** Sprint 43 + Sprint 44 final closeout complete
+- **Sprint Status:** Sprint 43 and Sprint 44 **COMPLETED / CLOSED**
 - **Branch:** `main`
-- **Last Implementation Commit:** `9630477` Complete Sprint 21 question bank quality and feedback v2
-- **Push Status:** Sprint 21 implementation and close documentation are pushed; local `main` is synchronized with `origin/main`.
-- **Tests:** 139/139 passed
-- **Lint / TypeScript / Build / diff check:** passed
-- **Browser smoke:** 10/10 passed in disposable Chromium contexts with synthetic storage; Sprint 18／19 UI補驗、Sprint 20 Parent Summary smoke and Sprint 21 V1A review flow completed.
+- **Production deployment:** `dpl_J3PF2nXL39KEGN5NQvx7FrpDPpyU`, READY, `https://2026ast-production.vercel.app/`
+- **Final regression:** `297/297 PASS`; lint, TypeScript, Webpack, and `git diff --check` passed.
+- **Production Human Review:** ALL PASS; Clerk boundary and canonical route smoke passed without 404/500.
 - **Git Status:** Working tree clean; no unrelated files included.
-- **Next Step:** Sprint 22 數學規劃。
+- **Next Step:** 等待 Owner / ChatGPT 規劃下一階段；不得自行啟動下一個 Sprint。
 
 ## Completed Sprint History
 

@@ -1,5 +1,18 @@
 # Deployment Log
 
+## Sprint 43 + Sprint 44 Production release — 2026-10-31
+
+- Project: `2026ast-production`; deployment ID: `dpl_J3PF2nXL39KEGN5NQvx7FrpDPpyU`; target: Production; status: **READY**.
+- Source: exact `main` HEAD `fe3eb153f6edd336cc8b76016c7d656613e36957`; `main` and `origin/main` synchronized.
+- Framework: **Next.js**; canonical URL: `https://2026ast-production.vercel.app/`.
+- Sprint 43 evidence: 81 math visual mappings, unique `81`, renderer-valid `81/81`, representative set `16/16` preserved.
+- Sprint 44 evidence: 妹妹自然 Active `186`, original `150` preserved, new `36`, Plants / Air-Water `18 / 18`, basic / application `12 / 24`, answer distribution `9 / 9 / 9 / 9`, Monthly `28`, new Monthly membership `0/36`.
+- Runtime smoke: canonical `/`, `/jiejie`, `/meimei`, and `/parent` entered the Clerk authentication boundary; no 404/500. Static asset smoke passed.
+- Owner Production Human Review: **ALL PASS**. Sprint 43 and Sprint 44 are **COMPLETED / CLOSED**.
+- Final regression: `297/297 PASS`; lint, TypeScript, Webpack, and `git diff --check` **PASS**.
+- Next Step: **等待 Owner / ChatGPT 規劃下一階段；不得自行啟動下一個 Sprint。**
+- No Clerk secret, publishable key value, or other environment value is recorded here.
+
 ## Sprint 42 Preview deployment — 2026-10-29
 
 - Source branch: `codex/sprint38-practice-bank-expansion`; source HEAD: `f2bd949aa8b9846682bd4afc23188b6cef12e890`.
