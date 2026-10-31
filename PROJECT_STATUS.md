@@ -1,10 +1,21 @@
 # Project Status
 
-# Sprint 43 + Sprint 44 — Integration Validation
+# Sprint 43 + Sprint 44 — Main Integration Review Gate
+
+## Preview Human Review Acceptance
+
+- Preview deployment `2026ast-hosting-preview`: **READY**.
+- Owner tablet Human Review: **ALL PASS**.
+- Sprint 43 Math Visual: **PASS**.
+- Sprint 44 妹妹自然：**PASS**.
+- Preview Human Review Gate: **APPROVED**.
+- Integration HEAD: `b1027026931b7066e51cde25bf76e21994042ff7`.
+- Production deploy: **NO**; main merge: **尚未執行**.
+- Status: **Ready for Main Integration**.
 
 ## Sprint 43 — Mathematics Visual Production Annotation
 
-- Production Annotation Review: **APPROVED**; Sprint 43 is not Completed, deployed, or main merged.
+- Production Annotation Review: **APPROVED**; Sprint 43 is not Production deployed.
 - Final commit: `07c60daa6be8d405d40c3e6f6380af991f8335fb`.
 - Production mappings `81`; unique mappings `81`; renderer-valid `81/81`.
 - Exact manifest ID parity `81/81 PASS`; visual-type parity `81/81 PASS`.
@@ -27,9 +38,9 @@
 
 - Prevention rule: **Git synchronization ≠ Product baseline correctness**. Validate completed milestone exports, numeric maximum IDs, exact Monthly allowlist, and canonical semantics before new Sprint work.
 - Current Stage: **Sprint 43 + Sprint 44 Integration Validation**.
-- Status: **Integration In Progress / Awaiting Validation**. This document does not mark the Sprint pair Completed, deployed, Preview deployed, or main updated.
+- Status: **Ready for Main Integration**. Preview Human Review is approved; this document does not mark Production deployed or main updated.
 - Sprint 43 did not modify Sprint 44 question content. Sprint 44 did not modify the MathVisual renderer, `mathVisualSpecs`, QuestionCard visual integration, or Sprint 43 mappings.
-- Browser / E2E remains **NOT RUN** for this integration round; Preview acceptance is deferred to the next Deployment Decision Gate.
+- Browser / E2E automated coverage remains subject to the recorded environment limitations; Owner tablet Human Review is **ALL PASS**.
 
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 

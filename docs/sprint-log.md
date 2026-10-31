@@ -1,5 +1,14 @@
 # Sprint Log
 
+# Sprint 43 + Sprint 44 — Preview Human Review Approved / Main Integration Gate
+
+- Preview deployment `2026ast-hosting-preview` is READY.
+- Owner tablet Human Review: **ALL PASS**; Preview Human Review Gate: **APPROVED**.
+- Sprint 43 Math Visual: **PASS**; Sprint 44 妹妹自然：**PASS**.
+- Integration HEAD: `b1027026931b7066e51cde25bf76e21994042ff7`.
+- Production deploy: **NO**; main merge: **尚未執行**.
+- Status: **Ready for Main Integration**; stop after main push at the Main Integration Review Gate.
+
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 
 - Added 400 original singleton questions, 50 per bank; eight Active Practice banks are now `150` each (`1200` total).

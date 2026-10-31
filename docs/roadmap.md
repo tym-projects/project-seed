@@ -1,5 +1,13 @@
 # Project Seed Roadmap
 
+# Sprint 43 + Sprint 44 — Preview Human Review Approved / Main Integration Gate
+
+- Preview deployment `2026ast-hosting-preview` is READY.
+- Owner tablet Human Review: **ALL PASS**; Sprint 43 Math Visual and Sprint 44 妹妹自然 are **PASS**.
+- Preview Human Review Gate: **APPROVED**. Integration HEAD: `b1027026931b7066e51cde25bf76e21994042ff7`.
+- Production deploy remains **NO**; main merge is pending the specified fast-forward integration gate.
+- Next step: complete Main Integration Review Gate only; wait for Owner / ChatGPT approval before any Production deployment.
+
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 
 - Added 400 original singleton Active Practice questions: 50 per bank across 姐姐／妹妹 × 國語／數學／自然／社會. Each bank is now 150; total Active Practice is 1200.
