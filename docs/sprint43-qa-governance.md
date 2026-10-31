@@ -55,3 +55,12 @@ No implementation work may begin from a row marked `REVISE_MAPPING` or `HOLD_FOR
 - Focused tests cover schema parse, type/data presence, units and labels, explicit unknowns, no answer/options coupling, optional attachment, backward compatibility, safe failure, bank non-mutation, and accessible deterministic SVG branches.
 - Render evidence for this gate is deterministic source/markup evidence: each renderer branch emits an accessible `<svg role="img">` with a question-specific label and leaves the requested result blank. Authenticated browser screenshots were not run because no student credentials were supplied; no production localStorage or Learning Record fixture was used.
 - The remaining review is a human rendered-fidelity check of the actual visual appearance and tablet layout. This phase stops there and does not annotate the other 284 questions.
+
+## Round 2.1 closeout evidence
+
+- Renderer Fidelity Gate decision: **PASS WITH DOCUMENTED ENVIRONMENT WAIVER**.
+- Direct viewport evidence remains `20/20 PASS`: ten representative questions at `1280×800` and `1024×600`.
+- `jiejie-mathematics-151` was loaded from the formal runtime question export and passed SSR semantic evidence: question text is correct, options count is `4`, labels are `長 7` and `寬 2`, no invented `公分`, answer, or explanation is rendered.
+- A dedicated 151 screenshot was waived because it uses the existing `RECTANGLE_DIMENSIONS` renderer, introduces no new layout class or responsive behavior, and its equivalent SSR evidence passed. This is not reported as `22/22` Browser PASS.
+- The latest Webpack rerun encountered environment/tooling failures (`fonts.googleapis.com` DNS resolution and existing `.next` `EPERM` directory creation). Earlier Webpack evidence for the same production diff was PASS; no Next, font, globals.css, or build-architecture change was made.
+- Current rerun evidence: focused visual tests `20/20`, full Node `287/287`, lint PASS, TypeScript PASS, and `git diff --check` PASS.

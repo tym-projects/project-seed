@@ -1,6 +1,14 @@
 # Project Status
 
-# Sprint 43 — Mathematics Visual Aids — Full Mapping Fidelity Review Gate — Round 2
+# Sprint 43 — Mathematics Visual Aids — READY FOR PRODUCTION ANNOTATION
+
+- Renderer Fidelity Gate: **PASS WITH DOCUMENTED ENVIRONMENT WAIVER**. Sprint 43 is ready for the separate Production Annotation Review Gate; it is not Completed.
+- Scope remains IMPLEMENT `81`; DEFERRED `26`; TEXT_ONLY_PREFERRED `193`; baseline `16`; no new visual IDs or scope expansion.
+- Fixed grouping parser null fields for the 15 affected questions, added finite positive grouping validation, responsive multi-row grouping cards, measurement baseline rendering, neutral measurement result labels, fraction unit-role wording, decimal quantity labels, circle count label, rectangle no-invented-unit behavior, equal-size bar information cards, and place-value leading blanks.
+- Direct viewport evidence: `20/20 PASS` from ten representative questions at `1280×800` and `1024×600`; `jiejie-mathematics-151` has equivalent-renderer plus SSR semantic evidence waiver, so this is not reported as `22/22` Browser PASS.
+- `jiejie-mathematics-151` formal runtime loading and SSR evidence PASS: correct question, four options, `長 7`, `寬 2`, no invented unit, answer, or explanation.
+- Focused visual tests `20/20`; full Node `287/287`; lint PASS; TypeScript PASS; `git diff --check` PASS. Latest Webpack rerun had environment/tooling failures (`fonts.googleapis.com` DNS plus existing `.next` `EPERM`); earlier same-production-diff Webpack evidence was PASS. Build architecture was not changed.
+- Next Step: commit and push Round 2.1 remediation, then stop at Production Annotation Review Gate. Do not annotate, deploy, merge, tag, or release.
 
 - Round 2 remediation is implemented locally and remains stopped before production annotation, batch visual application, Preview deployment, and Human Acceptance.
 - Formal repo: `C:\Users\admin\Documents\2026AST-dev`; branch: `codex/sprint43-math-visual-aids`.

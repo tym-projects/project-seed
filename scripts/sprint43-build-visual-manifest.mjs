@@ -17,7 +17,9 @@ function loadTs(relativePath) {
 const jiejie = loadTs('lib/questions/jiejie-mathematics.ts');
 const meimei = loadTs('lib/questions/meimei-mathematics.ts');
 const firstExam = loadTs('lib/first-exam-practice.ts');
-const baseline = loadTs('lib/math-visuals.ts').mathVisualSpecs;
+const visualModule = loadTs('lib/math-visuals.ts');
+const baseline = visualModule.mathVisualSpecs;
+const visualValidation = visualModule.isMathVisualDataValid;
 const baselineIds = new Set(Object.keys(baseline));
 const remediationIds = new Set([
   'jiejie-mathematics-8', 'jiejie-mathematics-16',
@@ -78,9 +80,9 @@ function groupingData(question) {
   const text = question.question;
   if (question.id === 'jiejie-mathematics-77') return { firstQuantity: 24, secondQuantity: 36, layout: 'neutral-unpartitioned', result: 'unknown' };
   if (question.id === 'jiejie-mathematics-81') return { groupCount: 3, perGroup: 48, itemLabel: '元', groupLabel: '盒', layout: 'grouped-known', total: 'unknown' };
-  const first = text.match(/(?:每排|每盒|一排)\s*(\d+)\s*(顆|張|枝|元|本)?/);
-  const count = text.match(/(?:排成|買|教室排了|共)\s*(\d+)\s*排|買\s*(\d+)\s*盒/);
-  return { groupCount: Number(count?.[1] ?? count?.[2]), perGroup: Number(first?.[1]), itemLabel: first?.[2] ?? '', groupLabel: text.includes('盒') ? '盒' : '排', layout: 'grouped-known', total: 'unknown' };
+  const first = text.match(/(?:每(?:排|盒)|一排)\s*(?:有\s*)?(\d+)\s*(顆|張|枝|元|本)?/);
+  const count = text.match(/(?:排成|教室排了|共有)\s*(\d+)\s*排|買\s*(\d+)\s*盒|(\d+)\s*盒/);
+  return { groupCount: Number(count?.[1] ?? count?.[2] ?? count?.[3]), perGroup: Number(first?.[1]), itemLabel: first?.[2] ?? '', groupLabel: text.includes('盒') ? '盒' : '排', layout: 'grouped-known', total: 'unknown' };
 }
 function placeValueData(question) {
   return { addends: numberTokens(question.question).slice(0, 2), places: '千百十個', carrySlots: 'blank', result: 'unknown' };
@@ -102,7 +104,8 @@ function mappingFor(question, type) {
   if (type === 'CIRCLE_RADIUS_DIAMETER') return circleData(question);
   if (type === 'RECTANGLE_DIMENSIONS') {
     const match = text.match(/長\s*(\d+)\s*(?:公分)?、?\s*寬\s*(\d+)/);
-    return { length: Number(match?.[1]), width: Number(match?.[2]), unit: '公分', ...unknownResult };
+    const unit = text.match(/(?:長\s*\d+|寬\s*\d+)\s*(公分|公尺)/)?.[1];
+    return { length: Number(match?.[1]), width: Number(match?.[2]), ...(unit ? { unit } : {}), ...unknownResult };
   }
   if (type === 'GROUPING_ARRAY') return groupingData(question);
   if (type === 'PLACE_VALUE_COLUMNS') return placeValueData(question);
@@ -123,16 +126,19 @@ function decisionFor(id) {
 }
 function rowFor(question) {
   const decision = decisionFor(question.id); const type = baseline[question.id]?.type ?? (typeById.get(question.id) ?? null); const existing = baseline[question.id];
+  const structuredVisualData = existing?.data ?? (decision === 'IMPLEMENT' ? mappingFor(question, type) : null);
+  const implementationIsValid = decision !== 'IMPLEMENT' || (type !== null && visualValidation(type, structuredVisualData));
+  const finalDecision = implementationIsValid ? decision : 'TEXT_ONLY_PREFERRED';
   return {
     questionId: question.id, student: question.student, source: sourceKind(question.id), unit: 'mathematics', topic: question.topic,
     questionTextSnapshot: question.question, questionTextHash: hash(question.question), intendedSkill: question.title,
-    visualRecommendation: decision === 'IMPLEMENT' ? (type === 'BAR_MODEL' || type === 'GROUPING_ARRAY' ? 'USEFUL' : 'HIGHLY_RECOMMENDED') : decision,
-    visualType: decision === 'IMPLEMENT' ? type : null, visualPurpose: existing?.purpose ?? (decision === 'IMPLEMENT' ? `${type} 只呈現題目已知條件，保留未知量。` : null),
-    knownNumbers: numberTokens(question.question), knownUnits: unitTokens(question.question), knownLabels: [], knownQuantityRelations: decision === 'IMPLEMENT' ? ['只呈現題目已知數量與關係'] : [], knownOrderRelations: [], spatialGeometryRelations: decision === 'IMPLEMENT' ? ['圖形不按未提供的比例繪製'] : [],
-    unknownFields: decision === 'IMPLEMENT' ? (existing?.unknowns ?? ['requested result', 'computed result']) : [], unknownsThatMustRemainHidden: decision === 'IMPLEMENT' ? (existing?.unknowns ?? ['answer', 'computed result']) : [],
-    structuredVisualData: existing?.data ?? (decision === 'IMPLEMENT' ? mappingFor(question, type) : null), fidelityRisk: decision === 'IMPLEMENT' ? '欄位必須逐題對應題幹；未知量不得被 renderer 推導。' : '不進 production visual。',
-    answerLeakageRisk: decision === 'IMPLEMENT' ? '不得呈現答案、選項、中間結果或已完成運算。' : '不進 production visual。', ambiguityRisk: decision === 'IMPLEMENT' ? '缺 required semantic field 時必須 safe-fail。' : '不進 production visual。',
-    gradeFitAssessment: question.student === 'jiejie' ? '結構／關係導向。' : '具體／欄位／單位導向。', finalDecision: decision, fidelityNotes: existing?.fidelityNotes ?? [], leakageNotes: existing?.leakageNotes ?? [],
+    visualRecommendation: finalDecision === 'IMPLEMENT' ? (type === 'BAR_MODEL' || type === 'GROUPING_ARRAY' ? 'USEFUL' : 'HIGHLY_RECOMMENDED') : finalDecision,
+    visualType: finalDecision === 'IMPLEMENT' ? type : null, visualPurpose: existing?.purpose ?? (finalDecision === 'IMPLEMENT' ? `${type} 只呈現題目已知條件，保留未知量。` : null),
+    knownNumbers: numberTokens(question.question), knownUnits: unitTokens(question.question), knownLabels: [], knownQuantityRelations: finalDecision === 'IMPLEMENT' ? ['只呈現題目已知數量與關係'] : [], knownOrderRelations: [], spatialGeometryRelations: finalDecision === 'IMPLEMENT' ? ['圖形不按未提供的比例繪製'] : [],
+    unknownFields: finalDecision === 'IMPLEMENT' ? (existing?.unknowns ?? ['requested result', 'computed result']) : [], unknownsThatMustRemainHidden: finalDecision === 'IMPLEMENT' ? (existing?.unknowns ?? ['answer', 'computed result']) : [],
+    structuredVisualData: finalDecision === 'IMPLEMENT' ? structuredVisualData : null, fidelityRisk: finalDecision === 'IMPLEMENT' ? '欄位必須逐題對應題幹；未知量不得被 renderer 推導。' : '不進 production visual。',
+    answerLeakageRisk: finalDecision === 'IMPLEMENT' ? '不得呈現答案、選項、中間結果或已完成運算。' : '不進 production visual。', ambiguityRisk: finalDecision === 'IMPLEMENT' ? '缺 required semantic field 時必須 safe-fail。' : '不進 production visual。',
+    gradeFitAssessment: question.student === 'jiejie' ? '結構／關係導向。' : '具體／欄位／單位導向。', finalDecision, fidelityNotes: existing?.fidelityNotes ?? [], leakageNotes: existing?.leakageNotes ?? [],
   };
 }
 
@@ -141,7 +147,7 @@ const implementationRows = rows.filter(({ finalDecision }) => finalDecision === 
 const counts = { IMPLEMENT: implementationRows.length, DEFERRED: deferredRows.length, TEXT_ONLY_PREFERRED: 300 - implementationRows.length - deferredRows.length };
 const typeDistribution = Object.fromEntries(Object.entries(implementationRows.reduce((acc, row) => { acc[row.visualType] = (acc[row.visualType] ?? 0) + 1; return acc; }, {})).sort(([a], [b]) => a.localeCompare(b)));
 const manifest = {
-  schemaVersion: 2, sprint: 43, status: 'Full Mapping Fidelity Review Gate — Round 2', subject: 'mathematics',
+  schemaVersion: 2, sprint: 43, status: 'Full Mapping Fidelity Review Gate — Round 2.1', subject: 'mathematics',
   sourceOfTruth: ['lib/questions/jiejie-mathematics.ts', 'lib/questions/meimei-mathematics.ts', 'lib/first-exam-practice.ts'],
   allowedVisualTypes: ['FRACTION_PART_BAR', 'DECIMAL_MEASURE_SEGMENTS', 'CIRCLE_RADIUS_DIAMETER', 'RECTANGLE_DIMENSIONS', 'GROUPING_ARRAY', 'PLACE_VALUE_COLUMNS', 'MEASUREMENT_RELATION', 'BAR_MODEL'],
   targetImplementationCount: implementationRows.length, decisionCounts: counts, typeDistribution,
