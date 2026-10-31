@@ -1,36 +1,35 @@
 # Project Status
 
-# Sprint 43 — Mathematics Visual Aids — PRODUCTION ANNOTATION APPROVED
+# Sprint 43 + Sprint 44 — Integration Validation
 
-- Production Annotation Review: **APPROVED**. Production mapping is implemented for exactly `81` manifest IMPLEMENT records; Sprint 43 is **not Completed**.
-- Exact ID parity `81/81 PASS`; visual-type parity `81/81 PASS`; renderer-valid `81/81`; representative `16` retained as a subset.
-- Exclusions PASS: downgraded `27` absent; `TEXT_ONLY_PREFERRED` absent; optional-only absent; duplicate mapping IDs `0`; Sprint 44 content/tests/design absent.
-- Approved visual distribution: `BAR_MODEL 3`, `CIRCLE_RADIUS_DIAMETER 14`, `DECIMAL_MEASURE_SEGMENTS 12`, `FRACTION_PART_BAR 4`, `GROUPING_ARRAY 20`, `MEASUREMENT_RELATION 12`, `PLACE_VALUE_COLUMNS 13`, `RECTANGLE_DIMENSIONS 3`.
-- Fidelity PASS: typed values come from known manifest conditions only; no answer/options/explanation leakage, invented unit/formula/intermediate, renderer inference, NaN, null, or undefined display. `jiejie-mathematics-151` remains `長 7`／`寬 2` with no invented unit, answer, or perimeter formula.
-- Rendering evidence: SSR/static typed renderer evidence covers new samples `jiejie-mathematics-8`, `-9`, `-12`, `-77`, `-88`, `meimei-mathematics-15`, `-18`, `-72`, one per actual type. Browser: **NOT RUN / environment waiver**; no Browser PASS claim.
-- Validation: focused mapping `13/13`; full Node `290/290`; lint PASS; TypeScript PASS; Webpack `npx next build --webpack` PASS with `40/40` static pages after confirmed generated-cache/environment retry; `git diff --check` PASS.
-- Design commit HEAD: `b5787c35987ae18ce5148e5ec9d02913d2920e49`.
-- Original 16 semantic regression: `16/16 PASS`; 8-type SSR representative review: `8/8 PASS`; Browser/E2E: **NOT RUN — environment waiver**.
-- Sprint 44 isolation: **PASS**. Current status: **Implemented / Production Annotation Approved / Awaiting Commit & Push**.
-- Next Step: commit and push the approved production annotation implementation, then proceed to Sprint 43 + Sprint 44 Integration. Do not deploy or merge.
+## Sprint 43 — Mathematics Visual Production Annotation
 
-- Round 2 remediation is implemented locally and remains stopped before production annotation, batch visual application, Preview deployment, and Human Acceptance.
-- Formal repo: `C:\Users\admin\Documents\2026AST-dev`; branch: `codex/sprint43-math-visual-aids`.
-- Decision closure: IMPLEMENT `81`; DEFERRED `26`; TEXT_ONLY_PREFERRED `193`; baseline `16`; retained remediation `65`; additional downgrade: `meimei-mathematics-11`.
-- Typed contract migration covers fraction, decimal segments, circle, rectangle, grouping, place value, measurement, and simple combine bar visuals. Renderer fallbacks for radius `1`, hard-coded `36/48`, empty place-value data, and generic undefined fields were removed; missing required data safe-fails.
-- Comma-safe numeric parsing and circle ordinal exclusion are covered by focused tests. `jiejie-mathematics-19` is TEXT_ONLY_PREFERRED; the specified 26 downgrade IDs remain excluded from Round 2 visual scope.
-- Current verification: focused Sprint 43 visual tests `17/17`; full Node `284/284`; lint PASS; TypeScript PASS; Webpack production build PASS; `git diff --check` PASS with expected CRLF normalization warnings.
-- Browser representative render smoke was not run because no Sprint 43-specific harness exists in the formal repo; existing browser suites were not used as authenticated visual evidence.
-- Next Step: Owner / ChatGPT Full Mapping Fidelity Review — Round 2. Do not annotate, deploy, or mark Sprint 43 Completed.
+- Production Annotation Review: **APPROVED**; Sprint 43 is not Completed, deployed, or main merged.
+- Final commit: `07c60daa6be8d405d40c3e6f6380af991f8335fb`.
+- Production mappings `81`; unique mappings `81`; renderer-valid `81/81`.
+- Exact manifest ID parity `81/81 PASS`; visual-type parity `81/81 PASS`.
+- Original representative set `16/16` unchanged; 8 visual types SSR evidence `8/8 PASS`.
+- Full Node `290/290 PASS`; lint PASS; TypeScript PASS; Webpack PASS.
+- Browser/E2E: **NOT RUN — environment waiver**.
+- `jiejie-mathematics-151` remains `長 7`／`寬 2`, with no unit, answer, or perimeter formula.
 
-- Branch: `codex/sprint43-math-visual-aids`; baseline HEAD before this phase: `c4632889b87d4f11a8016a72253532b62ef3ca19`; Sprint 42 baseline was clean and synchronized `0/0`.
-- Mapping remediation closed the delivery arithmetic: recommendations `56/78/40/126`; planned implementation-capable visual `108`; deferred visual / unsupported in this phase `26`; optional or text-only/no visual `166`; total `300`, with no `UNDECIDED` bucket.
-- Current inventory verified from the formal repo: 姐姐數學 `150` active / `18` monthly; 妹妹數學 `150` active / `26` monthly; total `300` / `44`.
-- Representative implementation is limited to 16 questions and the actual needed types: `FRACTION_PART_BAR`, `DECIMAL_MEASURE_SEGMENTS`, `CIRCLE_RADIUS_DIAMETER`, `RECTANGLE_DIMENSIONS`, `GROUPING_ARRAY`, `PLACE_VALUE_COLUMNS`, `MEASUREMENT_RELATION`, and `BAR_MODEL`. `RATIO_PARTS` remains catalog-only because 姐姐 5 is a scope anomaly.
-- Question schema extension is optional and backward compatible; no raw SVG, raw HTML, JSX, computed answer, `answerIndex`, or option coupling is stored in visual data.
-- No full-bank annotation, Learning Record, ReviewSession, retry, 1/3/7, Backup/Restore, Auth, role authorization, monthly allowlist, deployment, or Production change is authorized in this phase.
-- Design documents: `docs/superpowers/specs/2026-10-30-sprint43-math-visual-aids-design.md`, `docs/superpowers/plans/2026-10-30-sprint43-math-visual-aids-design-phase.md`, `docs/sprint43-math-visual-audit.md`, `docs/sprint43-math-visual-mapping.md`, `docs/sprint43-visual-fidelity-audit.md`, `docs/sprint43-qa-governance.md`.
-- Next Step: complete focused tests, full repository verification, rendered screenshots/markup evidence, and stop at the second Rendered Visual Fidelity Review. Do not annotate all 300 questions or deploy.
+## Sprint 44 — 妹妹自然題庫擴增
+
+- Final Content Review: **APPROVED**; High / Medium / Minor = `0 / 0 / 0`.
+- Final commit: `ebaaeb7b544484c43fffb1fe77c321dad2617ae2`.
+- 妹妹自然 Active `150 → 186`; new IDs `meimei-natural-science-151`–`186`.
+- Plant / Air-Water = `18 / 18`; basic / application = `12 / 24`; answer distribution = `9 / 9 / 9 / 9`.
+- Original 150 semantic regression `150/150 PASS`.
+- Monthly `28 → 28`; new Monthly membership `0/36`; exact existing allowlist unchanged.
+- Browser/E2E: **NOT RUN**; Node tests and build are not Browser acceptance.
+
+## Integration Governance
+
+- Prevention rule: **Git synchronization ≠ Product baseline correctness**. Validate completed milestone exports, numeric maximum IDs, exact Monthly allowlist, and canonical semantics before new Sprint work.
+- Current Stage: **Sprint 43 + Sprint 44 Integration Validation**.
+- Status: **Integration In Progress / Awaiting Validation**. This document does not mark the Sprint pair Completed, deployed, Preview deployed, or main updated.
+- Sprint 43 did not modify Sprint 44 question content. Sprint 44 did not modify the MathVisual renderer, `mathVisualSpecs`, QuestionCard visual integration, or Sprint 43 mappings.
+- Browser / E2E remains **NOT RUN** for this integration round; Preview acceptance is deferred to the next Deployment Decision Gate.
 
 # Sprint 42 — Eight-bank flexible application practice expansion — Completed after Human Acceptance
 
