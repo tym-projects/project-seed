@@ -70,7 +70,7 @@ Project Seed 的目標：
 
 ## 正式開發與備份位置
 
-- 唯一正式開發 repository：`C:\Users\admin\Documents\2026AST-dev`。
+- 唯一正式開發 repository：`C:\2026codex\2026AST`。
 - Codex 程式修改、`npm install`／`npm ci`、`node_modules`、lint、build、test、Git commit 與 Git push 一律只在正式 repository 執行。
 - GitHub `origin` 是正式 Git 遠端同步與版本歷史來源。
 - `C:\Users\admin\OneDrive\Documents\2026AST-dev` 暫時保留為遷移安全備份，不是正式開發工作目錄；不得在該目錄進行後續開發、測試、build、commit 或 push。
@@ -84,7 +84,7 @@ Project Seed 的目標：
 git rev-parse --show-toplevel
 ```
 
-結果必須是 `C:\Users\admin\Documents\2026AST-dev`。若不是此路徑，不得修改、commit、push 或開始 Sprint。
+結果必須是 `C:\2026codex\2026AST`。若不是此路徑，不得修改、commit、push 或開始 Sprint。
 
 ### Progress Source Rule
 

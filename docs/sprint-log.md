@@ -1,3 +1,15 @@
+## 2026-11-09 Project Path Consolidation
+
+- AIR canonical repository: C:\AIR-Rebuild\projects
+- 2026AST canonical repository: C:\2026codex\2026AST
+- AIR previous repository path: C:\AIR-Rebuild\identity-corrected-candidate-v2
+- 2026AST previous repository path: C:\Users\admin\Documents\2026AST-dev
+- AIR HEAD preserved: 7ec867c5d9eeceadb008187b315a31e0a87ffd12
+- 2026AST HEAD preserved: e9730ce33559924ed7999c588ca91b064becbfc6
+- Both repositories were clean before migration.
+- Git history and branches were preserved.
+- OneDrive 2026AST backup was not modified.
+- No commit, push, merge, release, or production deployment was performed in this migration step.
 # Sprint Log
 
 # Sprint 43 + Sprint 44 — Final Closeout
