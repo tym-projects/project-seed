@@ -36,7 +36,8 @@ Project Seed 是陪伴孩子學習的 AI 家教平台，而不是單純提供題
 
 ### 正式開發與備份策略
 
-- 唯一正式開發 repository 為 `C:\Users\admin\Documents\2026AST-dev`。
+- 唯一正式開發 repository 為 `C:\2026codex\2026AST`。
+- `C:\Users\admin\Documents\2026AST-dev` 僅保留為 historical migration backup／prior repository path，不是目前開發基準。
 - GitHub `origin` 是正式遠端同步與版本歷史來源。
 - `C:\Users\admin\OneDrive\Documents\2026AST-dev` 暫時保留為遷移安全備份，不是正式開發基準。
 - `G:\我的雲端硬碟\2026AST` 與 `C:\Users\yenmi\OneDrive\Documents\project-seed` 僅為舊副本／備份，不得作為正式開發基準。

@@ -1,16 +1,19 @@
-## 2026-11-09 Project Path Consolidation
+## 2026-11-09 Project Path Consolidation (historical migration evidence)
 
 - AIR canonical repository: C:\AIR-Rebuild\projects
 - 2026AST canonical repository: C:\2026codex\2026AST
 - AIR previous repository path: C:\AIR-Rebuild\identity-corrected-candidate-v2
-- 2026AST previous repository path: C:\Users\admin\Documents\2026AST-dev
+- 2026AST previous repository path (historical): C:\Users\admin\Documents\2026AST-dev
 - AIR HEAD preserved: 7ec867c5d9eeceadb008187b315a31e0a87ffd12
-- 2026AST HEAD preserved: e9730ce33559924ed7999c588ca91b064becbfc6
+- 2026AST migration baseline HEAD preserved: e9730ce33559924ed7999c588ca91b064becbfc6
+- Local HEAD at the start of this governance repair: 2984871e5f1d11b1b73c5514172d12f682feb5f2 (`docs: record project path consolidation`).
 - Both repositories were clean before migration.
 - Git history and branches were preserved.
 - OneDrive 2026AST backup was not modified.
-- No commit, push, merge, release, or production deployment was performed in this migration step.
+- No commit, push, merge, release, or production deployment was performed in the data-copy migration step; the path-consolidation documentation commit is a subsequent local commit and is not pushed.
 # Project Status
+
+All Sprint-specific repository and push statements below are historical records of those closeouts. The current repository state is the explicit Current Git state above and must be verified from Git before any operation.
 
 # Sprint 43 + Sprint 44 — Final Closeout
 
@@ -18,7 +21,8 @@
 - Sprint 43 — Math Visual Aids: 81 mappings, unique `81`, renderer-valid `81/81`, representative set preserved `16/16`; Preview and Production Human Review **PASS**.
 - Sprint 44 — Younger Natural Recent Quiz Expansion: 妹妹自然 Active `186`, original `150` preserved, new `36`, Plants / Air-Water `18 / 18`, basic / application `12 / 24`, answer distribution `9 / 9 / 9 / 9`, Monthly `28`, new Monthly membership `0/36`; Preview and Production Human Review **PASS**.
 - Final regression: `297/297 PASS`; lint, TypeScript, Webpack, and `git diff --check` **PASS**.
-- Integration: Sprint 43 and Sprint 44 are integrated on `main`; `main` and `origin/main` are synchronized.
+- Integration at Sprint 43／44 closeout: Sprint 43 and Sprint 44 were integrated on `main`, and that historical closeout state was synchronized with `origin/main`.
+- Current Git state: local `main` is not synchronized with `origin/main`; local governance commits remain pending Human Review before push.
 - Production project: `2026ast-production`; deployment `dpl_J3PF2nXL39KEGN5NQvx7FrpDPpyU`; status **READY**; framework **Next.js**; URL `https://2026ast-production.vercel.app/`.
 - Production Clerk boundary: **PASS**; canonical `/`, `/jiejie`, `/meimei`, and `/parent` routes enter Clerk authentication without 404/500; static asset smoke **PASS**.
 - Prevention rule: before any new or rebuilt Production project deployment, verify project identity, Framework Preset `Next.js`, Root Directory, required Production env names, non-empty Next.js routes/middleware, and canonical Production smoke before Human Review. Never record secret values.
@@ -71,7 +75,7 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 
 ## Sprint 41 implementation record
 
-- Canonical repo: `C:\Users\admin\Documents\2026AST-dev`; branch remains `codex/sprint38-practice-bank-expansion`.
+- Historical canonical repo at Sprint 41 record time: `C:\Users\admin\Documents\2026AST-dev`; branch remains `codex/sprint38-practice-bank-expansion`.
 - Active Practice count gate passed programmatically: 姐姐國語／數學／自然／社會 `100/100/100/100`; 妹妹國語／數學／自然／社會 `100/100/100/100`; total `800`.
 - Added `174` original singleton questions: 姐姐 `25/25/25/25`; 妹妹 `17/17/15/25`.
 - Inventory: total questions `639 → 813`; learning units `634 → 808`.
@@ -287,7 +291,7 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 - **Human acceptance:** 第一批平板驗收通過；妹妹社會「親屬稱謂」補充複驗完成，先前未看到該題是因只完成部分練習，不是程式故障。
 - **Implementation commit:** `fb49b4e` Complete Sprint 30 first exam question expansion.
 - **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
-- **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; LAN test server stopped after verification; OneDrive backup not modified.
+- **Historical canonical repository at Sprint 30 record time:** `C:\Users\admin\Documents\2026AST-dev`; LAN test server stopped after verification; OneDrive backup not modified.
 - **Next step:** 規劃下一批第一次月考題庫擴充。
 
 ## Sprint 29 — First-practice random order
@@ -329,7 +333,7 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 - **Human tablet verification:** Human completed the five approved actual tablet checks successfully.
 - **Implementation commit:** `9cf33de` Complete Sprint 27 site home navigation.
 - **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
-- **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
+- **Historical canonical repository at Sprint 27 record time:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
 - **Next step:** Sprint 28 規劃。
 
 ## Sprint 26 — LAN Learning Record fallback and return navigation
@@ -345,7 +349,7 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 - **Human tablet verification:** Human completed the six post-fix tablet checks successfully. Browser smoke remains a technical supplement, not a substitute for the physical tablet.
 - **Implementation commit:** `0a0646e` Complete Sprint 26 LAN record and tablet navigation fixes.
 - **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
-- **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
+- **Historical canonical repository at Sprint 26 record time:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
 - **Next step:** Sprint 27 網站總首頁導覽改善規劃；backlog includes a clear 「返回網站首頁」 entry for 姐姐學習、妹妹學習及家長模式 pages.
 
 ## Sprint 25 — Return controls and parent center integration
@@ -361,7 +365,7 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 - **Implementation commit:** `8f8a7c0` Complete Sprint 25 tablet usability improvements.
 - **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
 - **Close record:** Final Verification、純文件結案同步、main／origin 同步與 working-tree clean 已完成。
-- **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
+- **Historical canonical repository at Sprint 25 record time:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
 - **Next step:** 安排新版返回與家長中心的實際平板複驗，再進入 Sprint 26 規劃。
 
 ## Sprint 24 — Four-subject home navigation
@@ -375,7 +379,7 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 - **Known limitation:** The mobile check is a basic viewport smoke only; real-device testing and 姐姐、妹妹 child usability trials remain pending. The first final Build attempt hit the known `.next\\trace` EPERM; only the confirmed Next build cache was cleared, then Build passed. Browser smoke likewise required removing only the confirmed Playwright `.last-run.json` artifact before passing.
 - **Implementation commit:** `05284fa` Complete Sprint 24 four-subject home navigation.
 - **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
-- **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
+- **Historical canonical repository at Sprint 24 record time:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
 - **Next step:** Sprint 25 規劃，以真實使用回饋及已知限制為依據。
 
 ## Sprint 23 — Natural and Social Implementation
@@ -389,7 +393,7 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 - **Known limitation:** The 16 questions are original candidates based on the Human-provided unit scope; they are not claimed to be official textbook questions or a complete textbook audit. Only units 1–2 are included; later expansion remains deferred.
 - **Implementation commit:** `1264d1b` Complete Sprint 23 natural and social studies foundation.
 - **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
-- **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
+- **Historical canonical repository at Sprint 23 record time:** `C:\Users\admin\Documents\2026AST-dev`; OneDrive backup was not modified.
 - **Next step:** Sprint 24 規劃。
 
 ## Sprint 22 — Mathematics Implementation
@@ -403,14 +407,14 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 - **Known limitation:** Question content is original practice content based on the Human-approved scope; it is not claimed to be an official Nan-I textbook question or textbook audit. The 12-question initial bank is intentionally small.
 - **Implementation Commit:** `28af403` Complete Sprint 22 mathematics foundation.
 - **Push Status:** Pushed to `origin/main`; local `main` is synchronized.
-- **Canonical repository:** `C:\Users\admin\Documents\2026AST-dev`.
+- **Historical canonical repository at Sprint 22 record time:** `C:\Users\admin\Documents\2026AST-dev`.
 - **Next step:** Sprint 23 規劃。
 
 ## Sprint 21 — Question Bank Quality and Understanding Feedback v2
 
 - **Current Sprint:** Sprint 21
 - **Sprint Status:** Completed.
-- **Repository:** `C:\Users\admin\Documents\2026AST-dev` (canonical development repository). The OneDrive copy remains migration safety backup only.
+- **Historical repository at Sprint 21 record time:** `C:\Users\admin\Documents\2026AST-dev` (then-canonical development repository). The OneDrive copy remains migration safety backup only.
 - **Implementation:** Updated only the approved 妹妹 questions `meimei-chinese-1`, `-4`, `-2`, and `-5` with the approved Hint／Explanation copy, including the corrected `meimei-chinese-5` Explanation. Added only the approved `meimei-chinese-action-word-identification-3` V1A「寫」variation to the existing action-word review group. No highxing variation, V1「收進」, schema, scheduling, confirmation, practice, parent-summary, or timer semantics changed.
 - **Tests:** 139/139 Node tests passed, including exact content, question-bank validation, deterministic variation/confirmation, 1/3/7, practice, Learning Record, Parent Summary, and isolation regressions.
 - **Lint / TypeScript / Build / diff check:** passed. TypeScript was verified with `npx tsc --noEmit --incremental false` because the canonical workspace denied updating the ignored incremental cache for the exact command.
@@ -423,7 +427,7 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 
 - **Current Sprint:** Sprint 20
 - **Sprint Status:** Completed.
-- **Repository:** `C:\Users\admin\Documents\2026AST-dev` (canonical development repository). The OneDrive copy remains migration safety backup only.
+- **Historical repository at Sprint 20 record time:** `C:\Users\admin\Documents\2026AST-dev` (then-canonical development repository). The OneDrive copy remains migration safety backup only.
 - **Implementation:** Added a disposable Playwright + Chromium smoke harness with synthetic, whitelisted storage fixtures. Added read-only parent summary v2 for completed answer records, distinct learning-group counts, first-try rate, retry-bearing records, recurring cross-date retry signals, all-group due overview, and separate pending-confirmation status. Learning Record／ReviewSession schemas, 1/3/7, retry, Sprint 18 confirmation, Sprint 17 timer／`startedAt`, and Sprint 19 no-write practice semantics remain unchanged.
 - **Tests:** 136/136 Node tests passed. Browser smoke: 9/9 passed (bootstrap 2, Sprint 18 3, Sprint 19 2, Sprint 20 parent summary 2).
 - **Lint / TypeScript / Build / diff check:** passed after the final implementation changes.
@@ -437,7 +441,7 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 
 - **Current Sprint:** Sprint 19
 - **Sprint Status:** Completed.
-- **Repository:** `C:\Users\admin\Documents\2026AST-dev` (canonical development repository). The OneDrive copy remains migration safety backup only.
+- **Historical repository at Sprint 19 record time:** `C:\Users\admin\Documents\2026AST-dev` (then-canonical development repository). The OneDrive copy remains migration safety backup only.
 - **Implementation:** Added deterministic, student／subject-isolated reinforcement candidate selection from the prior seven local calendar days, capped at three learning units and excluding today’s records, due groups, and Sprint 18 pending confirmation groups. Added independent 姐姐／妹妹「再練一次」entries and routes. Practice reuses the existing QuestionCard flow in explicit no-write mode and does not create Learning Records, ReviewSessions, permanent state, or timer effects.
 - **Tests:** 131/131 Node tests passed, including candidate boundaries, deterministic grouping, timestamp tie-break determinism, formal review isolation, no-persistence policy, primary-only flow, student／subject isolation, and Sprint 13–18 regression coverage.
 - **Lint / TypeScript / Build / diff check:** passed. Initial sandboxed TypeScript/build attempts could not write ignored incremental/build files; the exact commands passed with canonical repository permission. `git diff --check` passed with expected LF/CRLF normalization warnings only.
@@ -450,7 +454,7 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 
 - **Current Sprint:** Sprint 18
 - **Sprint Status:** Completed.
-- **Repository:** `C:\Users\admin\Documents\2026AST-dev` (canonical development repository). The OneDrive copy remains migration safety backup only.
+- **Historical repository at Sprint 18 record time:** `C:\Users\admin\Documents\2026AST-dev` (then-canonical development repository). The OneDrive copy remains migration safety backup only.
 - **Implementation:** Added due-review-only deterministic alternate-variation confirmation. Eligibility requires prior history with one distinct variation, at least two group variations, due state, and no record today. Pending confirmation is reconstructed from today’s primary-only record; primary plus confirmation is same-day excluded. Learning Record and ReviewSession schemas remain unchanged.
 - **Tests:** 115/115 Node tests passed, including 57 focused Sprint 18 confirmation/flow/selection/scheduling tests.
 - **Lint / TypeScript / Build / diff check:** passed. `git diff --check` emitted only expected LF/CRLF normalization warnings.
@@ -463,7 +467,7 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 
 - **Current Sprint:** Sprint 17
 - **Sprint Status:** Completed
-- **Repository:** `C:\Users\admin\Documents\2026AST-dev` (canonical development repository). The OneDrive copy is retained only as a migration safety backup.
+- **Historical repository at Sprint 17 record time:** `C:\Users\admin\Documents\2026AST-dev` (then-canonical development repository). The OneDrive copy is retained only as a migration safety backup.
 - **Implementation:** Parent Review Time Setting v1 adds independent 10／15-minute Chinese review targets for 姐姐／妹妹 in `project-seed:review-settings:v1`; Learning Records and review sessions remain unchanged.
 - **Tests:** 95/95 Node tests passed.
 - **Lint / TypeScript / Build / diff check:** passed.
@@ -516,14 +520,14 @@ The following 16 Sprint 42 IDs were the representative application/reasoning or 
 
 ## Current Baseline
 
-- **Repository:** `C:\Users\admin\Documents\2026AST-dev`
+- **Repository:** `C:\2026codex\2026AST`
 - **Current Stage:** Sprint 43 + Sprint 44 final closeout complete
 - **Sprint Status:** Sprint 43 and Sprint 44 **COMPLETED / CLOSED**
 - **Branch:** `main`
 - **Production deployment:** `dpl_J3PF2nXL39KEGN5NQvx7FrpDPpyU`, READY, `https://2026ast-production.vercel.app/`
 - **Final regression:** `297/297 PASS`; lint, TypeScript, Webpack, and `git diff --check` passed.
 - **Production Human Review:** ALL PASS; Clerk boundary and canonical route smoke passed without 404/500.
-- **Git Status:** Working tree clean; no unrelated files included.
+- **Git Status at closeout:** Working tree clean; current local synchronization must be verified from Git. The historical closeout was synchronized, but current governance commits are local and unpushed.
 - **Next Step:** 等待 Owner / ChatGPT 規劃下一階段；不得自行啟動下一個 Sprint。
 
 ## Completed Sprint History

@@ -1,23 +1,27 @@
-## 2026-11-09 Project Path Consolidation
+## 2026-11-09 Project Path Consolidation (historical migration evidence)
 
 - AIR canonical repository: C:\AIR-Rebuild\projects
 - 2026AST canonical repository: C:\2026codex\2026AST
 - AIR previous repository path: C:\AIR-Rebuild\identity-corrected-candidate-v2
-- 2026AST previous repository path: C:\Users\admin\Documents\2026AST-dev
+- 2026AST previous repository path (historical): C:\Users\admin\Documents\2026AST-dev
 - AIR HEAD preserved: 7ec867c5d9eeceadb008187b315a31e0a87ffd12
-- 2026AST HEAD preserved: e9730ce33559924ed7999c588ca91b064becbfc6
+- 2026AST migration baseline HEAD preserved: e9730ce33559924ed7999c588ca91b064becbfc6
+- Local HEAD at the start of this governance repair: 2984871e5f1d11b1b73c5514172d12f682feb5f2 (`docs: record project path consolidation`).
 - Both repositories were clean before migration.
 - Git history and branches were preserved.
 - OneDrive 2026AST backup was not modified.
-- No commit, push, merge, release, or production deployment was performed in this migration step.
+- No commit, push, merge, release, or production deployment was performed in the data-copy migration step; the path-consolidation documentation commit is a subsequent local commit and is not pushed.
 # Sprint Log
+
+All Sprint-specific repository and push statements below are historical records of those closeouts. The current repository state is the explicit Current Git state in the latest closeout section and must be verified from Git before any operation.
 
 # Sprint 43 + Sprint 44 — Final Closeout
 
 - Status: **COMPLETED / CLOSED**.
 - Sprint 43 Math Visual Aids: 81 mappings, unique `81`, renderer-valid `81/81`, representative set preserved `16/16`; Preview and Production Human Review **PASS**.
 - Sprint 44 Younger Natural Recent Quiz Expansion: 妹妹自然 Active `186`, original `150` preserved, new `36`, Plants / Air-Water `18 / 18`, basic / application `12 / 24`, answer distribution `9 / 9 / 9 / 9`, Monthly `28`, new Monthly membership `0/36`; Preview and Production Human Review **PASS**.
-- Integration: Sprint 43 and Sprint 44 are integrated on `main`; `main` and `origin/main` are synchronized.
+- Integration at Sprint 43／44 closeout: Sprint 43 and Sprint 44 were integrated on `main`, and that historical closeout state was synchronized with `origin/main`.
+- Current Git state: local `main` is not synchronized with `origin/main`; local governance commits remain pending Human Review before push.
 - Final regression: `297/297 PASS`; lint, TypeScript, Webpack, and `git diff --check` **PASS**.
 - Production: project `2026ast-production`, deployment `dpl_J3PF2nXL39KEGN5NQvx7FrpDPpyU`, status **READY**, framework **Next.js**, URL `https://2026ast-production.vercel.app/`.
 - Production Human Review: **ALL PASS**; Clerk boundary and canonical route smoke passed without 404/500.
@@ -307,7 +311,7 @@
 - Setting changes do not modify Learning Records or active review-session `startedAt`; restored sessions use their original clock with the current target threshold.
 - Verification: 95/95 Node tests, ESLint, TypeScript, production build, and `git diff --check` passed. Isolated in-app browser smoke verified parent settings, sister isolation, refresh persistence, both review flows, and no console errors. Controlled elapsed-time UI was not manually waited for; automated timer/session tests cover those boundaries.
 - Sprint Close completed after Final Human Review. Implementation commit: `ec1e018` Complete Sprint 17 parent review time setting. Close documentation is synchronized with `origin/main`.
-- Canonical repository: `C:\Users\admin\Documents\2026AST-dev`; the OneDrive copy remains a migration safety backup only.
+- Historical canonical repository at Sprint 17 record time: `C:\Users\admin\Documents\2026AST-dev`; the OneDrive copy remains a migration safety backup only.
 
 ## Sprint 16 — Question Bank Expansion v1
 
